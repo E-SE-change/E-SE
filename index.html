@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E SE? — Prova una vita prima di viverla</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0b0b12;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  width: 100%;
+  max-width: 620px;
+  min-height: 100vh;
+  padding: 28px 20px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 5px;
+  font-weight: 700;
+  opacity: .7;
+  margin-bottom: 45px;
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: clamp(48px, 15vw, 82px);
+  line-height: .9;
+  margin: 0 0 20px;
+  letter-spacing: -4px;
+}
+
+.subtitle {
+  font-size: 21px;
+  line-height: 1.4;
+  color: #c9c9d4;
+  margin-bottom: 45px;
+}
+
+.question {
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+input,
+textarea {
+  width: 100%;
+  background: #171722;
+  border: 1px solid #30303d;
+  color: white;
+  border-radius: 16px;
+  padding: 18px;
+  font-size: 18px;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #8d7aff;
+}
+
+button {
+  width: 100%;
+  border: 0;
+  border-radius: 16px;
+  padding: 18px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  background: white;
+  color: #0b0b12;
+  margin-top: 8px;
+  transition: transform .15s, opacity .15s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button.secondary {
+  background: #191923;
+  color: white;
+  border: 1px solid #30303d;
+}
+
+.option {
+  text-align: left;
+  background: #171722;
+  color: white;
+  border: 1px solid #30303d;
+  margin-bottom: 12px;
+}
+
+.option:hover {
+  border-color: #8d7aff;
+  background: #1c1b29;
+}
+
+.small {
+  font-size: 13px;
+  color: #777787;
+  line-height: 1.5;
+  margin-top: 18px;
+  text-align: center;
+}
+
+.progress {
+  height: 3px;
+  background: #242430;
+  border-radius: 5px;
+  margin-bottom: 35px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: white;
+  transition: width .3s;
+}
+
+.result {
+  background: #15151f;
+  border: 1px solid #30303d;
+  border-radius: 20px;
+  padding: 22px;
+  margin-bottom: 15px;
+}
+
+.result strong {
+  display: block;
+  font-size: 14px;
+  color: #858594;
+  margin-bottom: 7px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.result span {
+  font-size: 22px;
+}
+
+.hidden {
+  display: none;
+}
+
+.fade {
+  animation: fade .35s ease;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="logo">E SE?</div>
+
+  <div class="progress">
+    <div class="progress-bar" id="progress"></div>
+  </div>
+
+  <main class="screen" id="app"></main>
+
+</div>
+
+<script>
+
+const data = {
+  name: "",
+  age: "",
+  work: "",
+  income: "",
+  relationship: "",
+  home: "",
+  desire: "",
+  fear: "",
+  change: ""
+};
+
+let step = 0;
+
+const app = document.getElementById("app");
+const progress = document.getElementById("progress");
+
+function updateProgress() {
+  const percent = Math.min((step / 8) * 100, 100);
+  progress.style.width = percent + "%";
+}
+
+function show(html) {
+  app.innerHTML = `<div class="fade">${html}</div>`;
+  updateProgress();
+}
+
+function start() {
+
+  show(`
+    <h1>E SE?</h1>
+
+    <div class="subtitle">
+      Prova una vita prima di viverla.
+      <br><br>
+      Raccontaci quella che stai vivendo.
+      Noi ti mostreremo alcune delle vite che potrebbero nascere dalle tue scelte.
+    </div>
+
+    <button onclick="questionName()">Inizia</button>
+
+    <div class="small">
+      Non è una previsione. È una simulazione.
+    </div>
+  `);
+}
+
+function questionName() {
+  step = 1;
+
+  show(`
+    <div class="question">
+      Come ti chiami?
+    </div>
+
+    <input id="answer" placeholder="Il tuo nome">
+
+    <button onclick="saveName()">Continua</button>
+  `);
+}
+
+function saveName() {
+  data.name = document.getElementById("answer").value.trim();
+
+  if (!data.name) return;
+
+  step = 2;
+
+  show(`
+    <div class="question">
+      Quanti anni hai, ${data.name}?
+    </div>
+
+    <input id="answer" type="number" min="16" max="100" placeholder="Età">
+
+    <button onclick="saveAge()">Continua</button>
+  `);
+}
+
+function saveAge() {
+  data.age = document.getElementById("answer").value;
+
+  if (!data.age) return;
+
+  step = 3;
+
+  show(`
+    <div class="question">
+      Cosa fai oggi?
+    </div>
+
+    <button class="option" onclick="saveWork('Lavoro')">💼 Lavoro</button>
+    <button class="option" onclick="saveWork('Studio')">📚 Studio</button>
+    <button class="option" onclick="saveWork('Cerco lavoro')">🔎 Cerco lavoro</button>
+    <button class="option" onclick="saveWork('Non lavoro')">🌱 Al momento non lavoro</button>
+  `);
+}
+
+function saveWork(value) {
+  data.work = value;
+
+  step = 4;
+
+  show(`
+    <div class="question">
+      Qual è la cosa che oggi pesa di più sulla tua vita?
+    </div>
+
+    <button class="option" onclick="saveChange('Soldi')">💰 I soldi</button>
+    <button class="option" onclick="saveChange('Lavoro')">💼 Il lavoro</button>
+    <button class="option" onclick="saveChange('Amore')">❤️ L'amore</button>
+    <button class="option" onclick="saveChange('Casa')">🏠 La casa</button>
+    <button class="option" onclick="saveChange('Me stesso/a')">🪞 Me stesso/a</button>
+    <button class="option" onclick="saveChange('Altro')">✨ Qualcos'altro</button>
+  `);
+}
+
+function saveChange(value) {
+  data.change = value;
+
+  step = 5;
+
+  show(`
+    <div class="question">
+      Se avessi abbastanza soldi da non doverci pensare,
+      cosa cambieresti per prima?
+    </div>
+
+    <textarea id="answer" placeholder="Scrivilo come ti viene..."></textarea>
+
+    <button onclick="saveDesire()">Continua</button>
+  `);
+}
+
+function saveDesire() {
+
+  data.desire = document.getElementById("answer").value.trim();
+
+  if (!data.desire) return;
+
+  step = 6;
+
+  show(`
+    <div class="question">
+      Cosa non vuoi assolutamente perdere,
+      anche se la tua vita cambiasse?
+    </div>
+
+    <textarea id="answer" placeholder="Una persona, la tua libertà, la tua casa, gli amici..."></textarea>
+
+    <button onclick="saveFear()">Continua</button>
+  `);
+}
+
+function saveFear() {
+
+  data.fear = document.getElementById("answer").value.trim();
+
+  if (!data.fear) return;
+
+  step = 7;
+
+  show(`
+    <div class="question">
+      Se dovessi scegliere una sola cosa da cambiare
+      nei prossimi 5 anni, quale sarebbe?
+    </div>
+
+    <button class="option" onclick="finish('Aumentare molto i soldi')">
+      💰 Aumentare molto i soldi
+    </button>
+
+    <button class="option" onclick="finish('Cambiare lavoro')">
+      💼 Cambiare lavoro
+    </button>
+
+    <button class="option" onclick="finish('Costruire una famiglia')">
+      ❤️ Costruire una famiglia
+    </button>
+
+    <button class="option" onclick="finish('Cambiare casa o città')">
+      🏠 Cambiare casa o città
+    </button>
+
+    <button class="option" onclick="finish('Sentirmi finalmente libero/a')">
+      🕊️ Sentirmi finalmente libero/a
+    </button>
+  `);
+}
+
+function finish(goal) {
+
+  data.goal = goal;
+
+  step = 8;
+
+  generateSimulation();
+}
+
+function generateSimulation() {
+
+  let life1 = "";
+  let life2 = "";
+  let money1 = "";
+  let money2 = "";
+  let emotion1 = "";
+  let emotion2 = "";
+
+  if (data.change === "Soldi") {
+
+    life1 = "Scegli di puntare tutto sulla sicurezza economica.";
+    money1 = "Più entrate e maggiore capacità di risparmio.";
+    emotion1 = "Meno pressione economica, ma dovrai proteggere il tuo tempo.";
+
+    life2 = "Decidi invece di cambiare qualcosa di importante, anche senza garanzie.";
+    money2 = "All'inizio potresti avere meno stabilità.";
+    emotion2 = "Più incertezza, ma anche la possibilità di sentirti più vicino/a alla vita che vuoi.";
+
+  } else if (data.change === "Lavoro") {
+
+    life1 = "Rimani dove sei e costruisci lentamente una posizione più stabile.";
+    money1 = "Crescita più graduale.";
+    emotion1 = "Più prevedibilità e meno rischio.";
+
+    life2 = "Decidi di cambiare direzione.";
+    money2 = "Potresti attraversare un periodo iniziale meno stabile.";
+    emotion2 = "Più rischio, ma anche la possibilità di avvicinarti a ciò che desideri.";
+
+  } else if (data.change === "Amore") {
+
+    life1 = "Metti più energia nella relazione e nei progetti condivisi.";
+    money1 = "Le scelte economiche diventano più legate ai progetti di coppia.";
+    emotion1 = "Più investimento emotivo e più responsabilità.";
+
+    life2 = "Decidi di mettere prima te stesso/a.";
+    money2 = "Maggiore libertà nelle decisioni personali.";
+    emotion2 = "Più autonomia, ma anche la necessità di ridefinire alcune relazioni.";
+
+  } else if (data.change === "Casa") {
+
+    life1 = "Rimani dove sei e costruisci gradualmente le condizioni per cambiare.";
+    money1 = "Maggiore controllo delle spese nel breve periodo.";
+    emotion1 = "Più stabilità.";
+
+    life2 = "Decidi di cercare una casa o un luogo completamente diverso.";
+    money2 = "Più spese iniziali e maggiore impegno.";
+    emotion2 = "Un cambiamento importante nella quotidianità.";
+
+  } else {
+
+    life1 = "Scegli la strada più sicura e costruisci lentamente.";
+    money1 = "Crescita graduale e maggiore prevedibilità.";
+    emotion1 = "Meno rischio, ma cambiamenti più lenti.";
+
+    life2 = "Decidi di cambiare qualcosa che da tempo rimandi.";
+    money2 = "Potresti affrontare qualche difficoltà iniziale.";
+    emotion2 = "Più incertezza, ma anche la possibilità di scoprire una direzione nuova.";
+  }
+
+  show(`
+
+    <h1 style="font-size:55px;">E SE?</h1>
+
+    <div class="subtitle">
+      ${data.name}, abbiamo due possibili strade davanti a te.
+    </div>
+
+    <div class="result">
+      <strong>VITA A</strong>
+      <span>${life1}</span>
+      <br><br>
+      <strong>Tra 5 anni</strong>
+      <p>${money1}</p>
+      <p>${emotion1}</p>
+    </div>
+
+    <div class="result">
+      <strong>VITA B</strong>
+      <span>${life2}</span>
+      <br><br>
+      <strong>Tra 5 anni</strong>
+      <p>${money2}</p>
+      <p>${emotion2}</p>
+    </div>
+
+    <div class="small">
+      Questa non è una previsione del futuro.
+      È una simulazione costruita sulle risposte che hai dato.
+    </div>
+
+    <button onclick="restart()">Prova un'altra vita</button>
+
+    <button class="secondary" onclick="shareResult()">
+      Condividi E SE?
+    </button>
+  `);
+}
+
+function restart() {
+  step = 0;
+
+  Object.keys(data).forEach(key => data[key] = "");
+
+  start();
+}
+
+function shareResult() {
+
+  const text =
+`E SE?
+Prova una vita prima di viverla.
+
+Ho appena simulato due possibili versioni della mia vita.
+
+E tu?
+Quale vita proveresti?`;
+
+  if (navigator.share) {
+
+    navigator.share({
+      title: "E SE?",
+      text: text
+    });
+
+  } else {
+
+    navigator.clipboard.writeText(text);
+
+    alert("Testo copiato! Ora puoi condividerlo dove vuoi.");
+
+  }
+}
+
+start();
+
+</script>
+
+</body>
+</html>
