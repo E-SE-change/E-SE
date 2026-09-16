@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#09090d">
 
+<meta name="google-adsense-account" content="ca-pub-7154454592714745">
+
 <!-- GOOGLE ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7154454592714745"
      crossorigin="anonymous"></script>
@@ -392,12 +394,6 @@ function normalize(v){
   return cleanText(v).toLowerCase();
 }
 
-/*
- Deterministic seed:
- la stessa persona, con le stesse risposte, ottiene
- una storia coerente. Cambiando anche una risposta,
- cambiano alcune scelte narrative.
-*/
 function hashString(str){
   let h = 2166136261;
   for(let i=0;i<str.length;i++){
@@ -405,10 +401,6 @@ function hashString(str){
     h += (h<<1)+(h<<4)+(h<<7)+(h<<8)+(h<<24);
   }
   return Math.abs(h >>> 0);
-}
-
-function seedFor(path){
-  return hashString(JSON.stringify(answers)+"|"+path);
 }
 
 function pick(arr, seedOffset=0){
@@ -1008,11 +1000,6 @@ function buildSimulation(path){
 
     years[year].events.forEach(e=>applyEventStats(years[year].stats,e));
 
-    /*
-      Le conseguenze aumentano nel tempo.
-      Le statistiche di ogni anno non sono semplicemente
-      una copia della precedente.
-    */
     const factor = year===1 ? 1 : year===3 ? 1.15 : 1.28;
 
     Object.keys(years[year].stats).forEach(k=>{
