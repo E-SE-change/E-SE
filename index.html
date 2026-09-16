@@ -3,158 +3,487 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#09090f">
-<meta name="description" content="E SE? Prova una vita prima di viverla.">
+<meta name="theme-color" content="#09090d">
+<meta name="description" content="E SE? — Prova una vita prima di viverla.">
 <title>E SE? — Prova una vita prima di viverla</title>
 
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --bg:#08080c;
+    --card:#111118;
+    --card2:#171720;
+    --line:#292934;
+    --text:#f5f5f7;
+    --muted:#9b9ba7;
+    --accent:#a78bfa;
+    --accent2:#7c3aed;
+    --green:#72e6a1;
+    --red:#ff7d8d;
+    --gold:#f5c86b;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
- margin:0;
- min-height:100vh;
- background:radial-gradient(circle at top,#21152d 0%,#0b0910 42%,#060609 100%);
- color:#f7f2f8;
- font-family:Arial,Helvetica,sans-serif
+    background:
+        radial-gradient(circle at 50% -10%,rgba(124,58,237,.25),transparent 38%),
+        var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    min-height:100vh;
 }
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-.app{max-width:760px;margin:auto;padding:20px 16px 60px}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.logo{font-size:20px;font-weight:900;letter-spacing:2px}
-.progress-wrap{width:150px;height:5px;background:#29232d;border-radius:20px;overflow:hidden}
-.progress{height:100%;width:0;background:#f0b8ff;transition:.4s}
-.screen{animation:appear .4s ease}
-@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.hero{text-align:center;padding:50px 10px 30px}
-.hero h1{margin:0;font-size:clamp(60px,18vw,110px);line-height:.85;letter-spacing:-6px}
-.tagline{margin-top:24px;color:#d6c8d9;font-size:18px}
+
+button,input,select,textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.app{
+    width:100%;
+    max-width:720px;
+    margin:auto;
+    padding:20px 16px 50px;
+}
+
+.screen{
+    display:none;
+    animation:fade .35s ease;
+}
+
+.screen.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(12px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.logo{
+    text-align:center;
+    padding:28px 0 12px;
+}
+
+.logo h1{
+    font-size:64px;
+    letter-spacing:-5px;
+    line-height:.9;
+    font-weight:900;
+}
+
+.logo p{
+    margin-top:12px;
+    color:var(--muted);
+    font-size:14px;
+}
+
+.hero{
+    text-align:center;
+    padding:40px 0 20px;
+}
+
+.hero h2{
+    font-size:32px;
+    line-height:1.05;
+    letter-spacing:-1.5px;
+}
+
+.hero p{
+    color:var(--muted);
+    margin:16px auto;
+    line-height:1.6;
+    max-width:560px;
+}
+
+.btn{
+    width:100%;
+    border:0;
+    border-radius:16px;
+    padding:17px 20px;
+    font-weight:800;
+    color:white;
+    background:linear-gradient(135deg,var(--accent2),var(--accent));
+    box-shadow:0 10px 35px rgba(124,58,237,.22);
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn.secondary{
+    background:var(--card2);
+    border:1px solid var(--line);
+    box-shadow:none;
+}
+
+.btn.small{
+    width:auto;
+    padding:12px 15px;
+    font-size:14px;
+}
+
+.btn.danger{
+    background:#241217;
+    color:#ff9ba7;
+    border:1px solid #4b2028;
+    box-shadow:none;
+}
+
+.stack{
+    display:grid;
+    gap:12px;
+}
+
 .card{
- background:rgba(24,20,28,.88);
- border:1px solid #352c39;
- border-radius:25px;
- padding:25px;
- margin-bottom:18px;
- box-shadow:0 20px 70px rgba(0,0,0,.28)
+    background:linear-gradient(145deg,var(--card),#0d0d13);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:20px;
+    margin:14px 0;
 }
-.question-number,.year{
- color:#bfa8c4;
- font-size:12px;
- text-transform:uppercase;
- letter-spacing:1.5px
+
+.card h3{
+    font-size:19px;
+    margin-bottom:8px;
 }
-h1,h2,h3{line-height:1.05}
-h2{font-size:clamp(28px,7vw,42px);margin:10px 0 14px}
-h3{font-size:23px}
-p{color:#cfc5d1;line-height:1.55}
-.big-question{font-size:28px;font-weight:800;line-height:1.15;margin:20px 0 25px}
-input,textarea{
- width:100%;
- background:#100d14;
- color:white;
- border:1px solid #403544;
- border-radius:15px;
- padding:16px;
- outline:none;
- margin-bottom:15px
+
+.card p{
+    color:var(--muted);
+    line-height:1.55;
 }
-textarea{min-height:120px;resize:vertical}
-input:focus,textarea:focus{border-color:#cda6d7}
-.options{display:grid;gap:11px}
+
+.question{
+    padding-top:15px;
+}
+
+.progress{
+    height:5px;
+    background:#202028;
+    border-radius:10px;
+    overflow:hidden;
+    margin:15px 0 28px;
+}
+
+.progress div{
+    height:100%;
+    width:0;
+    background:linear-gradient(90deg,var(--accent2),var(--accent));
+    transition:.3s;
+}
+
+.q-number{
+    color:var(--accent);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.question h2{
+    font-size:28px;
+    line-height:1.15;
+    margin:10px 0 22px;
+}
+
+.options{
+    display:grid;
+    gap:10px;
+}
+
 .option{
- width:100%;
- text-align:left;
- border:1px solid #3b313f;
- background:#151119;
- color:#f4edf6;
- border-radius:16px;
- padding:17px;
- transition:.2s
+    text-align:left;
+    width:100%;
+    background:var(--card);
+    color:var(--text);
+    border:1px solid var(--line);
+    border-radius:17px;
+    padding:17px;
+    transition:.2s;
 }
-.option:hover{border-color:#d5a9df;transform:translateY(-2px)}
-.option.selected{border-color:#f0b8ff;background:#24182a}
-.primary{
- width:100%;
- border:0;
- border-radius:17px;
- padding:17px 20px;
- margin-top:8px;
- background:#f0b8ff;
- color:#170d1b;
- font-weight:900;
- font-size:16px
+
+.option:hover,
+.option.selected{
+    border-color:var(--accent);
+    background:#171421;
 }
-.secondary{
- width:100%;
- border:1px solid #493d4c;
- border-radius:17px;
- padding:15px 20px;
- margin-top:10px;
- background:transparent;
- color:white;
- font-weight:700
+
+.option strong{
+    display:block;
+    margin-bottom:4px;
 }
-.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.life-choice{
- padding:23px 18px;
- border-radius:22px;
- border:1px solid #4b3c50;
- background:#151119;
- text-align:left;
- transition:.25s
+
+.option span{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.4;
 }
-.life-choice:hover{transform:translateY(-4px);border-color:#e2b6ec}
-.life-choice .letter{font-size:13px;letter-spacing:2px;font-weight:900;color:#cdb4d2}
-.life-choice h3{margin:10px 0 8px}
+
+.input{
+    width:100%;
+    background:var(--card);
+    color:white;
+    border:1px solid var(--line);
+    border-radius:15px;
+    padding:16px;
+    outline:none;
+}
+
+.input:focus{
+    border-color:var(--accent);
+}
+
+textarea.input{
+    min-height:110px;
+    resize:vertical;
+}
+
+.nav{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.nav .btn{
+    flex:1;
+}
+
+.small-note{
+    text-align:center;
+    color:#777783;
+    font-size:12px;
+    line-height:1.5;
+    margin:18px 0;
+}
+
+.result-head{
+    text-align:center;
+    padding:25px 0 15px;
+}
+
+.result-head .eyebrow{
+    color:var(--accent);
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-size:12px;
+}
+
+.result-head h2{
+    font-size:36px;
+    letter-spacing:-1.5px;
+    margin:8px 0;
+}
+
+.result-head p{
+    color:var(--muted);
+    line-height:1.55;
+}
+
+.timeline{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin:20px 0;
+}
+
+.year-btn{
+    background:var(--card);
+    border:1px solid var(--line);
+    color:var(--muted);
+    border-radius:13px;
+    padding:12px 5px;
+}
+
+.year-btn.active{
+    background:#19142a;
+    border-color:var(--accent);
+    color:white;
+}
+
+.narrative{
+    font-size:18px;
+    line-height:1.65;
+    color:#e9e9ed;
+}
+
+.stats{
+    display:grid;
+    gap:12px;
+    margin-top:20px;
+}
+
+.stat{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:15px;
+    padding:14px;
+}
+
+.stat-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:9px;
+}
+
+.stat-name{
+    color:#ddd;
+}
+
+.stat-value{
+    font-weight:800;
+}
+
+.bar{
+    height:7px;
+    background:#25252d;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.bar div{
+    height:100%;
+    background:linear-gradient(90deg,var(--accent2),var(--accent));
+    border-radius:20px;
+    transition:.5s;
+}
+
+.life-label{
+    display:inline-block;
+    padding:8px 11px;
+    border-radius:30px;
+    background:#1b1628;
+    color:#cdbbff;
+    font-size:12px;
+    font-weight:800;
+}
+
+.choice-box{
+    border:1px solid var(--line);
+    background:var(--card);
+    border-radius:20px;
+    padding:20px;
+    margin:15px 0;
+}
+
+.choice-box h3{
+    margin-bottom:8px;
+}
+
+.choice-box p{
+    color:var(--muted);
+    line-height:1.55;
+}
+
+.compare{
+    display:grid;
+    gap:12px;
+}
+
+.compare-row{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:15px;
+    padding:15px;
+}
+
+.compare-top{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    margin-bottom:9px;
+}
+
+.compare-bars{
+    display:grid;
+    gap:5px;
+}
+
+.compare-bar{
+    height:7px;
+    background:#25252d;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.compare-bar div{
+    height:100%;
+    background:var(--accent);
+}
+
+.saved{
+    display:grid;
+    gap:10px;
+}
+
+.saved-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:17px;
+    padding:15px;
+}
+
+.saved-item h4{
+    margin-bottom:5px;
+}
+
+.saved-item p{
+    color:var(--muted);
+    font-size:12px;
+}
+
 .badge{
- display:inline-block;
- padding:6px 10px;
- border-radius:99px;
- background:#251b2a;
- color:#d9b9e1;
- font-size:12px;
- margin:3px
+    font-size:11px;
+    color:var(--accent);
+    background:#19142a;
+    padding:5px 8px;
+    border-radius:20px;
 }
-.timeline{border-left:2px solid #423548;padding-left:18px;margin-top:22px}
-.timeline-item{position:relative;margin-bottom:28px}
-.timeline-item:before{
- content:"";
- position:absolute;
- left:-25px;
- top:4px;
- width:11px;
- height:11px;
- border-radius:50%;
- background:#f0b8ff
+
+.two-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
 }
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
-.stat{background:#100d14;border:1px solid #302834;border-radius:15px;padding:15px}
-.stat-label{color:#9f91a2;font-size:12px;margin-bottom:7px}
-.stat-value{font-size:18px;font-weight:900}
-.stat-bar{height:5px;background:#29232d;border-radius:10px;margin-top:9px;overflow:hidden}
-.stat-fill{height:100%;background:#f0b8ff}
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.compare-column{background:#100d14;border:1px solid #342b38;border-radius:18px;overflow:hidden}
-.compare-title{padding:15px;background:#1d1520;font-weight:900}
-.compare-row{padding:13px 15px;border-top:1px solid #2b242e}
-.compare-label{display:block;color:#8f8293;font-size:11px;text-transform:uppercase;letter-spacing:.7px;margin-bottom:4px}
-.compare-value{font-weight:700;line-height:1.35}
-.quote{border-left:3px solid #f0b8ff;padding:12px 0 12px 17px;margin:25px 0;color:#f3e8f5;font-size:18px;line-height:1.45}
-.center{text-align:center}
-.small{font-size:12px;color:#918492}
-.final-title{text-align:center;font-size:clamp(35px,9vw,60px);line-height:.95;letter-spacing:-2px}
-.divider{height:1px;background:#302832;margin:25px 0}
-.hidden{display:none!important}
-.note{
- font-size:11px;
- color:#827584;
- text-align:center;
- margin-top:14px
+
+.divider{
+    height:1px;
+    background:var(--line);
+    margin:22px 0;
 }
-@media(max-width:600px){
- .choice-grid,.compare{grid-template-columns:1fr}
- .card{padding:20px}
- .hero{padding-top:35px}
+
+.footer{
+    text-align:center;
+    color:#666672;
+    font-size:11px;
+    line-height:1.6;
+    margin-top:30px;
+}
+
+@media(max-width:500px){
+    .logo h1{font-size:56px}
+    .hero h2{font-size:28px}
+    .question h2{font-size:25px}
+    .result-head h2{font-size:31px}
+}
+
+@media(min-width:700px){
+    .app{padding-top:35px}
 }
 </style>
 </head>
@@ -163,1118 +492,1648 @@ input:focus,textarea:focus{border-color:#cda6d7}
 
 <div class="app">
 
-<div class="top">
- <div class="logo">E SE?</div>
- <div class="progress-wrap">
-  <div class="progress" id="progress"></div>
- </div>
+<!-- HOME -->
+<section id="home" class="screen active">
+
+    <div class="logo">
+        <h1>E SE?</h1>
+        <p>Prova una vita prima di viverla.</p>
+    </div>
+
+    <div class="hero">
+        <h2>E se la tua vita potesse prendere un'altra strada?</h2>
+        <p>
+            Raccontami dove sei oggi. Io costruirò due possibili versioni
+            della tua vita e ti mostrerò cosa potrebbe cambiare tra 1, 3 e 5 anni.
+        </p>
+
+        <div class="stack">
+            <button class="btn" onclick="startSimulation()">
+                ✦ INIZIA LA TUA SIMULAZIONE
+            </button>
+
+            <button class="btn secondary" onclick="showSavedLives()">
+                💾 LE MIE VITE
+            </button>
+
+            <button class="btn secondary" onclick="showTwoPeople()">
+                👥 E SE? IN DUE
+            </button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Non è una previsione.</h3>
+        <p>
+            È un'esperienza narrativa costruita sulle informazioni che scegli
+            di condividere. Nessuno può sapere quale futuro accadrà davvero.
+            Ma a volte vedere una possibilità da fuori aiuta a capire cosa vuoi.
+        </p>
+    </div>
+
+    <div class="footer">
+        E SE? · Prova una vita prima di viverla.
+    </div>
+</section>
+
+
+<!-- QUESTIONNAIRE -->
+<section id="questions" class="screen">
+
+    <div class="progress">
+        <div id="progressBar"></div>
+    </div>
+
+    <div class="question">
+        <div class="q-number" id="qNumber"></div>
+        <h2 id="qTitle"></h2>
+        <div id="qContent"></div>
+    </div>
+
+    <div class="nav">
+        <button class="btn secondary" id="backBtn" onclick="previousQuestion()">
+            ← Indietro
+        </button>
+
+        <button class="btn" id="nextBtn" onclick="nextQuestion()">
+            Continua →
+        </button>
+    </div>
+
+    <div class="small-note">
+        Non devi rispondere "bene". Devi rispondere sinceramente.
+    </div>
+</section>
+
+
+<!-- CHOICE -->
+<section id="choice" class="screen">
+
+    <div class="result-head">
+        <div class="eyebrow">IL TUO BIVIO</div>
+        <h2>Adesso arriva il momento difficile.</h2>
+        <p>
+            Ho costruito due strade partendo da quello che mi hai raccontato.
+            Nessuna è "giusta".
+        </p>
+    </div>
+
+    <div id="choiceContent"></div>
+
+</section>
+
+
+<!-- TIMELINE -->
+<section id="timeline" class="screen">
+
+    <div class="result-head">
+        <div class="eyebrow" id="timelineEyebrow"></div>
+        <h2 id="timelineTitle"></h2>
+        <p id="timelineIntro"></p>
+    </div>
+
+    <div class="timeline">
+        <button class="year-btn active" onclick="showYear(1)" id="year1">1 ANNO</button>
+        <button class="year-btn" onclick="showYear(3)" id="year3">3 ANNI</button>
+        <button class="year-btn" onclick="showYear(5)" id="year5">5 ANNI</button>
+    </div>
+
+    <div class="card">
+        <div class="narrative" id="narrative"></div>
+    </div>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="card" id="eventCard"></div>
+
+    <button class="btn secondary" onclick="showAlternative()">
+        ↔ Vedi la vita che non hai scelto
+    </button>
+
+    <button class="btn secondary" onclick="showComparison()" style="margin-top:10px">
+        📊 Confronta le due vite
+    </button>
+
+    <button class="btn secondary" onclick="shareSimulation()" style="margin-top:10px">
+        🔗 Condividi questa simulazione
+    </button>
+
+    <button class="btn" onclick="saveCurrentLife()" style="margin-top:10px">
+        💾 Salva questa vita
+    </button>
+
+</section>
+
+
+<!-- ALTERNATIVE -->
+<section id="alternative" class="screen">
+
+    <div class="result-head">
+        <div class="eyebrow">LA VITA CHE NON HAI SCELTO</div>
+        <h2 id="alternativeTitle"></h2>
+        <p id="alternativeIntro"></p>
+    </div>
+
+    <div class="card">
+        <div class="narrative" id="alternativeNarrative"></div>
+    </div>
+
+    <div class="timeline">
+        <button class="year-btn active" onclick="showAlternativeYear(1)" id="alt1">1 ANNO</button>
+        <button class="year-btn" onclick="showAlternativeYear(3)" id="alt3">3 ANNI</button>
+        <button class="year-btn" onclick="showAlternativeYear(5)" id="alt5">5 ANNI</button>
+    </div>
+
+    <div class="stats" id="alternativeStats"></div>
+
+    <button class="btn secondary" onclick="showComparison()">
+        📊 Confronta le due vite
+    </button>
+
+    <button class="btn secondary" onclick="goBackToTimeline()" style="margin-top:10px">
+        ← Torna alla tua scelta
+    </button>
+</section>
+
+
+<!-- COMPARISON -->
+<section id="comparison" class="screen">
+
+    <div class="result-head">
+        <div class="eyebrow">5 ANNI DOPO</div>
+        <h2>Due vite. Una scelta.</h2>
+        <p>
+            Non ti dirò quale sia migliore. Guarda semplicemente dove portano.
+        </p>
+    </div>
+
+    <div id="comparisonContent"></div>
+
+    <div class="card">
+        <h3>La domanda vera</h3>
+        <p id="finalQuestion"></p>
+    </div>
+
+    <button class="btn" onclick="saveCurrentLife()">
+        💾 Salva entrambe le vite
+    </button>
+
+    <button class="btn secondary" onclick="shareSimulation()" style="margin-top:10px">
+        🔗 Condividi
+    </button>
+
+    <button class="btn secondary" onclick="restart()" style="margin-top:10px">
+        ↻ Prova un'altra vita
+    </button>
+</section>
+
+
+<!-- SAVED -->
+<section id="saved" class="screen">
+
+    <div class="result-head">
+        <div class="eyebrow">MEMORIA</div>
+        <h2>Le mie vite</h2>
+        <p>
+            Le simulazioni vengono salvate direttamente sul tuo dispositivo.
+            Non serve creare un account.
+        </p>
+    </div>
+
+    <div id="savedList" class="saved"></div>
+
+    <button class="btn secondary" onclick="goHome()" style="margin-top:15px">
+        ← Torna all'inizio
+    </button>
+
+    <button class="btn danger" onclick="deleteAllLives()" style="margin-top:10px">
+        Cancella tutte le vite salvate
+    </button>
+</section>
+
+
+<!-- TWO PEOPLE -->
+<section id="twoPeople" class="screen">
+
+    <div class="result-head">
+        <div class="eyebrow">E SE? IN DUE</div>
+        <h2>Due persone. Una vita possibile.</h2>
+        <p>
+            Funziona con partner, amici, fratelli o chiunque voglia scoprire
+            cosa succederebbe prendendo una decisione insieme.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>👤 Persona 1</h3>
+        <input id="person1" class="input" placeholder="Nome">
+    </div>
+
+    <div class="card">
+        <h3>👤 Persona 2</h3>
+        <input id="person2" class="input" placeholder="Nome">
+    </div>
+
+    <div class="card">
+        <h3>Qual è il vostro bivio?</h3>
+
+        <div class="options" id="twoChoices">
+            <button class="option" onclick="selectTwoChoice(this,'restare')">
+                <strong>🏠 Restare</strong>
+                <span>Proteggere quello che avete costruito.</span>
+            </button>
+
+            <button class="option" onclick="selectTwoChoice(this,'cambiare')">
+                <strong>🌍 Cambiare</strong>
+                <span>Lasciare spazio a una nuova vita.</span>
+            </button>
+
+            <button class="option" onclick="selectTwoChoice(this,'rischiare')">
+                <strong>🚀 Rischiare</strong>
+                <span>Provare qualcosa che oggi sembra troppo grande.</span>
+            </button>
+
+            <button class="option" onclick="selectTwoChoice(this,'aspettare')">
+                <strong>⏳ Aspettare</strong>
+                <span>Non decidere subito e vedere cosa succede.</span>
+            </button>
+        </div>
+    </div>
+
+    <button class="btn" onclick="generateTwoPeople()">
+        ✦ VEDI LA VOSTRA POSSIBILE VITA
+    </button>
+
+    <button class="btn secondary" onclick="goHome()" style="margin-top:10px">
+        ← Torna all'inizio
+    </button>
+</section>
+
+
+<!-- TWO RESULT -->
+<section id="twoResult" class="screen">
+
+    <div class="result-head">
+        <div class="eyebrow">E SE? IN DUE</div>
+        <h2 id="twoResultTitle"></h2>
+        <p id="twoResultIntro"></p>
+    </div>
+
+    <div class="card">
+        <div class="narrative" id="twoResultText"></div>
+    </div>
+
+    <div class="stats" id="twoStats"></div>
+
+    <div class="card">
+        <h3>La domanda</h3>
+        <p id="twoQuestion"></p>
+    </div>
+
+    <button class="btn secondary" onclick="showTwoPeople()">
+        ↻ Prova un altro bivio
+    </button>
+
+    <button class="btn secondary" onclick="goHome()" style="margin-top:10px">
+        ← Torna all'inizio
+    </button>
+</section>
+
 </div>
 
-<main id="app"></main>
-
-</div>
 
 <script>
 
-const app=document.getElementById("app");
-const progress=document.getElementById("progress");
+/* =========================================================
+   E SE? — VERSIONE COMPLETA
+   V5 + V6 + V7 + V8
+========================================================= */
 
-let user={
- name:"",
- age:"",
- work:"",
- money:"",
- relationship:"",
- home:"",
- change:"",
- dream:"",
- protect:"",
- goal:""
-};
+let currentQuestion = 0;
+let answers = {};
+let selectedPath = null;
+let simulation = null;
+let alternativeSimulation = null;
+let currentYear = 1;
+let twoChoice = null;
 
-let currentQuestion=0;
-let chosenPath=null;
-let alternativePath=null;
-let lives={A:null,B:null};
 
-const questions=[
+/* ---------------------------------------------------------
+   DOM
+--------------------------------------------------------- */
+
+const screens = [
+    "home",
+    "questions",
+    "choice",
+    "timeline",
+    "alternative",
+    "comparison",
+    "saved",
+    "twoPeople",
+    "twoResult"
+];
+
+function showScreen(id){
+    screens.forEach(s=>{
+        document.getElementById(s).classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+/* ---------------------------------------------------------
+   QUESTIONS
+--------------------------------------------------------- */
+
+const questions = [
 
 {
- key:"name",
- title:"Partiamo da te.",
- question:"Come ti chiami?",
- type:"text",
- placeholder:"Il tuo nome"
+    id:"name",
+    title:"Partiamo da te.",
+    type:"text",
+    label:"Come vuoi che ti chiami?"
 },
 
 {
- key:"age",
- title:"Una cosa semplice.",
- question:"Quanti anni hai?",
- type:"number",
- placeholder:"Es. 32"
+    id:"age",
+    title:"Quanti anni hai?",
+    type:"select",
+    options:[
+        ["18-24","Sei all'inizio della tua vita adulta."],
+        ["25-34","Sei in una fase in cui molte scelte iniziano a pesare."],
+        ["35-44","Hai già costruito molto, ma puoi ancora cambiare direzione."],
+        ["45-54","Hai esperienza e una storia alle spalle."],
+        ["55+","Hai una prospettiva diversa sul tempo e sulle priorità."]
+    ]
 },
 
 {
- key:"work",
- title:"La tua vita oggi.",
- question:"Come vivi il tuo lavoro in questo momento?",
- type:"options",
- options:[
-  ["soddisfatto","Sono abbastanza soddisfatto/a"],
-  ["insoddisfatto","Non mi soddisfa"],
-  ["instabile","È instabile"],
-  ["cerca","Sto cercando lavoro"],
-  ["studio","Sto studiando"],
-  ["altro","È complicato da definire"]
- ]
+    id:"work",
+    title:"Come ti senti rispetto al lavoro?",
+    type:"choice",
+    options:[
+        ["felice","Mi piace e mi dà soddisfazione."],
+        ["stabile","Non è il lavoro dei miei sogni, ma mi dà sicurezza."],
+        ["insoddisfatto","Lo faccio, ma sento che potrei fare altro."],
+        ["esausto","Mi sta consumando."],
+        ["indipendente","Voglio costruire qualcosa di mio."]
+    ]
 },
 
 {
- key:"money",
- title:"Senza giudizio.",
- question:"Com'è il tuo rapporto con i soldi?",
- type:"options",
- options:[
-  ["sereno","Sono abbastanza sereno/a"],
-  ["attento","Devo stare molto attento/a"],
-  ["difficile","È difficile"],
-  ["debiti","Ho debiti o problemi economici"]
- ]
+    id:"money",
+    title:"E con i soldi come sei messo/a?",
+    type:"choice",
+    options:[
+        ["sereno","Riesco a gestire le spese senza grandi problemi."],
+        ["normale","Arrivo a fine mese, ma senza grandi margini."],
+        ["stretto","Devo stare molto attento/a."],
+        ["debiti","Ho debiti o impegni economici importanti."],
+        ["crescita","Sto cercando di aumentare molto le mie entrate."]
+    ]
 },
 
 {
- key:"relationship",
- title:"Anche questo conta.",
- question:"Come descriveresti la tua situazione sentimentale?",
- type:"options",
- options:[
-  ["single","Sono single"],
-  ["coppia","Sono in una relazione"],
-  ["dubbi","Sono in una relazione, ma ho dei dubbi"],
-  ["nondefinito","Preferisco non definirla"]
- ]
+    id:"home",
+    title:"Dove ti immagini tra qualche anno?",
+    type:"choice",
+    options:[
+        ["stesso","Nella stessa città, con una vita più stabile."],
+        ["citta","In una città diversa."],
+        ["paese","In un posto più tranquillo."],
+        ["estero","Vorrei vivere all'estero."],
+        ["casa","Vorrei soprattutto avere una casa davvero mia."]
+    ]
 },
 
 {
- key:"home",
- title:"Il posto in cui vivi.",
- question:"Quanto ti rappresenta la tua casa o il luogo in cui vivi?",
- type:"options",
- options:[
-  ["felice","Mi piace e mi ci vedo"],
-  ["ok","Va bene, ma vorrei qualcosa di diverso"],
-  ["muovere","Vorrei cambiare casa"],
-  ["citta","Vorrei cambiare città o Paese"]
- ]
+    id:"relationship",
+    title:"E l'amore?",
+    type:"choice",
+    options:[
+        ["felice","Sto bene nella mia relazione."],
+        ["incerto","Ci sono cose che mi fanno dubitare."],
+        ["solo","Sono single."],
+        ["complicato","La situazione è difficile da definire."],
+        ["priorita","In questo momento non è la mia priorità."]
+    ]
 },
 
 {
- key:"change",
- title:"Qui comincia il vero E SE?",
- question:"Se potessi cambiare una sola cosa della tua vita, cosa sceglieresti?",
- type:"options",
- options:[
-  ["money","La mia situazione economica"],
-  ["work","Il mio lavoro"],
-  ["love","La mia vita sentimentale"],
-  ["home","La mia casa o il luogo in cui vivo"],
-  ["self","Me stesso/a"],
-  ["life","La mia vita in generale"]
- ]
+    id:"dream",
+    title:"Se nessuno potesse giudicarti, cosa faresti?",
+    type:"textarea",
+    label:"Scrivilo senza pensarci troppo..."
 },
 
 {
- key:"dream",
- title:"Adesso niente paura.",
- question:"Se sapessi di non poter fallire, cosa cambieresti?",
- type:"textarea",
- placeholder:"Scrivilo come viene..."
+    id:"fear",
+    title:"Cosa ti impedisce maggiormente di farlo?",
+    type:"choice",
+    options:[
+        ["soldi","La paura di perdere la sicurezza economica."],
+        ["fallire","La paura di provarci e fallire."],
+        ["persone","La paura di deludere qualcuno."],
+        ["eta","Penso sia troppo tardi."],
+        ["incertezza","Non so da dove cominciare."]
+    ]
 },
 
 {
- key:"protect",
- title:"Ma qualcosa resta.",
- question:"Cosa non vorresti perdere per nessun motivo?",
- type:"textarea",
- placeholder:"Una persona, una sicurezza, una libertà..."
+    id:"goal",
+    title:"Tra cinque anni cosa vorresti poter dire?",
+    type:"choice",
+    options:[
+        ["liberta","Finalmente sono libero/a di scegliere."],
+        ["soldi","Finalmente ho una situazione economica solida."],
+        ["lavoro","Finalmente faccio un lavoro che amo."],
+        ["famiglia","Ho costruito la famiglia che desideravo."],
+        ["casa","Ho finalmente la casa e la vita che desideravo."],
+        ["pace","Finalmente vivo con meno ansia e più serenità."]
+    ]
 },
 
 {
- key:"goal",
- title:"Ultima domanda.",
- question:"Tra cinque anni, cosa vorresti poter dire di te?",
- type:"options",
- options:[
-  ["economic","Ho sistemato la mia situazione economica"],
-  ["work","Ho trovato il lavoro che volevo"],
-  ["love","Ho costruito la mia vita affettiva/familiare"],
-  ["freedom","Sono finalmente libero/a di scegliere"],
-  ["change","Ho avuto il coraggio di cambiare"]
- ]
+    id:"lose",
+    title:"Cosa non vuoi perdere per nessun motivo?",
+    type:"choice",
+    options:[
+        ["famiglia","Le persone che amo."],
+        ["sicurezza","La stabilità che ho costruito."],
+        ["tempo","Il mio tempo libero."],
+        ["indipendenza","La mia libertà personale."],
+        ["identita","Me stesso/a."]
+    ]
 }
 
 ];
 
-function esc(v){
- return String(v??"")
- .replace(/&/g,"&amp;")
- .replace(/</g,"&lt;")
- .replace(/>/g,"&gt;")
- .replace(/"/g,"&quot;")
- .replace(/'/g,"&#039;");
+
+/* ---------------------------------------------------------
+   START
+--------------------------------------------------------- */
+
+function startSimulation(){
+    currentQuestion = 0;
+    answers = {};
+    selectedPath = null;
+    simulation = null;
+    alternativeSimulation = null;
+    renderQuestion();
+    showScreen("questions");
 }
 
-function updateProgress(){
- progress.style.width=Math.min((currentQuestion/questions.length)*100,100)+"%";
-}
 
-function showIntro(){
-
- progress.style.width="0%";
-
- app.innerHTML=`
-
- <section class="screen hero">
-  <h1>E SE?</h1>
-  <div class="tagline">Prova una vita prima di viverla.</div>
- </section>
-
- <section class="card">
-
-  <p>
-   Non è un test. Non è una previsione.
-   È un esperimento.
-  </p>
-
-  <p>
-   Ti farò alcune domande sulla tua vita reale.
-   Poi esploreremo due strade possibili.
-  </p>
-
-  <div class="quote">
-   "A volte non ci chiediamo cosa succederà.
-   Ci chiediamo cosa sarebbe successo."
-  </div>
-
-  <button class="primary" onclick="start()">
-   INIZIA IL VIAGGIO
-  </button>
-
- </section>
-
- `;
-
-}
-
-function start(){
- currentQuestion=0;
- renderQuestion();
-}
+/* ---------------------------------------------------------
+   QUESTION RENDER
+--------------------------------------------------------- */
 
 function renderQuestion(){
 
- const q=questions[currentQuestion];
+    const q = questions[currentQuestion];
 
- updateProgress();
+    document.getElementById("qNumber").textContent =
+        `DOMANDA ${currentQuestion+1} DI ${questions.length}`;
 
- let content="";
+    document.getElementById("qTitle").textContent = q.title;
 
- if(q.type==="text"||q.type==="number"){
+    const content = document.getElementById("qContent");
 
-  content=`
-   <input id="answer"
-    type="${q.type}"
-    placeholder="${esc(q.placeholder)}"
-    ${q.type==="number"?'min="1" max="120"':''}>
-   <button class="primary" onclick="saveText()">
-    CONTINUA
-   </button>
-  `;
+    content.innerHTML = "";
 
- }
+    if(q.type==="text"){
 
- if(q.type==="textarea"){
+        const input = document.createElement("input");
+        input.className="input";
+        input.value=answers[q.id] || "";
+        input.placeholder=q.label || "";
 
-  content=`
-   <textarea id="answer"
-    placeholder="${esc(q.placeholder)}"></textarea>
+        input.oninput=()=>{
+            answers[q.id]=input.value;
+        };
 
-   <button class="primary" onclick="saveText()">
-    CONTINUA
-   </button>
-  `;
+        content.appendChild(input);
 
- }
+    }
 
- if(q.type==="options"){
+    else if(q.type==="textarea"){
 
-  content=`
-   <div class="options">
-    ${q.options.map(o=>`
-     <button class="option"
-      onclick="selectOption('${esc(o[0])}',this)">
-      ${esc(o[1])}
-     </button>
-    `).join("")}
-   </div>
-  `;
+        const input=document.createElement("textarea");
+        input.className="input";
+        input.placeholder=q.label || "";
+        input.value=answers[q.id] || "";
 
- }
+        input.oninput=()=>{
+            answers[q.id]=input.value;
+        };
 
- app.innerHTML=`
+        content.appendChild(input);
 
- <section class="screen card">
+    }
 
-  <div class="question-number">
-   DOMANDA ${currentQuestion+1} DI ${questions.length}
-  </div>
+    else{
 
-  <h2>${esc(q.title)}</h2>
+        const options=document.createElement("div");
+        options.className="options";
 
-  <div class="big-question">
-   ${esc(q.question)}
-  </div>
+        q.options.forEach(opt=>{
 
-  ${content}
+            const button=document.createElement("button");
+            button.className="option";
 
- </section>
+            if(answers[q.id]===opt[0]){
+                button.classList.add("selected");
+            }
 
- `;
+            button.innerHTML=`
+                <strong>${opt[0]}</strong>
+                <span>${opt[1]}</span>
+            `;
 
- setTimeout(()=>{
-  document.getElementById("answer")?.focus();
- },100);
+            button.onclick=()=>{
+                answers[q.id]=opt[0];
 
+                [...options.children].forEach(x=>
+                    x.classList.remove("selected")
+                );
+
+                button.classList.add("selected");
+            };
+
+            options.appendChild(button);
+        });
+
+        content.appendChild(options);
+    }
+
+    const percentage =
+        ((currentQuestion)/(questions.length-1))*100;
+
+    document.getElementById("progressBar").style.width =
+        `${percentage}%`;
+
+    document.getElementById("backBtn").style.display =
+        currentQuestion===0 ? "none" : "block";
+
+    document.getElementById("nextBtn").textContent =
+        currentQuestion===questions.length-1
+        ? "Costruisci le mie vite ✦"
+        : "Continua →";
 }
 
-function saveText(){
-
- const input=document.getElementById("answer");
-
- if(!input||!input.value.trim()){
-  input?.focus();
-  return;
- }
-
- user[questions[currentQuestion].key]=input.value.trim();
-
- nextQuestion();
-
-}
-
-function selectOption(value,element){
-
- document.querySelectorAll(".option")
- .forEach(x=>x.classList.remove("selected"));
-
- element.classList.add("selected");
-
- user[questions[currentQuestion].key]=value;
-
- setTimeout(nextQuestion,220);
-
-}
 
 function nextQuestion(){
 
- currentQuestion++;
+    const q=questions[currentQuestion];
 
- if(currentQuestion>=questions.length){
-  showProfile();
- }else{
-  renderQuestion();
- }
+    if(
+        (q.type==="choice" || q.type==="select") &&
+        !answers[q.id]
+    ){
+        alert("Scegli una risposta per continuare.");
+        return;
+    }
 
+    if(
+        (q.type==="text" || q.type==="textarea") &&
+        !answers[q.id]?.trim()
+    ){
+        alert("Scrivi qualcosa prima di continuare.");
+        return;
+    }
+
+    if(currentQuestion < questions.length-1){
+        currentQuestion++;
+        renderQuestion();
+    }else{
+        buildChoices();
+        showScreen("choice");
+    }
 }
 
-function showProfile(){
 
- progress.style.width="100%";
-
- app.innerHTML=`
-
- <section class="screen card">
-
-  <div class="question-number">
-   IL TUO PUNTO DI PARTENZA
-  </div>
-
-  <h2>${esc(user.name)}, ecco da dove parti.</h2>
-
-  <p>
-   Costruiremo due scenari partendo dalle cose
-   che hai raccontato.
-  </p>
-
-  <span class="badge">${esc(user.age)} anni</span>
-  <span class="badge">${esc(workLabel(user.work))}</span>
-  <span class="badge">${esc(moneyLabel(user.money))}</span>
-  <span class="badge">${esc(changeLabel(user.change))}</span>
-
-  <div class="divider"></div>
-
-  <p>Il cambiamento che desideri:</p>
-
-  <div class="quote">
-   "${esc(user.dream)}"
-  </div>
-
-  <p>Quello che vuoi proteggere:</p>
-
-  <div class="quote">
-   "${esc(user.protect)}"
-  </div>
-
-  <button class="primary" onclick="showPaths()">
-   MOSTRAMI LE DUE STRADE
-  </button>
-
- </section>
-
- `;
-
+function previousQuestion(){
+    if(currentQuestion>0){
+        currentQuestion--;
+        renderQuestion();
+    }
 }
 
-function workLabel(v){
- const m={
-  soddisfatto:"lavoro soddisfacente",
-  insoddisfatto:"lavoro insoddisfacente",
-  instabile:"lavoro instabile",
-  cerca:"ricerca di lavoro",
-  studio:"studio",
-  altro:"situazione lavorativa complessa"
- };
- return m[v]||v;
+
+/* ---------------------------------------------------------
+   PERSONALIZATION ENGINE
+--------------------------------------------------------- */
+
+function cleanText(text){
+    return (text || "").trim();
 }
 
-function moneyLabel(v){
- const m={
-  sereno:"situazione economica serena",
-  attento:"attenzione ai soldi",
-  difficile:"situazione economica difficile",
-  debiti:"debiti/problemi economici"
- };
- return m[v]||v;
+function dreamPhrase(){
+
+    const dream=cleanText(answers.dream);
+
+    if(!dream) return "quel desiderio che continui a rimandare";
+
+    if(dream.length>100){
+        return dream.substring(0,100)+"…";
+    }
+
+    return dream;
 }
 
-function changeLabel(v){
- const m={
-  money:"cambiare la situazione economica",
-  work:"cambiare lavoro",
-  love:"cambiare la vita sentimentale",
-  home:"cambiare casa",
-  self:"cambiare se stessa/o",
-  life:"cambiare vita"
- };
- return m[v]||v;
+
+function buildChoices(){
+
+    const work=answers.work;
+    const money=answers.money;
+    const home=answers.home;
+    const relationship=answers.relationship;
+    const goal=answers.goal;
+    const fear=answers.fear;
+    const lose=answers.lose;
+
+    let safeTitle="VITA A · SICUREZZA";
+    let changeTitle="VITA B · CAMBIAMENTO";
+
+    let safeDesc=
+        "Ridurre il caos, proteggere ciò che hai costruito e cambiare gradualmente.";
+
+    let changeDesc=
+        "Accettare più incertezza per provare ad avvicinarti alla vita che desideri.";
+
+    if(work==="esausto"){
+        safeDesc=
+            "Uscire dalla situazione che ti consuma senza distruggere contemporaneamente la tua sicurezza.";
+    }
+
+    if(work==="indipendente"){
+        changeDesc=
+            "Trasformare il desiderio di indipendenza in qualcosa di concreto, accettando il rischio iniziale.";
+    }
+
+    if(money==="debiti"){
+        safeDesc=
+            "Mettere ordine, ridurre la pressione economica e costruire margine prima di fare mosse radicali.";
+    }
+
+    if(home==="estero" || home==="citta"){
+        changeDesc=
+            "Preparare un cambiamento di luogo e ricostruire gradualmente la tua vita altrove.";
+    }
+
+    if(goal==="famiglia"){
+        safeDesc=
+            "Dare priorità alla stabilità affettiva, economica e abitativa necessaria per costruire una famiglia.";
+    }
+
+    if(goal==="liberta"){
+        changeDesc=
+            "Rimettere al centro autonomia, tempo e possibilità di scegliere una vita meno vincolata.";
+    }
+
+    if(goal==="lavoro"){
+        changeDesc=
+            "Avvicinarti progressivamente a un lavoro più coerente con quello che vuoi davvero fare.";
+    }
+
+    document.getElementById("choiceContent").innerHTML=`
+
+        <div class="choice-box">
+            <span class="life-label">${safeTitle}</span>
+            <h3>${safeTitle}</h3>
+            <p>${safeDesc}</p>
+        </div>
+
+        <div class="choice-box">
+            <span class="life-label">${changeTitle}</span>
+            <h3>${changeTitle}</h3>
+            <p>${changeDesc}</p>
+        </div>
+
+        <div class="card">
+            <h3>La cosa che hai detto e che cambia tutto</h3>
+            <p>
+                Hai detto che vorresti:
+                <strong style="color:white">"${dreamPhrase()}"</strong>
+            </p>
+        </div>
+
+        <button class="btn" onclick="choosePath('A')">
+            VIVI LA VITA A
+        </button>
+
+        <button class="btn secondary" onclick="choosePath('B')" style="margin-top:10px">
+            VIVI LA VITA B
+        </button>
+    `;
 }
 
-function mainTheme(){
 
- if(user.change==="money"||user.money==="debiti")return"economia";
- if(user.change==="work"||["insoddisfatto","instabile","cerca"].includes(user.work))return"lavoro";
- if(user.change==="love"||user.relationship==="dubbi")return"relazioni";
- if(user.change==="home"||["muovere","citta"].includes(user.home))return"casa";
+/* ---------------------------------------------------------
+   LIFE ENGINE
+--------------------------------------------------------- */
 
- return"vita";
+function baseStats(){
+
+    let s={
+        economy:50,
+        work:50,
+        home:50,
+        love:50,
+        wellbeing:50,
+        satisfaction:50,
+        freedom:50
+    };
+
+    if(answers.money==="sereno"){
+        s.economy+=18;
+    }
+
+    if(answers.money==="stretto"){
+        s.economy-=12;
+    }
+
+    if(answers.money==="debiti"){
+        s.economy-=25;
+        s.wellbeing-=8;
+    }
+
+    if(answers.money==="crescita"){
+        s.economy+=8;
+    }
+
+    if(answers.work==="felice"){
+        s.work+=20;
+        s.satisfaction+=12;
+    }
+
+    if(answers.work==="stabile"){
+        s.work+=8;
+    }
+
+    if(answers.work==="insoddisfatto"){
+        s.work-=12;
+        s.satisfaction-=10;
+    }
+
+    if(answers.work==="esausto"){
+        s.work-=22;
+        s.wellbeing-=18;
+        s.satisfaction-=18;
+    }
+
+    if(answers.work==="indipendente"){
+        s.freedom+=15;
+    }
+
+    if(answers.relationship==="felice"){
+        s.love+=25;
+    }
+
+    if(answers.relationship==="incerto"){
+        s.love-=12;
+    }
+
+    if(answers.relationship==="solo"){
+        s.love-=5;
+    }
+
+    if(answers.relationship==="complicato"){
+        s.love-=20;
+        s.wellbeing-=7;
+    }
+
+    if(answers.home==="casa"){
+        s.home+=15;
+    }
+
+    if(answers.home==="estero" || answers.home==="citta"){
+        s.freedom+=10;
+    }
+
+    if(answers.goal==="liberta"){
+        s.freedom+=18;
+    }
+
+    if(answers.goal==="soldi"){
+        s.economy+=10;
+    }
+
+    if(answers.goal==="lavoro"){
+        s.work+=8;
+    }
+
+    if(answers.goal==="pace"){
+        s.wellbeing+=15;
+    }
+
+    Object.keys(s).forEach(k=>{
+        s[k]=clamp(s[k]);
+    });
+
+    return s;
 }
 
-function showPaths(){
-
- const theme=mainTheme();
-
- let A="",B="";
-
- if(theme==="economia"){
-  A="Costruisci sicurezza poco alla volta, riducendo il rischio.";
-  B="Metti in discussione l'equilibrio attuale per cercare una svolta economica.";
- }
-
- if(theme==="lavoro"){
-  A="Mantieni una base stabile mentre costruisci lentamente un'alternativa.";
-  B="Accetti l'incertezza di cambiare direzione professionale.";
- }
-
- if(theme==="relazioni"){
-  A="Provi a proteggere ciò che esiste e costruire maggiore stabilità.";
-  B="Affronti ciò che non funziona, anche se questo può cambiare profondamente la tua vita.";
- }
-
- if(theme==="casa"){
-  A="Rimani dove sei e migliori gradualmente la situazione.";
-  B="Inizi a preparare un cambiamento di casa, città o ambiente.";
- }
-
- if(theme==="vita"){
-  A="Costruisci il cambiamento senza rompere completamente con la vita attuale.";
-  B="Scommetti su un cambiamento più radicale.";
- }
-
- app.innerHTML=`
-
- <section class="screen card">
-
-  <div class="question-number">IL BIVIO</div>
-
-  <h2>Adesso devi scegliere.</h2>
-
-  <p>
-   Non esiste una strada giusta.
-   Esistono conseguenze diverse.
-  </p>
-
-  <div class="choice-grid">
-
-   <button class="life-choice" onclick="choosePath('A')">
-    <div class="letter">VITA A</div>
-    <h3>SICUREZZA</h3>
-    <p>${esc(A)}</p>
-    <span class="badge">più prevedibilità</span>
-    <span class="badge">rischio più contenuto</span>
-   </button>
-
-   <button class="life-choice" onclick="choosePath('B')">
-    <div class="letter">VITA B</div>
-    <h3>CAMBIAMENTO</h3>
-    <p>${esc(B)}</p>
-    <span class="badge">più incertezza</span>
-    <span class="badge">possibile svolta</span>
-   </button>
-
-  </div>
-
- </section>
-
- `;
-
-}
-
-/* ------------------------------
-   MOTORE DELLA SIMULAZIONE
--------------------------------- */
-
-function initialStats(){
-
- let s={
-  economy:50,
-  work:50,
-  home:50,
-  relationship:50,
-  wellbeing:50,
-  satisfaction:50
- };
-
- if(user.money==="debiti")s.economy-=20;
- if(user.money==="difficile")s.economy-=12;
- if(user.money==="attento")s.economy-=5;
-
- if(user.work==="insoddisfatto")s.work-=15;
- if(user.work==="instabile")s.work-=12;
- if(user.work==="cerca")s.work-=18;
-
- if(user.relationship==="dubbi")s.relationship-=12;
-
- if(user.home==="muovere"||user.home==="citta")s.home-=10;
-
- return s;
-
-}
 
 function clamp(n){
- return Math.max(0,Math.min(100,Math.round(n)));
+    return Math.max(0,Math.min(100,Math.round(n)));
 }
 
-function normalize(s){
-
- Object.keys(s).forEach(k=>s[k]=clamp(s[k]));
-
- return s;
-
-}
 
 function createLife(path){
 
- let s=initialStats();
+    let stats=baseStats();
 
- const years=[];
+    const years=[];
 
- /*
-   Ogni anno conserva il proprio snapshot.
-   Quindi i numeri di 1, 3 e 5 anni
-   NON sono più quelli finali.
- */
+    for(let year=1;year<=5;year++){
 
- if(path==="A"){
+        let delta={
+            economy:0,
+            work:0,
+            home:0,
+            love:0,
+            wellbeing:0,
+            satisfaction:0,
+            freedom:0
+        };
 
-  // ANNO 1
-  s.economy+=5;
-  s.work+=2;
-  s.home+=2;
-  s.wellbeing+=3;
-  s.satisfaction-=1;
+        if(path==="A"){
 
-  if(user.money==="debiti")s.economy+=5;
+            delta.economy =
+                answers.money==="debiti" ? 6 :
+                answers.money==="stretto" ? 4 : 2;
 
-  s=normalize(s);
+            delta.work =
+                answers.work==="esausto" ? 3 :
+                answers.work==="insoddisfatto" ? 2 : 1;
 
-  years.push(snapshot(
-   1,
-   s,
-   "Il primo anno",
-   textFor(path,1)
-  ));
+            delta.home=2;
+            delta.love=2;
+            delta.wellbeing=2;
+            delta.satisfaction=2;
+            delta.freedom=1;
 
-  // ANNO 3
-  s.economy+=8;
-  s.work+=4;
-  s.home+=5;
-  s.wellbeing+=2;
-  s.satisfaction+=3;
+            if(year>=3){
+                delta.economy+=3;
+                delta.wellbeing+=2;
+                delta.satisfaction+=2;
+            }
 
-  // il prezzo della sicurezza:
-  // meno rischio, ma cambiamento più lento
-  if(user.change==="work"||user.change==="life"){
-   s.satisfaction-=3;
-  }
+        }else{
 
-  s=normalize(s);
+            delta.economy =
+                answers.money==="debiti" ? -2 :
+                answers.money==="stretto" ? 2 : 4;
 
-  years.push(snapshot(
-   3,
-   s,
-   "Tre anni dopo",
-   textFor(path,3)
-  ));
+            delta.work =
+                answers.work==="esausto" ? 7 :
+                answers.work==="insoddisfatto" ? 6 :
+                answers.work==="indipendente" ? 8 : 3;
 
-  // ANNO 5
-  s.economy+=9;
-  s.work+=5;
-  s.home+=5;
-  s.wellbeing+=5;
-  s.satisfaction+=5;
+            delta.home =
+                answers.home==="estero" || answers.home==="citta"
+                ? 6 : 2;
 
-  if(user.change==="money")s.economy+=4;
+            delta.love =
+                answers.relationship==="incerto" ||
+                answers.relationship==="complicato"
+                ? -1 : 2;
 
-  if(user.change==="work"||user.change==="life"){
-   s.satisfaction-=2;
-  }
+            delta.wellbeing =
+                answers.fear==="incertezza" ? 0 : 3;
 
-  s=normalize(s);
+            delta.satisfaction=6;
+            delta.freedom=7;
 
-  years.push(snapshot(
-   5,
-   s,
-   "Cinque anni dopo",
-   textFor(path,5)
-  ));
+            if(year>=3){
+                delta.economy+=3;
+                delta.work+=3;
+                delta.satisfaction+=3;
+                delta.freedom+=3;
+            }
+        }
 
- }else{
+        Object.keys(stats).forEach(k=>{
+            stats[k]=clamp(stats[k]+delta[k]);
+        });
 
-  // ANNO 1
-  s.economy-=6;
-  s.work+=7;
-  s.home-=3;
-  s.wellbeing-=4;
-  s.satisfaction+=5;
+        years.push({
+            year,
+            stats:{...stats}
+        });
+    }
 
-  if(user.change==="work")s.work+=6;
-  if(user.change==="money")s.economy-=2;
-
-  s=normalize(s);
-
-  years.push(snapshot(
-   1,
-   s,
-   "Il primo anno",
-   textFor(path,1)
-  ));
-
-  // ANNO 3
-  s.economy+=7;
-  s.work+=8;
-  s.home+=4;
-  s.wellbeing+=6;
-  s.satisfaction+=8;
-
-  if(user.change==="money")s.economy+=8;
-  if(user.change==="home")s.home+=7;
-  if(user.change==="love")s.relationship+=7;
-
-  s=normalize(s);
-
-  years.push(snapshot(
-   3,
-   s,
-   "Tre anni dopo",
-   textFor(path,3)
-  ));
-
-  // ANNO 5
-  s.economy+=5;
-  s.work+=5;
-  s.home+=7;
-  s.wellbeing+=7;
-  s.satisfaction+=8;
-
-  if(user.change==="work")s.work+=5;
-  if(user.change==="life")s.satisfaction+=5;
-  if(user.goal==="economic")s.economy+=5;
-  if(user.goal==="freedom")s.wellbeing+=5;
-
-  s=normalize(s);
-
-  years.push(snapshot(
-   5,
-   s,
-   "Cinque anni dopo",
-   textFor(path,5)
-  ));
-
- }
-
- return{
-  path:path,
-  years:years,
-  final:years[2].stats
- };
-
+    return {
+        path,
+        years,
+        narrative:createNarratives(path),
+        title:path==="A"
+            ? "La vita che protegge ciò che hai"
+            : "La vita che prova a cambiare tutto"
+    };
 }
 
-function snapshot(year,stats,title,text){
 
- return{
-  year:year,
-  title:title,
-  text:text,
-  stats:{...stats}
- };
+/* ---------------------------------------------------------
+   NARRATIVES
+--------------------------------------------------------- */
 
+function createNarratives(path){
+
+    const dream=dreamPhrase();
+    const goal=answers.goal;
+
+    const workText =
+        answers.work==="esausto"
+        ? "il rapporto con il lavoro"
+        : answers.work==="indipendente"
+        ? "il desiderio di costruire qualcosa di tuo"
+        : "il tuo lavoro";
+
+    const moneyText =
+        answers.money==="debiti"
+        ? "la necessità di rimettere ordine nei soldi"
+        : "la tua situazione economica";
+
+    const homeText =
+        answers.home==="estero"
+        ? "l'idea di vivere all'estero"
+        : answers.home==="citta"
+        ? "il desiderio di cambiare città"
+        : "la tua situazione abitativa";
+
+    if(path==="A"){
+
+        return {
+            1:
+            `Il primo anno non è quello delle rivoluzioni. È quello in cui inizi a riprendere il controllo. ${moneyText} pesa ancora, ma alcune decisioni diventano più ordinate. ${workText} cambia lentamente. La cosa più importante è che smetti di vivere ogni scelta come un'emergenza. Il desiderio di "${dream}" rimane lì, ma ora lo guardi con meno paura.`,
+
+            3:
+            `Al terzo anno qualcosa è cambiato senza fare rumore. Hai costruito più stabilità e alcune delle preoccupazioni che oggi sembrano enormi hanno perso parte del loro peso. ${homeText} è più definita. Anche il rapporto con le persone importanti è diventato più chiaro. Non hai necessariamente ottenuto tutto quello che sognavi, ma hai recuperato spazio mentale per chiederti cosa vuoi davvero.`,
+
+            5:
+            `Cinque anni dopo guardi indietro e riconosci una cosa: non hai scelto la strada più rumorosa, hai scelto quella che ti permetteva di costruire. La tua vita è più prevedibile. Il tuo obiettivo — ${goalLabel(goal)} — ha fatto progressi concreti. E "${dream}"? Forse non è più un sogno impossibile. È diventato qualcosa che puoi ancora scegliere.`
+        };
+
+    }
+
+    return {
+        1:
+        `Il primo anno è il più scomodo. Cambiare davvero significa accettare che alcune certezze possano tremare. ${workText} diventa il primo punto di svolta. ${moneyText} non sparisce magicamente, ma inizi a prendere decisioni pensando anche al futuro e non solo alla paura del presente. Il sogno "${dream}" smette di essere soltanto una fantasia.`,
+
+        3:
+        `Al terzo anno la tua vita assomiglia molto meno a quella di oggi. Hai dovuto rinunciare a qualcosa, ma hai guadagnato possibilità che prima non avevi. ${homeText} potrebbe essere cambiata. Il lavoro ha preso una direzione nuova. Alcune relazioni si sono rafforzate, altre sono diventate più vere proprio perché hai smesso di fingere che nulla dovesse cambiare.`,
+
+        5:
+        `Cinque anni dopo non puoi sapere se questa sarebbe stata "la scelta giusta". Ma puoi riconoscere una cosa: hai smesso di chiederti continuamente "e se?". ${goalLabel(goal)} è diventato il centro di una vita più tua. E il sogno "${dream}" non è più soltanto qualcosa che avresti voluto fare: è diventato parte della storia che hai provato a costruire.`
+    };
 }
 
-function textFor(path,year){
 
- const dream=user.dream;
+function goalLabel(goal){
 
- if(path==="A"){
+    const map={
+        liberta:"la tua libertà",
+        soldi:"la tua stabilità economica",
+        lavoro:"un lavoro più vicino a ciò che desideri",
+        famiglia:"la famiglia che desideravi",
+        casa:"la casa che desideravi",
+        pace:"la tua serenità"
+    };
 
-  if(year===1){
-   return `Hai scelto di non stravolgere tutto. Nel primo anno cerchi soprattutto stabilità. "${dream}" resta importante, ma provi ad avvicinarti a quel desiderio senza mettere tutto in gioco.`;
-  }
-
-  if(year===3){
-   return `La scelta prudente comincia a produrre risultati. Alcune cose sono più ordinate e hai maggiore controllo. Però ogni tanto torna una domanda: "E se avessi osato di più?"`;
-  }
-
-  return `A cinque anni hai costruito una vita più prevedibile. Hai protetto ciò che per te conta, ma il cambiamento che desideravi è arrivato più lentamente. "${dream}" è ancora parte della tua storia.`;
-
- }
-
- if(year===1){
-  return `Hai deciso di muovere qualcosa. Il primo anno è il più difficile: ci sono dubbi, imprevisti e momenti di incertezza. Ma per la prima volta stai davvero provando a cambiare ciò che desideri.`;
- }
-
- if(year===3){
-  return `La nuova direzione comincia a diventare normale. Non tutto è andato come immaginavi, ma alcune opportunità sono nate proprio perché hai cambiato strada.`;
- }
-
- return `A cinque anni guardi indietro e riconosci una cosa: non hai ottenuto una vita perfetta, hai ottenuto una vita diversa. E soprattutto sai di aver scelto di cambiarla.`;
-
+    return map[goal] || "ciò che desideravi davvero";
 }
 
-/* ------------------------------
-   VISUALIZZAZIONE
--------------------------------- */
+
+/* ---------------------------------------------------------
+   CHOOSE
+--------------------------------------------------------- */
 
 function choosePath(path){
 
- chosenPath=path;
- alternativePath=path==="A"?"B":"A";
+    selectedPath=path;
 
- lives[path]=createLife(path);
+    simulation=createLife(path);
+    alternativeSimulation=createLife(path==="A" ? "B" : "A");
 
- showYear(1);
+    currentYear=1;
 
+    document.getElementById("timelineEyebrow").textContent=
+        path==="A" ? "VITA A · SICUREZZA" : "VITA B · CAMBIAMENTO";
+
+    document.getElementById("timelineTitle").textContent=
+        simulation.title;
+
+    document.getElementById("timelineIntro").textContent=
+        `Questa è una possibile evoluzione della tua vita. Non è una previsione.`;
+
+    showScreen("timeline");
+
+    showYear(1);
 }
+
+
+/* ---------------------------------------------------------
+   SHOW YEAR
+--------------------------------------------------------- */
 
 function showYear(year){
 
- const life=lives[chosenPath];
- const item=life.years.find(x=>x.year===year);
+    currentYear=year;
 
- app.innerHTML=`
+    [1,3,5].forEach(y=>{
+        document.getElementById("year"+y)
+            .classList.toggle("active",y===year);
+    });
 
- <section class="screen card">
+    const item=
+        simulation.years.find(x=>x.year===year);
 
-  <div class="year">
-   VITA ${chosenPath} · ${year} ${year===1?"ANNO":"ANNI"}
-  </div>
+    document.getElementById("narrative").textContent=
+        simulation.narrative[year];
 
-  <h2>${esc(item.title)}</h2>
+    renderStats(
+        document.getElementById("stats"),
+        item.stats
+    );
 
-  <p>${esc(item.text)}</p>
-
-  <div class="stats">
-
-   ${statBox("💰","Economia",item.stats.economy)}
-   ${statBox("💼","Lavoro",item.stats.work)}
-   ${statBox("🏠","Casa",item.stats.home)}
-   ${statBox("❤️","Relazioni",item.stats.relationship)}
-   ${statBox("🧠","Benessere",item.stats.wellbeing)}
-   ${statBox("⭐","Soddisfazione",item.stats.satisfaction)}
-
-  </div>
-
-  <div class="note">
-   Indice narrativo della simulazione — non rappresenta una probabilità reale.
-  </div>
-
-  ${
-   year===5
-   ?
-   `<button class="primary" onclick="showAlternative()">
-     E SE AVESSI SCELTO L'ALTRA STRADA?
-    </button>`
-   :
-   `<button class="primary" onclick="showYear(${year===1?3:5})">
-     CONTINUA LA VITA →
-    </button>`
-  }
-
- </section>
-
- `;
-
+    document.getElementById("eventCard").innerHTML=
+        `<h3>${year===1
+            ?"Il primo passo"
+            :year===3
+            ?"Quello che è cambiato"
+            :"La persona che sei diventato/a"}</h3>
+         <p>${eventText(year,simulation.path)}</p>`;
 }
 
-function statBox(icon,label,value){
 
- return`
+function eventText(year,path){
 
- <div class="stat">
+    if(path==="A"){
 
-  <div class="stat-label">
-   ${icon} ${label}
-  </div>
+        if(year===1)
+            return "Hai iniziato a privilegiare decisioni sostenibili invece di cercare una soluzione immediata.";
 
-  <div class="stat-value">
-   ${value}/100
-  </div>
+        if(year===3)
+            return "La stabilità che all'inizio sembrava una rinuncia è diventata una base da cui puoi ancora scegliere.";
 
-  <div class="stat-bar">
-   <div class="stat-fill" style="width:${value}%"></div>
-  </div>
+        return "A cinque anni hai più controllo. La domanda non è più soltanto cosa devi fare, ma cosa vuoi fare.";
 
- </div>
+    }
 
- `;
+    if(year===1)
+        return "Hai iniziato a fare spazio a una possibilità che prima sembrava troppo rischiosa.";
 
+    if(year===3)
+        return "Le conseguenze delle tue decisioni sono ormai concrete. La tua vita è diversa, nel bene e nel difficile.";
+
+    return "A cinque anni non hai cancellato il passato: hai costruito una versione diversa della tua storia.";
 }
+
+
+/* ---------------------------------------------------------
+   STATS
+--------------------------------------------------------- */
+
+function renderStats(container,stats){
+
+    const names={
+        economy:"💰 Economia",
+        work:"💼 Lavoro",
+        home:"🏠 Casa",
+        love:"❤️ Relazioni",
+        wellbeing:"🧠 Benessere",
+        satisfaction:"⭐ Soddisfazione",
+        freedom:"🕊️ Libertà"
+    };
+
+    container.innerHTML="";
+
+    Object.keys(names).forEach(k=>{
+
+        const value=stats[k];
+
+        const div=document.createElement("div");
+        div.className="stat";
+
+        div.innerHTML=`
+            <div class="stat-top">
+                <span class="stat-name">${names[k]}</span>
+                <span class="stat-value">${value}/100</span>
+            </div>
+            <div class="bar">
+                <div style="width:${value}%"></div>
+            </div>
+        `;
+
+        container.appendChild(div);
+    });
+}
+
+
+/* ---------------------------------------------------------
+   ALTERNATIVE
+--------------------------------------------------------- */
 
 function showAlternative(){
 
- lives[alternativePath]=createLife(alternativePath);
+    document.getElementById("alternativeTitle").textContent=
+        alternativeSimulation.title;
 
- app.innerHTML=`
+    document.getElementById("alternativeIntro").textContent=
+        "Questa è la strada che hai lasciato sul tavolo.";
 
- <section class="screen card center">
+    showScreen("alternative");
 
-  <div class="question-number">
-   LA VITA CHE NON HAI SCELTO
-  </div>
-
-  <div class="final-title">
-   E SE?
-  </div>
-
-  <p>
-   Hai appena esplorato una possibile versione
-   della tua vita.
-  </p>
-
-  <p>
-   Ora torniamo allo stesso bivio.
-   Cambia soltanto una decisione.
-  </p>
-
-  <div class="quote">
-   Non per dirti quale vita sarebbe stata migliore.
-   Ma per mostrarti dove potevano portarti due scelte diverse.
-  </div>
-
-  <button class="primary" onclick="showAlternativeTimeline()">
-   VIVI L'ALTRA VITA
-  </button>
-
-  <button class="secondary" onclick="showComparison()">
-   CONFRONTA SUBITO LE DUE VITE
-  </button>
-
- </section>
-
- `;
-
+    showAlternativeYear(1);
 }
 
-function showAlternativeTimeline(){
 
- const life=lives[alternativePath];
+function showAlternativeYear(year){
 
- app.innerHTML=`
+    [1,3,5].forEach(y=>{
+        document.getElementById("alt"+y)
+            .classList.toggle("active",y===year);
+    });
 
- <section class="screen card">
+    const item=
+        alternativeSimulation.years.find(x=>x.year===year);
 
-  <div class="year">
-   VITA ${alternativePath} · LA STRADA NON SCELTA
-  </div>
+    document.getElementById("alternativeNarrative").textContent=
+        alternativeSimulation.narrative[year];
 
-  <h2>Questa volta scegli diversamente.</h2>
-
-  <p>
-   Stesso punto di partenza.
-   Una decisione diversa.
-  </p>
-
-  <div class="timeline">
-
-   ${life.years.map(item=>`
-
-    <div class="timeline-item">
-
-     <div class="year">
-      ${item.year} ${item.year===1?"ANNO":"ANNI"}
-     </div>
-
-     <h3>${esc(item.title)}</h3>
-
-     <p>${esc(item.text)}</p>
-
-     <div class="stats">
-
-      ${statBox("💰","Economia",item.stats.economy)}
-      ${statBox("💼","Lavoro",item.stats.work)}
-      ${statBox("🧠","Benessere",item.stats.wellbeing)}
-      ${statBox("⭐","Soddisfazione",item.stats.satisfaction)}
-
-     </div>
-
-    </div>
-
-   `).join("")}
-
-  </div>
-
-  <button class="primary" onclick="showComparison()">
-   CONFRONTA LE DUE VITE
-  </button>
-
- </section>
-
- `;
-
+    renderStats(
+        document.getElementById("alternativeStats"),
+        item.stats
+    );
 }
 
-function compareRow(label,value){
 
- return`
-
- <div class="compare-row">
-
-  <span class="compare-label">
-   ${label}
-  </span>
-
-  <span class="compare-value">
-   ${esc(value)}
-  </span>
-
- </div>
-
- `;
-
+function goBackToTimeline(){
+    showScreen("timeline");
+    showYear(currentYear);
 }
 
-function valueText(v){
 
- if(v>=80)return"Molto alto";
- if(v>=65)return"Alto";
- if(v>=50)return"Medio";
- if(v>=35)return"Basso";
- return"Molto basso";
-
-}
+/* ---------------------------------------------------------
+   COMPARISON
+--------------------------------------------------------- */
 
 function showComparison(){
 
- const a=lives.A;
- const b=lives.B;
+    const a=simulation.years.find(x=>x.year===5).stats;
+    const b=alternativeSimulation.years.find(x=>x.year===5).stats;
 
- const sa=a.final;
- const sb=b.final;
+    const names={
+        economy:"💰 Economia",
+        work:"💼 Lavoro",
+        home:"🏠 Casa",
+        love:"❤️ Relazioni",
+        wellbeing:"🧠 Benessere",
+        satisfaction:"⭐ Soddisfazione",
+        freedom:"🕊️ Libertà"
+    };
 
- app.innerHTML=`
+    let html="";
 
- <section class="screen">
+    Object.keys(names).forEach(k=>{
 
-  <div class="card center">
+        html+=`
+            <div class="compare-row">
+                <div class="compare-top">
+                    <span>${names[k]}</span>
+                    <span>${a[k]} · ${b[k]}</span>
+                </div>
 
-   <div class="question-number">
-    IL CONFRONTO
-   </div>
+                <div class="compare-bars">
+                    <div class="compare-bar">
+                        <div style="width:${a[k]}%"></div>
+                    </div>
 
-   <h1 class="final-title">
-    LE DUE VITE
-   </h1>
+                    <div class="compare-bar">
+                        <div style="width:${b[k]}%"></div>
+                    </div>
+                </div>
 
-   <p>
-    Due versioni della stessa persona.
-    Due strade partite dallo stesso punto.
-   </p>
+                <div style="display:flex;justify-content:space-between;font-size:11px;color:#777;margin-top:6px">
+                    <span>Vita ${simulation.path}</span>
+                    <span>Vita ${alternativeSimulation.path}</span>
+                </div>
+            </div>
+        `;
+    });
 
-   <div class="quote">
-    La domanda non è quale vita sia migliore.
-    <br><br>
-    La domanda è:
-    <br>
-    <strong>quale vita assomiglia di più a quella che vuoi provare?</strong>
-   </div>
+    document.getElementById("comparisonContent").innerHTML=html;
 
-  </div>
+    const goal=answers.goal;
 
-  <div class="compare">
+    document.getElementById("finalQuestion").textContent=
+        goal==="liberta"
+        ? "Quale delle due vite ti lascia più spazio per essere libero/a?"
+        : goal==="soldi"
+        ? "Quale delle due vite ti avvicina di più alla sicurezza economica che desideri?"
+        : goal==="lavoro"
+        ? "Quale delle due vite ti avvicina al lavoro che vorresti davvero?"
+        : goal==="famiglia"
+        ? "Quale delle due vite sembra più vicina alla famiglia che immagini?"
+        : goal==="casa"
+        ? "In quale delle due vite ti riconosci di più quando immagini casa?"
+        : goal==="pace"
+        ? "Quale delle due vite sembra lasciarti più spazio per respirare?"
+        : "Se potessi vedere entrambe queste vite davanti a te, quale ti incuriosirebbe di più?";
 
-   <div class="compare-column">
-
-    <div class="compare-title">
-     VITA A · SICUREZZA
-    </div>
-
-    ${compareRow("💰 Economia",valueText(sa.economy)+" · "+sa.economy+"/100")}
-    ${compareRow("💼 Lavoro",valueText(sa.work)+" · "+sa.work+"/100")}
-    ${compareRow("🏠 Casa",valueText(sa.home)+" · "+sa.home+"/100")}
-    ${compareRow("❤️ Relazioni",valueText(sa.relationship)+" · "+sa.relationship+"/100")}
-    ${compareRow("🧠 Benessere",valueText(sa.wellbeing)+" · "+sa.wellbeing+"/100")}
-    ${compareRow("⭐ Soddisfazione",valueText(sa.satisfaction)+" · "+sa.satisfaction+"/100")}
-
-   </div>
-
-   <div class="compare-column">
-
-    <div class="compare-title">
-     VITA B · CAMBIAMENTO
-    </div>
-
-    ${compareRow("💰 Economia",valueText(sb.economy)+" · "+sb.economy+"/100")}
-    ${compareRow("💼 Lavoro",valueText(sb.work)+" · "+sb.work+"/100")}
-    ${compareRow("🏠 Casa",valueText(sb.home)+" · "+sb.home+"/100")}
-    ${compareRow("❤️ Relazioni",valueText(sb.relationship)+" · "+sb.relationship+"/100")}
-    ${compareRow("🧠 Benessere",valueText(sb.wellbeing)+" · "+sb.wellbeing+"/100")}
-    ${compareRow("⭐ Soddisfazione",valueText(sb.satisfaction)+" · "+sb.satisfaction+"/100")}
-
-   </div>
-
-  </div>
-
-  <div class="card">
-
-   <h3>Il significato del bivio</h3>
-
-   <p>
-    La <strong>Vita A</strong> privilegia stabilità,
-    controllo e cambiamenti graduali.
-   </p>
-
-   <p>
-    La <strong>Vita B</strong> accetta più incertezza
-    per aumentare la possibilità di trasformazione.
-   </p>
-
-   <div class="quote">
-    Non esiste una vita perfetta.
-    Esistono vite con compromessi diversi.
-   </div>
-
-   <p class="small">
-    I punteggi sono indicatori narrativi generati
-    dalla simulazione sulla base delle risposte inserite.
-    Non sono percentuali di successo e non prevedono il futuro.
-   </p>
-
-   <button class="primary" onclick="shareResult()">
-    CONDIVIDI IL MIO E SE?
-   </button>
-
-   <button class="secondary" onclick="restart()">
-    PROVA UN'ALTRA VITA
-   </button>
-
-  </div>
-
-  <p class="small center">
-   E SE? · Prova una vita prima di viverla.
-  </p>
-
- </section>
-
- `;
-
+    showScreen("comparison");
 }
 
-function shareResult(){
 
- const text=
-`E SE?
-Prova una vita prima di viverla.
+/* ---------------------------------------------------------
+   SAVE
+--------------------------------------------------------- */
 
-Ho appena esplorato due possibili versioni della mia vita.
+function getSavedLives(){
+
+    try{
+        return JSON.parse(
+            localStorage.getItem("ese_lives") || "[]"
+        );
+    }catch(e){
+        return [];
+    }
+}
+
+
+function saveCurrentLife(){
+
+    if(!simulation) return;
+
+    const lives=getSavedLives();
+
+    const name=
+        cleanText(answers.name) ||
+        "La mia simulazione";
+
+    const record={
+        id:Date.now(),
+        name,
+        date:new Date().toLocaleDateString("it-IT"),
+        answers:{...answers},
+        simulation,
+        alternativeSimulation
+    };
+
+    lives.unshift(record);
+
+    localStorage.setItem(
+        "ese_lives",
+        JSON.stringify(lives.slice(0,20))
+    );
+
+    alert("💾 Vita salvata!");
+
+    showSavedLives();
+}
+
+
+function showSavedLives(){
+
+    renderSavedLives();
+    showScreen("saved");
+}
+
+
+function renderSavedLives(){
+
+    const lives=getSavedLives();
+
+    const container=document.getElementById("savedList");
+
+    if(!lives.length){
+
+        container.innerHTML=`
+            <div class="card">
+                <h3>Non hai ancora salvato nessuna vita.</h3>
+                <p>
+                    Completa una simulazione e salvala.
+                    Potrai tornarci quando vorrai.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+    container.innerHTML="";
+
+    lives.forEach(life=>{
+
+        const item=document.createElement("div");
+        item.className="saved-item";
+
+        item.innerHTML=`
+            <div>
+                <span class="badge">${life.date}</span>
+                <h4>${escapeHTML(life.name)}</h4>
+                <p>
+                    ${life.simulation.path==="A"
+                    ?"Vita A · Sicurezza"
+                    :"Vita B · Cambiamento"}
+                </p>
+            </div>
+
+            <button class="btn small secondary">
+                Apri
+            </button>
+        `;
+
+        item.querySelector("button").onclick=()=>{
+            loadLife(life.id);
+        };
+
+        container.appendChild(item);
+    });
+}
+
+
+function loadLife(id){
+
+    const lives=getSavedLives();
+
+    const life=lives.find(x=>x.id===id);
+
+    if(!life) return;
+
+    answers=life.answers;
+    simulation=life.simulation;
+    alternativeSimulation=life.alternativeSimulation;
+    selectedPath=simulation.path;
+    currentYear=1;
+
+    document.getElementById("timelineEyebrow").textContent=
+        selectedPath==="A"
+        ? "VITA A · SICUREZZA"
+        : "VITA B · CAMBIAMENTO";
+
+    document.getElementById("timelineTitle").textContent=
+        simulation.title;
+
+    document.getElementById("timelineIntro").textContent=
+        "Una simulazione che avevi salvato.";
+
+    showScreen("timeline");
+
+    showYear(1);
+}
+
+
+function deleteAllLives(){
+
+    if(!confirm("Vuoi davvero cancellare tutte le simulazioni salvate?")){
+        return;
+    }
+
+    localStorage.removeItem("ese_lives");
+
+    renderSavedLives();
+}
+
+
+function escapeHTML(str){
+
+    return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+}
+
+
+/* ---------------------------------------------------------
+   SHARE
+--------------------------------------------------------- */
+
+async function shareSimulation(){
+
+    if(!simulation) return;
+
+    const five=
+        simulation.years.find(x=>x.year===5).stats;
+
+    const text=
+`E SE? — Prova una vita prima di viverla.
+
+Ho simulato una possibile versione della mia vita tra 5 anni.
+
+💼 Lavoro: ${five.work}/100
+💰 Economia: ${five.economy}/100
+🏠 Casa: ${five.home}/100
+❤️ Relazioni: ${five.love}/100
+🧠 Benessere: ${five.wellbeing}/100
+⭐ Soddisfazione: ${five.satisfaction}/100
 
 E tu?
-Quale vita proveresti?
+Prova una vita prima di viverla.
+`;
 
-https://e-se-change.github.io/E-SE/`;
+    if(navigator.share){
 
- if(navigator.share){
+        try{
+            await navigator.share({
+                title:"E SE? — Prova una vita prima di viverla",
+                text
+            });
 
-  navigator.share({
-   title:"E SE? — Prova una vita prima di viverla",
-   text:text
-  }).catch(()=>{});
+            return;
 
- }else{
+        }catch(e){}
+    }
 
-  navigator.clipboard?.writeText(text);
+    try{
 
-  alert("Testo copiato! Puoi incollarlo dove vuoi.");
+        await navigator.clipboard.writeText(text);
 
- }
+        alert("🔗 Testo copiato! Ora puoi incollarlo dove vuoi.");
 
+    }catch(e){
+
+        prompt(
+            "Copia questo testo:",
+            text
+        );
+    }
 }
+
+
+/* ---------------------------------------------------------
+   E SE? IN DUE
+--------------------------------------------------------- */
+
+function showTwoPeople(){
+
+    document.getElementById("person1").value="";
+    document.getElementById("person2").value="";
+    twoChoice=null;
+
+    document.querySelectorAll("#twoChoices .option")
+        .forEach(x=>x.classList.remove("selected"));
+
+    showScreen("twoPeople");
+}
+
+
+function selectTwoChoice(button,value){
+
+    twoChoice=value;
+
+    document.querySelectorAll("#twoChoices .option")
+        .forEach(x=>x.classList.remove("selected"));
+
+    button.classList.add("selected");
+}
+
+
+function generateTwoPeople(){
+
+    const p1=
+        cleanText(document.getElementById("person1").value)
+        || "Persona 1";
+
+    const p2=
+        cleanText(document.getElementById("person2").value)
+        || "Persona 2";
+
+    if(!twoChoice){
+
+        alert("Scegli il bivio.");
+        return;
+    }
+
+    const descriptions={
+
+        restare:
+        `Nei primi mesi ${p1} e ${p2} scelgono di non stravolgere la propria vita. Proteggono ciò che hanno costruito. Le decisioni diventano più prudenti, ma anche più prevedibili. Nel tempo questa scelta può trasformare la stabilità in una base molto solida — oppure far nascere la domanda "e se avessimo provato?".`,
+
+        cambiare:
+        `${p1} e ${p2} decidono di cambiare direzione. Non tutto funziona subito: ci sono adattamenti, spese, dubbi e momenti in cui uno dei due potrebbe chiedersi se ne sia valsa la pena. Ma dopo alcuni anni la loro quotidianità è diventata molto diversa da quella di partenza.`,
+
+        rischiare:
+        `${p1} e ${p2} fanno una scelta che fino a quel momento avevano considerato troppo rischiosa. All'inizio perdono parte della prevedibilità che avevano. In compenso aprono possibilità che prima non esistevano. La loro storia diventa meno lineare e molto più dipendente dalle decisioni che prenderanno strada facendo.`,
+
+        aspettare:
+        `${p1} e ${p2} decidono di non forzare la situazione. Per un po' la vita continua quasi come prima. Questa scelta permette loro di raccogliere informazioni e prepararsi meglio, ma porta anche una conseguenza: il tempo passa e alcune occasioni potrebbero cambiare forma.`
+    };
+
+    const stats={
+        restare:{
+            stability:82,
+            freedom:48,
+            change:32,
+            pressure:35,
+            satisfaction:68
+        },
+        cambiare:{
+            stability:55,
+            freedom:73,
+            change:86,
+            pressure:62,
+            satisfaction:76
+        },
+        rischiare:{
+            stability:38,
+            freedom:84,
+            change:94,
+            pressure:78,
+            satisfaction:71
+        },
+        aspettare:{
+            stability:70,
+            freedom:52,
+            change:40,
+            pressure:28,
+            satisfaction:57
+        }
+    };
+
+    const s=stats[twoChoice];
+
+    document.getElementById("twoResultTitle").textContent=
+        `${p1} & ${p2}`;
+
+    document.getElementById("twoResultIntro").textContent=
+        `La strada scelta: ${twoChoice}`;
+
+    document.getElementById("twoResultText").textContent=
+        descriptions[twoChoice];
+
+    const statNames={
+        stability:"🏠 Stabilità",
+        freedom:"🕊️ Libertà",
+        change:"🌪️ Cambiamento",
+        pressure:"⚡ Pressione",
+        satisfaction:"⭐ Soddisfazione"
+    };
+
+    const container=document.getElementById("twoStats");
+
+    container.innerHTML="";
+
+    Object.keys(statNames).forEach(k=>{
+
+        const value=s[k];
+
+        container.innerHTML+=`
+            <div class="stat">
+                <div class="stat-top">
+                    <span class="stat-name">${statNames[k]}</span>
+                    <span class="stat-value">${value}/100</span>
+                </div>
+                <div class="bar">
+                    <div style="width:${value}%"></div>
+                </div>
+            </div>
+        `;
+    });
+
+    document.getElementById("twoQuestion").textContent=
+        twoChoice==="restare"
+        ? "Se tra cinque anni foste ancora qui, sareste felici di aver protetto questa vita?"
+        : twoChoice==="cambiare"
+        ? "Se tra cinque anni guardaste indietro, sareste più dispiaciuti per ciò che avete perso o per ciò che non avete mai provato?"
+        : twoChoice==="rischiare"
+        ? "Quanto della vostra vita siete disposti a mettere in gioco per scoprire cosa potrebbe esserci dall'altra parte?"
+        : "Quanto tempo volete davvero aspettare prima che decidere diventi inevitabile?";
+
+    showScreen("twoResult");
+}
+
+
+/* ---------------------------------------------------------
+   HOME / RESTART
+--------------------------------------------------------- */
+
+function goHome(){
+    showScreen("home");
+}
+
 
 function restart(){
-
- user={
-  name:"",
-  age:"",
-  work:"",
-  money:"",
-  relationship:"",
-  home:"",
-  change:"",
-  dream:"",
-  protect:"",
-  goal:""
- };
-
- currentQuestion=0;
- chosenPath=null;
- alternativePath=null;
- lives={A:null,B:null};
-
- showIntro();
-
+    startSimulation();
 }
 
-showIntro();
+
+/* ---------------------------------------------------------
+   INIT
+--------------------------------------------------------- */
+
+showScreen("home");
 
 </script>
 
