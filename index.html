@@ -301,7 +301,7 @@ hr{
 
 <script>
 /* =========================================================
-   E SE? V14.2 DEFINITIVO (E ADESSO DINAMICO E CONTINUABILE)
+   E SE? V14.3 DEFINITIVO (E ADESSO DINAMICO E CONTINUABILE)
    ========================================================= */
 
 const K={
@@ -2246,10 +2246,10 @@ function saveNowStep2(){
 }
 
 function saveNowStep3(){
-  const fearVal=document.getElementById("nowFearInput").value.trim();
+  const fearVal=document.getElementById("nowFearInput") ? document.getElementById("nowFearInput").value.trim() : "";
   data.currentNow.fear=fearVal||"Il timore di sbagliare";
   
-  // Aggiunge o aggiorna la sessione nell'array e salva su localStorage
+  // Salva o aggiorna nella lista delle sessioni
   const existingIndex=data.nowSessions.findIndex(s=>s.id===data.currentNow.id);
   if(existingIndex>=0){
     data.nowSessions[existingIndex]=data.currentNow;
