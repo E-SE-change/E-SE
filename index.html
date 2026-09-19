@@ -198,14 +198,6 @@ label{
   margin:3px;
 }
 
-.life{
-  border-radius:18px;
-  padding:18px;
-  margin:14px 0;
-  border:1px solid #30303c;
-  background:#111119;
-}
-
 .event{
   border-left:3px solid #7563ff;
   padding:13px 15px;
@@ -217,36 +209,6 @@ label{
 .event strong{
   display:block;
   margin-bottom:5px;
-}
-
-.timeline{
-  position:relative;
-  padding-left:18px;
-}
-
-.timeline:before{
-  content:"";
-  position:absolute;
-  left:3px;
-  top:5px;
-  bottom:5px;
-  width:2px;
-  background:#39394b;
-}
-
-.timeline .event{
-  position:relative;
-}
-
-.timeline .event:before{
-  content:"";
-  position:absolute;
-  left:-22px;
-  top:17px;
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:#8b6cff;
 }
 
 .section-title{
@@ -307,23 +269,6 @@ hr{
   padding:16px;
 }
 
-.tag{
-  display:inline-block;
-  padding:4px 8px;
-  border-radius:8px;
-  background:#242438;
-  margin:3px;
-  font-size:12px;
-}
-
-.reality{
-  background:#101016;
-  border:1px solid #343444;
-  padding:15px;
-  border-radius:14px;
-  margin-top:10px;
-}
-
 .notice{
   padding:14px;
   background:#191923;
@@ -356,7 +301,7 @@ hr{
 
 <script>
 /* =========================================================
-   E SE? V10.4 DEFINITIVO (CONFRONTO NEUTRALE APPROFONDITO)
+   E SE? V11.0 DEFINITIVO (E ADESSO? INDIPENDENTE E ANALITICO)
    ========================================================= */
 
 const K={
@@ -431,7 +376,7 @@ function showIntro(){
       <div class="notice">
         <h3>📖 Informazioni sul Servizio e Contenuti</h3>
         <p style="margin-top: 6px;">
-          <strong>E SE?</strong> è uno spazio interattivo di riflessione personale e intrattenimento strutturato in tre moduli principali per esplorare opzioni future, dinamiche relazionali e gestione delle priorità quotidiane.
+          <strong>E SE?</strong> è uno spazio interattivo di riflessione personale e intrattenimento strutturato in tre moduli principali per esplorare opzioni future, dinamiche relazionali e gestione dei bivi del presente.
         </p>
       </div>
 
@@ -452,9 +397,9 @@ function showIntro(){
 
       <div class="card home-card" style="margin:16px 0; background:#181822;">
         <div>
-          <h3>⚡ E ADESSO? — Gestione delle Priorità</h3>
+          <h3>⚡ E ADESSO? — Il bivio immediato</h3>
           <p class="small muted" style="margin-top:6px;">
-            Uno strumento incentrato sul presente per riordinare i pensieri, alleggerire il carico emotivo e isolare il prossimo passo concreto da compiere.
+            Uno strumento autonomo da usare in qualsiasi momento per sciogliere un dubbio d'istante (es. scrivere o no a una persona), analizzando scenari, reazioni e sensazioni.
           </p>
         </div>
       </div>
@@ -485,7 +430,7 @@ function home(){
       <br>
       <button class="btn primary" onclick="startLife()">🔮 E SE? — La tua storia</button>
       <button class="btn blue" onclick="startTwo()">🫶 E SE? IN 2 — La vostra storia</button>
-      <button class="btn orange" onclick="startNow()">⚡ E ADESSO? — Il prossimo passo</button>
+      <button class="btn orange" onclick="startNow()">⚡ E ADESSO? — Il bivio immediato</button>
       <button class="btn" style="background:#20202d;" onclick="showIntro()">ℹ️ Torna alla Home / Guida</button>
     </div>
 
@@ -517,11 +462,10 @@ function home(){
         <div>
           <h2>⚡ E ADESSO?</h2>
           <p class="muted">
-            Parti da quello che stai vivendo adesso e scopri
-            possibili sviluppi del prossimo periodo.
+            Hai un dubbio improvviso? Analizza se fare un passo (es. scrivergli) o fermarti, valutando reazioni e sensazioni.
           </p>
         </div>
-        <button class="btn orange" onclick="startNow()">Scopri</button>
+        <button class="btn orange" onclick="startNow()">Risolvi ora</button>
       </div>
 
       <div class="card home-card">
@@ -1809,6 +1753,10 @@ function renderTwoLives(){
         </button>
       </div>
     `).join("")}
+
+    <div class="card center">
+      <button class="btn blue" onclick="compareTwo()">⚖️ Confronta le tre vite di coppia</button>
+    </div>
   `);
 }
 
@@ -1851,7 +1799,74 @@ function openTwoLife(i){
 
     <div class="card center">
       <button class="btn green" onclick="saveTwo()">💾 Salva storia</button>
+      <button class="btn blue" onclick="compareTwo()">⚖️ Confronta le vite</button>
       <button class="btn purple" onclick="twoPredictions()">📖 Le mie previsioni</button>
+    </div>
+  `);
+}
+
+function compareTwo(){
+
+  const l1=data.two.lives[0]||{title:"Vita 1", intro:"", events:[]};
+  const l2=data.two.lives[1]||{title:"Vita 2", intro:"", events:[]};
+  const l3=data.two.lives[2]||{title:"Vita 3", intro:"", events:[]};
+
+  const an=data.two.personA?.name||"Persona A";
+  const bn=data.two.personB?.name||"Persona B";
+
+  app(`
+    <div class="nav">
+      <button class="btn" onclick="renderTwoLives()">← Le tre vite</button>
+    </div>
+
+    <div class="card">
+      <h2>⚖️ Analisi comparativa delle tre strade di coppia</h2>
+      <p class="muted">
+        Questo quadro mostra cosa sarebbe potuto accadere a ${an} e ${bn} scegliendo l'una o l'altra direzione, mettendo a confronto i bivi condivisi, le conseguenze congiunte a 1, 3 e 5 anni e le rinunce reciproche richieste da ciascun percorso, senza indicare alcuna preferenza. La decisione finale spetta unicamente alla vostra percezione congiunta.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🟢 ${esc(l1.title)}</h3>
+      <p class="muted" style="margin-bottom:10px;">${esc(l1.intro)}</p>
+      <div class="event">
+        <strong>Punto focale del percorso</strong>
+        <p>Azione condivisa basata sulla decisione iniziale e riadattamento reciproco immediato.</p>
+      </div>
+      <div class="event">
+        <strong>Anno 1 &rarr; Anno 3 &rarr; Anno 5</strong>
+        <p>Prevede un confronto con i primi conflitti tra le rispettive paure e la costruzione progressiva di un equilibrio a lungo termine che trasforma il progetto iniziale.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🔵 ${esc(l2.title)}</h3>
+      <p class="muted" style="margin-bottom:10px;">${esc(l2.intro)}</p>
+      <div class="event">
+        <strong>Punto focale del percorso</strong>
+        <p>Adozione di una direzione alternativa e asimmetrica, con adattamenti successivi tra i due.</p>
+      </div>
+      <div class="event">
+        <strong>Anno 1 &rarr; Anno 3 &rarr; Anno 5</strong>
+        <p>Richiede di gestire la distanza tra i rispettivi desideri, valutando nel tempo l'impatto delle occasioni non scelte e dei bivi successivi.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🟣 ${esc(l3.title)}</h3>
+      <p class="muted" style="margin-bottom:10px;">${esc(l3.intro)}</p>
+      <div class="event">
+        <strong>Punto focale del percorso</strong>
+        <p>Individuazione di una sintesi imprevista che unisce le necessità di entrambi fuori dagli schemi tradizionali.</p>
+      </div>
+      <div class="event">
+        <strong>Anno 1 &rarr; Anno 3 &rarr; Anno 5</strong>
+        <p>Si fonda su compromessi evolutivi e regole condivise che ridefiniscono la quotidianità e trasformano il conflitto iniziale in risorsa nel giro di cinque anni.</p>
+      </div>
+    </div>
+
+    <div class="card center">
+      <button class="btn blue" onclick="renderTwoLives()">Torna alle vostre vite</button>
     </div>
   `);
 }
@@ -2108,113 +2123,112 @@ function continueTwoReality(li,ei){
 
 
 /* =========================================================
-   E ADESSO?
+   E ADESSO? — IL BIVIO IMMEDIATO (MODULO INDIPENDENTE)
    ========================================================= */
 
 function startNow(){
 
   data.now={
-    createdAt:new Date().toISOString(),
-    answers:[],
-    result:null
+    person:"",
+    dilemma:"",
+    desire:"",
+    fear:"",
+    createdAt:new Date().toISOString()
   };
-
-  renderNowQ(0);
-}
-
-const NQ=[
-  "Che cosa sta succedendo nella tua vita in questo momento?",
-  "Qual è la cosa che ti pesa maggiormente?",
-  "Quale risultato vorresti ottenere per primo?",
-  "Cosa potresti fare concretamente già nei prossimi giorni?",
-  "Qual è la decisione che continui a rimandare?"
-];
-
-function renderNowQ(i){
-
-  if(i>=NQ.length){
-    finishNow();
-    return;
-  }
 
   app(`
     <div class="nav">
       <button class="btn" onclick="home()">← Home</button>
-      <span class="badge">${i+1} / ${NQ.length}</span>
     </div>
 
     <div class="card">
-      <h2>⚡ ${esc(NQ[i])}</h2>
+      <h2>⚡ E ADESSO? — Analisi del bivio immediato</h2>
+      <p class="muted">
+        Hai un dubbio improvviso e non sai se compiere un'azione o fermarti (es. scrivergli o meno)? Analizziamolo subito.
+      </p>
 
-      <textarea id="nowAnswer" placeholder="Scrivi liberamente..."></textarea>
+      <label>Chi è la persona coinvolta?</label>
+      <input id="nowPerson" placeholder="Es. Tizio, un collega, un'amicizia...">
 
-      <button class="btn orange" onclick="NA(${i})">
-        Continua
-      </button>
+      <label>Qual è il dubbio o l'azione che stai valutando?</label>
+      <input id="nowDilemma" placeholder="Es. Vorrei scrivergli ma non so se farlo o aspettare...">
+
+      <label>Cosa speri di ottenere se fai il passo?</label>
+      <textarea id="nowDesire" placeholder="Es. Spero di rompere il ghiaccio e capire la sua reazione..."></textarea>
+
+      <label>Cosa ti frena o ti spaventa di più?</label>
+      <textarea id="nowFear" placeholder="Es. Temo di sembrare inopportuna o di ricevere indifferenza..."></textarea>
+
+      <button class="btn orange" onclick="processNow()">Analizza gli scenari</button>
     </div>
   `);
 }
 
-function NA(i){
+function processNow(){
 
-  data.now.answers[i]=document.getElementById("nowAnswer").value.trim();
+  const person=document.getElementById("nowPerson").value.trim()||"questa persona";
+  const dilemma=document.getElementById("nowDilemma").value.trim()||"la situazione attuale";
+  const desire=document.getElementById("nowDesire").value.trim()||"ottenere un riscontro";
+  const fear=document.getElementById("nowFear").value.trim()||"il timore di sbagliare";
 
-  renderNowQ(i+1);
-}
-
-function finishNow(){
-
-  const a=data.now.answers;
-
-  data.now.result={
-    situation:a[0],
-    weight:a[1],
-    goal:a[2],
-    action:a[3],
-    decision:a[4]
-  };
+  data.now.person=person;
+  data.now.dilemma=dilemma;
+  data.now.desire=desire;
+  data.now.fear=fear;
 
   saveAll();
 
   app(`
+    <div class="nav">
+      <button class="btn" onclick="startNow()">← Modifica dati</button>
+      <button class="btn" onclick="home()">Home</button>
+    </div>
+
     <div class="card">
-
-      <h2>⚡ E ADESSO?</h2>
-
-      <p>
-        Il punto da cui partire è quello che hai raccontato.
-        Non serve risolvere tutto contemporaneamente.
+      <h2>⚡ Esito dell'analisi: ${esc(person)}</h2>
+      <p class="muted">
+        Dilemma: "${esc(dilemma)}"
       </p>
+    </div>
 
+    <div class="card">
+      <h3>🟢 Scenario 1: Se decidi di fare il passo (es. scrivi)</h3>
       <div class="event">
-        <strong>Il tuo punto di partenza</strong>
-        <p>${esc(a[0])}</p>
+        <strong>Cosa aspettarsi</strong>
+        <p>L'azione rompe lo stallo immediato. Metterai fine all'attesa mentale e riceverai un feedback concreto che sposterà la situazione da ipotetica a reale.</p>
       </div>
-
       <div class="event">
-        <strong>Ciò che pesa</strong>
-        <p>${esc(a[1])}</p>
+        <strong>Sensazioni ed emozioni probabili</strong>
+        <p>Iniziale picco di adrenalina o tensione prima dell'invio; senso di liberazione subito dopo per aver agito in linea con il tuo desiderio di ${esc(desire)}.</p>
       </div>
-
       <div class="event">
-        <strong>Ciò che vuoi ottenere</strong>
-        <p>${esc(a[2])}</p>
+        <strong>Il risvolto da considerare</strong>
+        <p>Potresti trovarti a gestire una risposta inattesa o il silenzio, affrontando direttamente ${esc(fear)}.</p>
       </div>
+    </div>
 
+    <div class="card">
+      <h3>🔵 Scenario 2: Se decidi di non fare nulla (rimani in attesa)</h3>
       <div class="event">
-        <strong>Il prossimo passo</strong>
-        <p>${esc(a[3])}</p>
+        <strong>Cosa aspettarsi</strong>
+        <p>La situazione rimane cristallizzata nello stato attuale. Nessuna mossa esterna altera gli equilibri e la palla passa all'altra persona o al tempo.</p>
       </div>
-
       <div class="event">
-        <strong>La decisione</strong>
-        <p>${esc(a[4])}</p>
+        <strong>Sensazioni ed emozioni probabili</strong>
+        <p>Sensazione di controllo e protezione nell'immediito, seguita potenzialmente da rimuginio o dal dubbio persistente ("E se invece avessi scritto?").</p>
       </div>
-
-      <div class="center">
-        <button class="btn primary" onclick="home()">Torna alla Home</button>
+      <div class="event">
+        <strong>Il risvolto da considerare</strong>
+        <p>Eviti il rischio di esposizione immediata, ma mantieni attivo il carico mentale legato a ${esc(dilemma)}.</p>
       </div>
+    </div>
 
+    <div class="card center">
+      <p class="muted small" style="margin-bottom:14px;">
+        Nessuna delle due strade è giusta o sbagliata in assoluto: riflettono due modi diversi di gestire le tue priorità emotive in questo momento.
+      </p>
+      <button class="btn orange" onclick="startNow()">Analizza un altro bivio</button>
+      <button class="btn primary" onclick="home()">Torna alla Home</button>
     </div>
   `);
 }
