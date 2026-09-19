@@ -216,10 +216,6 @@ label{
   margin-bottom:8px;
 }
 
-.hidden{
-  display:none!important;
-}
-
 .nav{
   display:flex;
   justify-content:space-between;
@@ -301,7 +297,7 @@ hr{
 
 <script>
 /* =========================================================
-   E SE? V14.3 DEFINITIVO (E ADESSO DINAMICO E CONTINUABILE)
+   E SE? V14.4 DEFINITIVO (E ADESSO DINAMICO E CONTINUABILE)
    ========================================================= */
 
 const K={
@@ -2134,22 +2130,70 @@ function continueTwoReality(li,ei){
 
 
 /* =========================================================
-   E ADESSO? — FLUSSO GUIDATO DINAMICO E UNIVERSALE
+   E ADESSO? — MODULO UNIFICATO (FLUSSO GARANTITO)
    ========================================================= */
 
 function startNow(){
-  data.currentNow={
+  app(`
+    <div class="nav">
+      <button class="btn" onclick="home()">← Home</button>
+    </div>
+
+    <div class="card">
+      <h2>⚡ E ADESSO? — Analisi del bivio immediato</h2>
+      <p class="muted">
+        Inserisci il tuo dilemma o la decisione da prendere (es. "scrivere o meno a tizio", "accettare una proposta di lavoro", "comprare casa"): definiremo insieme le opzioni e genereremo subito gli scenari predittivi e la timeline.
+      </p>
+
+      <label>1. Qual è il tuo dilemma o situazione?</label>
+      <textarea id="now_dilemma" placeholder="Es. Voglio scrivere a Tizio ma non so se farlo..."></textarea>
+
+      <label>2. Qual è l'opzione A (Agire / Fare il passo)?</label>
+      <input id="now_pathA" placeholder="Es. Scrivergli direttamente / Accettare l'offerta">
+
+      <label>3. Qual è l'opzione B (Non agire / Aspettare / Alternativa)?</label>
+      <input id="now_pathB" placeholder="Es. Aspettare che faccia il primo passo / Rifiutare">
+
+      <label>4. Cosa desideri ottenere (il tuo obiettivo)?</label>
+      <input id="now_desire" placeholder="Es. Capire le sue intenzioni / Svoltare professionalmente">
+
+      <label>5. Qual è la tua paura o blocco principale?</label>
+      <textarea id="now_fear" placeholder="Es. Temo di ricevere freddezza o di pentirmi..."></textarea>
+
+      <br>
+      <button class="btn orange" style="width:100%; padding:15px; font-size:16px;" onclick="generateNowScenarios()">Genera scenari analitici immediati</button>
+    </div>
+  `);
+}
+
+function generateNowScenarios(){
+  const dilemma=document.getElementById("now_dilemma").value.trim();
+  const pathA=document.getElementById("now_pathA").value.trim()||"Fare il passo";
+  const pathB=document.getElementById("now_pathB").value.trim()||"Fermarsi / Non agire";
+  const desire=document.getElementById("now_desire").value.trim()||"Ottenere un chiarimento";
+  const fear=document.getElementById("now_fear").value.trim()||"Il timore di sbagliare";
+
+  if(!dilemma){
+    alert("Inserisci prima il tuo dilemma.");
+    return;
+  }
+
+  const session={
     id:Date.now(),
-    step:1,
-    dilemma:"",
-    pathA:"",
-    pathB:"",
-    desire:"",
-    fear:"",
+    dilemma:dilemma,
+    pathA:pathA,
+    pathB:pathB,
+    desire:desire,
+    fear:fear,
     createdAt:new Date().toISOString(),
     realityOutcome:""
   };
-  renderNowStep();
+
+  data.currentNow=session;
+  data.nowSessions.push(session);
+  saveAll();
+
+  renderNowResults();
 }
 
 function openNowSession(index){
@@ -2157,113 +2201,10 @@ function openNowSession(index){
   renderNowResults();
 }
 
-function renderNowStep(){
-  const s=data.currentNow.step;
-
-  if(s===1){
-    app(`
-      <div class="nav">
-        <button class="btn" onclick="home()">← Home</button>
-        <span class="badge">Fase 1 / 3</span>
-      </div>
-
-      <div class="card">
-        <h2>⚡ E ADESSO? — Qual è il tuo dilemma?</h2>
-        <p class="muted">
-          Scrivi liberamente qualsiasi decisione o dubbio (es. "voglio scrivere o meno a tizio?", "accettare una nuova proposta di lavoro?", "comprare casa?").
-        </p>
-
-        <label>Il tuo dilemma o situazione</label>
-        <textarea id="nowDilemmaInput" placeholder="Es. Voglio scrivere a Tizio ma non so se farlo...">${esc(data.currentNow.dilemma)}</textarea>
-
-        <button class="btn orange" onclick="saveNowStep1()">Continua</button>
-      </div>
-    `);
-  }else if(s===2){
-    app(`
-      <div class="nav">
-        <button class="btn" onclick="data.currentNow.step=1; renderNowStep();">← Indietro</button>
-        <span class="badge">Fase 2 / 3</span>
-      </div>
-
-      <div class="card">
-        <h2>⚡ E ADESSO? — Le due strade e l'obiettivo</h2>
-        <p class="muted">
-          Definiamo le opzioni in gioco per analizzare gli scenari senza condizionamenti.
-        </p>
-
-        <label>Qual è l'opzione A (Fare il passo / Agire)?</label>
-        <input id="nowPathAInput" value="${esc(data.currentNow.pathA)}" placeholder="Es. Scrivergli direttamente / Accettare l'offerta">
-
-        <label>Qual è l'opzione B (Fermarsi / Non agire / Alternativa)?</label>
-        <input id="nowPathBInput" value="${esc(data.currentNow.pathB)}" placeholder="Es. Aspettare che faccia il primo passo / Rifiutare">
-
-        <label>Cosa speri di ottenere (il tuo desiderio)?</label>
-        <input id="nowDesireInput" value="${esc(data.currentNow.desire)}" placeholder="Es. Capire le sue intenzioni / Svoltare professionalmente">
-
-        <button class="btn orange" onclick="saveNowStep2()">Continua</button>
-      </div>
-    `);
-  }else if(s===3){
-    app(`
-      <div class="nav">
-        <button class="btn" onclick="data.currentNow.step=2; renderNowStep();">← Indietro</button>
-        <span class="badge">Fase 3 / 3</span>
-      </div>
-
-      <div class="card">
-        <h2>⚡ E ADESSO? — Paure e blocchi</h2>
-        <p class="muted">
-          Analizziamo cosa ti frena per completare la proiezione degli scenari e delle emozioni.
-        </p>
-
-        <label>Qual è la paura o il blocco principale?</label>
-        <textarea id="nowFearInput" placeholder="Es. Temo di ricevere freddezza o di pentirmi...">${esc(data.currentNow.fear)}</textarea>
-
-        <button class="btn orange" onclick="saveNowStep3()">Genera scenari analitici</button>
-      </div>
-    `);
-  }
-}
-
-function saveNowStep1(){
-  const val=document.getElementById("nowDilemmaInput").value.trim();
-  if(!val){
-    alert("Scrivi qual è il tuo dilemma per continuare.");
-    return;
-  }
-  data.currentNow.dilemma=val;
-  data.currentNow.step=2;
-  renderNowStep();
-}
-
-function saveNowStep2(){
-  data.currentNow.pathA=document.getElementById("nowPathAInput").value.trim()||"Fare il passo";
-  data.currentNow.pathB=document.getElementById("nowPathBInput").value.trim()||"Fermarsi / Non agire";
-  data.currentNow.desire=document.getElementById("nowDesireInput").value.trim()||"Ottenere un chiarimento";
-  data.currentNow.step=3;
-  renderNowStep();
-}
-
-function saveNowStep3(){
-  const fearVal=document.getElementById("nowFearInput") ? document.getElementById("nowFearInput").value.trim() : "";
-  data.currentNow.fear=fearVal||"Il timore di sbagliare";
-  
-  // Salva o aggiorna nella lista delle sessioni
-  const existingIndex=data.nowSessions.findIndex(s=>s.id===data.currentNow.id);
-  if(existingIndex>=0){
-    data.nowSessions[existingIndex]=data.currentNow;
-  }else{
-    data.nowSessions.push(data.currentNow);
-  }
-  saveAll();
-  
-  // Mostra immediatamente i risultati generati
-  renderNowResults();
-}
-
 function renderNowResults(){
   const n=data.currentNow;
+  if(!n) return home();
+
   app(`
     <div class="nav">
       <button class="btn" onclick="predictions()">← Le mie previsioni</button>
