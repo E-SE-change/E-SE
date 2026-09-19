@@ -4307,4 +4307,1501 @@ function renderNowStart(){
 
         <div class="app-header">
           <span class="eyebrow">
-            <span class="eyeb
+            <span class="eyebrow-dot"></span>
+            E ADESSO?
+          </span>
+
+          <h1>
+            Non devi immaginare il futuro.
+            <span class="gradient-text">Parti da adesso.</span>
+          </h1>
+
+          <p>
+            Questa esperienza è completamente autonoma.
+            Non devi aver fatto E SE?.
+            Non devi scegliere una categoria e non devi rispondere a una
+            domanda predefinita.
+          </p>
+        </div>
+
+        <div class="card app-panel">
+
+          <div class="form-group">
+
+            <label for="nowQuestion">
+              Cosa ti stai chiedendo in questo momento?
+            </label>
+
+            <textarea
+              id="nowQuestion"
+              maxlength="3500"
+              placeholder="Scrivi la tua domanda esattamente come ti viene..."
+            ></textarea>
+
+            <span class="field-hint">
+              Può essere qualunque cosa: una situazione, una persona,
+              una decisione, un messaggio, un dubbio o qualcosa appena successo.
+            </span>
+
+          </div>
+
+          <div class="btn-row" style="margin-top:22px">
+
+            <button class="btn btn-purple" data-action="startNowQuestions">
+              Parti da questa domanda →
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="card app-panel">
+
+          <span class="eyebrow">Solo esempi</span>
+
+          <p class="muted" style="margin-top:12px;font-size:13px">
+            Gli esempi servono solo a mostrarti che non esiste una domanda
+            “giusta”. Non sono categorie da scegliere.
+          </p>
+
+          <div class="examples-grid">
+            <div class="example">
+              “E adesso, cosa faccio?”
+            </div>
+            <div class="example">
+              “E adesso gli scrivo?”
+            </div>
+            <div class="example">
+              “E adesso come affronto questa situazione?”
+            </div>
+            <div class="example">
+              “E adesso cosa potrebbe succedere se accettassi?”
+            </div>
+          </div>
+
+        </div>
+
+        <div class="notice">
+          E ADESSO? parte dalla tua domanda e costruisce il resto del percorso
+          intorno a quella domanda. Non è necessario usare E SE? prima.
+        </div>
+
+      </div>
+    </div>
+  `;
+}
+
+function buildNowQuestions(question){
+  const topic=topicFromText(question);
+  const signals=extractSignals(question);
+
+  const questions=[
+    {
+      key:"context",
+      label:"Cosa è successo subito prima che ti facessi questa domanda?",
+      placeholder:"Racconta il contesto, senza preoccuparti di scriverlo bene..."
+    },
+    {
+      key:"want",
+      label:"Cosa vorresti che succedesse adesso?",
+      placeholder:"Anche se non sei sicuro/a che sia possibile..."
+    },
+    {
+      key:"fear",
+      label:"Cosa ti blocca o ti fa esitare?",
+      placeholder:"La cosa che pesa di più in questo momento..."
+    }
+  ];
+
+  if(signals.communication){
+    questions.push({
+      key:"message",
+      label:"Se dovessi dire una sola cosa all'altra persona, quale sarebbe?",
+      placeholder:"Scrivila come la diresti davvero..."
+    });
+  }else if(signals.urgency){
+    questions.push({
+      key:"deadline",
+      label:"C'è qualcosa che rende questa situazione urgente?",
+      placeholder:"Una scadenza, una risposta, un evento..."
+    });
+  }else{
+    questions.push({
+      key:"constraint",
+      label:"C'è qualcosa che non puoi semplicemente ignorare?",
+      placeholder:"Una persona, un impegno, una conseguenza, un limite..."
+    });
+  }
+
+  if(signals.money){
+    questions.push({
+      key:"money",
+      label:"Quanto pesa la parte economica sulla decisione di adesso?",
+      placeholder:"Molto, poco, oppure è proprio il punto centrale?"
+    });
+  }
+
+  if(signals.relationship){
+    questions.push({
+      key:"otherPerson",
+      label:"Come pensi che l'altra persona potrebbe reagire?",
+      placeholder:"Non serve indovinare: racconta semplicemente la tua impressione."
+    });
+  }
+
+  return questions.slice(0,6);
+}
+
+function renderNowQuestions(){
+  const d=state.current.draft;
+
+  app.innerHTML=`
+    <div class="app-shell">
+      <div class="container">
+
+        <div class="app-header">
+          <span class="eyebrow">
+            E ADESSO? · La tua domanda
+          </span>
+
+          <h1>
+            Partiamo esattamente da qui.
+          </h1>
+
+          <p>
+            Le domande che vedi sono state costruite partendo da ciò che
+            hai scritto. Le tue risposte cambieranno gli sviluppi successivi.
+          </p>
+        </div>
+
+        <div class="notice">
+          <strong>La tua domanda:</strong>
+          ${escapeHTML(d.question)}
+        </div>
+
+        <div class="card app-panel">
+          <div class="question-list">
+
+            ${d.questions.map((q,i)=>`
+              <div class="question-card">
+                <div class="question-number">
+                  Domanda ${i+1}
+                </div>
+
+                <h3>${escapeHTML(q.label)}</h3>
+
+                <textarea
+                  data-now-answer="${escapeHTML(q.key)}"
+                  maxlength="1800"
+                  placeholder="${escapeHTML(q.placeholder)}"
+                >${escapeHTML(d.answers[q.key] || "")}</textarea>
+              </div>
+            `).join("")}
+
+          </div>
+
+          <div class="btn-row" style="margin-top:24px">
+            <button class="btn" data-action="now">
+              ← Cambia domanda
+            </button>
+
+            <button class="btn btn-purple" data-action="generateNow">
+              ⚡ Fammi vedere cosa potrebbe succedere
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  `;
+}
+
+/* =========================================================
+   NOW ENGINE
+   ========================================================= */
+
+function generateNow(){
+  const d=state.current.draft;
+
+  const answers={};
+
+  document.querySelectorAll("[data-now-answer]")
+    .forEach(el=>{
+      answers[el.dataset.nowAnswer]=cleanText(el.value,1800);
+    });
+
+  d.answers=answers;
+
+  const combined=[
+    d.question,
+    ...Object.values(answers),
+    state.profile.situation,
+    state.profile.goals
+  ].join(" ");
+
+  const topic=topicFromText(combined);
+  const signals=extractSignals(combined);
+  const rng=seeded(id());
+
+  const urgency=signals.urgency;
+  const communication=signals.communication;
+  const fear=signals.fear;
+  const change=signals.change;
+
+  const options=[
+    {
+      type:"act",
+      title:"Se agisci adesso",
+      icon:"🟢",
+      text:buildNowActText(topic,signals,answers),
+      consequence:buildNowConsequence("act",topic,signals,answers)
+    },
+    {
+      type:"wait",
+      title:"Se aspetti",
+      icon:"🔵",
+      text:buildNowWaitText(topic,signals,answers),
+      consequence:buildNowConsequence("wait",topic,signals,answers)
+    },
+    {
+      type:"release",
+      title:"Se lasci andare",
+      icon:"🟣",
+      text:buildNowReleaseText(topic,signals,answers),
+      consequence:buildNowConsequence("release",topic,signals,answers)
+    },
+    {
+      type:"unexpected",
+      title:"Se fai qualcosa di diverso",
+      icon:"✨",
+      text:buildNowUnexpectedText(topic,signals,answers,rng),
+      consequence:buildNowConsequence("unexpected",topic,signals,answers)
+    }
+  ];
+
+  const messages=communication
+    ? buildMessageSuggestions(d.question,answers,topic,signals)
+    : [];
+
+  const story={
+    id:id(),
+    createdAt:dateNow(),
+    mode:"E ADESSO?",
+    title:d.question,
+    question:d.question,
+    topic,
+    answers,
+    options,
+    messages,
+    seed:id(),
+    reflection:""
+  };
+
+  state.nowStories.unshift(story);
+
+  state.predictions.unshift({
+    id:story.id,
+    simulationId:story.id,
+    createdAt:story.createdAt,
+    mode:"E ADESSO?",
+    title:story.title,
+    question:story.question,
+    checks:[]
+  });
+
+  state.current.draft=story;
+
+  saveState();
+
+  currentPage="nowResult";
+  render();
+}
+
+function buildNowActText(topic,signals,answers){
+  const context=getContextLabel(topic);
+
+  if(signals.communication){
+    return `Facendo un passo adesso, la situazione legata alla ${context} smette di rimanere soltanto interna. La risposta dell'altra persona diventa un'informazione reale, anche se non necessariamente quella che speri.`;
+  }
+
+  if(signals.urgency){
+    return `Agire adesso riduce almeno una parte dell'incertezza. La cosa importante è che la tua scelta produce rapidamente nuove informazioni sulla situazione di ${context}.`;
+  }
+
+  return `Agire adesso porta la situazione di ${context} fuori dalla fase di attesa. Potresti ottenere una risposta, un ostacolo concreto o un'informazione che oggi non possiedi.`;
+}
+
+function buildNowWaitText(topic,signals,answers){
+  if(signals.fear){
+    return `Aspettare può darti qualche ora o qualche giorno per capire meglio cosa vuoi davvero, ma può anche lasciare intatto il problema che ha generato la domanda.`;
+  }
+
+  return `Aspettare mantiene aperte più possibilità nell'immediato. Allo stesso tempo, la situazione può continuare a cambiare anche senza una tua decisione esplicita.`;
+}
+
+function buildNowReleaseText(topic,signals,answers){
+  const context=getContextLabel(topic);
+
+  return `Lasciare andare significa smettere di investire energia nella risposta che avevi inizialmente immaginato. Nella situazione di ${context}, questo può liberare spazio per qualcosa che oggi non riesci ancora a vedere.`;
+}
+
+function buildNowUnexpectedText(topic,signals,answers,rng){
+  const alternatives=[
+    "Invece di decidere definitivamente, potresti trasformare la scelta in un piccolo esperimento reversibile.",
+    "Potrebbe essere utile cambiare la domanda: non 'cosa devo fare?', ma 'qual è il passo più piccolo che mi darebbe un'informazione reale?'",
+    "La soluzione potrebbe non riguardare direttamente la questione iniziale, ma una condizione che la rende difficile.",
+    "Una possibilità diversa potrebbe comparire se coinvolgessi una persona o una risorsa che finora non avevi considerato."
+  ];
+
+  return pick(alternatives,rng);
+}
+
+function buildNowConsequence(type,topic,signals,answers){
+  const labels={
+    act:"La conseguenza più immediata è che ottieni nuove informazioni, anche se non necessariamente una soluzione.",
+    wait:"La conseguenza più immediata è mantenere aperta la situazione, accettando però che anche l'attesa produce effetti.",
+    release:"La conseguenza più immediata è recuperare una parte dell'energia che stavi investendo nel problema.",
+    unexpected:"La conseguenza più immediata è cambiare il modo in cui stai affrontando la situazione, senza dover necessariamente decidere tutto oggi."
+  };
+
+  return labels[type];
+}
+
+function buildMessageSuggestions(question,answers,topic,signals){
+  const context=answerFragment(answers);
+
+  return [
+    {
+      label:"💬 Leggero",
+      text:`"Ti scrivo perché ci ho pensato e mi andava di capire come la vedi tu. Senza pressioni, quando puoi ne parliamo?"`
+    },
+    {
+      label:"❤️ Sincero",
+      text:`"Ti dico una cosa con sincerità: questa situazione mi sta facendo pensare parecchio e vorrei riuscire a parlarne con te senza creare un'altra discussione. Mi interessa capire come la vivi tu."`
+    },
+    {
+      label:"🎯 Diretto",
+      text:`"Vorrei chiarire questa cosa. Non ti sto chiedendo di risolverla subito, ma ho bisogno di sapere come la pensi davvero."`
+    }
+  ];
+}
+
+/* =========================================================
+   NOW RESULT
+   ========================================================= */
+
+function renderNowResult(story){
+  if(!story){
+    navigate("now");
+    return;
+  }
+
+  app.innerHTML=`
+    <div class="app-shell">
+      <div class="container">
+
+        <div class="narrative-header">
+          <div class="app-header">
+            <span class="eyebrow">E ADESSO? · Risultati</span>
+
+            <h1>${escapeHTML(story.title)}</h1>
+
+            <p>
+              Queste non sono istruzioni su cosa fare.
+              Sono diversi modi in cui la situazione potrebbe svilupparsi
+              partendo dalla tua domanda.
+            </p>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn" data-action="shareCurrent">
+              ↗ Condividi
+            </button>
+
+            <button class="btn btn-purple" data-action="rerunNow">
+              ↻ Rifai la domanda
+            </button>
+          </div>
+        </div>
+
+        <div class="notice">
+          <strong>Parti dalla tua domanda, non da una categoria:</strong>
+          tutto ciò che vedi qui è stato costruito a partire da ciò che hai scritto.
+        </div>
+
+        <div class="now-result">
+
+          ${story.options.map(option=>`
+            <article class="now-option">
+              <h3>
+                ${option.icon}
+                ${escapeHTML(option.title)}
+              </h3>
+
+              <p>
+                ${escapeHTML(option.text)}
+              </p>
+
+              <div class="consequence">
+                ${escapeHTML(option.consequence)}
+              </div>
+            </article>
+          `).join("")}
+
+        </div>
+
+        ${
+          story.messages?.length
+          ? `
+            <div class="card message-box">
+              <span class="eyebrow">
+                Se la tua domanda riguarda una comunicazione
+              </span>
+
+              <h3 style="margin-top:11px">
+                Potresti voler dire qualcosa. Ecco tre toni possibili.
+              </h3>
+
+              <div class="message-options">
+                ${story.messages.map(m=>`
+                  <div class="message-option">
+                    <strong>${escapeHTML(m.label)}</strong>
+                    <p>${escapeHTML(m.text)}</p>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+          `
+          :""
+        }
+
+        <div class="card app-panel reflection">
+          <span class="eyebrow">E adesso, dopo averlo letto?</span>
+
+          <h3 style="margin-top:11px">
+            Cosa ti è rimasto?
+          </h3>
+
+          <textarea
+            id="nowReflection"
+            placeholder="Scrivilo per te..."
+          >${escapeHTML(story.reflection || "")}</textarea>
+
+          <div class="btn-row" style="margin-top:15px">
+            <button class="btn" data-action="saveNowReflection">
+              Salva
+            </button>
+
+            <button class="btn" data-action="predictions">
+              Salva e torna alle storie →
+            </button>
+          </div>
+        </div>
+
+        <div class="btn-row" style="margin-top:25px">
+          <button class="btn" data-action="now">
+            ← Fai un'altra domanda
+          </button>
+
+          <button class="btn btn-primary" data-action="home">
+            Home
+          </button>
+        </div>
+
+      </div>
+    </div>
+  `;
+}
+
+/* =========================================================
+   PREDICTIONS / REALITY
+   ========================================================= */
+
+function renderPredictions(){
+  const items=state.predictions || [];
+
+  app.innerHTML=`
+    <div class="app-shell">
+      <div class="container">
+
+        <div class="app-header">
+          <span class="eyebrow">Memoria</span>
+
+          <h1>
+            Le mie storie.
+          </h1>
+
+          <p>
+            Qui rimangono le possibilità che hai esplorato.
+            Puoi tornare quando vuoi e confrontarle con ciò che è realmente accaduto.
+          </p>
+        </div>
+
+        ${
+          !items.length
+          ? `
+            <div class="card app-panel">
+              <h3>Ancora nessuna storia.</h3>
+
+              <p class="muted" style="margin-top:10px">
+                Quando esplorerai E SE?, E SE? IN 2 o E ADESSO?,
+                la storia verrà conservata qui.
+              </p>
+
+              <div class="btn-row" style="margin-top:20px">
+                <button class="btn btn-primary" data-action="solo">
+                  Inizia E SE?
+                </button>
+
+                <button class="btn btn-purple" data-action="now">
+                  E ADESSO?
+                </button>
+              </div>
+            </div>
+          `
+          : `
+            <div class="history-list">
+
+              ${items.map(predictionCard).join("")}
+
+            </div>
+          `
+        }
+
+      </div>
+    </div>
+  `;
+}
+
+function predictionCard(pred){
+  const simulation=findStory(pred);
+
+  const checks=pred.checks || [];
+
+  return `
+    <article class="history-card card">
+
+      <div class="history-meta">
+        ${escapeHTML(pred.mode)}
+        · ${formatDate(pred.createdAt)}
+      </div>
+
+      <h3 style="margin-top:9px">
+        ${escapeHTML(pred.title)}
+      </h3>
+
+      <p class="muted" style="margin-top:8px;font-size:13px">
+        ${escapeHTML(pred.question)}
+      </p>
+
+      <div class="reality-controls">
+
+        ${realityButton(pred,"success","🟢 È successo")}
+        ${realityButton(pred,"similar","🟡 È successo qualcosa di simile")}
+        ${realityButton(pred,"none","⚪ Non è successo")}
+        ${realityButton(pred,"different","🔵 È successo qualcosa di completamente diverso")}
+
+      </div>
+
+      <textarea
+        data-reality-note="${escapeHTML(pred.id)}"
+        style="margin-top:14px;min-height:90px"
+        placeholder="Racconta cosa è successo davvero..."
+      >${escapeHTML(pred.realNote || "")}</textarea>
+
+      <div class="btn-row" style="margin-top:10px">
+        <button
+          class="btn"
+          data-action="saveReality"
+          data-prediction-id="${escapeHTML(pred.id)}"
+        >
+          Salva realtà
+        </button>
+
+        ${
+          simulation
+          ? `
+            <button
+              class="btn"
+              data-action="openSavedStory"
+              data-story-id="${escapeHTML(pred.simulationId)}"
+            >
+              Apri la storia
+            </button>
+          `
+          :""
+        }
+      </div>
+
+      ${
+        pred.status
+        ? `
+          <div class="notice" style="margin-top:15px">
+            Stato registrato:
+            <strong>${escapeHTML(realityLabel(pred.status))}</strong>
+          </div>
+        `
+        :""
+      }
+
+    </article>
+  `;
+}
+
+function realityButton(pred,status,label){
+  return `
+    <button
+      class="status-btn ${pred.status===status?"active":""}"
+      data-action="setRealityStatus"
+      data-prediction-id="${escapeHTML(pred.id)}"
+      data-status="${status}"
+    >
+      ${label}
+    </button>
+  `;
+}
+
+function realityLabel(status){
+  return {
+    success:"È successo",
+    similar:"È successo qualcosa di simile",
+    none:"Non è successo",
+    different:"È successo qualcosa di completamente diverso"
+  }[status] || "";
+}
+
+function findStory(pred){
+  return (
+    state.simulations.find(x=>x.id===pred.simulationId) ||
+    state.pairStories.find(x=>x.id===pred.simulationId) ||
+    state.nowStories.find(x=>x.id===pred.simulationId)
+  );
+}
+
+/* =========================================================
+   SAVING REFLECTIONS
+   ========================================================= */
+
+function saveReflection(){
+  const sim=state.current.draft;
+
+  if(!sim) return;
+
+  sim.reflection=cleanText(
+    document.getElementById("simulationReflection")?.value || "",
+    3000
+  );
+
+  const stored=state.simulations.find(x=>x.id===sim.id);
+
+  if(stored){
+    stored.reflection=sim.reflection;
+  }
+
+  saveState();
+  toast("Riflessione salvata.");
+}
+
+function savePairReflection(){
+  const story=state.current.draft;
+
+  if(!story) return;
+
+  story.reflection=cleanText(
+    document.getElementById("pairReflection")?.value || "",
+    3000
+  );
+
+  const stored=state.pairStories.find(x=>x.id===story.id);
+
+  if(stored){
+    stored.reflection=story.reflection;
+  }
+
+  saveState();
+  toast("Riflessione salvata.");
+}
+
+function saveNowReflection(){
+  const story=state.current.draft;
+
+  if(!story) return;
+
+  story.reflection=cleanText(
+    document.getElementById("nowReflection")?.value || "",
+    3000
+  );
+
+  const stored=state.nowStories.find(x=>x.id===story.id);
+
+  if(stored){
+    stored.reflection=story.reflection;
+  }
+
+  saveState();
+  toast("Riflessione salvata.");
+}
+
+/* =========================================================
+   PROFILE SAVE
+   ========================================================= */
+
+function saveProfile(){
+  state.profile.name=cleanText(
+    document.getElementById("profileName")?.value || "",
+    80
+  );
+
+  state.profile.age=cleanText(
+    document.getElementById("profileAge")?.value || "",
+    3
+  );
+
+  state.profile.situation=cleanText(
+    document.getElementById("profileSituation")?.value || "",
+    1500
+  );
+
+  state.profile.goals=cleanText(
+    document.getElementById("profileGoals")?.value || "",
+    1500
+  );
+
+  saveState();
+
+  toast("Profilo salvato.");
+}
+
+/* =========================================================
+   RERUN
+   ========================================================= */
+
+function rerunSolo(){
+  const sim=state.current.draft;
+
+  if(!sim) return;
+
+  state.current.draft={
+    question:sim.question,
+    answers:{...sim.answers},
+    questions:buildSoloQuestions(sim.question),
+    variation:id()
+  };
+
+  currentPage="soloQuestions";
+  render();
+}
+
+function rerunPair(){
+  const story=state.current.draft;
+
+  if(!story) return;
+
+  state.current.draft={
+    aName:story.aName,
+    bName:story.bName,
+    question:story.question,
+    answersA:{...story.answersA},
+    answersB:{...story.answersB},
+    shared:story.shared,
+    aQuestions:buildPairQuestions(story.question,"A"),
+    bQuestions:buildPairQuestions(story.question,"B"),
+    variation:id()
+  };
+
+  currentPage="pairQuestions";
+  render();
+}
+
+function rerunNow(){
+  const story=state.current.draft;
+
+  if(!story) return;
+
+  state.current.draft={
+    question:story.question,
+    answers:{...story.answers},
+    questions:buildNowQuestions(story.question),
+    variation:id()
+  };
+
+  currentPage="nowQuestions";
+  render();
+}
+
+/* =========================================================
+   START FLOWS
+   ========================================================= */
+
+function startSoloQuestions(){
+  const question=cleanText(
+    document.getElementById("soloQuestion")?.value || "",
+    3000
+  );
+
+  if(!question){
+    toast("Scrivi prima la tua domanda o possibilità.");
+    return;
+  }
+
+  state.current={
+    mode:"solo",
+    draft:{
+      question,
+      answers:{},
+      questions:buildSoloQuestions(question)
+    }
+  };
+
+  currentPage="soloQuestions";
+  render();
+}
+
+function startPairQuestions(){
+  const aName=cleanText(
+    document.getElementById("pairAName")?.value || "",
+    60
+  ) || "Persona A";
+
+  const bName=cleanText(
+    document.getElementById("pairBName")?.value || "",
+    60
+  ) || "Persona B";
+
+  const question=cleanText(
+    document.getElementById("pairQuestion")?.value || "",
+    3000
+  );
+
+  if(!question){
+    toast("Scrivete prima la possibilità che volete esplorare.");
+    return;
+  }
+
+  state.current={
+    mode:"pair",
+    draft:{
+      aName,
+      bName,
+      question,
+      answersA:{},
+      answersB:{},
+      shared:"",
+      aQuestions:buildPairQuestions(question,"A"),
+      bQuestions:buildPairQuestions(question,"B")
+    }
+  };
+
+  currentPage="pairQuestions";
+  render();
+}
+
+function startNowQuestions(){
+  const question=cleanText(
+    document.getElementById("nowQuestion")?.value || "",
+    3500
+  );
+
+  if(!question){
+    toast("Scrivi la domanda che hai in testa.");
+    return;
+  }
+
+  state.current={
+    mode:"now",
+    draft:{
+      question,
+      answers:{},
+      questions:buildNowQuestions(question)
+    }
+  };
+
+  currentPage="nowQuestions";
+  render();
+}
+
+/* =========================================================
+   SHARING
+   ========================================================= */
+
+async function shareCurrent(){
+  const d=state.current.draft;
+
+  if(!d) return;
+
+  const title=d.mode==="E SE?"
+    ? "Una storia su E SE?"
+    : d.mode==="E SE? IN 2"
+      ? "Una storia condivisa su E SE? IN 2"
+      : "Una domanda su E ADESSO?";
+
+  const text=
+    `${title}\n\n`+
+    `Ho esplorato questa domanda: "${cleanText(d.question,180)}"\n\n`+
+    `E SE? — Prova una vita prima di viverla.`;
+
+  try{
+    if(navigator.share){
+      await navigator.share({
+        title,
+        text
+      });
+
+      return;
+    }
+
+    await navigator.clipboard.writeText(text);
+    toast("Testo copiato negli appunti.");
+  }catch(e){
+    try{
+      await navigator.clipboard.writeText(text);
+      toast("Testo copiato negli appunti.");
+    }catch{
+      toast("Condivisione non disponibile.");
+    }
+  }
+}
+
+/* =========================================================
+   EXPORT / IMPORT
+   ========================================================= */
+
+function exportData(){
+  const payload={
+    app:"E SE?",
+    version:APP_VERSION,
+    exportedAt:dateNow(),
+    data:state
+  };
+
+  const blob=new Blob(
+    [JSON.stringify(payload,null,2)],
+    {type:"application/json"}
+  );
+
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+
+  a.href=url;
+  a.download="e-se-backup.json";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  URL.revokeObjectURL(url);
+
+  toast("Backup esportato.");
+}
+
+function importData(event){
+  const file=event.target.files?.[0];
+
+  if(!file) return;
+
+  const reader=new FileReader();
+
+  reader.onload=()=>{
+    try{
+      const parsed=JSON.parse(reader.result);
+
+      if(!parsed.data || !parsed.data.profile){
+        throw new Error("Formato non valido");
+      }
+
+      if(!confirm(
+        "Importare questo backup sostituirà i dati attualmente presenti nel browser. Continuare?"
+      )){
+        return;
+      }
+
+      state={
+        ...structuredCloneSafe(defaultState),
+        ...parsed.data,
+        profile:{
+          ...defaultState.profile,
+          ...(parsed.data.profile || {})
+        }
+      };
+
+      saveState();
+      toast("Backup importato.");
+
+      navigate("home");
+
+    }catch(e){
+      toast("Il file non sembra un backup valido di E SE?.");
+    }
+  };
+
+  reader.readAsText(file);
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+function resetData(){
+  const ok=confirm(
+    "Vuoi davvero cancellare profilo, storie, simulazioni e confronti con la realtà? Questa operazione non può essere annullata."
+  );
+
+  if(!ok) return;
+
+  localStorage.removeItem(STORAGE_KEY);
+  state=structuredCloneSafe(defaultState);
+
+  toast("Dati cancellati.");
+
+  navigate("home");
+}
+
+/* =========================================================
+   LEGAL
+   ========================================================= */
+
+function renderPrivacy(){
+  app.innerHTML=`
+    <div class="app-shell">
+      <div class="container">
+        <article class="legal">
+
+          <span class="eyebrow">Informativa</span>
+          <h1 style="margin-top:14px">Privacy Policy</h1>
+
+          <p>
+            E SE? è progettato per consentire all'utente di esplorare
+            esperienze narrative a partire dalle informazioni che decide
+            volontariamente di inserire.
+          </p>
+
+          <h2>Dati inseriti dall'utente</h2>
+          <p>
+            Il profilo, le domande, le risposte, le riflessioni e le storie
+            possono essere salvati localmente nel browser tramite
+            localStorage. Questi dati servono a mantenere la continuità
+            dell'esperienza sul dispositivo.
+          </p>
+
+          <h2>Contenuti personali</h2>
+          <p>
+            L'utente decide autonomamente cosa scrivere.
+            È consigliabile non inserire password, dati bancari,
+            documenti d'identità o altre informazioni che non siano
+            necessarie all'esperienza.
+          </p>
+
+          <h2>Pubblicità</h2>
+          <p>
+            Il sito può utilizzare Google AdSense per mostrare pubblicità.
+            Le modalità di trattamento dei dati relative alla pubblicità
+            dipendono anche dalle impostazioni e dalle informative
+            del relativo fornitore.
+          </p>
+
+          <h2>Condivisione</h2>
+          <p>
+            La funzione di condivisione non pubblica automaticamente
+            il profilo o l'intero archivio personale. Viene condiviso
+            solamente un riepilogo generico della storia.
+          </p>
+
+          <h2>Cancellazione</h2>
+          <p>
+            L'utente può cancellare i dati locali dal pannello Profilo
+            utilizzando la funzione di cancellazione.
+          </p>
+
+          <div class="btn-row" style="margin-top:30px">
+            <button class="btn" data-action="home">← Home</button>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  `;
+}
+
+function renderTerms(){
+  app.innerHTML=`
+    <div class="app-shell">
+      <div class="container">
+        <article class="legal">
+
+          <span class="eyebrow">Informazioni</span>
+          <h1 style="margin-top:14px">Termini di utilizzo</h1>
+
+          <h2>Natura del servizio</h2>
+          <p>
+            E SE? è un'esperienza narrativa interattiva.
+            Il servizio genera scenari ipotetici sulla base delle informazioni
+            fornite dall'utente.
+          </p>
+
+          <h2>Nessuna garanzia sul futuro</h2>
+          <p>
+            Gli scenari non costituiscono predizioni certe.
+            Eventi, tempi e conseguenze rappresentati dall'esperienza
+            possono non verificarsi.
+          </p>
+
+          <h2>Responsabilità dell'utente</h2>
+          <p>
+            Le decisioni personali restano sempre dell'utente.
+            E SE? non sostituisce il confronto con professionisti
+            qualificati quando una situazione richiede consulenza specifica.
+          </p>
+
+          <h2>Uso appropriato</h2>
+          <p>
+            L'utente deve utilizzare il servizio nel rispetto della legge
+            e senza inserire contenuti che non abbia il diritto di utilizzare.
+          </p>
+
+          <div class="btn-row" style="margin-top:30px">
+            <button class="btn" data-action="home">← Home</button>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  `;
+}
+
+function renderNotice(){
+  app.innerHTML=`
+    <div class="app-shell">
+      <div class="container">
+        <article class="legal">
+
+          <span class="eyebrow">Avviso importante</span>
+
+          <h1 style="margin-top:14px">
+            E SE? non conosce il tuo futuro.
+          </h1>
+
+          <p>
+            Le storie generate sono costruzioni narrative ipotetiche.
+            Vengono elaborate a partire dalle informazioni e dalle risposte
+            che inserisci durante l'esperienza.
+          </p>
+
+          <h2>Non è una previsione</h2>
+
+          <p>
+            Un evento descritto nella storia potrebbe accadere,
+            accadere in modo diverso oppure non accadere affatto.
+            Il confronto successivo con la realtà serve proprio a mostrare
+            questa differenza.
+          </p>
+
+          <h2>Non è consulenza</h2>
+
+          <p>
+            E SE? non fornisce consulenza medica, psicologica,
+            finanziaria, legale o professionale.
+          </p>
+
+          <h2>La scelta rimane tua</h2>
+
+          <p>
+            Le possibilità vengono mostrate per aiutarti a riflettere
+            e immaginare scenari diversi, non per dirti quale strada
+            dovresti scegliere.
+          </p>
+
+          <div class="btn-row" style="margin-top:30px">
+            <button class="btn btn-primary" data-action="solo">
+              Prova E SE?
+            </button>
+
+            <button class="btn btn-purple" data-action="now">
+              Prova E ADESSO?
+            </button>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  `;
+}
+
+/* =========================================================
+   REALITY STATUS
+   ========================================================= */
+
+function setRealityStatus(predictionId,status){
+  const prediction=state.predictions.find(
+    p=>p.id===predictionId
+  );
+
+  if(!prediction) return;
+
+  prediction.status=status;
+
+  saveState();
+  render();
+}
+
+function saveReality(predictionId){
+  const prediction=state.predictions.find(
+    p=>p.id===predictionId
+  );
+
+  if(!prediction) return;
+
+  const textarea=document.querySelector(
+    `[data-reality-note="${CSS.escape(predictionId)}"]`
+  );
+
+  prediction.realNote=cleanText(
+    textarea?.value || "",
+    4000
+  );
+
+  saveState();
+
+  toast("Confronto con la realtà salvato.");
+}
+
+/* =========================================================
+   OPEN SAVED STORY
+   ========================================================= */
+
+function openSavedStory(storyId){
+  let story=
+    state.simulations.find(x=>x.id===storyId);
+
+  if(story){
+    state.current.draft=story;
+    activeLife=0;
+    currentPage="soloResult";
+    render();
+    return;
+  }
+
+  story=state.pairStories.find(x=>x.id===storyId);
+
+  if(story){
+    state.current.draft=story;
+    activeLife=0;
+    currentPage="pairResult";
+    render();
+    return;
+  }
+
+  story=state.nowStories.find(x=>x.id===storyId);
+
+  if(story){
+    state.current.draft=story;
+    currentPage="nowResult";
+    render();
+  }
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+let toastTimer=null;
+
+function toast(message){
+  const el=document.getElementById("toast");
+
+  if(!el) return;
+
+  el.textContent=message;
+  el.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer=setTimeout(()=>{
+    el.classList.remove("show");
+  },2600);
+}
+
+/* =========================================================
+   EVENT DELEGATION
+   ========================================================= */
+
+document.addEventListener("click",event=>{
+  const actionElement=event.target.closest("[data-action]");
+
+  if(actionElement){
+    const action=actionElement.dataset.action;
+
+    switch(action){
+
+      case "home":
+        navigate("home");
+        break;
+
+      case "solo":
+        navigate("solo");
+        break;
+
+      case "pair":
+        navigate("pair");
+        break;
+
+      case "now":
+        navigate("now");
+        break;
+
+      case "predictions":
+        navigate("predictions");
+        break;
+
+      case "profile":
+        navigate("profile");
+        break;
+
+      case "privacy":
+        navigate("privacy");
+        break;
+
+      case "terms":
+        navigate("terms");
+        break;
+
+      case "notice":
+        navigate("notice");
+        break;
+
+      case "startSoloQuestions":
+        startSoloQuestions();
+        break;
+
+      case "backSolo":
+        navigate("solo");
+        break;
+
+      case "generateSolo":
+        generateSolo();
+        break;
+
+      case "startPairQuestions":
+        startPairQuestions();
+        break;
+
+      case "generatePair":
+        generatePair();
+        break;
+
+      case "startNowQuestions":
+        startNowQuestions();
+        break;
+
+      case "generateNow":
+        generateNow();
+        break;
+
+      case "saveProfile":
+        saveProfile();
+        break;
+
+      case "resetData":
+        resetData();
+        break;
+
+      case "exportData":
+        exportData();
+        break;
+
+      case "shareCurrent":
+        shareCurrent();
+        break;
+
+      case "rerunSolo":
+        rerunSolo();
+        break;
+
+      case "rerunPair":
+        rerunPair();
+        break;
+
+      case "rerunNow":
+        rerunNow();
+        break;
+
+      case "saveReflection":
+        saveReflection();
+        break;
+
+      case "savePairReflection":
+        savePairReflection();
+        break;
+
+      case "saveNowReflection":
+        saveNowReflection();
+        break;
+
+      case "setRealityStatus":
+        setRealityStatus(
+          actionElement.dataset.predictionId,
+          actionElement.dataset.status
+        );
+        break;
+
+      case "saveReality":
+        saveReality(actionElement.dataset.predictionId);
+        break;
+
+      case "openSavedStory":
+        openSavedStory(actionElement.dataset.storyId);
+        break;
+    }
+
+    return;
+  }
+
+  const life=event.target.closest("[data-life-index]");
+
+  if(life){
+    activeLife=Number(life.dataset.lifeIndex);
+
+    render();
+
+    return;
+  }
+});
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+document.getElementById("mobileMenu")
+  .addEventListener("click",()=>{
+    document.getElementById("mainNav")
+      .classList.toggle("open");
+  });
+
+/* =========================================================
+   ADSENSE
+   ========================================================= */
+
+function tryLoadAds(){
+  try{
+    if(window.adsbygoogle){
+      document
+        .querySelectorAll(".adsbygoogle")
+        .forEach(()=>{
+          try{
+            (adsbygoogle=window.adsbygoogle || []).push({});
+          }catch(e){}
+        });
+    }
+  }catch(e){}
+}
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+render();
+
+setTimeout(tryLoadAds,800);
+
+</script>
+
+</body>
+  </html>
