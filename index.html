@@ -301,7 +301,7 @@ hr{
 
 <script>
 /* =========================================================
-   E SE? V14.0 DEFINITIVO (E ADESSO DINAMICO E CONTINUABILE)
+   E SE? V14.1 DEFINITIVO (E ADESSO DINAMICO E CONTINUABILE)
    ========================================================= */
 
 const K={
@@ -1265,7 +1265,7 @@ function continueFromReality(li,ei){
       {
         year:e.year+1,
         title:"La nuova possibilità",
-        text:"Una nuova scelta nasce direttamente dall'esperienza reale che hai vissuto.",
+        text:"Una nuova scelta nasce dall'esperienza reale che hai vissuto.",
         prediction:true
       },
       {
@@ -2248,7 +2248,7 @@ function saveNowStep2(){
 function saveNowStep3(){
   data.currentNow.fear=document.getElementById("nowFearInput").value.trim()||"Il timore di sbagliare";
   
-  // Salva nella lista sessioni se non esiste già
+  // Salva o aggiorna nella lista delle sessioni
   const existingIndex=data.nowSessions.findIndex(s=>s.id===data.currentNow.id);
   if(existingIndex>=0){
     data.nowSessions[existingIndex]=data.currentNow;
@@ -2256,6 +2256,8 @@ function saveNowStep3(){
     data.nowSessions.push(data.currentNow);
   }
   saveAll();
+  
+  // Mostra direttamente i risultati
   renderNowResults();
 }
 
@@ -2314,7 +2316,7 @@ function renderNowResults(){
       </p>
       
       <label>Com'è andata alla fine?</label>
-      <textarea id="nowRealityInput" placeholder="Es. Alla fine ho fatto così ed è andata esattamente come avevi detto / Al contrario...">${esc(n.realityOutcome||"")}</textarea>
+      <textarea id="nowRealityInput" placeholder="Es. Alla fine ho fatto così ed è andata esattamente come previsto / Al contrario...">${esc(n.realityOutcome||"")}</textarea>
 
       <button class="btn green" onclick="saveNowReality()">Salva esito nella Timeline</button>
     </div>
