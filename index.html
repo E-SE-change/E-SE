@@ -301,7 +301,7 @@ hr{
 
 <script>
 /* =========================================================
-   E SE? V12.0 DEFINITIVO (E ADESSO? CON INPUT APERTO E MULTI-SCENARIO)
+   E SE? V13.0 DEFINITIVO (E ADESSO? DINAMICO E CONTINUABILE)
    ========================================================= */
 
 const K={
@@ -317,7 +317,8 @@ let data={
   lives:[],
   currentLife:null,
   currentEvent:null,
-  now:null,
+  nowSessions:[],
+  currentNow:null,
   two:null
 };
 
@@ -333,19 +334,21 @@ function load(){
   }
 
   try{
-    data.two=JSON.parse(localStorage.getItem(K.t)||"null");
-  }catch(e){}
+    data.nowSessions=JSON.parse(localStorage.getItem(K.n)||"[]");
+  }catch(e){
+    data.nowSessions=[];
+  }
 
   try{
-    data.now=JSON.parse(localStorage.getItem(K.n)||"null");
+    data.two=JSON.parse(localStorage.getItem(K.t)||"null");
   }catch(e){}
 }
 
 function saveAll(){
   localStorage.setItem(K.p,JSON.stringify(data.profile));
   localStorage.setItem(K.l,JSON.stringify(data.lives));
+  localStorage.setItem(K.n,JSON.stringify(data.nowSessions));
   localStorage.setItem(K.t,JSON.stringify(data.two));
-  localStorage.setItem(K.n,JSON.stringify(data.now));
 }
 
 function app(html){
@@ -399,7 +402,7 @@ function showIntro(){
         <div>
           <h3>⚡ E ADESSO? — Il bivio immediato</h3>
           <p class="small muted" style="margin-top:6px;">
-            Inserisci liberamente il tuo dubbio attuale (es. se scrivere o meno a qualcuno) e ricevi un'analisi neutra basata su scenari multipli, opzioni di comunicazione e risposte emotive attese.
+            Affronta qualsiasi dubbio improvviso (scrivere a qualcuno, accettare un lavoro, comprare casa, ecc.): inserisci il tuo dilemma, ricevi scenari multipli su misura, salva la tua timeline e torna a raccontare come è andata per continuare la storia.
           </p>
         </div>
       </div>
@@ -462,7 +465,7 @@ function home(){
         <div>
           <h2>⚡ E ADESSO?</h2>
           <p class="muted">
-            Hai un dubbio improvviso? Scrivi liberamente cosa vorresti fare (es. se scrivere a tizio) ed esplora gli scenari alternativi, i modi di agire e le relative emozioni senza condizionamenti.
+            Hai un dubbio improvviso su qualsiasi scelta (lavoro, messaggi, casa)? Inseriscilo, esplora gli scenari e salva la tua timeline per aggiornarla quando vuoi.
           </p>
         </div>
         <button class="btn orange" onclick="startNow()">Risolvi ora</button>
@@ -581,7 +584,8 @@ function clearData(){
       lives:[],
       currentLife:null,
       currentEvent:null,
-      now:null,
+      nowSessions:[],
+      currentNow:null,
       two:null
     };
     showIntro();
@@ -1085,12 +1089,13 @@ function saveLife(i){
 
 function predictions(){
 
-  if(!data.lives.length){
+  if(!data.lives.length && !data.nowSessions.length){
     app(`
       <div class="card center">
         <h2>📖 Nessuna previsione ancora</h2>
-        <p class="muted">Crea prima una storia E SE?.</p>
+        <p class="muted">Crea prima una storia E SE? o una sessione in E ADESSO?.</p>
         <button class="btn primary" onclick="startLife()">Crea la mia storia</button>
+        <button class="btn orange" onclick="startNow()">Usa E ADESSO?</button>
         <button class="btn" onclick="home()">Home</button>
       </div>
     `);
@@ -1103,11 +1108,26 @@ function predictions(){
     </div>
 
     <div class="card">
-      <h2>🔮 Le mie previsioni</h2>
+      <h2>🔮 Le mie previsioni e bivi</h2>
       <p class="muted">
-        Torna alle storie e verifica ciò che è successo davvero.
+        Torna alle storie e alle sessioni di E ADESSO? per verificare ciò che è successo davvero.
       </p>
     </div>
+
+    ${data.nowSessions.length ? `
+      <div class="card">
+        <h3>⚡ Sessioni E ADESSO? salvate</h3>
+        ${data.nowSessions.map((s,i)=>`
+          <div class="prediction">
+            <strong>Bivio: ${esc(s.dilemma)}</strong>
+            <p class="small muted">Salvata il: ${new Date(s.createdAt).toLocaleDateString()}</p>
+            <button class="btn orange" onclick="openNowSession(${i})">
+              Apri e aggiorna esito
+            </button>
+          </div>
+        `).join("")}
+      </div>
+    ` : ""}
 
     ${data.lives.map((l,i)=>`
       <div class="card">
@@ -2113,39 +2133,46 @@ function continueTwoReality(li,ei){
 
 
 /* =========================================================
-   E ADESSO? — FLUSSO GUIDATO MULTI-FASE
+   E ADESSO? — FLUSSO GUIDATO DINAMICO E CONTINUABILE
    ========================================================= */
 
 function startNow(){
-  data.now={
+  data.currentNow={
+    id:Date.now(),
     step:1,
     dilemma:"",
-    person:"",
-    intent:"",
-    tone:"",
-    fear:""
+    context:"",
+    desire:"",
+    fear:"",
+    createdAt:new Date().toISOString(),
+    realityOutcome:""
   };
   renderNowStep();
 }
 
+function openNowSession(index){
+  data.currentNow=data.nowSessions[index];
+  renderNowResults();
+}
+
 function renderNowStep(){
-  const s=data.now.step;
+  const s=data.currentNow.step;
 
   if(s===1){
     app(`
       <div class="nav">
         <button class="btn" onclick="home()">← Home</button>
-        <span class="badge">Fase 1 / 4</span>
+        <span class="badge">Fase 1 / 3</span>
       </div>
 
       <div class="card">
-        <h2>⚡ E ADESSO? — Qual è il tuo dubbio?</h2>
+        <h2>⚡ E ADESSO? — Qual è il tuo dilemma?</h2>
         <p class="muted">
-          Scrivi liberamente cosa ti passa per la testa in questo momento (es. voglio scrivere un messaggio a tizio ma non so se farlo).
+          Scrivi liberamente qualsiasi dubbio (es. se scrivere a tizio, accettare una nuova proposta di lavoro, comprare casa, ecc.).
         </p>
 
-        <label>Il tuo dilemma o pensiero</label>
-        <textarea id="nowDilemmaInput" placeholder="Es. Vorrei scrivere a Tizio ma ho il dubbio se farlo o aspettare...">${esc(data.now.dilemma)}</textarea>
+        <label>Il tuo dilemma o situazione</label>
+        <textarea id="nowDilemmaInput" placeholder="Es. Ho ricevuto una proposta di lavoro all'estero ma ho paura di lasciare le mie certezze...">${esc(data.currentNow.dilemma)}</textarea>
 
         <button class="btn orange" onclick="saveNowStep1()">Continua</button>
       </div>
@@ -2153,21 +2180,21 @@ function renderNowStep(){
   }else if(s===2){
     app(`
       <div class="nav">
-        <button class="btn" onclick="data.now.step=1; renderNowStep();">← Indietro</button>
-        <span class="badge">Fase 2 / 4</span>
+        <button class="btn" onclick="data.currentNow.step=1; renderNowStep();">← Indietro</button>
+        <span class="badge">Fase 2 / 3</span>
       </div>
 
       <div class="card">
-        <h2>⚡ E ADESSO? — La persona e l'intento</h2>
+        <h2>⚡ E ADESSO? — Dettagli e opzioni</h2>
         <p class="muted">
-          Capiamo meglio chi c'è al centro della situazione e cosa vorresti comunicare.
+          Approfondiamo il contesto per calibrare gli scenari alternativi senza condizionamenti.
         </p>
 
-        <label>Chi è l'altra persona?</label>
-        <input id="nowPersonInput" value="${esc(data.now.person)}" placeholder="Es. Tizio, un'amicizia, un collega...">
+        <label>Qual è il contesto o le due strade principali?</label>
+        <input id="nowContextInput" value="${esc(data.currentNow.context)}" placeholder="Es. Accettare e trasferirmi vs Rimanere qui e rifiutare">
 
-        <label>Se decidessi di scriverle, che tipo di messaggio o tono vorresti usare?</label>
-        <input id="nowIntentInput" value="${esc(data.now.intent)}" placeholder="Es. Un messaggio diretto, leggero, oppure formale/distaccato...">
+        <label>Cosa speri di ottenere (il tuo desiderio)?</label>
+        <input id="nowDesireInput" value="${esc(data.currentNow.desire)}" placeholder="Es. Crescita professionale ed economica">
 
         <button class="btn orange" onclick="saveNowStep2()">Continua</button>
       </div>
@@ -2175,21 +2202,18 @@ function renderNowStep(){
   }else if(s===3){
     app(`
       <div class="nav">
-        <button class="btn" onclick="data.now.step=2; renderNowStep();">← Indietro</button>
-        <span class="badge">Fase 3 / 4</span>
+        <button class="btn" onclick="data.currentNow.step=2; renderNowStep();">← Indietro</button>
+        <span class="badge">Fase 3 / 3</span>
       </div>
 
       <div class="card">
-        <h2>⚡ E ADESSO? — Aspettative e freni</h2>
+        <h2>⚡ E ADESSO? — Blocchi e freni</h2>
         <p class="muted">
-          Analizziamo cosa ti spinge e cosa ti frena, senza alcun giudizio.
+          Analizziamo cosa ti frena per completare la proiezione degli scenari.
         </p>
 
-        <label>Cosa speri di ottenere facendo il passo?</label>
-        <textarea id="nowToneInput" placeholder="Es. Spero di rompere il ghiaccio e capire se c'interesse...">${esc(data.now.tone)}</textarea>
-
         <label>Qual è la paura o il blocco principale?</label>
-        <textarea id="nowFearInput" placeholder="Es. Temo di ricevere unA risposta fredda o di pentirsemene subito...">${esc(data.now.fear)}</textarea>
+        <textarea id="nowFearInput" placeholder="Es. Temo di pentirmene o di isolarmi...">${esc(data.currentNow.fear)}</textarea>
 
         <button class="btn orange" onclick="saveNowStep3()">Genera scenari analitici</button>
       </div>
@@ -2203,80 +2227,113 @@ function saveNowStep1(){
     alert("Scrivi qual è il tuo dilemma per continuare.");
     return;
   }
-  data.now.dilemma=val;
-  data.now.step=2;
+  data.currentNow.dilemma=val;
+  data.currentNow.step=2;
   renderNowStep();
 }
 
 function saveNowStep2(){
-  data.now.person=document.getElementById("nowPersonInput").value.trim()||"questa persona";
-  data.now.intent=document.getElementById("nowIntentInput").value.trim()||"un messaggio diretto";
-  data.now.step=3;
+  data.currentNow.context=document.getElementById("nowContextInput").value.trim()||"Prendere la decisione";
+  data.currentNow.desire=document.getElementById("nowDesireInput").value.trim()||"Trovare la soluzione migliore";
+  data.currentNow.step=3;
   renderNowStep();
 }
 
 function saveNowStep3(){
-  data.now.tone=document.getElementById("nowToneInput").value.trim()||"ottenere un riscontro";
-  data.now.fear=document.getElementById("nowFearInput").value.trim()||"il timore di sbagliare";
+  data.currentNow.fear=document.getElementById("nowFearInput").value.trim()||"Il timore di sbagliare";
+  
+  // Salva nella lista sessioni se non esiste già
+  const existingIndex=data.nowSessions.findIndex(s=>s.id===data.currentNow.id);
+  if(existingIndex>=0){
+    data.nowSessions[existingIndex]=data.currentNow;
+  }else{
+    data.nowSessions.push(data.currentNow);
+  }
   saveAll();
   renderNowResults();
 }
 
 function renderNowResults(){
-  const n=data.now;
+  const n=data.currentNow;
   app(`
     <div class="nav">
-      <button class="btn" onclick="startNow()">← Ricomincia</button>
+      <button class="btn" onclick="predictions()">← Le mie previsioni</button>
       <button class="btn" onclick="home()">Home</button>
     </div>
 
     <div class="card">
-      <h2>⚡ Analisi del bivio: ${esc(n.person)}</h2>
+      <h2>⚡ Analisi del bivio immediato</h2>
       <p class="muted">
-        Dilemma iniziale: "${esc(n.dilemma)}"
+        <strong>Il tuo dilemma:</strong> "${esc(n.dilemma)}"<br>
+        <strong>Opzioni / Contesto:</strong> ${esc(n.context)}
       </p>
     </div>
 
     <div class="card">
-      <h3>🟢 Scenario A: Se decidi di scrivere (${esc(n.intent)})</h3>
+      <h3>🟢 Scenario A: Se decidi di fare il passo (Agire)</h3>
       <div class="event">
         <strong>Cosa aspettarsi dagli eventi</strong>
-        <p>L'azione rompe lo stallo. Passi dalla fase di rimuginio mentale alla realtà: la palla passa all'altra persona che riceverà il tuo input.</p>
+        <p>Rompi lo stallo iniziale. Passi dai pensieri alla realtà concreta, attivando dinamiche esterne legate al tuo obiettivo (${esc(n.desire)}).</p>
       </div>
       <div class="event">
         <strong>Sensazioni ed emozioni probabili</strong>
-        <p>Picco iniziale di adrenalina e tensione prima dell'invio. Subito dopo subentra un senso di sollievo e liberazione per aver agito coerentemente con il tuo desiderio.</p>
+        <p>Iniziale picco di adrenalina e tensione. Subito dopo subentra un forte senso di liberazione e chiarezza per aver scelto una direzione netta.</p>
       </div>
       <div class="event">
         <strong>Se le cose vanno bene / male</strong>
-        <p>Se risponde positivamente, l'energia si sblocca. Se c'è freddezza o silenzio, affronti direttamente il timore (${esc(n.fear)}), chiudendo però lo spazio all'incertezza.</p>
+        <p>Se ottieni riscontro positivo, l'energia si sblocca rapidamente. Se incontri ostacoli, affronti il timore (${esc(n.fear)}), ma acquisisci dati reali su cui costruire il passo successivo.</p>
       </div>
     </div>
 
     <div class="card">
-      <h3>🔵 Scenario B: Se decidi di non scrivere (rimani in attesa)</h3>
+      <h3>🔵 Scenario B: Se decidi di non fare nulla (Rimanere in attesa)</h3>
       <div class="event">
         <strong>Cosa aspettarsi dagli eventi</strong>
-        <p>La situazione resta congelata nello stato attuale. Nessun fattore esterno disturba gli equilibri e la dinamica rimane immutata.</p>
+        <p>La situazione rimane congelata. Gli equilibri attuali non subiscono variazioni immediate e tutto resta com'è.</p>
       </div>
       <div class="event">
         <strong>Sensazioni ed emozioni probabili</strong>
-        <p>Nell'immediato provi protezione e controllo sul rischio. Tuttavia, nei giorni successivi potrebbe riaffiorare il pensiero ricorrente e il dubbio ("E se avessi fatto diversamente?").</p>
+        <p>Nell'immediato provi protezione e sollievo dal rischio. Nei giorni successivi, tuttavia, potrebbe riaffiorare il tarlo del dubbio ("E se avessi fatto diversamente?").</p>
       </div>
       <div class="event">
         <strong>Se le cose vanno bene / male</strong>
-        <p>Eviti il confronto diretto e lo stress dell'attesa della risposta, ma conservi il carico mentale legato al dubbio irrisolto.</p>
+        <p>Eviti lo stress del cambiamento immediato, ma conservi il carico mentale legato all'interrogativo irrisolto.</p>
       </div>
+    </div>
+
+    <div class="card">
+      <h3>📅 Timeline ed esito reale</h3>
+      <p class="muted" style="margin-bottom:10px;">
+        Torna qui in un secondo momento per registrare come è andata a finire nella realtà!
+      </p>
+      
+      <label>Com'è andata alla fine?</label>
+      <textarea id="nowRealityInput" placeholder="Es. Alla fine ho deciso di farlo ed è andata esattamente come previsto / Al contrario...">${esc(n.realityOutcome||"")}</textarea>
+
+      <button class="btn green" onclick="saveNowReality()">Salva esito e continua</button>
     </div>
 
     <div class="card center">
-      <p class="muted small" style="margin-bottom:14px;">
-        Nessuna strada è giusta o sbagliata: servono entrambe a comprendere quale prezzo emotivo sei disposta ad accettare in questo momento.
-      </p>
       <button class="btn orange" onclick="startNow()">Analizza un altro bivio</button>
-      <button class="btn primary" onclick="home()">Torna alla Home</button>
     </div>
   `);
+}
+
+function saveNowReality(){
+  const val=document.getElementById("nowRealityInput").value.trim();
+  if(!val){
+    alert("Scrivi prima come è andata nella realtà.");
+    return;
+  }
+  data.currentNow.realityOutcome=val;
+  
+  const idx=data.nowSessions.findIndex(s=>s.id===data.currentNow.id);
+  if(idx>=0){
+    data.nowSessions[idx]=data.currentNow;
+  }
+  saveAll();
+  alert("Esito salvato con successo nella tua timeline!");
+  predictions();
 }
 
 
