@@ -4,1445 +4,4033 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#09090d">
-
+<meta name="description" content="E SE? Prova una vita prima di viverla. Esplora possibili futuri, decisioni e conseguenze.">
 <meta name="google-adsense-account" content="ca-pub-7154454592714745">
 
 <!-- GOOGLE ADSENSE -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7154454592714745"
-     crossorigin="anonymous"></script>
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7154454592714745"
+crossorigin="anonymous"></script>
 
-<title>E SE? — Prova una vita prima di viverla..</title>
+<title>E SE? — Prova una vita prima di viverla</title>
 
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:#09090d;color:#f5f5f7;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-body{min-height:100vh}
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-.app{max-width:760px;margin:auto;padding:20px 16px 70px}
-.screen{display:none}
-.screen.active{display:block}
-.logo{font-size:52px;font-weight:950;letter-spacing:-4px;line-height:1}
-.logo span{opacity:.45}
-.tagline{margin-top:12px;font-size:18px;line-height:1.4;color:#b8b8c2}
-.top{padding:25px 4px 35px}
-.hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center}
-.hero h1{font-size:42px;line-height:1.02;letter-spacing:-2px;margin:28px 0 15px}
-.hero p{font-size:19px;color:#b8b8c2;line-height:1.55}
-.cta{width:100%;border:0;border-radius:18px;padding:17px 20px;margin-top:16px;background:#fff;color:#08080b;font-weight:850;font-size:17px}
-.secondary{background:#17171e;color:#fff;border:1px solid #2b2b35}
-.ghost{background:transparent;color:#aaa;border:0;padding:12px 0}
-.card{background:#121219;border:1px solid #25252f;border-radius:22px;padding:20px;margin:14px 0}
-.question-number{font-size:13px;color:#777783;text-transform:uppercase;letter-spacing:1.5px}
-.question h2{font-size:27px;line-height:1.15;margin:10px 0 22px}
-.options{display:grid;gap:10px}
-.option{border:1px solid #292934;background:#17171f;color:#eee;border-radius:16px;padding:15px;text-align:left;line-height:1.3}
-.option.selected{border-color:#fff;background:#25252e}
-input,textarea{width:100%;background:#17171f;border:1px solid #30303a;border-radius:15px;color:#fff;padding:15px;outline:none}
-textarea{min-height:120px;resize:vertical}
-.progress{height:4px;background:#22222a;border-radius:20px;margin:12px 0 28px;overflow:hidden}
-.progress div{height:100%;background:#fff;border-radius:20px}
-.choice-grid{display:grid;gap:12px}
-.life-choice{background:#121219;border:1px solid #292934;border-radius:22px;padding:20px;text-align:left;color:#fff}
-.life-choice h3{font-size:22px;margin:0 0 8px}
-.life-choice p{color:#aaa;line-height:1.5;margin:0}
-.badge{display:inline-block;padding:6px 10px;border-radius:99px;background:#24242d;color:#ccc;font-size:12px;font-weight:800;margin-bottom:10px}
-.year-tabs{display:flex;gap:8px;margin:18px 0;overflow:auto}
-.year-tab{flex:1;min-width:90px;background:#15151c;border:1px solid #2a2a33;color:#aaa;border-radius:13px;padding:11px}
-.year-tab.active{background:#fff;color:#08080b}
-.story{font-size:18px;line-height:1.65;color:#e8e8ec}
-.story strong{color:#fff}
-.event{border-left:2px solid #555;padding-left:15px;margin:22px 0}
-.event .event-title{font-weight:850;font-size:17px}
-.event p{margin:6px 0;color:#bdbdc7;line-height:1.55}
-.stat{margin:16px 0}
-.stat-head{display:flex;justify-content:space-between;font-size:13px;color:#aaa;margin-bottom:6px}
-.statbar{height:8px;background:#22222b;border-radius:20px;overflow:hidden}
-.statbar div{height:100%;background:#ddd;border-radius:20px}
-.scenario{border:1px solid #292934;border-radius:23px;padding:20px;margin:18px 0;background:#101017}
-.scenario h3{font-size:25px;margin:0 0 7px}
-.scenario .subtitle{color:#999;margin-bottom:16px}
-.mini-story{border-top:1px solid #25252e;padding:17px 0}
-.mini-story:first-of-type{border-top:0}
-.mini-story h4{margin:0 0 8px;font-size:17px}
-.mini-story p{color:#c3c3ca;line-height:1.55;margin:0}
-.compare-grid{display:grid;gap:10px;margin-top:20px}
-.compare-row{background:#15151c;border:1px solid #272731;border-radius:15px;padding:13px}
-.compare-row strong{display:block;margin-bottom:7px}
-.saved-item{background:#121219;border:1px solid #282832;border-radius:18px;padding:17px;margin:10px 0}
-.saved-item h3{margin:0 0 6px}
-.saved-item p{color:#aaa;font-size:14px;margin:0 0 12px}
-.actions{display:flex;gap:8px}
-.actions button{flex:1}
-.small{font-size:13px;color:#777}
-.center{text-align:center}
-.quote{font-size:26px;line-height:1.25;font-weight:850;margin:30px 0}
-hr{border:0;border-top:1px solid #25252e;margin:28px 0}
-@media(max-width:520px){
-.logo{font-size:46px}
-.hero h1{font-size:38px}
-.question h2{font-size:24px}
-.story{font-size:17px}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --bg:#09090d;
+  --card:#12121a;
+  --card2:#171722;
+  --border:#292936;
+  --text:#f5f5f7;
+  --muted:#9a9aa8;
+  --accent:#a78bfa;
+  --accent2:#7c5cff;
+  --pink:#ec4899;
+  --green:#4ade80;
+  --blue:#60a5fa;
+  --orange:#fb923c;
+  --red:#fb7185;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(124,92,255,.18),transparent 35%),
+    var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.app{
+  width:100%;
+  max-width:760px;
+  margin:auto;
+  min-height:100vh;
+  padding:20px 16px 50px;
+}
+
+.screen{
+  display:none;
+}
+
+.screen.active{
+  display:block;
+}
+
+.logo{
+  text-align:center;
+  padding:25px 0 10px;
+}
+
+.logo h1{
+  font-size:44px;
+  letter-spacing:-2px;
+}
+
+.logo p{
+  color:var(--muted);
+  margin-top:6px;
+  font-size:15px;
+}
+
+.card{
+  background:rgba(18,18,26,.94);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:22px;
+  margin:14px 0;
+  box-shadow:0 12px 40px rgba(0,0,0,.18);
+}
+
+.hero{
+  text-align:center;
+  padding:30px 20px;
+}
+
+.hero .emoji{
+  font-size:48px;
+  margin-bottom:12px;
+}
+
+.hero h2{
+  font-size:27px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:var(--muted);
+  line-height:1.55;
+}
+
+.menu{
+  display:grid;
+  gap:12px;
+  margin-top:18px;
+}
+
+.menu button{
+  text-align:left;
+  padding:19px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text);
+  transition:.2s;
+}
+
+.menu button:hover{
+  transform:translateY(-1px);
+  border-color:#4b4b5c;
+  background:var(--card2);
+}
+
+.menu-title{
+  font-size:18px;
+  font-weight:700;
+  display:block;
+}
+
+.menu-sub{
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+  margin-top:5px;
+}
+
+.primary{
+  width:100%;
+  border:0;
+  border-radius:15px;
+  padding:15px 18px;
+  background:linear-gradient(135deg,var(--accent2),#9b6cff);
+  color:white;
+  font-weight:700;
+  margin-top:12px;
+}
+
+.secondary{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:14px 18px;
+  background:transparent;
+  color:var(--text);
+  margin-top:10px;
+}
+
+.danger{
+  border-color:#542530;
+  color:#ff9aaa;
+}
+
+.back{
+  border:0;
+  background:none;
+  color:var(--muted);
+  padding:8px 0;
+  margin-bottom:8px;
+}
+
+.screen-title{
+  font-size:28px;
+  margin:8px 0;
+}
+
+.screen-sub{
+  color:var(--muted);
+  line-height:1.5;
+  margin-bottom:20px;
+}
+
+.progress{
+  height:5px;
+  background:#20202a;
+  border-radius:20px;
+  overflow:hidden;
+  margin:15px 0 25px;
+}
+
+.progress div{
+  height:100%;
+  background:linear-gradient(90deg,var(--accent2),var(--pink));
+  transition:.3s;
+}
+
+.question{
+  font-size:20px;
+  font-weight:700;
+  line-height:1.35;
+  margin-bottom:12px;
+}
+
+.hint{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#0e0e14;
+  color:var(--text);
+  padding:14px;
+  outline:none;
+}
+
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:var(--accent);
+}
+
+.choice-grid{
+  display:grid;
+  gap:12px;
+}
+
+.choice{
+  background:var(--card);
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:18px;
+  border-radius:18px;
+  text-align:left;
+}
+
+.choice strong{
+  display:block;
+  font-size:17px;
+  margin-bottom:5px;
+}
+
+.choice span{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.4;
+}
+
+.life-header{
+  padding:24px 0 10px;
+}
+
+.life-kicker{
+  color:var(--accent);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1.4px;
+  font-weight:700;
+}
+
+.life-title{
+  font-size:31px;
+  margin-top:7px;
+}
+
+.year-tabs{
+  display:flex;
+  gap:8px;
+  margin:18px 0;
+}
+
+.year-tabs button{
+  flex:1;
+  padding:11px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--muted);
+}
+
+.year-tabs button.active{
+  background:var(--accent2);
+  color:white;
+  border-color:var(--accent2);
+}
+
+.story{
+  font-size:16px;
+  line-height:1.7;
+  color:#e5e5eb;
+}
+
+.story p{
+  margin-bottom:13px;
+}
+
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.stat{
+  background:#0e0e14;
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:15px;
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.stat-value{
+  font-size:20px;
+  font-weight:800;
+  margin-top:5px;
+}
+
+.prediction{
+  border-left:3px solid var(--accent);
+  background:#11111a;
+  padding:14px 15px;
+  border-radius:0 14px 14px 0;
+  margin:9px 0;
+}
+
+.prediction strong{
+  display:block;
+  margin-bottom:5px;
+}
+
+.prediction span{
+  color:#c8c8d2;
+  font-size:14px;
+  line-height:1.45;
+}
+
+.unexpected{
+  background:linear-gradient(135deg,#211526,#14101c);
+  border:1px solid #49304f;
+}
+
+.unexpected .icon{
+  font-size:30px;
+}
+
+.unexpected h3{
+  margin:7px 0;
+}
+
+.unexpected p{
+  color:#d5c9da;
+  line-height:1.5;
+}
+
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.badge{
+  display:inline-block;
+  padding:6px 9px;
+  border-radius:99px;
+  background:#1d1b29;
+  color:#c7baff;
+  font-size:12px;
+  margin:3px 3px 3px 0;
+}
+
+.ad-slot{
+  min-height:40px;
+  margin:20px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#555561;
+  font-size:10px;
+}
+
+.saved-item{
+  padding:17px;
+  border:1px solid var(--border);
+  background:var(--card);
+  border-radius:17px;
+  margin-bottom:10px;
+}
+
+.saved-item strong{
+  display:block;
+  margin-bottom:5px;
+}
+
+.saved-item small{
+  color:var(--muted);
+}
+
+.notice{
+  background:#11111a;
+  border:1px solid var(--border);
+  padding:15px;
+  border-radius:15px;
+  color:#c8c8d2;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.success{
+  border-color:#245334;
+  background:#101b14;
+}
+
+.section-title{
+  font-size:19px;
+  margin-bottom:12px;
+}
+
+.divider{
+  height:1px;
+  background:var(--border);
+  margin:20px 0;
+}
+
+.small{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+@media(max-width:500px){
+  .app{
+    padding:14px 12px 40px;
+  }
+
+  .logo h1{
+    font-size:38px;
+  }
+
+  .card{
+    padding:18px;
+  }
+
+  .two-col{
+    grid-template-columns:1fr;
+  }
+
+  .life-title{
+    font-size:27px;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <div class="app">
 
-<!-- HOME -->
-<section id="home" class="screen active">
-  <div class="hero">
-    <div class="logo">E SE<span>?</span></div>
-    <div class="tagline">Prova una vita prima di viverla.</div>
+<!-- ================= HOME ================= -->
 
-    <h1>E se la tua vita potesse prendere una strada completamente diversa?</h1>
+<section id="home" class="screen active">
+
+  <div class="logo">
+    <h1>E SE?</h1>
+    <p>Prova una vita prima di viverla.</p>
+  </div>
+
+  <div class="card hero">
+    <div class="emoji">🌙</div>
+    <h2>E se la tua vita prendesse un'altra strada?</h2>
+    <p>
+      Raccontaci dove sei oggi. Esplora possibilità diverse,
+      conseguenze, opportunità e imprevisti.
+    </p>
+  </div>
+
+  <div class="menu">
+
+    <button onclick="startSolo()">
+      <span class="menu-title">🌙 E SE? — Da solo</span>
+      <span class="menu-sub">
+        Prova tre possibili versioni della tua vita.
+      </span>
+    </button>
+
+    <button onclick="startCouple()">
+      <span class="menu-title">❤️ E SE? — In 2</span>
+      <span class="menu-sub">
+        Scopri tre possibili futuri della vostra storia.
+      </span>
+    </button>
+
+    <button onclick="startNow()">
+      <span class="menu-title">💭 E ADESSO?</span>
+      <span class="menu-sub">
+        Hai una situazione reale? Raccontamela.
+      </span>
+    </button>
+
+    <button onclick="openSaved()">
+      <span class="menu-title">🔮 Le mie previsioni / vite</span>
+      <span class="menu-sub">
+        Torna alle simulazioni che hai salvato.
+      </span>
+    </button>
+
+    <button onclick="openProfile()">
+      <span class="menu-title">👤 Il mio profilo</span>
+      <span class="menu-sub">
+        Le caratteristiche che emergono dalle tue simulazioni.
+      </span>
+    </button>
+
+    <button onclick="openPrivacy()">
+      <span class="menu-title">🔐 Privacy</span>
+      <span class="menu-sub">
+        Come vengono gestiti i dati nel browser.
+      </span>
+    </button>
+
+    <button onclick="openTerms()">
+      <span class="menu-title">⚖️ Avvertenze</span>
+      <span class="menu-sub">
+        Come interpretare le simulazioni.
+      </span>
+    </button>
+
+  </div>
+
+  <div class="notice" style="margin-top:20px;">
+    <strong>Nota importante</strong><br>
+    E SE? non conosce il futuro e non formula previsioni certe.
+    Costruisce scenari possibili partendo dalle informazioni che scegli di condividere.
+  </div>
+
+</section>
+
+
+<!-- ================= SOLO QUESTIONS ================= -->
+
+<section id="soloQuestions" class="screen">
+
+  <button class="back" onclick="goHome()">← Torna alla home</button>
+
+  <h2 class="screen-title">🌙 E SE?</h2>
+  <p class="screen-sub">
+    Prima di immaginare il futuro, raccontaci dove ti trovi oggi.
+    Non esistono risposte giuste.
+  </p>
+
+  <div class="progress">
+    <div id="soloProgress"></div>
+  </div>
+
+  <div class="card">
+    <div id="soloQuestion"></div>
+    <button class="primary" onclick="nextSoloQuestion()">Continua →</button>
+  </div>
+
+</section>
+
+
+<!-- ================= SOLO CHOICE ================= -->
+
+<section id="soloChoice" class="screen">
+
+  <button class="back" onclick="goHome()">← Home</button>
+
+  <h2 class="screen-title">Ora immaginiamo tre strade.</h2>
+
+  <p class="screen-sub">
+    Non devi scegliere quella “giusta”.
+    Scegli semplicemente quella che vuoi esplorare per prima.
+  </p>
+
+  <div id="soloChoices" class="choice-grid"></div>
+
+</section>
+
+
+<!-- ================= SOLO RESULT ================= -->
+
+<section id="soloResult" class="screen">
+
+  <button class="back" onclick="openSoloChoice()">← Cambia vita</button>
+
+  <div id="soloResultContent"></div>
+
+</section>
+
+
+<!-- ================= SOLO COMPARISON ================= -->
+
+<section id="soloComparison" class="screen">
+
+  <button class="back" onclick="openSoloResult()">← Torna alla vita</button>
+
+  <h2 class="screen-title">Le tre possibilità</h2>
+
+  <p class="screen-sub">
+    Non sono tre risposte corrette o sbagliate.
+    Sono tre direzioni diverse che partono da ciò che hai raccontato.
+  </p>
+
+  <div id="soloComparisonContent"></div>
+
+</section>
+
+
+<!-- ================= COUPLE PERSON ================= -->
+
+<section id="coupleQuestions" class="screen">
+
+  <button class="back" onclick="goHome()">← Torna alla home</button>
+
+  <h2 class="screen-title" id="coupleTitle">❤️ E SE? in 2</h2>
+
+  <p class="screen-sub" id="coupleSubtitle"></p>
+
+  <div class="progress">
+    <div id="coupleProgress"></div>
+  </div>
+
+  <div class="card">
+    <div id="coupleQuestion"></div>
+    <button class="primary" onclick="nextCoupleQuestion()">Continua →</button>
+  </div>
+
+</section>
+
+
+<!-- ================= COUPLE RESULT ================= -->
+
+<section id="coupleResult" class="screen">
+
+  <button class="back" onclick="openCoupleChoice()">← Cambia vita</button>
+
+  <div id="coupleResultContent"></div>
+
+</section>
+
+
+<!-- ================= COUPLE CHOICE ================= -->
+
+<section id="coupleChoice" class="screen">
+
+  <button class="back" onclick="goHome()">← Home</button>
+
+  <h2 class="screen-title">❤️ Tre possibili futuri</h2>
+
+  <p class="screen-sub">
+    Ora che abbiamo ascoltato entrambi, possiamo immaginare
+    cosa potrebbe succedere lungo tre strade differenti.
+  </p>
+
+  <div id="coupleChoices" class="choice-grid"></div>
+
+</section>
+
+
+<!-- ================= E ADESSO ================= -->
+
+<section id="nowStart" class="screen">
+
+  <button class="back" onclick="goHome()">← Home</button>
+
+  <div class="card hero">
+    <div class="emoji">💭</div>
+    <h2>E ADESSO?</h2>
+    <p>
+      Hai qualcosa in testa e non sai cosa fare?
+      Raccontamelo.<br><br>
+      Non devi sapere già cosa chiedere.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="notice">
+      💌 “Vorrei scrivere a una persona ma non so se dovrei.”<br><br>
+      ❤️ “Non capisco cosa provo per questa persona.”<br><br>
+      💼 “Mi hanno offerto un lavoro e non so se accettare.”<br><br>
+      🏠 “Sto pensando di trasferirmi.”<br><br>
+      😶 “Non so se parlare con qualcuno di una cosa che mi ha fatto stare male.”<br><br>
+      🔥 “Vorrei fare una cosa impulsiva, ma non so se me ne pentirò.”
+    </div>
+
+    <textarea id="nowText"
+      placeholder="Scrivi semplicemente quello che è successo..."></textarea>
+
+    <button class="primary" onclick="analyzeNow()">
+      Continua →
+    </button>
+  </div>
+
+</section>
+
+
+<!-- ================= NOW QUESTIONS ================= -->
+
+<section id="nowQuestions" class="screen">
+
+  <button class="back" onclick="showScreen('nowStart')">← Indietro</button>
+
+  <h2 class="screen-title">Prima di risponderti...</h2>
+
+  <p class="screen-sub">
+    Ti faccio qualche domanda per capire meglio la situazione.
+  </p>
+
+  <div id="nowQuestionsContent"></div>
+
+  <button class="primary" onclick="finishNow()">
+    Fammi vedere cosa potrebbe succedere →
+  </button>
+
+</section>
+
+
+<!-- ================= NOW RESULT ================= -->
+
+<section id="nowResult" class="screen">
+
+  <button class="back" onclick="goHome()">← Home</button>
+
+  <div id="nowResultContent"></div>
+
+</section>
+
+
+<!-- ================= SAVED ================= -->
+
+<section id="saved" class="screen">
+
+  <button class="back" onclick="goHome()">← Home</button>
+
+  <h2 class="screen-title">🔮 Le mie previsioni</h2>
+
+  <p class="screen-sub">
+    Qui trovi le vite che hai deciso di conservare.
+  </p>
+
+  <div id="savedContent"></div>
+
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section id="profile" class="screen">
+
+  <button class="back" onclick="goHome()">← Home</button>
+
+  <h2 class="screen-title">👤 Il mio profilo</h2>
+
+  <p class="screen-sub">
+    Non è un test psicologico. È il profilo narrativo che emerge
+    dalle tue simulazioni.
+  </p>
+
+  <div id="profileContent"></div>
+
+</section>
+
+
+<!-- ================= PRIVACY ================= -->
+
+<section id="privacy" class="screen">
+
+  <button class="back" onclick="goHome()">← Home</button>
+
+  <h2 class="screen-title">🔐 Privacy</h2>
+
+  <div class="card story">
 
     <p>
-      Non è un test. Non è una previsione.
-      Raccontami dove sei, cosa desideri e cosa hai paura di perdere.
-      Poi vediamo dove potrebbero portarti tre scelte diverse.
+      E SE? è progettato per permetterti di esplorare scenari
+      personali direttamente nel browser.
     </p>
 
-    <button class="cta" onclick="start()">Inizia a immaginare →</button>
-    <button class="cta secondary" onclick="showSavedLives()">Le mie vite</button>
-    <button class="cta secondary" onclick="showTwoPeople()">E SE? in due</button>
-  </div>
-</section>
-
-<!-- QUESTIONS -->
-<section id="questions" class="screen">
-  <div class="top">
-    <div class="logo">E SE<span>?</span></div>
-    <div class="tagline">Prima raccontami la tua vita.</div>
-  </div>
-
-  <div class="progress"><div id="progressBar"></div></div>
-  <div id="questionBox"></div>
-
-  <button id="nextBtn" class="cta" onclick="nextQuestion()">Continua →</button>
-  <button class="ghost" onclick="goHome()">Esci</button>
-</section>
-
-<!-- CHOICE -->
-<section id="choice" class="screen">
-  <div class="top">
-    <div class="logo">E SE<span>?</span></div>
-    <div class="tagline">Adesso guarda cosa potrebbe succedere.</div>
-  </div>
-
-  <div class="card">
-    <span class="badge">LA TUA SITUAZIONE</span>
-    <p id="profileText" class="story"></p>
-  </div>
-
-  <h2>Tre strade.</h2>
-  <p class="tagline">Nessuna è “giusta”. Sono tre modi diversi di rispondere alla tua vita.</p>
-
-  <div id="choices" class="choice-grid"></div>
-
-  <button class="cta secondary" onclick="showComparison()">Voglio vedere tutte e tre le vite</button>
-</section>
-
-<!-- TIMELINE -->
-<section id="timeline" class="screen">
-  <div class="top">
-    <div class="logo">E SE<span>?</span></div>
-    <div id="timelineTitle" class="tagline"></div>
-  </div>
-
-  <div class="year-tabs">
-    <button class="year-tab active" onclick="showTimeline(1)">Tra 1 anno</button>
-    <button class="year-tab" onclick="showTimeline(3)">Tra 3 anni</button>
-    <button class="year-tab" onclick="showTimeline(5)">Tra 5 anni</button>
-  </div>
-
-  <div id="timelineContent"></div>
-
-  <button class="cta" onclick="showComparison()">Confronta le tre vite</button>
-  <button class="cta secondary" onclick="saveCurrentLife()">Salva questa vita</button>
-  <button class="cta secondary" onclick="shareSimulation()">Condividi</button>
-  <button class="ghost" onclick="goHome()">Torna all'inizio</button>
-</section>
-
-<!-- COMPARISON -->
-<section id="comparison" class="screen">
-  <div class="top">
-    <div class="logo">E SE<span>?</span></div>
-    <div class="tagline">Tre possibilità. Una domanda.</div>
-  </div>
-
-  <div class="quote" id="comparisonQuote"></div>
-
-  <div id="allScenarios"></div>
-
-  <hr>
-
-  <h2>Cosa cambia davvero?</h2>
-  <div id="comparisonStats"></div>
-
-  <div class="card center">
-    <p class="quote">“Non puoi vivere tutte le vite.<br>Ma puoi scoprire cosa stai scegliendo.”</p>
-    <p class="tagline">
-      Questa simulazione non sa cosa succederà.
-      Ti mostra soltanto alcune possibili conseguenze delle scelte che hai immaginato.
+    <p>
+      Le simulazioni salvate vengono memorizzate localmente
+      nel browser tramite localStorage. Questo permette di
+      ritrovare le proprie vite sullo stesso dispositivo e browser.
     </p>
-  </div>
 
-  <button class="cta" onclick="restart()">Prova un'altra vita</button>
-  <button class="cta secondary" onclick="showSavedLives()">Le mie vite</button>
-</section>
-
-<!-- SAVED -->
-<section id="saved" class="screen">
-  <div class="top">
-    <div class="logo">E SE<span>?</span></div>
-    <div class="tagline">Le vite che hai immaginato.</div>
-  </div>
-
-  <div id="savedList"></div>
-
-  <button class="cta" onclick="start()">Immagina una nuova vita</button>
-  <button class="ghost" onclick="goHome()">Torna all'inizio</button>
-</section>
-
-<!-- TWO PEOPLE -->
-<section id="twoPeople" class="screen">
-  <div class="top">
-    <div class="logo">E SE<span>?</span></div>
-    <div class="tagline">In due è tutta un'altra storia.</div>
-  </div>
-
-  <div class="card">
-    <h2>Due persone. Una scelta.</h2>
-    <p class="story">
-      Scegli cosa volete cambiare insieme.
-      E SE? proverà a raccontarvi cosa potrebbe succedere alla vostra vita tra qualche anno.
+    <p>
+      I dati inseriti nei moduli non vengono automaticamente
+      pubblicati sul sito.
     </p>
+
+    <p>
+      Se utilizzi la funzione di condivisione, il contenuto viene
+      trasferito tramite le funzioni di condivisione disponibili
+      sul tuo dispositivo o browser.
+    </p>
+
+    <p>
+      Il sito può utilizzare servizi pubblicitari di Google.
+      Tali servizi possono utilizzare tecnologie come cookie o
+      identificatori secondo le impostazioni di consenso applicabili.
+    </p>
+
+    <p>
+      Per gli utenti soggetti alle normative europee sul consenso,
+      le relative preferenze vengono gestite secondo le impostazioni
+      disponibili tramite Google e il sistema di gestione del consenso
+      configurato dal proprietario del sito.
+    </p>
+
   </div>
 
-  <div class="options">
-    <button class="option" onclick="selectTwoChoice('casa',this)">🏠 Cambiare casa o città</button>
-    <button class="option" onclick="selectTwoChoice('lavoro',this)">💼 Cambiare lavoro</button>
-    <button class="option" onclick="selectTwoChoice('progetto',this)">🚀 Costruire qualcosa insieme</button>
-    <button class="option" onclick="selectTwoChoice('famiglia',this)">❤️ Costruire una famiglia</button>
-    <button class="option" onclick="selectTwoChoice('viaggio',this)">✈️ Partire e cambiare vita</button>
-    <button class="option" onclick="selectTwoChoice('tempo',this)">🌙 Avere finalmente più tempo per voi</button>
-  </div>
-
-  <button class="cta" onclick="generateTwoPeople()">E SE lo facessimo davvero? →</button>
-  <button class="ghost" onclick="goHome()">Indietro</button>
 </section>
 
-<!-- TWO RESULT -->
-<section id="twoResult" class="screen">
-  <div class="top">
-    <div class="logo">E SE<span>?</span></div>
-    <div class="tagline">La vostra possibile vita.</div>
+
+<!-- ================= TERMS ================= -->
+
+<section id="terms" class="screen">
+
+  <button class="back" onclick="goHome()">← Home</button>
+
+  <h2 class="screen-title">⚖️ Avvertenze</h2>
+
+  <div class="card story">
+
+    <p>
+      <strong>E SE? non predice il futuro.</strong>
+    </p>
+
+    <p>
+      Le esperienze generate sono scenari narrativi costruiti
+      sulla base delle informazioni fornite dall'utente.
+    </p>
+
+    <p>
+      Un risultato non rappresenta una diagnosi, una certezza,
+      una profezia o una consulenza professionale.
+    </p>
+
+    <p>
+      Le decisioni personali, mediche, finanziarie, legali,
+      professionali o relazionali devono essere valutate
+      considerando la situazione reale e, quando necessario,
+      rivolgendosi a professionisti qualificati.
+    </p>
+
+    <p>
+      L'obiettivo di E SE? è aiutarti a guardare una situazione
+      da più prospettive prima di viverne le conseguenze.
+    </p>
+
   </div>
 
-  <div id="twoResultContent"></div>
-
-  <button class="cta" onclick="showTwoPeople()">Prova un'altra scelta</button>
-  <button class="ghost" onclick="goHome()">Torna all'inizio</button>
 </section>
 
 </div>
 
+
 <script>
-/* =========================================================
-   E SE? — NARRATIVE ENGINE
-   ========================================================= */
 
-const QUESTIONS = [
-  {
-    id:"name",
-    title:"Come ti chiami?",
-    type:"text",
-    placeholder:"Il tuo nome..."
-  },
-  {
-    id:"age",
-    title:"Quanti anni hai?",
-    type:"number",
-    placeholder:"La tua età..."
-  },
-  {
-    id:"work",
-    title:"Come ti senti rispetto al lavoro?",
-    type:"choice",
-    options:[
-      ["love","Mi piace e voglio crescere"],
-      ["ok","Mi piace abbastanza"],
-      ["money","Lo faccio soprattutto per i soldi"],
-      ["change","Mi pesa e vorrei cambiare"],
-      ["potential","Sento di stare sprecando il mio potenziale"]
-    ]
-  },
-  {
-    id:"money",
-    title:"Se domani avessi abbastanza soldi per cambiare una cosa importante, cosa faresti?",
-    type:"choice",
-    options:[
-      ["security","Niente: costruirei più sicurezza"],
-      ["move","Cambierei casa o città"],
-      ["job","Cambierei lavoro"],
-      ["project","Realizzerei un progetto mio"],
-      ["leave","Partirei e vedrei cosa succede"]
-    ]
-  },
-  {
-    id:"home",
-    title:"Dove vorresti vivere?",
-    type:"choice",
-    options:[
-      ["same","Dove sono ora"],
-      ["bigger","In una casa più grande"],
-      ["different","In un posto completamente diverso"],
-      ["nature","Vicino alla natura"],
-      ["unknown","Non lo so ancora"]
-    ]
-  },
-  {
-    id:"relationship",
-    title:"Cosa vorresti di più dalla tua vita affettiva?",
-    type:"choice",
-    options:[
-      ["stability","Più stabilità"],
-      ["complicity","Più complicità"],
-      ["new","Una relazione nuova"],
-      ["family","Costruire una famiglia"],
-      ["self","Prima voglio stare bene con me"]
-    ]
-  },
-  {
-    id:"dream",
-    title:"Qual è una cosa che sogni davvero, anche se oggi sembra lontana?",
-    type:"textarea",
-    placeholder:"Scrivila come la diresti a qualcuno che ti conosce bene..."
-  },
-  {
-    id:"fear",
-    title:"Cosa ti fa più paura quando pensi di cambiare vita?",
-    type:"choice",
-    options:[
-      ["security","Perdere la sicurezza che ho"],
-      ["stuck","Rimanere bloccato/a"],
-      ["failure","Fallire"],
-      ["regret","Pentirmi di non aver provato"],
-      ["disappoint","Deludere qualcuno"]
-    ]
-  },
-  {
-    id:"goal",
-    title:"Tra cinque anni, cosa vorresti poter dire di te?",
-    type:"textarea",
-    placeholder:"Completa: “Sono diventato/a una persona che...”"
-  },
-  {
-    id:"lose",
-    title:"Qual è la cosa che non vuoi perdere per strada?",
-    type:"choice",
-    options:[
-      ["family","La mia famiglia"],
-      ["people","Le persone che amo"],
-      ["independence","La mia indipendenza"],
-      ["money","La mia sicurezza economica"],
-      ["self","Me stesso/a"]
-    ]
-  }
-];
+/* ============================================================
+   CORE
+============================================================ */
 
-let answers = {};
-let currentQuestion = 0;
-let simulations = {};
-let selectedPath = null;
-let twoChoice = null;
-
-/* ---------- utility ---------- */
-
-function $(id){ return document.getElementById(id); }
+const $ = id => document.getElementById(id);
 
 function showScreen(id){
-  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.querySelectorAll(".screen").forEach(s=>{
+    s.classList.remove("active");
+  });
+
   $(id).classList.add("active");
-  window.scrollTo(0,0);
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 }
 
 function goHome(){
   showScreen("home");
 }
 
-function start(){
-  answers = {};
-  currentQuestion = 0;
-  simulations = {};
-  selectedPath = null;
-  renderQuestion();
-  showScreen("questions");
+function esc(value){
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 }
 
-function restart(){
-  start();
-}
-
-function cleanText(v){
-  return String(v || "").trim();
-}
-
-function normalize(v){
-  return cleanText(v).toLowerCase();
+function cleanText(value){
+  return String(value || "").trim();
 }
 
 function hashString(str){
-  let h = 2166136261;
+  let h=2166136261;
+
   for(let i=0;i<str.length;i++){
-    h ^= str.charCodeAt(i);
-    h += (h<<1)+(h<<4)+(h<<7)+(h<<8)+(h<<24);
+    h^=str.charCodeAt(i);
+    h=Math.imul(h,16777619);
   }
-  return Math.abs(h >>> 0);
+
+  return h>>>0;
 }
 
-function pick(arr, seedOffset=0){
-  if(!arr || !arr.length) return "";
-  const seed = hashString(JSON.stringify(answers)+"|"+selectedPath+"|"+seedOffset);
-  return arr[seed % arr.length];
+function seeded(seed){
+  let x=seed>>>0;
+
+  return function(){
+    x+=0x6D2B79F5;
+    let t=x;
+    t=Math.imul(t^(t>>>15),t|1);
+    t^=t+Math.imul(t^(t>>>7),t|61);
+    return ((t^(t>>>14))>>>0)/4294967296;
+  };
 }
 
-function includesAny(text, words){
-  const t = normalize(text);
-  return words.some(w=>t.includes(w));
+function pick(arr,rng){
+  return arr[Math.floor(rng()*arr.length)];
 }
 
-/* ---------- questions ---------- */
+function clamp(n,min,max){
+  return Math.max(min,Math.min(max,n));
+}
 
-function renderQuestion(){
-  const q = QUESTIONS[currentQuestion];
-  const total = QUESTIONS.length;
+function avg(...nums){
+  return Math.round(
+    nums.reduce((a,b)=>a+b,0)/nums.length
+  );
+}
 
-  $("progressBar").style.width = ((currentQuestion+1)/total*100)+"%";
+function capitalize(str){
+  if(!str)return "";
+  return str.charAt(0).toUpperCase()+str.slice(1);
+}
 
-  let html = `
-    <div class="question">
-      <div class="question-number">Domanda ${currentQuestion+1} di ${total}</div>
-      <h2>${q.title}</h2>
+function formatDate(){
+  return new Date().toLocaleDateString("it-IT",{
+    day:"2-digit",
+    month:"2-digit",
+    year:"numeric"
+  });
+}
+
+function shareText(text){
+  if(navigator.share){
+    navigator.share({
+      title:"E SE?",
+      text:text
+    }).catch(()=>{});
+  }else{
+    navigator.clipboard?.writeText(text);
+
+    alert("Testo copiato. Ora puoi incollarlo dove vuoi.");
+  }
+}
+
+
+/* ============================================================
+   SOLO
+============================================================ */
+
+let solo={
+  answers:{},
+  index:0,
+  selected:0,
+  profile:null,
+  futures:[]
+};
+
+const soloQuestions=[
+
+  {
+    id:"name",
+    q:"Come vuoi che ti chiamiamo?",
+    hint:"Puoi usare anche un soprannome.",
+    type:"text",
+    placeholder:"Il tuo nome..."
+  },
+
+  {
+    id:"age",
+    q:"Quanti anni hai?",
+    type:"number",
+    placeholder:"Es. 30"
+  },
+
+  {
+    id:"work",
+    q:"Com'è oggi la tua situazione lavorativa?",
+    type:"choice",
+    options:[
+      ["💼","Ho un lavoro stabile"],
+      ["🔄","Sto cercando di cambiare"],
+      ["🚀","Sto costruendo qualcosa di mio"],
+      ["❓","Non so ancora cosa voglio fare"],
+      ["🎓","Sto studiando/formandomi"],
+      ["🛑","In questo momento non lavoro"]
+    ]
+  },
+
+  {
+    id:"money",
+    q:"Come vivi il rapporto con il denaro?",
+    type:"choice",
+    options:[
+      ["🟢","Mi sento abbastanza tranquillo/a"],
+      ["🟡","Devo stare attento/a"],
+      ["🔴","È una fonte di preoccupazione"],
+      ["🚀","Vorrei guadagnare molto di più"]
+    ]
+  },
+
+  {
+    id:"home",
+    q:"Dove e come vivi oggi?",
+    type:"choice",
+    options:[
+      ["🏠","Mi sento a casa"],
+      ["🔄","Vorrei cambiare casa"],
+      ["✈️","Vorrei trasferirmi"],
+      ["👨‍👩‍👧","Vivo con altre persone"],
+      ["🧳","La mia situazione è provvisoria"]
+    ]
+  },
+
+  {
+    id:"love",
+    q:"Com'è oggi la tua vita sentimentale?",
+    type:"choice",
+    options:[
+      ["❤️","Sono in una relazione"],
+      ["💔","Sono uscito/a da una relazione"],
+      ["💫","Mi interessa qualcuno"],
+      ["🌙","Sono single e sto bene così"],
+      ["❓","Non so cosa voglio"]
+    ]
+  },
+
+  {
+    id:"dream",
+    q:"Qual è una cosa che vorresti davvero vivere?",
+    type:"textarea",
+    placeholder:"Può essere qualsiasi cosa..."
+  },
+
+  {
+    id:"fear",
+    q:"Qual è la cosa che ti spaventa di più quando pensi al futuro?",
+    type:"textarea",
+    placeholder:"Scrivila come ti viene..."
+  },
+
+  {
+    id:"goal",
+    q:"Se tra 5 anni una cosa fosse andata molto bene, quale sarebbe?",
+    type:"textarea",
+    placeholder:"La tua risposta..."
+  },
+
+  {
+    id:"lose",
+    q:"Cosa non vorresti perdere per strada?",
+    type:"textarea",
+    placeholder:"Una persona, una parte di te, una sicurezza..."
+  },
+
+  {
+    id:"risk",
+    q:"Quanto sei disposto/a a rischiare per cambiare davvero vita?",
+    type:"choice",
+    options:[
+      ["🧊","Poco. Preferisco proteggere ciò che ho"],
+      ["🌱","Abbastanza. Voglio cambiare gradualmente"],
+      ["🔥","Molto. Se ci credo, mi butto"],
+      ["⚡","Dipende. Potrei fare qualcosa di completamente diverso"]
+    ]
+  }
+
+];
+
+
+function startSolo(){
+
+  solo={
+    answers:{},
+    index:0,
+    selected:0,
+    profile:null,
+    futures:[]
+  };
+
+  renderSoloQuestion();
+
+  showScreen("soloQuestions");
+}
+
+
+function renderSoloQuestion(){
+
+  const q=soloQuestions[solo.index];
+
+  const progress=
+    (solo.index/soloQuestions.length)*100;
+
+  $("soloProgress").style.width=
+    Math.max(5,progress)+"%";
+
+  let html=`
+    <div class="question">${q.q}</div>
+    ${q.hint?`<div class="hint">${q.hint}</div>`:""}
   `;
 
   if(q.type==="text" || q.type==="number"){
-    html += `
+
+    html+=`
       <input
-        id="answerInput"
+        id="soloInput"
         type="${q.type}"
-        placeholder="${q.placeholder || ""}"
-        value="${answers[q.id] || ""}"
-        autocomplete="off"
+        placeholder="${q.placeholder||""}"
+        value="${esc(solo.answers[q.id]||"")}"
+      >
+    `;
+
+  }
+
+  if(q.type==="textarea"){
+
+    html+=`
+      <textarea
+        id="soloInput"
+        placeholder="${q.placeholder||""}"
+      >${esc(solo.answers[q.id]||"")}</textarea>
+    `;
+
+  }
+
+  if(q.type==="choice"){
+
+    html+=`<div class="choice-grid">`;
+
+    q.options.forEach((o,i)=>{
+
+      const selected=
+        solo.answers[q.id]===o[1]
+        ? "border-color:var(--accent);background:#1b1827;"
+        : "";
+
+      html+=`
+        <button
+          class="choice"
+          style="${selected}"
+          onclick="chooseSolo('${esc(q.id)}','${esc(o[1])}')"
+        >
+          <strong>${o[0]} ${o[1]}</strong>
+        </button>
+      `;
+    });
+
+    html+=`</div>`;
+  }
+
+  $("soloQuestion").innerHTML=html;
+}
+
+
+function chooseSolo(id,value){
+
+  solo.answers[id]=value;
+
+  renderSoloQuestion();
+}
+
+
+function nextSoloQuestion(){
+
+  const q=soloQuestions[solo.index];
+
+  if(q.type!=="choice"){
+
+    const input=$("soloInput");
+
+    if(!input || !cleanText(input.value)){
+      alert("Scrivi una risposta prima di continuare.");
+      return;
+    }
+
+    solo.answers[q.id]=input.value.trim();
+  }
+
+  if(q.type==="choice" && !solo.answers[q.id]){
+    alert("Scegli una risposta.");
+    return;
+  }
+
+  solo.index++;
+
+  if(solo.index<soloQuestions.length){
+
+    renderSoloQuestion();
+
+  }else{
+
+    buildSoloEngine();
+
+    openSoloChoice();
+  }
+}
+
+
+/* ============================================================
+   SOLO ENGINE
+============================================================ */
+
+function buildSoloEngine(){
+
+  const a=solo.answers;
+
+  let stability=45;
+  let change=45;
+  let risk=45;
+  let moneyPressure=45;
+  let relationship=45;
+  let autonomy=50;
+  let ambition=50;
+
+  const work=a.work||"";
+  const money=a.money||"";
+  const home=a.home||"";
+  const love=a.love||"";
+  const riskAnswer=a.risk||"";
+
+  if(work.includes("stabile")){
+    stability+=20;
+    change-=8;
+  }
+
+  if(work.includes("cambiare")){
+    change+=18;
+  }
+
+  if(work.includes("mio")){
+    autonomy+=18;
+    ambition+=15;
+    risk+=8;
+  }
+
+  if(work.includes("Non so")){
+    change+=15;
+    stability-=5;
+  }
+
+  if(work.includes("studiando")){
+    change+=12;
+    ambition+=12;
+  }
+
+  if(work.includes("non lavoro")){
+    stability-=12;
+    moneyPressure+=10;
+  }
+
+  if(money.includes("preoccupazione")){
+    moneyPressure+=30;
+    stability-=12;
+  }
+
+  if(money.includes("molto di più")){
+    ambition+=22;
+    risk+=8;
+  }
+
+  if(money.includes("tranquillo")){
+    stability+=12;
+  }
+
+  if(home.includes("trasferirmi")){
+    change+=25;
+    autonomy+=8;
+  }
+
+  if(home.includes("cambiare")){
+    change+=15;
+  }
+
+  if(home.includes("provvisoria")){
+    stability-=10;
+    change+=10;
+  }
+
+  if(love.includes("relazione")){
+    relationship+=25;
+  }
+
+  if(love.includes("interessa")){
+    relationship+=15;
+  }
+
+  if(love.includes("uscito")){
+    relationship-=8;
+  }
+
+  if(riskAnswer.includes("Poco")){
+    risk-=25;
+    stability+=12;
+  }
+
+  if(riskAnswer.includes("gradualmente")){
+    risk-=5;
+    change+=8;
+  }
+
+  if(riskAnswer.includes("Molto")){
+    risk+=28;
+    change+=18;
+    ambition+=10;
+  }
+
+  if(riskAnswer.includes("completamente")){
+    risk+=18;
+    change+=22;
+    autonomy+=10;
+  }
+
+  const text=
+    Object.values(a).join(" ").toLowerCase();
+
+  if(/soldi|debiti|debito|stipendio|guadagn|finanziar/.test(text)){
+    moneyPressure+=15;
+  }
+
+  if(/viagg|trasfer|estero|cambiare città|cambiare paese/.test(text)){
+    change+=12;
+  }
+
+  if(/amore|persona|partner|famiglia|figli|coppia/.test(text)){
+    relationship+=12;
+  }
+
+  if(/paura|fallire|perdere|solitudine|abbandon/.test(text)){
+    stability-=5;
+  }
+
+  if(/azienda|progetto|impresa|carriera|successo/.test(text)){
+    ambition+=12;
+    autonomy+=8;
+  }
+
+  solo.profile={
+    stability:clamp(stability,0,100),
+    change:clamp(change,0,100),
+    risk:clamp(risk,0,100),
+    moneyPressure:clamp(moneyPressure,0,100),
+    relationship:clamp(relationship,0,100),
+    autonomy:clamp(autonomy,0,100),
+    ambition:clamp(ambition,0,100)
+  };
+
+  solo.futures=generateSoloFutures();
+
+  localStorage.setItem(
+    "ese_profile",
+    JSON.stringify(solo.profile)
+  );
+}
+
+
+function generateSoloFutures(){
+
+  const seed=
+    hashString(
+      JSON.stringify(solo.answers)
+    );
+
+  const rng=seeded(seed);
+
+  const p=solo.profile;
+  const name=solo.answers.name||"tu";
+
+  const dreams=
+    cleanText(solo.answers.dream) ||
+    "qualcosa che desideri davvero";
+
+  const goal=
+    cleanText(solo.answers.goal) ||
+    "sentirti più vicino/a alla vita che vuoi";
+
+  const fear=
+    cleanText(solo.answers.fear) ||
+    "scoprire di essere rimasto/a fermo/a";
+
+  const paths=[
+    {
+      id:"security",
+      title:"❤️ LA VITA CHE COSTRUISCI",
+      short:"Scegli di proteggere ciò che conta e costruire passo dopo passo.",
+      color:"var(--green)",
+      base:{
+        stability:12,
+        freedom:4,
+        satisfaction:10,
+        relationships:8,
+        money:8,
+        change:-4
+      }
+    },
+    {
+      id:"change",
+      title:"🔥 LA VITA CHE CAMBI",
+      short:"Decidi di uscire dalla traiettoria attuale e provare qualcosa di diverso.",
+      color:"var(--orange)",
+      base:{
+        stability:-6,
+        freedom:16,
+        satisfaction:15,
+        relationships:2,
+        money:5,
+        change:18
+      }
+    },
+    {
+      id:"unexpected",
+      title:"🎲 LA VITA CHE NON AVEVI PREVISTO",
+      short:"Non scegli né sicurezza né rivoluzione: qualcosa cambia la traiettoria.",
+      color:"var(--pink)",
+      base:{
+        stability:2,
+        freedom:12,
+        satisfaction:12,
+        relationships:10,
+        money:3,
+        change:15
+      }
+    }
+  ];
+
+  return paths.map((path,pathIndex)=>{
+
+    const localRng=seeded(
+      seed + (pathIndex+1)*991
+    );
+
+    const years={};
+
+    [1,3,5].forEach(year=>{
+
+      const multiplier=year===1?1:year===3?1.7:2.4;
+
+      const stability=clamp(
+        50+
+        p.stability*.25+
+        path.base.stability*multiplier+
+        (localRng()*10-5),
+        0,100
+      );
+
+      const freedom=clamp(
+        45+
+        p.autonomy*.25+
+        path.base.freedom*multiplier+
+        (localRng()*10-5),
+        0,100
+      );
+
+      const satisfaction=clamp(
+        45+
+        p.ambition*.18+
+        p.change*.08+
+        path.base.satisfaction*multiplier+
+        (localRng()*10-5),
+        0,100
+      );
+
+      const relationships=clamp(
+        45+
+        p.relationship*.25+
+        path.base.relationship*multiplier+
+        (localRng()*10-5),
+        0,100
+      );
+
+      const money=clamp(
+        40+
+        (100-p.moneyPressure)*.25+
+        p.ambition*.12+
+        path.base.money*multiplier+
+        (localRng()*10-5),
+        0,100
+      );
+
+      const changeScore=clamp(
+        40+
+        p.change*.3+
+        path.base.change*multiplier+
+        (localRng()*10-5),
+        0,100
+      );
+
+      const situation=soloSituation(
+        path.id,
+        year,
+        p,
+        localRng
+      );
+
+      const consequence=soloConsequence(
+        path.id,
+        year,
+        p,
+        localRng,
+        dreams,
+        goal,
+        fear
+      );
+
+      const opportunity=soloOpportunity(
+        path.id,
+        year,
+        p,
+        localRng
+      );
+
+      const event=soloEvent(
+        path.id,
+        year,
+        p,
+        localRng
+      );
+
+      years[year]={
+        title:situation.title,
+        intro:situation.intro,
+        consequence,
+        opportunity,
+        event,
+        stats:{
+          stability:Math.round(stability),
+          freedom:Math.round(freedom),
+          satisfaction:Math.round(satisfaction),
+          relationships:Math.round(relationships),
+          money:Math.round(money),
+          change:Math.round(changeScore)
+        }
+      };
+    });
+
+    return {
+      ...path,
+      years,
+      predictions:soloPredictions(
+        path.id,
+        p,
+        localRng
+      ),
+      unexpected:soloUnexpected(
+        path.id,
+        p,
+        localRng
+      ),
+      seed
+    };
+  });
+}
+
+
+function soloSituation(path,year,p,rng){
+
+  if(path==="security"){
+
+    if(year===1){
+      return {
+        title:"Il primo equilibrio",
+        intro:"Nei primi mesi inizi a vedere con più chiarezza cosa vale la pena proteggere e cosa invece ti pesa. Non cambia tutto in una volta: cambia il modo in cui scegli."
+      };
+    }
+
+    if(year===3){
+      return {
+        title:"La vita prende forma",
+        intro:"Quello che sembrava prudenza comincia a trasformarsi in una struttura. Alcune persone e alcune abitudini diventano parte stabile della tua quotidianità."
+      };
+    }
+
+    return {
+      title:"Quello che hai costruito",
+      intro:"Guardandoti indietro, ti accorgi che molte delle cose che oggi sembrano normali sono nate da piccole decisioni prese quando ancora non avevi garanzie."
+    };
+  }
+
+  if(path==="change"){
+
+    if(year===1){
+      return {
+        title:"La prima svolta",
+        intro:"La parte più difficile non è la novità. È lasciare andare l'immagine di come pensavi sarebbe dovuta andare la tua vita."
+      };
+    }
+
+    if(year===3){
+      return {
+        title:"Non sei più nello stesso posto",
+        intro:"La scelta iniziale ha prodotto conseguenze che non avevi previsto. Alcune sono state faticose, altre ti hanno portato verso persone e possibilità che prima non esistevano."
+      };
+    }
+
+    return {
+      title:"La vita dopo il salto",
+      intro:"A cinque anni di distanza la scelta non appare più come un singolo momento. È diventata una catena di decisioni che ha modificato il modo in cui immagini il futuro."
+    };
+  }
+
+  if(year===1){
+    return {
+      title:"Qualcosa rompe il copione",
+      intro:"Non succede necessariamente qualcosa di enorme. Basta una coincidenza, una persona, un'offerta o una circostanza che arriva nel momento sbagliato — o forse in quello giusto."
+    };
+  }
+
+  if(year===3){
+    return {
+      title:"La deviazione diventa strada",
+      intro:"Quella che all'inizio sembrava una parentesi comincia ad avere conseguenze reali. Una scelta nata quasi per caso cambia il modo in cui guardi ciò che prima davi per scontato."
+    };
+  }
+
+  return {
+    title:"Il futuro che non avevi pianificato",
+    intro:"A cinque anni di distanza c'è una parte della tua vita che difficilmente avresti saputo immaginare quando hai iniziato questa simulazione."
+  };
+}
+
+
+function soloConsequence(path,year,p,rng,dream,goal,fear){
+
+  if(path==="security"){
+
+    return pick([
+      `Il desiderio di ${dream.toLowerCase()} non scompare, ma inizi a trasformarlo in qualcosa di più concreto.`,
+      `La stabilità ti permette di affrontare meglio l'obiettivo che hai descritto: "${goal}".`,
+      `La tua paura principale — ${fear.toLowerCase()} — continua a esistere, ma occupa meno spazio nelle tue decisioni.`
+    ],rng);
+
+  }
+
+  if(path==="change"){
+
+    return pick([
+      `Per avvicinarti a ${dream.toLowerCase()} devi accettare che alcune certezze cambino forma.`,
+      `L'obiettivo "${goal}" smette di essere soltanto un desiderio e diventa una serie di scelte concrete.`,
+      `La paura di ${fear.toLowerCase()} torna a farsi sentire proprio quando la nuova strada diventa reale.`
+    ],rng);
+  }
+
+  return pick([
+    `Una circostanza esterna modifica il modo in cui guardi a ${dream.toLowerCase()}.`,
+    `Quello che avevi indicato come obiettivo cambia significato dopo un incontro o un'occasione inattesa.`,
+    `La paura di ${fear.toLowerCase()} non sparisce, ma una situazione imprevista ti costringe a guardarla diversamente.`
+  ],rng);
+}
+
+
+function soloOpportunity(path,year,p,rng){
+
+  const pools={
+
+    security:[
+      "un'opportunità professionale più stabile",
+      "un progetto personale che finalmente trova spazio",
+      "una relazione che diventa più solida",
+      "la possibilità di migliorare concretamente la tua situazione economica"
+    ],
+
+    change:[
+      "un contatto che apre una porta inattesa",
+      "un'opportunità di lavoro o progetto fuori dalla tua routine",
+      "un incontro che cambia il modo in cui immagini il futuro",
+      "la possibilità di trasformare una passione in qualcosa di concreto"
+    ],
+
+    unexpected:[
+      "una proposta arrivata da una persona che non vedevi da tempo",
+      "un'occasione nata da una situazione apparentemente casuale",
+      "un cambiamento esterno che finisce per favorirti",
+      "una coincidenza che ti costringe a scegliere"
+    ]
+  };
+
+  return pick(pools[path],rng);
+}
+
+
+function soloEvent(path,year,p,rng){
+
+  const pools={
+
+    security:[
+      "Una persona del tuo passato ricompare con una proposta inattesa.",
+      "Un piccolo problema economico ti obbliga a rivedere una priorità.",
+      "Una decisione rimandata torna improvvisamente al centro della tua vita.",
+      "Qualcuno vicino a te attraversa un cambiamento che coinvolge anche te."
+    ],
+
+    change:[
+      "Una possibilità che non avevi considerato arriva proprio mentre stai cambiando direzione.",
+      "Una persona importante non reagisce come avevi immaginato.",
+      "Una spesa o una difficoltà imprevista mette alla prova la nuova strada.",
+      "Scopri di essere più capace di quanto pensassi in una situazione concreta."
+    ],
+
+    unexpected:[
+      "Un incontro casuale crea una possibilità che non avevi cercato.",
+      "Una notizia modifica i tuoi programmi.",
+      "Qualcuno ti propone qualcosa che inizialmente avevi intenzione di rifiutare.",
+      "Una porta si chiude e, proprio per questo, ne noti un'altra."
+    ]
+  };
+
+  return pick(pools[path],rng);
+}
+
+
+function soloPredictions(path,p,rng){
+
+  const common=[
+    "Una scelta che oggi sembra piccola avrà più peso di quanto immagini.",
+    "Una persona diventerà più importante nella tua storia di quanto pensi oggi.",
+    "La questione economica avrà un ruolo nelle tue decisioni future.",
+    "Un periodo di incertezza precederà una fase più definita."
+  ];
+
+  const specific={
+    security:[
+      "La stabilità potrebbe diventare una risorsa invece che una rinuncia.",
+      "Un progetto rimandato potrebbe tornare quando avrai più spazio.",
+      "Una relazione esistente potrebbe attraversare una fase di maggiore concretezza."
+    ],
+    change:[
+      "Il cambiamento potrebbe richiedere un sacrificio iniziale.",
+      "Un nuovo ambiente potrebbe portarti contatti che oggi non immagini.",
+      "Potresti scoprire che il rischio maggiore non era cambiare, ma restare fermo/a."
+    ],
+    unexpected:[
+      "Una circostanza esterna potrebbe modificare un piano importante.",
+      "Un incontro inatteso potrebbe avere conseguenze più lunghe del previsto.",
+      "Una decisione che oggi non consideri potrebbe diventare centrale."
+    ]
+  };
+
+  return [
+    ...specific[path].slice(0,2),
+    ...common.slice(0,2)
+  ].sort(()=>rng()-.5);
+}
+
+
+function soloUnexpected(path,p,rng){
+
+  const unexpected={
+    security:[
+      "Potresti ottenere qualcosa che avevi smesso di aspettarti.",
+      "Una persona potrebbe chiederti di scegliere tra comodità e desiderio.",
+      "Una vecchia occasione potrebbe tornare in una forma completamente diversa."
+    ],
+    change:[
+      "Potresti scoprire che la vera svolta arriva da una persona, non da un lavoro o da un luogo.",
+      "Una strada che inizialmente sembrava sbagliata potrebbe diventare quella più interessante.",
+      "Il cambiamento potrebbe portarti qualcosa che non avevi nemmeno inserito tra i tuoi obiettivi."
+    ],
+    unexpected:[
+      "L'evento più importante potrebbe nascere da qualcosa che oggi consideri irrilevante.",
+      "Una persona incontrata quasi per caso potrebbe diventare un punto di riferimento.",
+      "Un imprevisto potrebbe obbligarti a prendere una decisione che avevi evitato."
+    ]
+  };
+
+  return pick(unexpected[path],rng);
+}
+
+
+/* ============================================================
+   SOLO CHOICE / RESULT
+============================================================ */
+
+function openSoloChoice(){
+
+  const choices=[
+    {
+      title:"❤️ La vita che costruisci",
+      desc:"Più stabilità, passi graduali e attenzione a ciò che già conta."
+    },
+    {
+      title:"🔥 La vita che cambi",
+      desc:"Più movimento, rischio e possibilità di uscire dalla traiettoria attuale."
+    },
+    {
+      title:"🎲 La vita che non avevi previsto",
+      desc:"Una deviazione inattesa che cambia il percorso."
+    }
+  ];
+
+  $("soloChoices").innerHTML=
+    choices.map((c,i)=>`
+      <button
+        class="choice"
+        onclick="selectSoloLife(${i})"
+      >
+        <strong>${c.title}</strong>
+        <span>${c.desc}</span>
+      </button>
+    `).join("");
+
+  showScreen("soloChoice");
+}
+
+
+function selectSoloLife(index){
+
+  solo.selected=index;
+
+  openSoloResult();
+}
+
+
+function openSoloResult(){
+
+  const future=solo.futures[solo.selected];
+
+  if(!future)return;
+
+  const name=
+    solo.answers.name ||
+    "tu";
+
+  const renderYear=(year)=>{
+
+    const y=future.years[year];
+
+    return `
+      <div id="soloYear${year}" style="display:${year===1?"block":"none"}">
+
+        <div class="card">
+
+          <h3>${esc(y.title)}</h3>
+
+          <div class="story" style="margin-top:14px;">
+            <p>${esc(y.intro)}</p>
+            <p>${esc(y.consequence)}</p>
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h3 class="section-title">📊 Come potrebbe essere la tua vita</h3>
+
+          <div class="stat-grid">
+
+            <div class="stat">
+              <div class="stat-label">Stabilità</div>
+              <div class="stat-value">${y.stats.stability}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Libertà</div>
+              <div class="stat-value">${y.stats.freedom}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Soddisfazione</div>
+              <div class="stat-value">${y.stats.satisfaction}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Relazioni</div>
+              <div class="stat-value">${y.stats.relationships}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Situazione economica</div>
+              <div class="stat-value">${y.stats.money}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Cambiamento</div>
+              <div class="stat-value">${y.stats.change}%</div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h3 class="section-title">🌱 Un'opportunità</h3>
+
+          <div class="prediction">
+            ${esc(y.opportunity)}
+          </div>
+
+        </div>
+
+        <div class="card unexpected">
+
+          <div class="icon">🎲</div>
+
+          <h3>Qualcosa che non avevi previsto</h3>
+
+          <p>${esc(y.event)}</p>
+
+        </div>
+
+      </div>
+    `;
+  };
+
+  $("soloResultContent").innerHTML=`
+
+    <div class="life-header">
+
+      <div class="life-kicker">
+        POSSIBILE FUTURO DI ${esc(name)}
+      </div>
+
+      <div class="life-title">
+        ${esc(future.title)}
+      </div>
+
+      <p class="screen-sub">
+        ${esc(future.short)}
+      </p>
+
+    </div>
+
+    <div class="year-tabs">
+
+      <button
+        id="soloTab1"
+        class="active"
+        onclick="setSoloYear(1)"
+      >
+        Tra 1 anno
+      </button>
+
+      <button
+        id="soloTab3"
+        onclick="setSoloYear(3)"
+      >
+        Tra 3 anni
+      </button>
+
+      <button
+        id="soloTab5"
+        onclick="setSoloYear(5)"
+      >
+        Tra 5 anni
+      </button>
+
+    </div>
+
+    ${renderYear(1)}
+    ${renderYear(3)}
+    ${renderYear(5)}
+
+    <div class="ad-slot">
+      <!-- AREA PUBBLICITARIA: meglio mantenere gli annunci sulle schermate con contenuto -->
+    </div>
+
+    <div class="card">
+
+      <h3 class="section-title">
+        🔮 Cose che potrebbero accadere
+      </h3>
+
+      ${future.predictions.map(x=>`
+        <div class="prediction">
+          <span>${esc(x)}</span>
+        </div>
+      `).join("")}
+
+    </div>
+
+    <div class="card unexpected">
+
+      <div class="icon">🎲</div>
+
+      <h3>L'imprevisto della tua storia</h3>
+
+      <p>${esc(future.unexpected)}</p>
+
+    </div>
+
+    <div class="card">
+
+      <button class="primary" onclick="saveSoloLife()">
+        💾 Salva questa vita
+      </button>
+
+      <button class="secondary" onclick="openSoloComparison()">
+        🔀 Confronta le tre vite
+      </button>
+
+      <button class="secondary" onclick="shareSolo()">
+        📤 Condividi
+      </button>
+
+    </div>
+
+  `;
+
+  showScreen("soloResult");
+
+  window.setSoloYear=function(year){
+
+    [1,3,5].forEach(y=>{
+      $(`soloYear${y}`).style.display=
+        y===year?"block":"none";
+
+      $(`soloTab${y}`).classList.toggle(
+        "active",
+        y===year
+      );
+    });
+  };
+}
+
+
+/* ============================================================
+   SOLO COMPARISON
+============================================================ */
+
+function openSoloComparison(){
+
+  $("soloComparisonContent").innerHTML=
+    solo.futures.map((f,i)=>{
+
+      const y=f.years[5];
+
+      return `
+        <div class="card">
+
+          <div class="life-kicker">
+            POSSIBILITÀ ${i+1}
+          </div>
+
+          <h3 style="margin:6px 0 8px;">
+            ${esc(f.title)}
+          </h3>
+
+          <p class="small">
+            ${esc(f.short)}
+          </p>
+
+          <div class="stat-grid" style="margin-top:12px;">
+
+            <div class="stat">
+              <div class="stat-label">Stabilità</div>
+              <div class="stat-value">${y.stats.stability}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Libertà</div>
+              <div class="stat-value">${y.stats.freedom}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Soddisfazione</div>
+              <div class="stat-value">${y.stats.satisfaction}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Relazioni</div>
+              <div class="stat-value">${y.stats.relationships}%</div>
+            </div>
+
+          </div>
+
+          <button
+            class="secondary"
+            onclick="selectSoloLife(${i})"
+          >
+            Esplora questa vita
+          </button>
+
+        </div>
+      `;
+
+    }).join("");
+
+  showScreen("soloComparison");
+}
+
+
+function saveSoloLife(){
+
+  const saved=
+    JSON.parse(
+      localStorage.getItem("ese_saved_lives")||"[]"
+    );
+
+  const future=solo.futures[solo.selected];
+
+  saved.unshift({
+    id:Date.now(),
+    type:"solo",
+    date:formatDate(),
+    name:solo.answers.name||"La mia vita",
+    title:future.title,
+    path:solo.selected,
+    answers:solo.answers,
+    futures:solo.futures,
+    reality:{}
+  });
+
+  localStorage.setItem(
+    "ese_saved_lives",
+    JSON.stringify(saved.slice(0,30))
+  );
+
+  alert("Vita salvata ❤️");
+}
+
+
+function shareSolo(){
+
+  const future=solo.futures[solo.selected];
+
+  const text=
+`E SE?
+
+${future.title}
+
+${future.short}
+
+Tra 5 anni:
+${future.years[5].intro}
+
+🎲 Imprevisto:
+${future.unexpected}
+
+Prova anche tu:
+E SE? — Prova una vita prima di viverla.`;
+
+  shareText(text);
+}
+
+
+/* ============================================================
+   COUPLE
+============================================================ */
+
+let couple={
+  step:0,
+  person:1,
+  p1:{},
+  p2:{},
+  joint:{},
+  selected:0,
+  profile:null,
+  futures:[]
+};
+
+
+const couplePersonQuestions=[
+
+  {
+    id:"name",
+    q:"Come ti chiami?",
+    type:"text",
+    placeholder:"Nome..."
+  },
+
+  {
+    id:"age",
+    q:"Quanti anni hai?",
+    type:"number",
+    placeholder:"Età"
+  },
+
+  {
+    id:"work",
+    q:"Come vivi oggi il lavoro?",
+    type:"choice",
+    options:[
+      ["💼","Mi dà stabilità"],
+      ["🔄","Vorrei cambiarlo"],
+      ["🚀","Sto costruendo qualcosa"],
+      ["❓","Non so ancora cosa voglio"]
+    ]
+  },
+
+  {
+    id:"money",
+    q:"Come vivete la questione economica?",
+    type:"choice",
+    options:[
+      ["🟢","Abbastanza tranquilli"],
+      ["🟡","Dobbiamo stare attenti"],
+      ["🔴","È una fonte di tensione"],
+      ["🚀","Vorremmo crescere molto"]
+    ]
+  },
+
+  {
+    id:"home",
+    q:"Come immagini la vostra casa ideale?",
+    type:"choice",
+    options:[
+      ["🏠","Restare dove siamo"],
+      ["🏡","Una casa più grande"],
+      ["🌍","Cambiare città/Paese"],
+      ["🧳","Non lo sappiamo ancora"]
+    ]
+  },
+
+  {
+    id:"dream",
+    q:"Qual è una cosa che vorresti vivere nella vostra vita?",
+    type:"textarea",
+    placeholder:"Un sogno personale..."
+  },
+
+  {
+    id:"fear",
+    q:"Cosa temi possa compromettere il vostro futuro?",
+    type:"textarea",
+    placeholder:"La tua paura..."
+  },
+
+  {
+    id:"goal",
+    q:"Tra 5 anni, cosa vorresti poter dire della tua vita?",
+    type:"textarea",
+    placeholder:"Il tuo obiettivo..."
+  },
+
+  {
+    id:"risk",
+    q:"Quanto sei disposto/a a cambiare per ottenere una vita diversa?",
+    type:"choice",
+    options:[
+      ["🧊","Poco"],
+      ["🌱","Gradualmente"],
+      ["🔥","Molto"],
+      ["⚡","Anche radicalmente"]
+    ]
+  }
+
+];
+
+
+const coupleJointQuestions=[
+
+  {
+    id:"relationship",
+    q:"Come descrivereste oggi la vostra relazione?",
+    type:"choice",
+    options:[
+      ["❤️","Molto uniti"],
+      ["🌱","Stiamo crescendo insieme"],
+      ["🌀","Stiamo attraversando un periodo difficile"],
+      ["❓","Non sappiamo dove stiamo andando"]
+    ]
+  },
+
+  {
+    id:"communication",
+    q:"Quando avete un problema importante, cosa succede di solito?",
+    type:"choice",
+    options:[
+      ["💬","Ne parliamo"],
+      ["🤐","Uno dei due si chiude"],
+      ["🔥","Litighiamo"],
+      ["⏳","Rimandiamo"]
+    ]
+  },
+
+  {
+    id:"future",
+    q:"Quanto siete d'accordo sul futuro?",
+    type:"choice",
+    options:[
+      ["🤝","Quasi completamente"],
+      ["🟡","Su alcune cose sì"],
+      ["🔴","Su molte cose no"],
+      ["❓","Non ne abbiamo mai parlato davvero"]
+    ]
+  },
+
+  {
+    id:"children",
+    q:"Come vivete il tema figli/famiglia?",
+    type:"choice",
+    options:[
+      ["👶","È un desiderio condiviso"],
+      ["🕊️","Uno dei due li vorrebbe"],
+      ["🚫","Non li vogliamo"],
+      ["❓","Non lo sappiamo ancora"]
+    ]
+  },
+
+  {
+    id:"home",
+    q:"Se aveste più possibilità economiche, cosa cambiereste prima?",
+    type:"textarea",
+    placeholder:"Casa, città, viaggi, lavoro..."
+  },
+
+  {
+    id:"money",
+    q:"Come gestite il denaro insieme?",
+    type:"choice",
+    options:[
+      ["🤝","Abbastanza bene"],
+      ["🟡","Con qualche difficoltà"],
+      ["🔥","È una fonte di discussione"],
+      ["🔀","Ognuno gestisce soprattutto il proprio"]
+    ]
+  },
+
+  {
+    id:"time",
+    q:"Quanto tempo di qualità avete insieme?",
+    type:"choice",
+    options:[
+      ["❤️","Molto"],
+      ["🙂","Abbastanza"],
+      ["⏳","Poco"],
+      ["🌙","Quasi mai"]
+    ]
+  },
+
+  {
+    id:"bigDecision",
+    q:"Qual è il grande passo che vi trovate davanti?",
+    type:"textarea",
+    placeholder:"Casa, matrimonio, figli, lavoro, trasferimento..."
+  },
+
+  {
+    id:"unexpected",
+    q:"Se domani arrivasse un cambiamento inatteso, come reagireste?",
+    type:"choice",
+    options:[
+      ["🤝","Lo affronteremmo insieme"],
+      ["😰","Ci metterebbe in difficoltà"],
+      ["🔥","Lo vedremmo come un'opportunità"],
+      ["❓","Non lo sappiamo"]
+    ]
+  }
+
+];
+
+
+function startCouple(){
+
+  couple={
+    step:0,
+    person:1,
+    p1:{},
+    p2:{},
+    joint:{},
+    selected:0,
+    profile:null,
+    futures:[]
+  };
+
+  renderCoupleQuestion();
+
+  showScreen("coupleQuestions");
+}
+
+
+function renderCoupleQuestion(){
+
+  let list;
+  let current;
+
+  if(couple.person===1){
+    list=couplePersonQuestions;
+    current=couple.p1;
+    $("coupleTitle").textContent="❤️ Persona 1";
+    $("coupleSubtitle").textContent=
+      "Prima ascoltiamo te.";
+  }
+  else if(couple.person===2){
+    list=couplePersonQuestions;
+    current=couple.p2;
+    $("coupleTitle").textContent="❤️ Persona 2";
+    $("coupleSubtitle").textContent=
+      "Ora ascoltiamo l'altra persona.";
+  }
+  else{
+    list=coupleJointQuestions;
+    current=couple.joint;
+    $("coupleTitle").textContent="❤️ Voi due";
+    $("coupleSubtitle").textContent=
+      "Ora guardiamo la relazione e il futuro condiviso.";
+  }
+
+  const q=list[couple.step];
+
+  const total=
+    couple.person===3
+      ?coupleJointQuestions.length
+      :couplePersonQuestions.length;
+
+  $("coupleProgress").style.width=
+    Math.max(5,(couple.step/total)*100)+"%";
+
+  let html=`
+    <div class="question">${q.q}</div>
+  `;
+
+  if(q.type==="text" || q.type==="number"){
+
+    html+=`
+      <input
+        id="coupleInput"
+        type="${q.type}"
+        placeholder="${q.placeholder||""}"
+        value="${esc(current[q.id]||"")}"
       >
     `;
   }
 
   if(q.type==="textarea"){
-    html += `
-      <textarea id="answerInput" placeholder="${q.placeholder || ""}">${answers[q.id] || ""}</textarea>
+
+    html+=`
+      <textarea
+        id="coupleInput"
+        placeholder="${q.placeholder||""}"
+      >${esc(current[q.id]||"")}</textarea>
     `;
   }
 
   if(q.type==="choice"){
-    html += `<div class="options">`;
-    q.options.forEach(([value,label])=>{
-      html += `
+
+    html+=`<div class="choice-grid">`;
+
+    q.options.forEach(o=>{
+
+      const active=
+        current[q.id]===o[1]
+        ?`style="border-color:var(--accent);background:#1b1827;"`
+        :"";
+
+      html+=`
         <button
-          class="option ${answers[q.id]===value ? "selected":""}"
-          onclick="selectAnswer('${q.id}','${value}',this)">
-          ${label}
+          class="choice"
+          ${active}
+          onclick="chooseCouple('${esc(q.id)}','${esc(o[1])}')"
+        >
+          <strong>${o[0]} ${o[1]}</strong>
         </button>
       `;
     });
-    html += `</div>`;
+
+    html+=`</div>`;
   }
 
-  html += `</div>`;
-
-  $("questionBox").innerHTML = html;
-  $("nextBtn").textContent = currentQuestion===total-1
-    ? "Scopri le tue tre vite →"
-    : "Continua →";
+  $("coupleQuestion").innerHTML=html;
 }
 
-function selectAnswer(id,value,button){
-  answers[id] = value;
-  button.parentElement.querySelectorAll(".option").forEach(b=>b.classList.remove("selected"));
-  button.classList.add("selected");
+
+function chooseCouple(id,value){
+
+  const current=
+    couple.person===1
+      ?couple.p1
+      :couple.person===2
+      ?couple.p2
+      :couple.joint;
+
+  current[id]=value;
+
+  renderCoupleQuestion();
 }
 
-function nextQuestion(){
-  const q = QUESTIONS[currentQuestion];
 
-  if(q.type==="text" || q.type==="number" || q.type==="textarea"){
-    const input = $("answerInput");
-    if(!cleanText(input.value)){
-      input.focus();
+function nextCoupleQuestion(){
+
+  const list=
+    couple.person===3
+      ?coupleJointQuestions
+      :couplePersonQuestions;
+
+  const current=
+    couple.person===1
+      ?couple.p1
+      :couple.person===2
+      ?couple.p2
+      :couple.joint;
+
+  const q=list[couple.step];
+
+  if(q.type!=="choice"){
+
+    const input=$("coupleInput");
+
+    if(!input || !cleanText(input.value)){
+      alert("Scrivi una risposta prima di continuare.");
       return;
     }
-    answers[q.id] = cleanText(input.value);
+
+    current[q.id]=input.value.trim();
   }
 
-  if(q.type==="choice" && !answers[q.id]){
+  if(q.type==="choice" && !current[q.id]){
+    alert("Scegli una risposta.");
     return;
   }
 
-  if(currentQuestion < QUESTIONS.length-1){
-    currentQuestion++;
-    renderQuestion();
-  }else{
-    buildAllSimulations();
-    showChoice();
+  couple.step++;
+
+  if(couple.step<list.length){
+
+    renderCoupleQuestion();
+
+    return;
   }
+
+  if(couple.person===1){
+
+    couple.person=2;
+    couple.step=0;
+    renderCoupleQuestion();
+    return;
+
+  }
+
+  if(couple.person===2){
+
+    couple.person=3;
+    couple.step=0;
+    renderCoupleQuestion();
+    return;
+
+  }
+
+  buildCoupleEngine();
+
+  openCoupleChoice();
 }
 
-/* ---------- profile ---------- */
 
-function getProfile(){
-  const dream = cleanText(answers.dream);
-  const goal = cleanText(answers.goal);
+function buildCoupleEngine(){
 
-  const p = {
-    name: cleanText(answers.name) || "Tu",
-    age: Number(answers.age) || 30,
-    dream,
-    goal,
+  const p1=couple.p1;
+  const p2=couple.p2;
+  const j=couple.joint;
 
-    workChange: ["change","potential","money"].includes(answers.work),
-    workLove: ["love","ok"].includes(answers.work),
+  let stability=50;
+  let change=45;
+  let money=45;
+  let communication=50;
+  let agreement=50;
+  let risk=45;
+  let closeness=50;
 
-    wantsMove: ["move","different","leave"].includes(answers.money) ||
-               ["different","nature","bigger"].includes(answers.home),
+  const all=
+    Object.values(p1)
+    .concat(Object.values(p2))
+    .concat(Object.values(j))
+    .join(" ")
+    .toLowerCase();
 
-    wantsNature: answers.home==="nature",
-    wantsDifferentPlace: answers.home==="different",
-    wantsBiggerHome: answers.home==="bigger",
+  if(j.relationship?.includes("Molto uniti")){
+    closeness+=22;
+  }
 
-    wantsFamily: answers.relationship==="family",
-    wantsNewRelationship: answers.relationship==="new",
-    wantsComplicity: answers.relationship==="complicity",
-    wantsStabilityLove: answers.relationship==="stability",
-    wantsSelfFirst: answers.relationship==="self",
+  if(j.relationship?.includes("difficile")){
+    closeness-=20;
+    stability-=10;
+  }
 
-    fearSecurity: answers.fear==="security",
-    fearStuck: answers.fear==="stuck",
-    fearFailure: answers.fear==="failure",
-    fearRegret: answers.fear==="regret",
-    fearDisappoint: answers.fear==="disappoint",
+  if(j.communication?.includes("Ne parliamo")){
+    communication+=25;
+  }
 
-    protectFamily: answers.lose==="family" || answers.lose==="people",
-    protectMoney: answers.lose==="money",
-    protectIndependence: answers.lose==="independence",
-    protectSelf: answers.lose==="self",
+  if(j.communication?.includes("si chiude")){
+    communication-=18;
+  }
 
-    dreamProject: includesAny(dream,[
-      "attività","azienda","impresa","negozio","business","progetto",
-      "app","locale","studio","lavoro mio","aprire","creare","start"
-    ]),
+  if(j.communication?.includes("Litighiamo")){
+    communication-=15;
+    closeness-=10;
+  }
 
-    dreamTravel: includesAny(dream,[
-      "viagg","partire","estero","mondo","vacanz","girare"
-    ]),
+  if(j.communication?.includes("Rimandiamo")){
+    communication-=10;
+  }
 
-    dreamHome: includesAny(dream,[
-      "casa","giardino","mare","montagna","natura","campagna"
-    ]),
+  if(j.future?.includes("Quasi")){
+    agreement+=25;
+  }
 
-    dreamCareer: includesAny(dream,[
-      "carriera","lavoro","professione","guadagn","soldi","indipendenza"
-    ]),
+  if(j.future?.includes("molte cose no")){
+    agreement-=25;
+  }
 
-    dreamFamily: includesAny(dream,[
-      "famiglia","figli","figlio","bambini","matrimonio"
-    ]),
+  if(j.children?.includes("condiviso")){
+    agreement+=8;
+  }
 
-    goalHome: includesAny(goal,["casa","giardino","vivere"]),
-    goalMoney: includesAny(goal,["soldi","guadagn","econom","debiti","sicurezza"]),
-    goalCareer: includesAny(goal,["lavoro","carriera","professione","realizz"]),
-    goalFamily: includesAny(goal,["famiglia","figli","coppia"]),
-    goalFreedom: includesAny(goal,["liber","indipend","tempo","viagg"]),
+  if(j.money?.includes("discussione")){
+    money-=22;
+    stability-=8;
+  }
+
+  if(j.time?.includes("Molto")){
+    closeness+=15;
+  }
+
+  if(j.time?.includes("Quasi")){
+    closeness-=18;
+  }
+
+  if(j.unexpected?.includes("opportunità")){
+    risk+=20;
+    change+=12;
+  }
+
+  if(j.unexpected?.includes("difficoltà")){
+    risk-=10;
+    stability-=8;
+  }
+
+  if(/casa|trasfer|estero|città|cambiare/.test(all)){
+    change+=10;
+  }
+
+  if(/soldi|debiti|stipendio|econom/.test(all)){
+    money-=10;
+  }
+
+  if(/figli|famiglia/.test(all)){
+    agreement+=5;
+  }
+
+  couple.profile={
+    stability:clamp(stability,0,100),
+    change:clamp(change,0,100),
+    money:clamp(money,0,100),
+    communication:clamp(communication,0,100),
+    agreement:clamp(agreement,0,100),
+    risk:clamp(risk,0,100),
+    closeness:clamp(closeness,0,100)
   };
 
-  return p;
+  couple.futures=
+    generateCoupleFutures();
+
 }
 
-/* ---------- priorities ---------- */
 
-function priorities(p){
-  const scores = {
-    security:0,
-    freedom:0,
-    career:0,
-    home:0,
-    love:0,
-    family:0,
-    project:0,
-    wellbeing:0
-  };
+function generateCoupleFutures(){
 
-  if(p.fearSecurity) scores.security += 4;
-  if(p.protectMoney) scores.security += 3;
-  if(p.workChange) scores.career += 3;
-  if(p.workLove) scores.career += 1;
-  if(p.wantsMove) scores.home += 3;
-  if(p.wantsNature) scores.home += 2;
-  if(p.wantsBiggerHome) scores.home += 2;
-  if(p.wantsFamily || p.dreamFamily || p.goalFamily) scores.family += 4;
-  if(p.wantsNewRelationship || p.wantsComplicity || p.wantsStabilityLove) scores.love += 3;
-  if(p.wantsSelfFirst) scores.wellbeing += 4;
-  if(p.dreamProject) scores.project += 4;
-  if(p.dreamTravel || p.goalFreedom) scores.freedom += 4;
-  if(p.protectIndependence) scores.freedom += 3;
-  if(p.fearStuck || p.fearRegret) scores.freedom += 2;
-  if(p.fearFailure) scores.security += 2;
-  if(p.fearDisappoint) scores.family += 2;
-  if(p.goalHome || p.dreamHome) scores.home += 2;
-  if(p.goalMoney || p.dreamCareer) scores.career += 2;
+  const seed=
+    hashString(
+      JSON.stringify({
+        p1:couple.p1,
+        p2:couple.p2,
+        joint:couple.joint
+      })
+    );
 
-  return Object.entries(scores)
-    .sort((a,b)=>b[1]-a[1])
-    .map(x=>x[0]);
-}
+  const paths=[
 
-/* ---------- narrative vocabulary ---------- */
+    {
+      id:"together",
+      title:"❤️ VITA 1 — LO FATE",
+      short:"Fate il grande passo che oggi avete davanti.",
+      base:{
+        stability:8,
+        change:12,
+        closeness:15,
+        agreement:10,
+        money:4
+      }
+    },
 
-function personDream(p){
-  if(p.dream) return `il sogno che hai scritto — “${p.dream}”`;
-  return "quel progetto che continui a rimandare";
-}
+    {
+      id:"not",
+      title:"🌓 VITA 2 — NON LO FATE",
+      short:"Decidete di non fare quel passo, almeno per ora.",
+      base:{
+        stability:10,
+        change:-4,
+        closeness:-2,
+        agreement:3,
+        money:8
+      }
+    },
 
-function workAnchor(p,path){
-  if(p.workChange){
-    if(path==="A") return pick([
-      "il lavoro non cambia subito, ma inizi a renderlo più sostenibile mentre prepari il passo successivo",
-      "smetti di pretendere che il lavoro attuale sia per sempre e inizi a costruire un'uscita concreta",
-      "mantieni il lavoro come base economica mentre cerchi una direzione che ti somigli di più"
-    ],10);
-    if(path==="B") return pick([
-      "prendi una decisione professionale che da tempo continui a rimandare",
-      "inizi davvero a cercare un lavoro diverso e, a un certo punto, arriva un'occasione concreta",
-      "smetti di aspettare il momento perfetto e provi a cambiare ruolo"
-    ],11);
-    return pick([
-      "non molli tutto: prima sperimenti una seconda strada mentre mantieni quella attuale",
-      "costruisci un ponte tra il lavoro che hai e quello che vorresti avere",
-      "trasformi il desiderio di cambiare in un progetto con tappe precise"
-    ],12);
-  }
-
-  if(p.workLove){
-    if(path==="A") return "continui a investire nel lavoro che già ti dà una certa stabilità e provi a guadagnare spazio e crescita";
-    if(path==="B") return "non abbandoni per forza il tuo lavoro: la svolta arriva soprattutto da ciò che decidi di costruire fuori da esso";
-    return "usi la stabilità professionale come base per cambiare un'altra parte della tua vita";
-  }
-
-  return "inizi a chiederti quanto spazio della tua vita vuoi ancora lasciare a un lavoro che non ti rappresenta completamente";
-}
-
-function homeAnchor(p,path){
-  if(p.wantsNature){
-    return path==="B"
-      ? "Cominci a cercare concretamente un luogo più vicino alla natura, anche se all'inizio è solo una prova."
-      : "La natura smette di essere una fantasia e diventa un criterio con cui valuti le prossime scelte.";
-  }
-
-  if(p.wantsDifferentPlace){
-    return path==="B"
-      ? "Il desiderio di vivere altrove diventa una ricerca vera: guardi città, costi, opportunità e possibilità reali."
-      : "Inizi a costruire un piano per capire se vivere altrove sarebbe davvero la vita che immagini.";
-  }
-
-  if(p.wantsBiggerHome || p.goalHome || p.dreamHome){
-    return "La casa diventa uno dei simboli più concreti della vita che vuoi costruire.";
-  }
-
-  return "La tua casa non è necessariamente il primo cambiamento, ma cominci a chiederti se lo spazio in cui vivi assomigli davvero alla vita che vuoi.";
-}
-
-function relationshipAnchor(p,path){
-  if(p.wantsFamily){
-    if(path==="A") return "La relazione entra in una fase più progettuale: si parla meno di desideri astratti e più di condizioni concrete per costruire una famiglia.";
-    if(path==="B") return "La scelta di cambiare porta con sé una domanda importante: come costruire una famiglia senza rimandare indefinitamente ciò che desideri.";
-    return "Invece di pretendere una risposta immediata, iniziate a costruire le condizioni che renderebbero possibile la famiglia che immagini.";
-  }
-
-  if(p.wantsSelfFirst){
-    return "Per la prima volta smetti di misurare la tua vita soltanto attraverso ciò che gli altri si aspettano da te.";
-  }
-
-  if(p.wantsNewRelationship){
-    return path==="B"
-      ? "Chiudi una fase e lasci spazio alla possibilità di incontrare qualcuno in un contesto completamente diverso."
-      : "Prima di cercare una nuova relazione, lavori sul tipo di vita nella quale vorresti far entrare qualcuno.";
-  }
-
-  if(p.wantsComplicity){
-    return "Il cambiamento più importante nella vita affettiva non arriva da un gesto spettacolare, ma dalle conversazioni che finalmente smetti di rimandare.";
-  }
-
-  return "Le relazioni diventano uno dei criteri con cui misuri se le nuove scelte ti stanno facendo bene davvero.";
-}
-
-function dreamAnchor(p,path){
-  if(!p.dream) return "Quel desiderio che hai scritto diventa un punto di riferimento, anche senza dover essere realizzato tutto in una volta.";
-
-  if(p.dreamProject){
-    if(path==="A") return `Cominci a testare ${personDream(p)} senza mettere a rischio tutto ciò che hai già costruito.`;
-    if(path==="B") return `Dai a ${personDream(p)} uno spazio molto più grande della tua vita e scopri se può diventare qualcosa di concreto.`;
-    return `Trasformi ${personDream(p)} da sogno indistinto a esperimento: prima lo provi, poi decidi quanto spazio merita.`;
-  }
-
-  if(p.dreamTravel){
-    return `Il desiderio di viaggiare non resta soltanto una ricompensa futura: inizi a organizzare la tua vita in modo da avere più possibilità di partire.`;
-  }
-
-  if(p.dreamHome){
-    return `Il sogno legato alla casa diventa una direzione concreta: inizi a capire quali compromessi sei disposto/a a fare e quali no.`;
-  }
-
-  return `La cosa che hai scritto — “${p.dream}” — torna più volte nelle tue decisioni, anche quando non te ne accorgi.`;
-}
-
-function wellbeingAnchor(p,path,year){
-  if(p.fearStuck){
-    return year===1
-      ? "La sensazione di essere fermo/a comincia lentamente a diminuire perché finalmente vedi movimento."
-      : "Non hai risolto tutto, ma non ti senti più nella stessa posizione di prima.";
-  }
-
-  if(p.wantsSelfFirst){
-    return "Impari che stare meglio non significa avere una vita perfetta: significa avere una vita che non ti costringe continuamente contro te stesso/a.";
-  }
-
-  if(path==="B" && year===1){
-    return "Il cambiamento porta anche stanchezza e momenti di dubbio. Non tutto è immediatamente più facile.";
-  }
-
-  return "Il benessere migliora soprattutto quando le decisioni quotidiane iniziano ad essere più coerenti con ciò che vuoi.";
-}
-
-/* ---------- stats ---------- */
-
-function baseStats(p){
-  return {
-    economy: p.fearSecurity || p.protectMoney ? 45 : 55,
-    work: p.workLove ? 62 : 42,
-    home: p.wantsMove || p.wantsNature ? 42 : 55,
-    love: p.wantsSelfFirst ? 48 : 58,
-    wellbeing: 48,
-    satisfaction: 45,
-    freedom: p.protectIndependence || p.goalFreedom ? 60 : 45
-  };
-}
-
-function clamp(n){return Math.max(0,Math.min(100,Math.round(n)));}
-
-function applyEventStats(stats,event){
-  Object.keys(event.delta || {}).forEach(k=>{
-    if(stats[k]!==undefined) stats[k]+=event.delta[k];
-  });
-}
-
-function statsForPath(p,path){
-  let s = baseStats(p);
-
-  if(path==="A"){
-    s.economy += 12;
-    s.work += p.workChange ? 5 : 8;
-    s.wellbeing += 6;
-    s.freedom += 2;
-    s.satisfaction += 5;
-    if(p.fearSecurity) s.economy += 8;
-    if(p.fearRegret) s.satisfaction -= 5;
-  }
-
-  if(path==="B"){
-    s.freedom += 16;
-    s.satisfaction += 13;
-    s.wellbeing += p.fearStuck ? 12 : 4;
-    s.economy -= p.fearSecurity ? 10 : 3;
-    s.work += p.workChange ? 14 : 4;
-    if(p.wantsMove) s.home += 13;
-    if(p.dreamProject) s.work += 8;
-    if(p.fearFailure) s.economy -= 4;
-  }
-
-  if(path==="C"){
-    s.economy += 6;
-    s.freedom += 9;
-    s.satisfaction += 11;
-    s.wellbeing += 9;
-    s.work += p.workChange ? 10 : 5;
-    if(p.dreamProject) s.work += 12;
-    if(p.wantsMove) s.home += 8;
-    if(p.fearSecurity) s.economy += 5;
-  }
-
-  if(p.wantsFamily) s.love += 10;
-  if(p.wantsSelfFirst) s.wellbeing += 12;
-  if(p.wantsNature) s.home += 8;
-  if(p.dreamTravel) s.freedom += 8;
-
-  return Object.fromEntries(
-    Object.entries(s).map(([k,v])=>[k,clamp(v)])
-  );
-}
-
-/* ---------- events ---------- */
-
-function eventsForYear(p,path,year){
-  const events=[];
-
-  if(year===1){
-    if(path==="A"){
-      events.push({
-        title:"Il primo passo non è una rivoluzione",
-        text:workAnchor(p,"A")+".",
-        delta:{economy:5,wellbeing:5,satisfaction:4}
-      });
-
-      events.push({
-        title:"Una scelta diventa concreta",
-        text:homeAnchor(p,"A"),
-        delta:{home:4,freedom:2}
-      });
-
-      events.push({
-        title:"Non rimandi più una conversazione",
-        text:relationshipAnchor(p,"A"),
-        delta:{love:5,wellbeing:2}
-      });
+    {
+      id:"unexpected",
+      title:"🎲 VITA 3 — L'IMPREVISTO",
+      short:"Succede qualcosa che cambia il problema che pensavate di dover risolvere.",
+      base:{
+        stability:0,
+        change:18,
+        closeness:10,
+        agreement:3,
+        money:2
+      }
     }
 
-    if(path==="B"){
-      events.push({
-        title:"Questa volta fai sul serio",
-        text:workAnchor(p,"B")+".",
-        delta:{work:8,freedom:9,satisfaction:7,economy:-5}
-      });
+  ];
 
-      events.push({
-        title:"La vita si sposta",
-        text:homeAnchor(p,"B"),
-        delta:{home:8,freedom:7,economy:-3}
-      });
+  return paths.map((path,index)=>{
 
-      events.push({
-        title:"Anche le relazioni devono adattarsi",
-        text:relationshipAnchor(p,"B"),
-        delta:{love:3,wellbeing:-2}
-      });
-    }
+    const rng=seeded(seed+(index+1)*1937);
 
-    if(path==="C"){
-      events.push({
-        title:"Non scegli tra tutto o niente",
-        text:workAnchor(p,"C")+".",
-        delta:{work:7,economy:4,freedom:5,satisfaction:6}
-      });
+    const years={};
 
-      events.push({
-        title:"Fai una prova prima della scelta",
-        text:dreamAnchor(p,"C"),
-        delta:{satisfaction:7,wellbeing:5,freedom:5}
-      });
+    [1,3,5].forEach(year=>{
 
-      events.push({
-        title:"Cominci a preparare il terreno",
-        text:homeAnchor(p,"C"),
-        delta:{home:5,economy:2}
-      });
-    }
-  }
+      const m=year===1?1:year===3?1.7:2.4;
+      const p=couple.profile;
 
-  if(year===3){
-    if(path==="A"){
-      events.push({
-        title:"La stabilità produce spazio",
-        text:p.dreamProject
-          ? "Con una base più solida, il progetto che avevi in testa smette di sembrare impossibile: inizi a capire se può diventare una seconda strada."
-          : "Avere meno caos economico e decisionale ti permette di dedicare energie a qualcosa che avevi messo in secondo piano.",
-        delta:{economy:8,satisfaction:8,wellbeing:6}
-      });
+      const stats={
+        stability:clamp(
+          50+p.stability*.25+
+          path.base.stability*m+
+          rng()*8-4,0,100
+        ),
 
-      events.push({
-        title:"La casa cambia significato",
-        text:p.wantsMove
-          ? "Non hai più soltanto voglia di andartene: ora hai abbastanza informazioni per capire dove avrebbe senso andare."
-          : "Il tuo rapporto con casa e quotidianità diventa più consapevole: capisci cosa ti serve davvero.",
-        delta:{home:7}
-      });
+        closeness:clamp(
+          50+p.closeness*.3+
+          path.base.closeness*m+
+          rng()*8-4,0,100
+        ),
 
-      events.push({
-        title:"Le persone contano diversamente",
-        text:relationshipAnchor(p,"A"),
-        delta:{love:7,wellbeing:4}
-      });
-    }
+        agreement:clamp(
+          50+p.agreement*.3+
+          path.base.agreement*m+
+          rng()*8-4,0,100
+        ),
 
-    if(path==="B"){
-      events.push({
-        title:"Arrivano le conseguenze della scelta",
-        text:p.fearSecurity
-          ? "La parte più difficile non è stato cambiare: è stata accettare che per un periodo non tutto sarebbe stato prevedibile."
-          : "La parte più difficile non è stato iniziare: è stato capire cosa meritava davvero di restare nella tua nuova vita.",
-        delta:{economy:p.fearSecurity ? -2 : 5,satisfaction:10,freedom:8}
-      });
+        communication:clamp(
+          50+p.communication*.25+
+          rng()*10-5,0,100
+        ),
 
-      events.push({
-        title:"Il sogno diventa realtà o cambia forma",
-        text:dreamAnchor(p,"B"),
-        delta:{work:p.dreamProject ? 10 : 4,satisfaction:10,freedom:7}
-      });
+        money:clamp(
+          45+p.money*.25+
+          path.base.money*m+
+          rng()*8-4,0,100
+        ),
 
-      events.push({
-        title:"Una nuova normalità",
-        text:p.wantsMove
-          ? "Il luogo in cui vivi non è più soltanto un indirizzo: diventa parte della persona che stai diventando."
-          : "Ti accorgi che cambiare vita non significa cambiare tutto continuamente. Significa scegliere cosa non vuoi più perdere.",
-        delta:{home:7,wellbeing:8}
-      });
-    }
+        change:clamp(
+          45+p.change*.25+
+          path.base.change*m+
+          rng()*8-4,0,100
+        )
+      };
 
-    if(path==="C"){
-      events.push({
-        title:"La seconda strada smette di essere un esperimento",
-        text:dreamAnchor(p,"C"),
-        delta:{work:10,satisfaction:11,freedom:8}
-      });
-
-      events.push({
-        title:"Una decisione più lucida",
-        text:workAnchor(p,"C")+". Ora però hai dati, esperienza e una direzione.",
-        delta:{economy:7,work:7}
-      });
-
-      events.push({
-        title:"La vita si alleggerisce",
-        text:wellbeingAnchor(p,"C",3),
-        delta:{wellbeing:10,satisfaction:8}
-      });
-    }
-  }
-
-  if(year===5){
-    if(path==="A"){
-      events.push({
-        title:"La vita che hai costruito",
-        text:p.goal
-          ? `Guardandoti indietro, il traguardo che avevi scritto — “${p.goal}” — non è necessariamente identico a come lo immaginavi, ma molte delle sue parti hanno trovato spazio.`
-          : "La tua vita non è diventata perfetta. È diventata più riconoscibile: sai cosa vuoi proteggere e cosa non vuoi più rimandare.",
-        delta:{economy:10,satisfaction:9,wellbeing:9}
-      });
-
-      events.push({
-        title:"La sicurezza non è più immobilità",
-        text:"Quello che all'inizio sembrava prudenza ora può diventare libertà: hai più margine per scegliere il prossimo passo.",
-        delta:{economy:6,freedom:8}
-      });
-    }
-
-    if(path==="B"){
-      events.push({
-        title:"Cinque anni dopo",
-        text:p.goal
-          ? `La persona che sei diventato/a guarda al desiderio che avevi scritto — “${p.goal}” — da una posizione completamente diversa. Alcune cose si sono avverate, altre hanno cambiato forma.`
-          : "Non tutte le scelte hanno funzionato. Ma non sei più la stessa persona che aspettava di essere certa prima di provare.",
-        delta:{freedom:10,satisfaction:10,wellbeing:7}
-      });
-
-      events.push({
-        title:"Il prezzo e il valore del cambiamento",
-        text:p.fearSecurity
-          ? "La sicurezza che temevi di perdere non è sparita: hai imparato a costruirla in un modo diverso."
-          : "Hai scoperto che una vita diversa non elimina i problemi. Cambia semplicemente quali problemi sei disposto/a ad affrontare.",
-        delta:{economy:7,freedom:8,satisfaction:8}
-      });
-    }
-
-    if(path==="C"){
-      events.push({
-        title:"La terza via",
-        text:"Non hai fatto il salto nel buio e non sei rimasto/a fermo/a. Hai usato il tempo per trasformare un desiderio in una possibilità concreta.",
-        delta:{economy:8,freedom:10,satisfaction:12,wellbeing:10}
-      });
-
-      events.push({
-        title:"Quello che sembrava compromesso",
-        text:p.goal
-          ? `Il tuo obiettivo — “${p.goal}” — ha preso una forma più realistica e forse più tua di quella che immaginavi all'inizio.`
-          : "Capisci che la terza via non era una rinuncia: era un modo diverso di arrivare dove volevi.",
-        delta:{satisfaction:10,work:7,home:5}
-      });
-    }
-  }
-
-  return events;
-}
-
-/* ---------- simulations ---------- */
-
-function buildSimulation(path){
-  const p = getProfile();
-  const pr = priorities(p);
-  const stats = statsForPath(p,path);
-
-  const years = {};
-
-  [1,3,5].forEach(year=>{
-    years[year] = {
-      events:eventsForYear(p,path,year),
-      stats:{...stats}
-    };
-
-    years[year].events.forEach(e=>applyEventStats(years[year].stats,e));
-
-    const factor = year===1 ? 1 : year===3 ? 1.15 : 1.28;
-
-    Object.keys(years[year].stats).forEach(k=>{
-      const base = years[year].stats[k];
-      years[year].stats[k] = clamp(
-        50 + ((base-50)*factor)
-      );
+      years[year]={
+        title:coupleYearTitle(path.id,year),
+        intro:coupleYearIntro(path.id,year),
+        consequence:coupleConsequence(path.id,year,rng),
+        opportunity:coupleOpportunity(path.id,rng),
+        event:coupleEvent(path.id,rng),
+        stats
+      };
     });
+
+    return {
+      ...path,
+      years,
+      predictions:couplePredictions(path.id,rng),
+      unexpected:coupleUnexpected(path.id,rng)
+    };
   });
+}
 
-  const titles = {
-    A:"La strada della sicurezza",
-    B:"La strada del cambiamento",
-    C:"La terza via"
+
+function coupleYearTitle(path,year){
+
+  if(path==="together"){
+
+    if(year===1)return"Il passo diventa reale";
+    if(year===3)return"La nuova normalità";
+    return"Quello che avete costruito";
+  }
+
+  if(path==="not"){
+
+    if(year===1)return"La strada che non prendete";
+    if(year===3)return"Una vita diversa";
+    return"Quello che avete scelto di proteggere";
+  }
+
+  if(year===1)return"Qualcosa cambia il piano";
+  if(year===3)return"L'imprevisto è diventato parte della vostra storia";
+  return"Il futuro che non avevate progettato";
+}
+
+
+function coupleYearIntro(path,year){
+
+  if(path==="together"){
+
+    return year===1
+      ?"Il passo che avevate immaginato smette di essere un'ipotesi. Arrivano decisioni concrete, entusiasmo e anche problemi che prima potevano essere rimandati."
+      :year===3
+      ?"Avete avuto il tempo di scoprire cosa significava davvero quella scelta. Alcune cose sono diventate più facili, altre hanno richiesto compromessi."
+      :"A cinque anni di distanza non ricordate soltanto il giorno della scelta. Ricordate tutto ciò che avete costruito dopo.";
+  }
+
+  if(path==="not"){
+
+    return year===1
+      ?"La decisione di non fare quel passo lascia spazio ad altre possibilità. Non significa necessariamente fermarsi: significa scegliere un'altra priorità."
+      :year===3
+      ?"Quella che inizialmente sembrava una rinuncia ha aperto una strada diversa. Alcune cose che sembravano urgenti hanno perso importanza."
+      :"A cinque anni di distanza avete una vita costruita intorno a decisioni che forse, oggi, non riuscireste ancora a immaginare.";
+  }
+
+  return year===1
+    ?"Un evento esterno modifica la situazione. Per un momento il problema non è più quello che pensavate di dover risolvere."
+    :year===3
+    ?"L'imprevisto iniziale ha prodotto conseguenze reali. Una nuova routine, una persona o un'opportunità è entrata stabilmente nella vostra vita."
+    :"Guardando indietro, potreste scoprire che il cambiamento più importante è nato proprio da qualcosa che nessuno dei due aveva programmato.";
+}
+
+
+function coupleConsequence(path,year,rng){
+
+  const pools={
+
+    together:[
+      "La scelta vi costringe a parlare di aspetti che prima potevano restare impliciti.",
+      "Diventa importante capire come dividere responsabilità, tempo e denaro.",
+      "Scoprite che fare un passo insieme non significa necessariamente desiderare ogni cosa nello stesso modo."
+    ],
+
+    not:[
+      "La scelta libera risorse e attenzione per altri obiettivi.",
+      "Il rapporto cambia perché una decisione che sembrava comune lascia spazio a priorità personali.",
+      "Potete tornare sulla questione più avanti, ma nel frattempo la vostra vita prende una forma diversa."
+    ],
+
+    unexpected:[
+      "Il nuovo scenario vi obbliga a capire se riuscite a reagire come squadra.",
+      "Una difficoltà esterna può far emergere una forza della coppia che non avevate considerato.",
+      "L'imprevisto modifica le priorità e rende meno importante la domanda iniziale."
+    ]
+
   };
 
-  const subtitles = {
-    A:"Proteggi ciò che hai e costruisci il resto con calma.",
-    B:"Accetti l'incertezza per provare a cambiare davvero.",
-    C:"Non resti fermo/a e non salti nel vuoto: costruisci il ponte."
+  return pick(pools[path],rng);
+}
+
+
+function coupleOpportunity(path,rng){
+
+  const pools={
+
+    together:[
+      "Una nuova organizzazione del lavoro o della casa potrebbe alleggerire la vostra quotidianità.",
+      "Un progetto comune potrebbe diventare più concreto.",
+      "Una decisione economica potrebbe aprire una possibilità che oggi sembra lontana."
+    ],
+
+    not:[
+      "Uno dei due potrebbe trovare un'opportunità professionale importante.",
+      "Un viaggio o un'esperienza potrebbe riavvicinarvi.",
+      "Un nuovo obiettivo individuale potrebbe migliorare indirettamente anche la coppia."
+    ],
+
+    unexpected:[
+      "Un incontro o un'occasione esterna potrebbe cambiare i vostri programmi.",
+      "Un'opportunità nata da una difficoltà potrebbe diventare una nuova direzione.",
+      "Una proposta inattesa potrebbe richiedere una decisione comune."
+    ]
+
   };
 
-  return {
-    path,
-    title:titles[path],
-    subtitle:subtitles[path],
-    priorities:pr,
-    years
+  return pick(pools[path],rng);
+}
+
+
+function coupleEvent(path,rng){
+
+  const pools={
+
+    together:[
+      "Una spesa inattesa mette alla prova l'organizzazione che avete costruito.",
+      "Una persona vicina a voi chiede più spazio o più attenzione.",
+      "Una possibilità professionale costringe uno dei due a rivedere i programmi."
+    ],
+
+    not:[
+      "Un evento familiare vi riporta a parlare del futuro.",
+      "Uno dei due riceve una proposta che cambia gli equilibri.",
+      "Una vecchia idea torna improvvisamente possibile."
+    ],
+
+    unexpected:[
+      "Un cambiamento esterno modifica completamente i vostri programmi.",
+      "Un incontro casuale crea una possibilità inattesa.",
+      "Una notizia vi costringe a decidere più velocemente del previsto."
+    ]
+
   };
+
+  return pick(pools[path],rng);
 }
 
-function buildAllSimulations(){
-  simulations = {
-    A:buildSimulation("A"),
-    B:buildSimulation("B"),
-    C:buildSimulation("C")
+
+function couplePredictions(path,rng){
+
+  const data={
+
+    together:[
+      "La scelta renderà più visibili le differenze tra voi.",
+      "Una questione economica o organizzativa avrà un peso concreto.",
+      "Un periodo di adattamento precederà un nuovo equilibrio.",
+      "Una decisione successiva potrebbe essere più importante di quella iniziale."
+    ],
+
+    not:[
+      "Non fare quel passo non significa necessariamente restare fermi.",
+      "Una priorità personale potrebbe diventare importante per uno dei due.",
+      "La questione potrebbe tornare in un momento completamente diverso.",
+      "Una nuova possibilità potrebbe cambiare ciò che oggi considerate necessario."
+    ],
+
+    unexpected:[
+      "Un evento esterno potrebbe diventare più importante della decisione iniziale.",
+      "Una persona potrebbe entrare nella vostra storia in modo inatteso.",
+      "La reazione che avrete all'imprevisto potrebbe modificare il vostro rapporto.",
+      "Il futuro potrebbe dipendere più dalla capacità di adattarvi che dal piano iniziale."
+    ]
+
   };
+
+  return data[path].sort(()=>rng()-.5);
 }
 
-/* ---------- choice screen ---------- */
 
-function showChoice(){
-  const p = getProfile();
+function coupleUnexpected(path,rng){
 
-  $("profileText").innerHTML = profileText(p);
+  const data={
 
-  $("choices").innerHTML = `
-    <button class="life-choice" onclick="choosePath('A')">
-      <span class="badge">VITA 1</span>
-      <h3>🛡️ La strada della sicurezza</h3>
-      <p>Non butti via ciò che hai costruito. Metti ordine, prepari il terreno e fai cambiamenti progressivi.</p>
-    </button>
+    together:[
+      "La cosa più sorprendente potrebbe essere scoprire che il vero cambiamento non riguarda il passo fatto, ma il modo in cui avete imparato a decidere insieme.",
+      "Una difficoltà potrebbe trasformarsi in un progetto comune.",
+      "Una persona esterna alla coppia potrebbe influenzare una decisione importante."
+    ],
 
-    <button class="life-choice" onclick="choosePath('B')">
-      <span class="badge">VITA 2</span>
-      <h3>🔥 La strada del cambiamento</h3>
-      <p>Decidi di intervenire sulla parte della tua vita che senti più urgente, accettando più incertezza all'inizio.</p>
-    </button>
+    not:[
+      "Potrebbe arrivare un momento in cui vi chiederete se quella scelta vi ha protetti o semplicemente rimandato qualcosa.",
+      "Un nuovo progetto personale potrebbe cambiare l'equilibrio tra voi.",
+      "Una possibilità che oggi non considerate potrebbe diventare più importante del passo iniziale."
+    ],
 
-    <button class="life-choice" onclick="choosePath('C')">
-      <span class="badge">VITA 3</span>
-      <h3>🌙 La terza via</h3>
-      <p>Non resti dove sei, ma non distruggi nemmeno tutto. Sperimenta, costruisci e poi scegli.</p>
-    </button>
-  `;
+    unexpected:[
+      "L'imprevisto potrebbe portarvi esattamente nella direzione che nessuno dei due aveva programmato.",
+      "Una crisi potrebbe rivelare una possibilità.",
+      "Una coincidenza potrebbe modificare una decisione che sembrava già presa."
+    ]
 
-  showScreen("choice");
+  };
+
+  return pick(data[path],rng);
 }
 
-function profileText(p){
-  const pieces=[];
 
-  if(p.workChange) pieces.push("senti che il lavoro non ti rappresenta più completamente");
-  else if(p.workLove) pieces.push("il lavoro non è necessariamente il problema principale");
+/* ============================================================
+   COUPLE UI
+============================================================ */
 
-  if(p.wantsMove) pieces.push("hai un desiderio di cambiamento legato anche al luogo in cui vivi");
+function openCoupleChoice(){
 
-  if(p.wantsFamily) pieces.push("la costruzione di una famiglia pesa molto nella tua idea di futuro");
+  const choices=[
+    {
+      title:"❤️ VITA 1 — LO FATE",
+      desc:"Immaginate cosa succede se fate il grande passo."
+    },
+    {
+      title:"🌓 VITA 2 — NON LO FATE",
+      desc:"Immaginate la vita che nasce dalla scelta opposta."
+    },
+    {
+      title:"🎲 VITA 3 — L'IMPREVISTO",
+      desc:"Lasciate entrare qualcosa che nessuno dei due aveva previsto."
+    }
+  ];
 
-  if(p.dreamProject) pieces.push("hai un'idea o un progetto che vorresti rendere concreto");
+  $("coupleChoices").innerHTML=
+    choices.map((c,i)=>`
+      <button class="choice" onclick="selectCoupleLife(${i})">
+        <strong>${c.title}</strong>
+        <span>${c.desc}</span>
+      </button>
+    `).join("");
 
-  if(p.dreamTravel) pieces.push("una parte di te desidera più libertà e movimento");
-
-  if(p.fearSecurity) pieces.push("ma allo stesso tempo vuoi proteggere la sicurezza che hai");
-
-  if(p.fearStuck) pieces.push("e la paura di rimanere fermo/a sembra importante");
-
-  if(!pieces.length) pieces.push("stai cercando di capire quale direzione potrebbe rendere la tua vita più tua");
-
-  return `Hai ${p.age} anni e, da quello che hai raccontato, ${pieces.join(", ")}.`;
+  showScreen("coupleChoice");
 }
 
-/* ---------- timeline ---------- */
 
-function choosePath(path){
-  selectedPath = path;
-  showTimeline(1);
-  showScreen("timeline");
+function selectCoupleLife(index){
+
+  couple.selected=index;
+
+  openCoupleResult();
 }
 
-function showTimeline(year){
-  if(!selectedPath) selectedPath="A";
 
-  document.querySelectorAll(".year-tab").forEach((b,i)=>{
-    b.classList.toggle("active",[1,3,5][i]===year);
-  });
+function openCoupleResult(){
 
-  const sim = simulations[selectedPath];
-  const data = sim.years[year];
+  const future=couple.futures[couple.selected];
 
-  $("timelineTitle").innerHTML = `
-    <strong>${sim.title}</strong><br>
-    ${sim.subtitle}
-  `;
+  const renderYear=year=>{
 
-  let html = `
-    <div class="card">
-      <span class="badge">TRA ${year} ${year===1?"ANNO":"ANNI"}</span>
-      <p class="story">
-        Questa è una possibile evoluzione della vita che hai scelto.
-        Non è una previsione.
-      </p>
-    </div>
-  `;
+    const y=future.years[year];
 
-  data.events.forEach(e=>{
-    html += `
-      <div class="event">
-        <div class="event-title">${e.title}</div>
-        <p>${e.text}</p>
+    return `
+      <div
+        id="coupleYear${year}"
+        style="display:${year===1?"block":"none"}"
+      >
+
+        <div class="card">
+
+          <h3>${esc(y.title)}</h3>
+
+          <div class="story" style="margin-top:14px;">
+            <p>${esc(y.intro)}</p>
+            <p>${esc(y.consequence)}</p>
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h3 class="section-title">
+            📊 Come potrebbe evolvere la vostra vita
+          </h3>
+
+          <div class="stat-grid">
+
+            <div class="stat">
+              <div class="stat-label">Stabilità</div>
+              <div class="stat-value">${Math.round(y.stats.stability)}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Vicinanza</div>
+              <div class="stat-value">${Math.round(y.stats.closeness)}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Accordo</div>
+              <div class="stat-value">${Math.round(y.stats.agreement)}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Comunicazione</div>
+              <div class="stat-value">${Math.round(y.stats.communication)}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Economia</div>
+              <div class="stat-value">${Math.round(y.stats.money)}%</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-label">Cambiamento</div>
+              <div class="stat-value">${Math.round(y.stats.change)}%</div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h3 class="section-title">🌱 Opportunità</h3>
+
+          <div class="prediction">
+            ${esc(y.opportunity)}
+          </div>
+
+        </div>
+
+        <div class="card unexpected">
+
+          <div class="icon">🎲</div>
+
+          <h3>Qualcosa che non avevate previsto</h3>
+
+          <p>${esc(y.event)}</p>
+
+        </div>
+
       </div>
     `;
-  });
-
-  html += `<hr><h2>Come potrebbe sentirsi questa vita</h2>`;
-  html += renderStats(data.stats);
-
-  $("timelineContent").innerHTML = html;
-}
-
-function renderStats(stats){
-  const labels = {
-    economy:"Sicurezza economica",
-    work:"Realizzazione nel lavoro",
-    home:"Soddisfazione abitativa",
-    love:"Vita affettiva",
-    wellbeing:"Benessere",
-    satisfaction:"Soddisfazione generale",
-    freedom:"Libertà"
   };
 
-  return Object.entries(stats).map(([k,v])=>`
-    <div class="stat">
-      <div class="stat-head">
-        <span>${labels[k]}</span>
-        <span>${v}/100</span>
+  $("coupleResultContent").innerHTML=`
+
+    <div class="life-header">
+
+      <div class="life-kicker">
+        LA VOSTRA POSSIBILE STORIA
       </div>
-      <div class="statbar"><div style="width:${v}%"></div></div>
+
+      <div class="life-title">
+        ${esc(future.title)}
+      </div>
+
+      <p class="screen-sub">
+        ${esc(future.short)}
+      </p>
+
     </div>
-  `).join("");
+
+    <div class="year-tabs">
+
+      <button
+        id="coupleTab1"
+        class="active"
+        onclick="setCoupleYear(1)"
+      >
+        Tra 1 anno
+      </button>
+
+      <button
+        id="coupleTab3"
+        onclick="setCoupleYear(3)"
+      >
+        Tra 3 anni
+      </button>
+
+      <button
+        id="coupleTab5"
+        onclick="setCoupleYear(5)"
+      >
+        Tra 5 anni
+      </button>
+
+    </div>
+
+    ${renderYear(1)}
+    ${renderYear(3)}
+    ${renderYear(5)}
+
+    <div class="card">
+
+      <h3 class="section-title">
+        🔮 Possibili sviluppi
+      </h3>
+
+      ${future.predictions.map(x=>`
+        <div class="prediction">
+          <span>${esc(x)}</span>
+        </div>
+      `).join("")}
+
+    </div>
+
+    <div class="card unexpected">
+
+      <div class="icon">🎲</div>
+
+      <h3>L'imprevisto</h3>
+
+      <p>${esc(future.unexpected)}</p>
+
+    </div>
+
+    <div class="card">
+
+      <button class="primary" onclick="saveCoupleLife()">
+        💾 Salva questa vita
+      </button>
+
+      <button class="secondary" onclick="shareCouple()">
+        📤 Condividi
+      </button>
+
+    </div>
+
+  `;
+
+  showScreen("coupleResult");
+
+  window.setCoupleYear=function(year){
+
+    [1,3,5].forEach(y=>{
+
+      $(`coupleYear${y}`).style.display=
+        y===year?"block":"none";
+
+      $(`coupleTab${y}`).classList.toggle(
+        "active",
+        y===year
+      );
+
+    });
+  };
 }
 
-/* ---------- comparison ---------- */
 
-function showComparison(){
-  if(!simulations.A) buildAllSimulations();
+function saveCoupleLife(){
 
-  const chosen = selectedPath
-    ? `Hai appena scelto di provare: <strong>${simulations[selectedPath].title}</strong>. Ma cosa succederebbe nelle altre due strade?`
-    : "Tre vite diverse possono nascere dalle stesse persone. Cambia la scelta, cambiano le conseguenze.";
+  const saved=
+    JSON.parse(
+      localStorage.getItem("ese_saved_couples")||"[]"
+    );
 
-  $("comparisonQuote").innerHTML = chosen;
+  const future=couple.futures[couple.selected];
+
+  saved.unshift({
+
+    id:Date.now(),
+
+    type:"couple",
+
+    date:formatDate(),
+
+    names:
+      `${couple.p1.name||"Persona 1"} & ${couple.p2.name||"Persona 2"}`,
+
+    title:future.title,
+
+    path:couple.selected,
+
+    p1:couple.p1,
+
+    p2:couple.p2,
+
+    joint:couple.joint,
+
+    futures:couple.futures,
+
+    reality:{}
+
+  });
+
+  localStorage.setItem(
+    "ese_saved_couples",
+    JSON.stringify(saved.slice(0,30))
+  );
+
+  alert("La vostra vita è stata salvata ❤️");
+}
+
+
+function shareCouple(){
+
+  const future=couple.futures[couple.selected];
+
+  const names=
+    `${couple.p1.name||"Persona 1"} & ${couple.p2.name||"Persona 2"}`;
+
+  const text=
+`E SE? — IN 2
+
+${names}
+
+${future.title}
+
+Tra 5 anni:
+${future.years[5].intro}
+
+🎲 Imprevisto:
+${future.unexpected}
+
+Prova E SE?`;
+
+  shareText(text);
+}
+
+
+/* ============================================================
+   E ADESSO?
+============================================================ */
+
+let now={
+  text:"",
+  topic:"general",
+  answers:{}
+};
+
+
+function startNow(){
+
+  now={
+    text:"",
+    topic:"general",
+    answers:{}
+  };
+
+  $("nowText").value="";
+
+  showScreen("nowStart");
+}
+
+
+function detectTopic(text){
+
+  const t=text.toLowerCase();
+
+  if(
+    /scriv|messagg|whatsapp|contatt|telefon|rispond/.test(t)
+  )return"message";
+
+  if(
+    /lavor|job|azienda|colloquio|stipend|contratt|dimetter/.test(t)
+  )return"work";
+
+  if(
+    /fidanz|partner|marit|moglie|amore|ragazz|relazione|coppia/.test(t)
+  )return"relationship";
+
+  if(
+    /trasfer|casa|partire|città|estero|spost/.test(t)
+  )return"change";
+
+  if(
+    /scegl|decision|decidere|dubbio|fare o non fare/.test(t)
+  )return"decision";
+
+  return"general";
+}
+
+
+const nowQuestions={
+
+  message:[
+    "Chi è questa persona per te?",
+    "Quando avete parlato l'ultima volta?",
+    "Perché vuoi scrivergli proprio adesso?",
+    "Cosa vorresti davvero ottenere dal messaggio?",
+    "Come è finita l'ultima conversazione?",
+    "Se non ti rispondesse, come ti sentiresti?",
+    "Se rispondesse esattamente come speri, cosa vorresti succedesse?",
+    "C'è qualcosa che ti impedisce di scrivergli?"
+  ],
+
+  work:[
+    "Che lavoro fai o ti è stato proposto?",
+    "Cosa ti attira maggiormente?",
+    "Cosa ti preoccupa?",
+    "Cosa cambierebbe concretamente nella tua vita?",
+    "Quanto sarebbe importante economicamente?",
+    "Hai un'alternativa se dici di no?",
+    "Cosa ti farebbe rimpiangere la scelta?",
+    "Cosa speri di ottenere davvero?"
+  ],
+
+  relationship:[
+    "Chi è questa persona per te?",
+    "Cosa provi quando pensi alla situazione?",
+    "Cosa vorresti che cambiasse?",
+    "Cosa ti fa paura?",
+    "Avete già parlato di questa cosa?",
+    "Cosa succederebbe se non facessi nulla?",
+    "Cosa speri che accada?",
+    "C'è qualcosa che non stai dicendo per paura delle conseguenze?"
+  ],
+
+  change:[
+    "Cosa vorresti cambiare?",
+    "Da quanto tempo ci pensi?",
+    "Cosa ti trattiene?",
+    "Cosa potrebbe migliorare?",
+    "Cosa potrebbe peggiorare?",
+    "Hai già un'alternativa concreta?",
+    "Cosa perderesti?",
+    "Cosa guadagneresti?"
+  ],
+
+  decision:[
+    "Quali sono le due possibilità principali?",
+    "Cosa ti spinge verso la prima?",
+    "Cosa ti spinge verso la seconda?",
+    "Qual è la cosa che temi maggiormente?",
+    "Cosa succederebbe se non decidessi?",
+    "Quale scelta ti darebbe più sollievo?",
+    "Quale scelta ti farebbe più paura?",
+    "Cosa vorresti davvero ottenere?"
+  ],
+
+  general:[
+    "Da quanto tempo hai questa situazione in testa?",
+    "Cosa è successo per arrivare a questo punto?",
+    "Cosa vorresti accadesse?",
+    "Cosa ti preoccupa di più?",
+    "Cosa succederebbe se non facessi nulla?",
+    "Cosa ti impedisce di decidere?",
+    "Quale sarebbe per te il risultato migliore?",
+    "C'è qualcosa che non ti ho chiesto e che secondo te dovrei sapere?"
+  ]
+
+};
+
+
+function analyzeNow(){
+
+  const text=cleanText($("nowText").value);
+
+  if(!text){
+    alert("Raccontami prima cosa sta succedendo.");
+    return;
+  }
+
+  now.text=text;
+  now.topic=detectTopic(text);
+  now.answers={};
+
+  renderNowQuestions();
+
+  showScreen("nowQuestions");
+}
+
+
+function renderNowQuestions(){
+
+  const questions=nowQuestions[now.topic];
+
+  $("nowQuestionsContent").innerHTML=
+    questions.map((q,i)=>`
+      <div class="card">
+
+        <div class="question">
+          ${i+1}. ${esc(q)}
+        </div>
+
+        <textarea
+          id="now${i}"
+          placeholder="La tua risposta..."
+        ></textarea>
+
+      </div>
+    `).join("");
+}
+
+
+function finishNow(){
+
+  const questions=nowQuestions[now.topic];
+
+  questions.forEach((q,i)=>{
+    now.answers[i]=$(`now${i}`)?.value?.trim()||"";
+  });
+
+  renderNowResult();
+
+  showScreen("nowResult");
+}
+
+
+function renderNowResult(){
+
+  const a=Object.values(now.answers)
+    .filter(Boolean)
+    .join(" ");
+
+  const text=now.text;
+
+  const action=nowAction(now.topic,a);
+  const wait=nowWait(now.topic,a);
+  const close=nowClose(now.topic,a);
+  const unexpected=nowUnexpected(now.topic,a);
+
+  let messageOptions="";
+
+  if(now.topic==="message"){
+
+    messageOptions=`
+      <div class="card">
+
+        <h3 class="section-title">
+          ✍️ Se vuoi scrivere...
+        </h3>
+
+        <div class="prediction">
+          <strong>Leggera</strong>
+          <span>
+            “Ehi, mi è venuto in mente di scriverti. Come stai?”
+          </span>
+        </div>
+
+        <div class="prediction">
+          <strong>Sincera</strong>
+          <span>
+            “Ti scrivo perché avevo voglia di sentirti e preferisco
+            essere sincero/a invece di continuare a pensarci.”
+          </span>
+        </div>
+
+        <div class="prediction">
+          <strong>Diretta</strong>
+          <span>
+            “Vorrei parlarti di una cosa. Ti va di sentirci?”
+          </span>
+        </div>
+
+      </div>
+    `;
+  }
+
+  $("nowResultContent").innerHTML=`
+
+    <div class="life-header">
+
+      <div class="life-kicker">
+        E ADESSO?
+      </div>
+
+      <div class="life-title">
+        Ho capito questo
+      </div>
+
+      <p class="screen-sub">
+        ${esc(text)}
+      </p>
+
+    </div>
+
+    <div class="card story">
+
+      <p>
+        La questione non sembra riguardare soltanto
+        “cosa fare”. Sembra riguardare anche ciò che
+        potrebbe succedere dopo la scelta.
+      </p>
+
+      <p>
+        Dalle tue risposte emerge una tensione tra ciò
+        che desideri e ciò che temi di perdere.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3 class="section-title">🟢 Se agisci</h3>
+
+      <div class="prediction">
+        ${esc(action)}
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <h3 class="section-title">🔵 Se aspetti</h3>
+
+      <div class="prediction">
+        ${esc(wait)}
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <h3 class="section-title">🟣 Se lasci perdere</h3>
+
+      <div class="prediction">
+        ${esc(close)}
+      </div>
+
+    </div>
+
+    <div class="card unexpected">
+
+      <div class="icon">🎲</div>
+
+      <h3>Lo scenario che potresti non aver considerato</h3>
+
+      <p>${esc(unexpected)}</p>
+
+    </div>
+
+    ${messageOptions}
+
+    <div class="card">
+
+      <h3 class="section-title">
+        🌙 E SE LO FACESSI?
+      </h3>
+
+      <p class="screen-sub">
+        Se vuoi andare oltre questa situazione,
+        possiamo trasformarla in una vera simulazione.
+      </p>
+
+      <button class="primary" onclick="startSolo()">
+        Prova la tua vita possibile →
+      </button>
+
+    </div>
+
+  `;
+}
+
+
+function nowAction(topic,a){
+
+  const data={
+
+    message:
+      "Se agisci, la cosa più importante non sarà ottenere esattamente la risposta che speri, ma uscire dall'incertezza. Un messaggio semplice e coerente con quello che senti può darti un'informazione reale.",
+
+    work:
+      "Agire potrebbe aprire una possibilità concreta, ma prima di dire sì è importante capire quali condizioni cambiano davvero: denaro, tempo, stabilità e prospettive.",
+
+    relationship:
+      "Affrontare la situazione può creare un momento scomodo, ma rende più difficile restare per sempre dentro supposizioni e interpretazioni.",
+
+    change:
+      "Il cambiamento può essere utile se trasformi il desiderio in un primo passo concreto, invece di pretendere di conoscere già tutto il percorso.",
+
+    decision:
+      "Agire significa accettare una parte di incertezza. La domanda utile non è solo “cosa rischio?”, ma anche “cosa succede se continuo a non scegliere?”.",
+
+    general:
+      "Un primo passo piccolo può darti informazioni che ora non possiedi. Non devi necessariamente risolvere tutta la situazione in una volta."
+  };
+
+  return data[topic];
+}
+
+
+function nowWait(topic,a){
+
+  const data={
+
+    message:
+      "Aspettare può aiutarti a capire se vuoi davvero quella persona o se stai cercando soprattutto una risposta al bisogno di sentirti considerato/a.",
+
+    work:
+      "Aspettare può essere utile se ti permette di raccogliere informazioni concrete. Diventa meno utile quando serve soltanto a rimandare una decisione che sai di dover affrontare.",
+
+    relationship:
+      "Aspettare può far emergere nuovi elementi, ma può anche lasciare spazio a interpretazioni che non sono necessariamente realtà.",
+
+    change:
+      "Aspettare può avere senso se ti manca un pezzo concreto del piano. Se invece stai aspettando di sentirti completamente sicuro/a, potresti aspettare molto.",
+
+    decision:
+      "Aspettare è una scelta vera e propria. Può essere intelligente quando serve a raccogliere informazioni, meno quando serve solo a ridurre temporaneamente l'ansia.",
+
+    general:
+      "Aspettare può essere utile se hai bisogno di informazioni. Il punto è capire se stai aspettando una risposta oppure semplicemente il coraggio di scegliere."
+  };
+
+  return data[topic];
+}
+
+
+function nowClose(topic,a){
+
+  const data={
+
+    message:
+      "Chiudere la porta può proteggerti dall'attesa, ma prima chiediti se stai rinunciando a una possibilità oppure a un'illusione.",
+
+    work:
+      "Rifiutare può proteggere la stabilità attuale. Il rischio è che la stessa domanda torni più avanti se ciò che ti pesa oggi rimane invariato.",
+
+    relationship:
+      "Prendere distanza può essere necessario quando una situazione ti consuma. Ma distinguere una chiusura definitiva da un bisogno di spazio può cambiare molto la conseguenza.",
+
+    change:
+      "Non cambiare mantiene molti elementi della tua vita attuale. Se però il desiderio di cambiare è profondo, la domanda potrebbe ripresentarsi.",
+
+    decision:
+      "Non scegliere elimina una parte del rischio immediato, ma non elimina necessariamente il problema.",
+
+    general:
+      "Lasciare tutto com'è può essere la scelta più semplice oggi. La conseguenza dipenderà da quanto la situazione attuale è sostenibile nel tempo."
+  };
+
+  return data[topic];
+}
+
+
+function nowUnexpected(topic,a){
+
+  const data={
+
+    message:
+      "La possibilità meno considerata è che la risposta dell'altra persona non sia né quella che speri né quella che temi: potrebbe semplicemente mostrarti qualcosa che oggi non puoi sapere.",
+
+    work:
+      "Potresti scoprire che l'opportunità più importante non è quella che stai valutando ora, ma una che nasce proprio dal momento in cui inizi a muoverti.",
+
+    relationship:
+      "Potresti scoprire che il vero nodo della situazione non è l'altra persona, ma qualcosa che tu non hai ancora chiarito dentro di te.",
+
+    change:
+      "Potresti iniziare a cambiare una cosa e scoprire che quella modifica ne rende possibili altre che oggi sembrano scollegate.",
+
+    decision:
+      "Potrebbe emergere una terza possibilità che adesso non stai considerando perché sei concentrato/a sulle due alternative principali.",
+
+    general:
+      "La situazione potrebbe cambiare prima ancora che tu prenda una decisione. Le circostanze esterne fanno parte della storia tanto quanto le tue scelte."
+  };
+
+  return data[topic];
+}
+
+
+/* ============================================================
+   SAVED
+============================================================ */
+
+function openSaved(){
+
+  const soloSaved=
+    JSON.parse(
+      localStorage.getItem("ese_saved_lives")||"[]"
+    );
+
+  const coupleSaved=
+    JSON.parse(
+      localStorage.getItem("ese_saved_couples")||"[]"
+    );
 
   let html="";
 
-  ["A","B","C"].forEach(path=>{
-    const sim = simulations[path];
-    html += `
-      <div class="scenario">
-        ${selectedPath===path ? '<span class="badge">LA TUA SCELTA</span>' : '<span class="badge">POSSIBILITÀ</span>'}
-        <h3>${sim.title}</h3>
-        <div class="subtitle">${sim.subtitle}</div>
+  if(!soloSaved.length && !coupleSaved.length){
 
-        ${[1,3,5].map(year=>`
-          <div class="mini-story">
-            <h4>Tra ${year} ${year===1?"anno":"anni"}</h4>
-            ${sim.years[year].events.map(e=>`
-              <p><strong>${e.title}.</strong> ${e.text}</p>
-            `).join("")}
-          </div>
-        `).join("")}
+    html=`
+      <div class="card hero">
+        <div class="emoji">🌙</div>
+        <h2>Ancora nessuna vita salvata</h2>
+        <p>
+          Crea una simulazione e salvala.
+          Potrai tornare qui per rileggerla.
+        </p>
       </div>
     `;
-  });
 
-  $("allScenarios").innerHTML=html;
+  }else{
 
-  $("comparisonStats").innerHTML = comparisonStats();
-  showScreen("comparison");
-}
+    soloSaved.forEach((item,index)=>{
 
-function comparisonStats(){
-  const labels = {
-    economy:"Sicurezza economica",
-    work:"Lavoro",
-    home:"Casa / luogo",
-    love:"Vita affettiva",
-    wellbeing:"Benessere",
-    satisfaction:"Soddisfazione",
-    freedom:"Libertà"
-  };
+      html+=`
 
-  const keys=Object.keys(labels);
+        <div class="saved-item">
 
-  return `
-    <div class="compare-grid">
-      ${keys.map(k=>`
-        <div class="compare-row">
-          <strong>${labels[k]}</strong>
-          <div>🛡️ Sicurezza: ${simulations.A.years[5].stats[k]}/100</div>
-          <div>🔥 Cambiamento: ${simulations.B.years[5].stats[k]}/100</div>
-          <div>🌙 Terza via: ${simulations.C.years[5].stats[k]}/100</div>
+          <strong>${esc(item.title)}</strong>
+
+          <small>
+            ${esc(item.name)} · ${esc(item.date)}
+          </small>
+
+          <button
+            class="secondary"
+            onclick="openSavedSolo(${index})"
+          >
+            Apri
+          </button>
+
+          <button
+            class="secondary"
+            onclick="realityCheckSolo(${index})"
+          >
+            🔄 Cosa è successo davvero?
+          </button>
+
         </div>
-      `).join("")}
-    </div>
-  `;
-}
+      `;
+    });
 
-/* ---------- saved lives ---------- */
 
-function getSavedLives(){
-  try{
-    return JSON.parse(localStorage.getItem("ese_saved_lives") || "[]");
-  }catch(e){
-    return [];
+    coupleSaved.forEach((item,index)=>{
+
+      html+=`
+
+        <div class="saved-item">
+
+          <strong>${esc(item.title)}</strong>
+
+          <small>
+            ${esc(item.names)} · ${esc(item.date)}
+          </small>
+
+          <button
+            class="secondary"
+            onclick="openSavedCouple(${index})"
+          >
+            Apri
+          </button>
+
+        </div>
+      `;
+    });
+
   }
-}
 
-function saveCurrentLife(){
-  if(!selectedPath) return;
+  $("savedContent").innerHTML=html;
 
-  const lives=getSavedLives();
-
-  const item={
-    id:Date.now(),
-    name:answers.name || "La mia vita",
-    date:new Date().toLocaleDateString("it-IT"),
-    answers:{...answers},
-    selectedPath,
-    simulations
-  };
-
-  lives.unshift(item);
-  localStorage.setItem("ese_saved_lives",JSON.stringify(lives.slice(0,20)));
-
-  alert("Questa vita è stata salvata.");
-}
-
-function showSavedLives(){
-  renderSavedLives();
   showScreen("saved");
 }
 
-function renderSavedLives(){
-  const lives=getSavedLives();
 
-  if(!lives.length){
-    $("savedList").innerHTML=`
-      <div class="card center">
-        <h2>Non hai ancora salvato nessuna vita.</h2>
-        <p class="tagline">Immagina una strada e salvala. Potrai tornarci quando vuoi.</p>
+function openSavedSolo(index){
+
+  const saved=
+    JSON.parse(
+      localStorage.getItem("ese_saved_lives")||"[]"
+    );
+
+  const item=saved[index];
+
+  if(!item)return;
+
+  solo.answers=item.answers;
+  solo.futures=item.futures;
+  solo.selected=item.path;
+
+  openSoloResult();
+}
+
+
+function openSavedCouple(index){
+
+  const saved=
+    JSON.parse(
+      localStorage.getItem("ese_saved_couples")||"[]"
+    );
+
+  const item=saved[index];
+
+  if(!item)return;
+
+  couple.p1=item.p1;
+  couple.p2=item.p2;
+  couple.joint=item.joint;
+  couple.futures=item.futures;
+  couple.selected=item.path;
+
+  openCoupleResult();
+}
+
+
+/* ============================================================
+   REALITY CHECK
+============================================================ */
+
+function realityCheckSolo(index){
+
+  const saved=
+    JSON.parse(
+      localStorage.getItem("ese_saved_lives")||"[]"
+    );
+
+  const item=saved[index];
+
+  if(!item)return;
+
+  const future=item.futures[item.path];
+
+  const real=prompt(
+    "Quando tornerai a questa simulazione potrai annotare cosa è realmente successo.\n\n" +
+    "Scrivi cosa è cambiato nella tua vita rispetto allo scenario:"
+  );
+
+  if(real===null)return;
+
+  item.reality={
+    date:formatDate(),
+    text:real
+  };
+
+  saved[index]=item;
+
+  localStorage.setItem(
+    "ese_saved_lives",
+    JSON.stringify(saved)
+  );
+
+  alert(
+    "Confronto salvato ❤️\n\n" +
+    "La previsione resta quella originale. " +
+    "La tua nuova nota rappresenta ciò che è realmente successo."
+  );
+
+  openSaved();
+}
+
+
+/* ============================================================
+   PROFILE
+============================================================ */
+
+function openProfile(){
+
+  const profile=
+    JSON.parse(
+      localStorage.getItem("ese_profile")||"null"
+    );
+
+  if(!profile){
+
+    $("profileContent").innerHTML=`
+
+      <div class="card hero">
+
+        <div class="emoji">👤</div>
+
+        <h2>Il tuo profilo non è ancora pronto.</h2>
+
+        <p>
+          Fai una simulazione E SE? e lascia che emerga
+          il tuo profilo narrativo.
+        </p>
+
+        <button
+          class="primary"
+          onclick="startSolo()"
+        >
+          Inizia →
+        </button>
+
       </div>
+
     `;
+
+    showScreen("profile");
     return;
   }
 
-  $("savedList").innerHTML=lives.map(l=>{
-    const path=l.selectedPath;
-    const title=l.simulations?.[path]?.title || "Vita immaginata";
+  const labels={
 
-    return `
-      <div class="saved-item">
-        <h3>${l.name} — ${title}</h3>
-        <p>${l.date}</p>
-        <div class="actions">
-          <button class="cta" onclick="loadLife(${l.id})">Apri</button>
-          <button class="cta secondary" onclick="deleteLife(${l.id})">Elimina</button>
-        </div>
-      </div>
-    `;
-  }).join("");
-}
+    stability:["Stabilità",profile.stability],
+    change:["Apertura al cambiamento",profile.change],
+    risk:["Propensione al rischio",profile.risk],
+    moneyPressure:["Pressione economica",profile.moneyPressure],
+    relationship:["Centralità delle relazioni",profile.relationship],
+    autonomy:["Autonomia",profile.autonomy],
+    ambition:["Ambizione",profile.ambition]
 
-function loadLife(id){
-  const lives=getSavedLives();
-  const life=lives.find(x=>x.id===id);
-  if(!life)return;
-
-  answers={...life.answers};
-  selectedPath=life.selectedPath;
-  simulations=life.simulations;
-  showTimeline(1);
-  showScreen("timeline");
-}
-
-function deleteLife(id){
-  const lives=getSavedLives().filter(x=>x.id!==id);
-  localStorage.setItem("ese_saved_lives",JSON.stringify(lives));
-  renderSavedLives();
-}
-
-/* ---------- share ---------- */
-
-async function shareSimulation(){
-  if(!selectedPath)return;
-
-  const sim=simulations[selectedPath];
-
-  const text=
-`E SE?
-Prova una vita prima di viverla.
-
-Ho simulato:
-${sim.title}
-
-${sim.subtitle}
-
-Tra 1 anno:
-${sim.years[1].events.map(e=>e.title+" — "+e.text).join("\n")}
-
-Tra 3 anni:
-${sim.years[3].events.map(e=>e.title+" — "+e.text).join("\n")}
-
-Tra 5 anni:
-${sim.years[5].events.map(e=>e.title+" — "+e.text).join("\n")}
-
-Prova anche tu:
-https://e-se-change.github.io/E-SE/`;
-
-  if(navigator.share){
-    try{
-      await navigator.share({
-        title:"E SE?",
-        text
-      });
-    }catch(e){}
-  }else{
-    try{
-      await navigator.clipboard.writeText(text);
-      alert("Testo copiato.");
-    }catch(e){
-      alert(text);
-    }
-  }
-}
-
-/* ---------- E SE? IN DUE ---------- */
-
-function showTwoPeople(){
-  twoChoice=null;
-  document.querySelectorAll("#twoPeople .option").forEach(b=>b.classList.remove("selected"));
-  showScreen("twoPeople");
-}
-
-function selectTwoChoice(value,button){
-  twoChoice=value;
-  document.querySelectorAll("#twoPeople .option").forEach(b=>b.classList.remove("selected"));
-  button.classList.add("selected");
-}
-
-function generateTwoPeople(){
-  if(!twoChoice)return;
-
-  const scenarios={
-    casa:{
-      title:"E SE cambiassimo casa?",
-      y1:"Nel primo anno iniziate a guardare la vostra vita con gli occhi di chi sta cercando un posto che vi rappresenti davvero. Non cercate soltanto una casa: cercate una quotidianità diversa.",
-      y3:"Dopo tre anni, il luogo in cui vivete ha modificato anche le vostre abitudini. Alcune cose che sembravano indispensabili hanno perso importanza.",
-      y5:"Dopo cinque anni, la casa non è più soltanto il punto in cui tornate la sera. È diventata parte del progetto che avete costruito insieme."
-    },
-    lavoro:{
-      title:"E SE cambiassimo lavoro?",
-      y1:"Il primo anno è fatto di dubbi, curriculum, colloqui, formazione e conversazioni difficili. Ma soprattutto di una domanda: quanto vale per voi il tempo che passate lavorando?",
-      y3:"Dopo tre anni, la vostra vita professionale ha preso una forma diversa. Non necessariamente perfetta, ma più consapevole.",
-      y5:"Dopo cinque anni, vi accorgete che cambiare lavoro non ha cambiato soltanto il conto in banca: ha cambiato il tempo che avete per voi."
-    },
-    progetto:{
-      title:"E SE costruissimo qualcosa insieme?",
-      y1:"Cominciate piccolo. Un'idea, una prova, un primo cliente, un errore. Il progetto smette di essere una frase detta a cena.",
-      y3:"Dopo tre anni sapete cosa funziona e cosa no. Forse il progetto è cresciuto, forse ha cambiato forma. In entrambi i casi vi ha insegnato qualcosa su voi stessi.",
-      y5:"Dopo cinque anni non sapete se rifareste ogni passaggio allo stesso modo. Sapete però che avete costruito qualcosa che prima esisteva soltanto nella vostra testa."
-    },
-    famiglia:{
-      title:"E SE costruissimo una famiglia?",
-      y1:"Il primo anno non è fatto soltanto di grandi decisioni. È fatto di organizzazione, dialogo, soldi, spazi, paure e del desiderio di capire se state costruendo la stessa cosa.",
-      y3:"Dopo tre anni molte priorità sono cambiate. La vostra idea di famiglia è diventata più concreta e meno simile a quella che avevate immaginato da soli.",
-      y5:"Dopo cinque anni guardate indietro e capite che costruire una famiglia non è stato un singolo momento: è stata una serie di scelte quotidiane."
-    },
-    viaggio:{
-      title:"E SE partissimo?",
-      y1:"Il primo anno è fatto di valigie, conti, programmi e qualche momento di paura. Ma anche della sensazione di aver finalmente smesso di aspettare il momento perfetto.",
-      y3:"Dopo tre anni avete scoperto che cambiare luogo non risolve automaticamente tutto. Però vi ha fatto capire cosa volete davvero dalla vostra vita.",
-      y5:"Dopo cinque anni il viaggio iniziale è diventato una parte della vostra storia. Forse siete rimasti lontani, forse siete tornati, forse avete trovato una terza soluzione."
-    },
-    tempo:{
-      title:"E SE ci scegliessimo di più?",
-      y1:"Cominciate dalla cosa più difficile: smettere di considerare il tempo insieme come quello che rimane dopo tutto il resto.",
-      y3:"Dopo tre anni avete costruito rituali, spazi e abitudini che proteggono la vostra relazione dalla vita che corre.",
-      y5:"Dopo cinque anni non avete avuto una vita senza problemi. Avete però una vita nella quale il rapporto non viene sempre dopo tutto il resto."
-    }
   };
 
-  const s=scenarios[twoChoice];
+  $("profileContent").innerHTML=`
 
-  $("twoResultContent").innerHTML=`
     <div class="card">
-      <span class="badge">E SE? IN DUE</span>
-      <h2>${s.title}</h2>
-      <p class="story">${s.y1}</p>
+
+      ${Object.values(labels).map(x=>`
+
+        <div class="stat" style="margin-bottom:9px;">
+
+          <div class="stat-label">
+            ${esc(x[0])}
+          </div>
+
+          <div class="stat-value">
+            ${x[1]}%
+          </div>
+
+        </div>
+
+      `).join("")}
+
     </div>
 
-    <div class="event">
-      <div class="event-title">Tra 3 anni</div>
-      <p>${s.y3}</p>
+    <div class="notice">
+      Questo profilo cambia nel tempo e dipende dalle risposte
+      che inserisci nelle simulazioni. Non è una valutazione
+      psicologica.
     </div>
 
-    <div class="event">
-      <div class="event-title">Tra 5 anni</div>
-      <p>${s.y5}</p>
-    </div>
-
-    <div class="card center">
-      <p class="quote">“La domanda non è sapere cosa succederà.”</p>
-      <p class="tagline">È capire cosa siete disposti a cambiare per vedere cosa potrebbe succedere.</p>
-    </div>
   `;
 
-  showScreen("twoResult");
+  showScreen("profile");
 }
 
-/* ---------- init ---------- */
 
-showScreen("home");
+/* ============================================================
+   PRIVACY / TERMS
+============================================================ */
+
+function openPrivacy(){
+  showScreen("privacy");
+}
+
+function openTerms(){
+  showScreen("terms");
+}
+
+
+/* ============================================================
+   INITIAL LOAD
+============================================================ */
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+  showScreen("home");
+
+});
+
 </script>
 
 </body>
