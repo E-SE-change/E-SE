@@ -301,7 +301,7 @@ hr{
 
 <script>
 /* =========================================================
-   E SE? V14.1 DEFINITIVO (E ADESSO DINAMICO E CONTINUABILE)
+   E SE? V14.2 DEFINITIVO (E ADESSO DINAMICO E CONTINUABILE)
    ========================================================= */
 
 const K={
@@ -2246,9 +2246,10 @@ function saveNowStep2(){
 }
 
 function saveNowStep3(){
-  data.currentNow.fear=document.getElementById("nowFearInput").value.trim()||"Il timore di sbagliare";
+  const fearVal=document.getElementById("nowFearInput").value.trim();
+  data.currentNow.fear=fearVal||"Il timore di sbagliare";
   
-  // Salva o aggiorna nella lista delle sessioni
+  // Aggiunge o aggiorna la sessione nell'array e salva su localStorage
   const existingIndex=data.nowSessions.findIndex(s=>s.id===data.currentNow.id);
   if(existingIndex>=0){
     data.nowSessions[existingIndex]=data.currentNow;
@@ -2257,7 +2258,7 @@ function saveNowStep3(){
   }
   saveAll();
   
-  // Mostra direttamente i risultati
+  // Mostra immediatamente i risultati generati
   renderNowResults();
 }
 
