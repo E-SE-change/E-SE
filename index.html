@@ -356,15 +356,14 @@ hr{
 
 <script>
 /* =========================================================
-   E SE? V10.1 DEFINITIVO (CON SPIEGAZIONE E ADESSO?)
+   E SE? V10.2 DEFINITIVO (PRIMA PAGINA E INTRO RIPRISTINATE)
    ========================================================= */
 
 const K={
   p:"ese_profile",
   l:"ese_saved_lives",
   n:"ese_now_sessions",
-  t:"ese_two_sessions",
-  introSeen:"ese_intro_seen"
+  t:"ese_two_sessions"
 };
 
 let data={
@@ -418,7 +417,7 @@ function esc(v){
 }
 
 /* =========================================================
-   PAGINA INTRODUTTIVA AGGIORNATA (CON E ADESSO?)
+   PRIMA PAGINA INTRODUTTIVA E GUIDA COMPLETA
    ========================================================= */
 
 function showIntro(){
@@ -468,15 +467,10 @@ function showIntro(){
       </div>
 
       <div class="center" style="margin-top: 25px;">
-        <button class="btn primary" style="font-size: 16px; padding: 15px 30px;" onclick="completeIntro()">Inizia l'esperienza</button>
+        <button class="btn primary" style="font-size: 16px; padding: 15px 30px;" onclick="home()">Accedi alla Home</button>
       </div>
     </div>
   `);
-}
-
-function completeIntro(){
-  localStorage.setItem(K.introSeen, "true");
-  home();
 }
 
 function home(){
@@ -637,7 +631,6 @@ function clearData(){
     localStorage.removeItem(K.l);
     localStorage.removeItem(K.n);
     localStorage.removeItem(K.t);
-    localStorage.removeItem(K.introSeen);
     data={
       profile:null,
       lifeAnswers:[],
@@ -2290,17 +2283,11 @@ function notice(){
 
 
 /* =========================================================
-   AVVIO
+   AVVIO (MOSTRA SEMPRE LA PRIMA PAGINA INTRODUTTIVA)
    ========================================================= */
 
 load();
-
-// Se l'utente non ha mai visto l'intro o non ha dati salvati, mostra l'intro, altrimenti va alla home
-if(!localStorage.getItem(K.introSeen)){
-  showIntro();
-} else {
-  home();
-}
+showIntro();
 
 </script>
 
