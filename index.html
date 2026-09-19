@@ -1,3969 +1,1435 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#09090d">
-
 <meta name="google-adsense-account" content="ca-pub-7154454592714745">
-
-<!-- GOOGLE ADSENSE - UNICO SCRIPT -->
-<script async
-src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7154454592714745"
-crossorigin="anonymous"></script>
-
-<title>E SE? — E ADESSO?</title>
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7154454592714745" crossorigin="anonymous"></script>
+<title>E SE? — Prova una vita prima di viverla</title>
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box}body{margin:0;background:#09090d;color:#f5f5f7;font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}.app{max-width:820px;margin:auto;padding:22px 16px 60px}.screen{display:none}.screen.active{display:block}.logo{font-size:44px;font-weight:900;letter-spacing:-2px}.tag{color:#aaa}.hero{padding:28px 4px}.intro{font-size:18px;color:#ddd}h1{font-size:32px;line-height:1.12}h2{font-size:24px}.card,.q,.story,.prediction{background:#13131a;border:1px solid #292933;border-radius:22px;padding:20px;margin:14px 0}.experience{cursor:pointer}.icon{font-size:34px}p{color:#c9c9d0}.btn,.opt,.chip{font:inherit;font-weight:750;border-radius:14px;padding:13px 16px;cursor:pointer}.btn{width:100%;border:0;background:#fff;color:#09090d;margin-top:9px}.dark{background:#25252f;color:#fff}.ghost{background:transparent;color:#ddd;border:1px solid #393943}.options{display:grid;gap:9px}.opt{text-align:left;background:#1b1b24;color:#eee;border:1px solid #34343e}.opt.sel{border-color:#fff;background:#2a2a35}.field{margin:12px 0}.field label{display:block;font-weight:700;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;padding:13px;border:1px solid #393943;border-radius:13px;background:#0f0f15;color:#fff;font:inherit}.field textarea{min-height:120px}.progress{height:7px;background:#24242d;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:#fff}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.life{background:#15151d;border:1px solid #30303a;border-radius:18px;padding:17px}.badge{display:inline-block;background:#24242d;border-radius:99px;padding:4px 9px;font-size:12px;font-weight:800}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{background:#1b1b24;color:#eee;border:1px solid #35353e}.nav{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.nav .btn{width:auto}.mini{font-size:13px;color:#999}footer{border-top:1px solid #24242d;margin-top:30px;padding-top:18px;color:#888;font-size:13px;display:flex;gap:16px;flex-wrap:wrap}footer button{border:0;background:none;color:#aaa;cursor:pointer}@media(max-width:650px){.grid3{grid-template-columns:1fr}.logo{font-size:36px}}
 
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#09090d;
-  color:#f5f5f7;
-  min-height:100vh;
-  line-height:1.5;
-}
-
-button,input,textarea,select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.app{
-  width:100%;
-  max-width:900px;
-  margin:auto;
-  padding:18px;
-}
-
-header{
-  text-align:center;
-  padding:20px 0 15px;
-}
-
-.logo{
-  font-size:42px;
-  font-weight:900;
-  letter-spacing:-2px;
-  background:linear-gradient(135deg,#ff5ea8,#9b7cff,#55d6ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.subtitle{
-  color:#a7a7b3;
-  margin-top:4px;
-}
-
-.card{
-  background:#13131b;
-  border:1px solid #272733;
-  border-radius:22px;
-  padding:22px;
-  margin:16px 0;
-  box-shadow:0 10px 35px rgba(0,0,0,.22);
-}
-
-.card h2{
-  margin-bottom:10px;
-}
-
-.card h3{
-  margin-bottom:8px;
-}
-
-.muted{
-  color:#a6a6b3;
-}
-
-.small{
-  font-size:13px;
-}
-
-.center{
-  text-align:center;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-
-@media(max-width:650px){
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .logo{
-    font-size:36px;
-  }
-}
-
-.btn{
-  border:0;
-  border-radius:14px;
-  padding:13px 18px;
-  font-weight:700;
-  color:white;
-  background:#29293a;
-  margin:5px 3px;
-}
-
-.btn:hover{
-  filter:brightness(1.12);
-}
-
-.primary{
-  background:linear-gradient(135deg,#ff4f9a,#8b6cff);
-}
-
-.blue{
-  background:linear-gradient(135deg,#35bfff,#526eff);
-}
-
-.green{
-  background:linear-gradient(135deg,#22c984,#0d9b68);
-}
-
-.purple{
-  background:linear-gradient(135deg,#9c6cff,#6242d9);
-}
-
-.orange{
-  background:linear-gradient(135deg,#ff9f43,#ff6b35);
-}
-
-.red{
-  background:linear-gradient(135deg,#ff5964,#c72d42);
-}
-
-.choice{
-  width:100%;
-  text-align:left;
-  background:#1c1c27;
-  border:1px solid #30303e;
-  margin:7px 0;
-  padding:15px;
-  border-radius:14px;
-  color:#fff;
-}
-
-.choice:hover{
-  border-color:#8b6cff;
-  background:#242435;
-}
-
-input,textarea,select{
-  width:100%;
-  background:#0f0f15;
-  color:#fff;
-  border:1px solid #333341;
-  border-radius:13px;
-  padding:13px;
-  margin:6px 0 12px;
-  outline:none;
-}
-
-input:focus,textarea:focus,select:focus{
-  border-color:#8b6cff;
-}
-
-textarea{
-  min-height:110px;
-  resize:vertical;
-}
-
-label{
-  display:block;
-  font-weight:700;
-  margin-top:9px;
-}
-
-.badge{
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:999px;
-  background:#242434;
-  color:#ccc;
-  font-size:12px;
-  margin:3px;
-}
-
-.event{
-  border-left:3px solid #7563ff;
-  padding:13px 15px;
-  margin:12px 0;
-  background:#181822;
-  border-radius:0 13px 13px 0;
-}
-
-.event strong{
-  display:block;
-  margin-bottom:5px;
-}
-
-.section-title{
-  font-size:25px;
-  margin-bottom:8px;
-}
-
-.nav{
-  display:flex;
-  justify-content:space-between;
-  gap:8px;
-  margin-bottom:12px;
-}
-
-hr{
-  border:0;
-  border-top:1px solid #292936;
-  margin:18px 0;
-}
-
-.status{
-  padding:10px 12px;
-  border-radius:12px;
-  margin:7px 0;
-  background:#191923;
-}
-
-.footer{
-  text-align:center;
-  color:#777785;
-  font-size:12px;
-  padding:30px 0;
-}
-
-.home-card{
-  min-height:190px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-
-.prediction{
-  background:#15151e;
-  border:1px solid #30303d;
-  border-radius:16px;
-  padding:16px;
-  margin:12px 0;
-}
-
-.person-box{
-  background:#171720;
-  border:1px solid #30303d;
-  border-radius:17px;
-  padding:16px;
-}
-
-.notice{
-  padding:14px;
-  background:#191923;
-  border-radius:13px;
-  color:#bbb;
-  margin:12px 0;
-}
+.e2person{border:1px solid #33333e;border-radius:18px;padding:16px;margin:12px 0;background:#101017}
+.e2life{border-left:4px solid #555;padding-left:16px;margin:16px 0}
+.event-flow{display:grid;gap:10px}
+.event-node{background:#171720;border:1px solid #30303b;border-radius:16px;padding:15px}
+.event-node .consequence{color:#aaa;margin-top:6px}
+.small-actions{display:flex;gap:8px;flex-wrap:wrap}
+.small-actions .btn{width:auto;flex:1;min-width:160px}
+.statusline{font-size:13px;color:#aaa;margin-top:8px}
+@media(max-width:650px){.small-actions .btn{width:100%}}
 </style>
 </head>
 
 <body>
+<main class="app">
 
-<div class="app">
-
-<header>
-  <div class="logo">E SE?</div>
-  <div class="subtitle">Le possibilità che non hai ancora vissuto.</div>
-</header>
-
-<main id="app"></main>
-
-<div class="footer">
-  E SE? — Esperienze narrative interattive<br>
-  <button class="btn" onclick="privacy()">Privacy</button>
-  <button class="btn" onclick="terms()">Termini</button>
-  <button class="btn" onclick="notice()">Note</button>
+<section id="home" class="screen active">
+<div class="hero">
+<div class="logo">E SE?</div>
+<div class="tag">Prova una vita prima di viverla.</div>
+<h1>Ci sono decisioni che possono cambiare una vita.</h1>
+<p class="intro">E SE? ti permette di esplorare tre possibili futuri partendo da ciò che vivi oggi. Non è una previsione certa: è un modo per vedere possibilità, conseguenze e strade che potresti non aver considerato.</p>
 </div>
 
+<div class="card experience" onclick="startLife()">
+<div class="icon">🌙</div>
+<h2>E SE?</h2>
+<p>Prova una vita prima di viverla. Scopri la strada che scegli, quella che lasci andare e quella che potrebbe nascere da un imprevisto.</p>
+<button class="btn">Inizia E SE? →</button>
 </div>
+
+<div class="card experience" onclick="startNow()">
+<div class="icon">💭</div>
+<h2>E ADESSO?</h2>
+<p>Hai qualcosa in testa e non sai cosa fare? Raccontamelo. Non devi sapere già cosa chiedere.</p>
+<button class="btn">Entra in E ADESSO? →</button>
+</div>
+
+<div class="card">
+<h3>🔮 La tua storia continua</h3>
+<p>Salva le previsioni e torna quando la tua vita cambia. Potrai verificare cosa era stato previsto, cosa è successo diversamente e se hai preso una strada completamente nuova.</p>
+<button class="btn dark" onclick="predictions()">Le mie previsioni</button>
+<button class="btn ghost" onclick="profilePage()">👤 Il mio profilo</button>
+<button class="btn ghost" onclick="twoSaved()">🫶 Le mie previsioni IN 2</button>
+</div>
+
+<div class="card">
+<h3>Come funziona?</h3>
+<p><b>1.</b> Parti dalla tua situazione reale.</p>
+<p><b>2.</b> Esplora tre futuri possibili.</p>
+<p><b>3.</b> Guarda cosa potrebbe succedere tra 1, 3 e 5 anni.</p>
+<p><b>4.</b> Salva le previsioni.</p>
+<p><b>5.</b> Torna più avanti e confronta la simulazione con la realtà.</p>
+</div>
+
+<div class="card">
+<h3>✨ Nessuna vita è già scritta</h3>
+<p>Una strada può offrirti qualcosa e toglierti qualcos'altro. L'imprevisto può cambiare completamente il percorso. L'obiettivo non è dirti quale vita scegliere, ma aiutarti a vedere meglio le possibilità.</p>
+</div>
+</section>
+
+<section id="profile" class="screen">
+<span class="badge">👤 IL MIO PROFILO</span>
+<h1>Prima conosciamo chi sta per vivere questa storia.</h1>
+<p>Alcune informazioni servono solo a dare un volto alla simulazione. Non tutte le risposte devono essere aperte: scegli quando è più semplice e racconta quando invece la tua storia ha bisogno delle tue parole.</p>
+
+<div class="card">
+<div class="field">
+<label>Come vuoi che ti chiami?</label>
+<input id="pn" placeholder="Il tuo nome">
+</div>
+
+<div class="field">
+<label>Età</label>
+<input id="pa" type="number" min="13" max="100" placeholder="Es. 32">
+</div>
+
+<div class="field">
+<label>Segno zodiacale</label>
+<select id="pz">
+<option value="">Seleziona</option>
+<option>Ariete</option>
+<option>Toro</option>
+<option>Gemelli</option>
+<option>Cancro</option>
+<option>Leone</option>
+<option>Vergine</option>
+<option>Bilancia</option>
+<option>Scorpione</option>
+<option>Sagittario</option>
+<option>Capricorno</option>
+<option>Acquario</option>
+<option>Pesci</option>
+<option>Preferisco non dirlo</option>
+</select>
+</div>
+
+<div class="field">
+<label>Situazione sentimentale</label>
+<select id="pr">
+<option value="">Seleziona</option>
+<option>Single</option>
+<option>Fidanzato/a</option>
+<option>Sposato/a</option>
+<option>Separato/a</option>
+<option>È complicato</option>
+<option>Preferisco non dirlo</option>
+</select>
+</div>
+
+<div class="field">
+<label>Descriviti in poche parole</label>
+<textarea id="pd" placeholder="Come ti descriveresti? Cosa pensi sia importante sapere di te?"></textarea>
+</div>
+
+<button class="btn" onclick="saveProfile()">Salva profilo</button>
+<button class="btn ghost" onclick="clearData()">Cancella dati salvati</button>
+</div>
+
+<button class="btn dark" onclick="home()">← Home</button>
+</section>
+
+<section id="lq" class="screen">
+<span class="badge">E SE? · percorso</span>
+<h1>Partiamo da te.</h1>
+<div class="progress"><i id="lp"></i></div>
+<div id="lqc"></div>
+<button class="btn" onclick="nextLQ()">Continua →</button>
+<button class="btn ghost" onclick="home()">Esci</button>
+</section>
+
+<section id="lc" class="screen">
+<span class="badge">E SE? · tre futuri</span>
+<h1>Tre vite possibili.</h1>
+<p>La prima segue la tua scelta. La seconda mostra ciò che avresti potuto vivere scegliendo diversamente. La terza introduce qualcosa che oggi non avevi previsto.</p>
+<div id="lcc" class="grid3"></div>
+</section>
+
+<section id="lt" class="screen">
+<span id="ltb" class="badge"></span>
+<h1 id="ltt"></h1>
+<div class="nav">
+<button class="btn dark" onclick="timeline(1)">Tra 1 anno</button>
+<button class="btn dark" onclick="timeline(3)">Tra 3 anni</button>
+<button class="btn dark" onclick="timeline(5)">Tra 5 anni</button>
+</div>
+<div id="lts"></div>
+<button class="btn dark" onclick="compare()">Confronta le tre vite</button>
+<button class="btn" onclick="saveLife()">🔮 Salva queste previsioni</button>
+<button class="btn ghost" onclick="home()">← Home</button>
+</section>
+
+<section id="cmp" class="screen">
+<span class="badge">E SE? · confronto</span>
+<h1>Tre possibilità. Nessuna è già scritta.</h1>
+<div id="cmpc" class="grid3"></div>
+<button class="btn" onclick="saveLife()">🔮 Salva le previsioni</button>
+<button class="btn dark" onclick="home()">← Home</button>
+</section>
+
+<section id="saved" class="screen">
+<h1>🔮 Le mie previsioni</h1>
+<p>Quando torni qui puoi verificare quanto la tua realtà abbia seguito, modificato o superato ciò che avevi immaginato.</p>
+<div id="savedc"></div>
+<button class="btn dark" onclick="home()">← Home</button>
+</section>
+
+<section id="verify" class="screen">
+<span class="badge">VERIFICA DELLA REALTÀ</span>
+<h1>È successo qualcosa?</h1>
+<p>Non serve far combaciare la realtà con la simulazione. Anche “qualcosa di completamente diverso” è un risultato.</p>
+<div id="verifyc"></div>
+<button class="btn dark" onclick="predictions()">← Previsioni</button>
+</section>
+
+<!-- E ADESSO? -->
+<section id="ni" class="screen">
+<span class="badge">E ADESSO?</span>
+<h1>Un bivio, adesso.</h1>
+<p class="intro">Racconta la situazione e le due direzioni che stai considerando. Poi E ADESSO? costruirà subito gli scenari possibili.</p>
+
+<div class="card">
+
+<div class="field">
+<label>1. Qual è il tuo dilemma o situazione?</label>
+<textarea id="now_dilemma" placeholder="Es. Sto pensando di scrivere a una persona ma non so se farlo..."></textarea>
+</div>
+
+<div class="field">
+<label>2. Qual è l'opzione A?</label>
+<input id="now_pathA" placeholder="Es. Scrivergli / Accettare l'offerta / Fare il passo">
+</div>
+
+<div class="field">
+<label>3. Qual è l'opzione B?</label>
+<input id="now_pathB" placeholder="Es. Aspettare / Rifiutare / Non fare nulla">
+</div>
+
+<div class="field">
+<label>4. Cosa desideri ottenere?</label>
+<input id="now_desire" placeholder="Es. Capire cosa vuole / Cambiare lavoro / Trovare serenità">
+</div>
+
+<div class="field">
+<label>5. Qual è la tua paura o il blocco principale?</label>
+<textarea id="now_fear" placeholder="Es. Ho paura di pentirmene o di ricevere una risposta negativa..."></textarea>
+</div>
+
+<button class="btn" onclick="generateNowScenarios()">⚡ Genera subito gli scenari</button>
+</div>
+
+<button class="btn ghost" onclick="home()">← Home</button>
+</section>
+
+<section id="nr" class="screen">
+<span class="badge">E ADESSO? · scenari</span>
+<h1>Tre possibilità davanti a te.</h1>
+<p>Non sono predizioni certe: sono simulazioni narrative costruite a partire da ciò che hai raccontato.</p>
+<div id="nrc"></div>
+<button class="btn" onclick="nowSim()">🎲 Sviluppa la timeline</button>
+<button class="btn dark" onclick="saveNow()">💾 Salva questa simulazione</button>
+<button class="btn ghost" onclick="startNow()">Ricomincia</button>
+<button class="btn ghost" onclick="home()">← Home</button>
+</section>
+
+<section id="ns" class="screen">
+<span class="badge">E ADESSO? · timeline</span>
+<h1>Come potrebbe evolvere?</h1>
+<p>La timeline mostra come ogni direzione potrebbe svilupparsi nel tempo. Quando tornerai, potrai confrontarla con ciò che è realmente successo.</p>
+<div id="nsc" class="grid3"></div>
+
+<div class="card">
+<h3>📌 E la realtà?</h3>
+<p>Quando avrai vissuto la situazione, puoi registrare cosa è successo davvero. La storia potrà continuare da quel punto.</p>
+<textarea id="nowRealityInput" placeholder="Scrivi qui cosa è successo davvero..."></textarea>
+<button class="btn" onclick="saveNowReality()">Salva la realtà e continua</button>
+</div>
+
+<button class="btn dark" onclick="show('nr')">← Scenari</button>
+<button class="btn ghost" onclick="home()">← Home</button>
+</section>
+
+<section id="tq" class="screen">
+<span class="badge">E SE? IN 2 · percorso</span>
+<h1>Una storia da vivere in due.</h1>
+<div class="progress"><i id="tp"></i></div>
+<div id="tqc"></div>
+<button class="btn" onclick="nextTQ()">Continua →</button>
+<button class="btn ghost" onclick="home()">Esci</button>
+</section>
+
+<section id="tc" class="screen">
+<span class="badge">E SE? IN 2 · tre futuri</span>
+<h1>Tre possibili storie per voi.</h1>
+<p>La prima segue la strada scelta insieme. La seconda mostra una direzione alternativa. La terza nasce da un imprevisto.</p>
+<div id="tcc" class="grid3"></div>
+<button class="btn" onclick="saveTwo()">🫶 Salva queste previsioni</button>
+<button class="btn dark" onclick="home()">← Home</button>
+</section>
+
+<section id="tt" class="screen">
+<span id="ttb" class="badge"></span>
+<h1 id="ttt"></h1>
+<div id="tts"></div>
+<button class="btn" onclick="saveTwo()">🫶 Salva la storia</button>
+<button class="btn ghost" onclick="show('tc')">← Tre vite</button>
+</section>
+
+<section id="twoSaved" class="screen">
+<h1>🫶 Le mie previsioni IN 2</h1>
+<p>Potete tornare qui per verificare insieme ciò che era stato immaginato e raccontare cosa è successo davvero.</p>
+<div id="twoSavedC"></div>
+<button class="btn dark" onclick="home()">← Home</button>
+</section>
+
+<section id="tv" class="screen">
+<span class="badge">E SE? IN 2 · realtà</span>
+<h1>La vostra storia nel tempo.</h1>
+<div id="tvc"></div>
+<button class="btn dark" onclick="twoSaved()">← Le mie storie</button>
+</section>
+
+<section id="privacy" class="screen">
+<h1>Privacy</h1>
+<div class="card">
+<h3>Dati locali</h3>
+<p>Profilo, simulazioni e riflessioni salvate vengono memorizzati nel browser tramite localStorage. Il codice dell'app non invia questi contenuti a un server proprio.</p>
+
+<h3>Pubblicità</h3>
+<p>Il sito utilizza Google AdSense. Cookie, identificatori e tecnologie pubblicitarie sono gestiti secondo le impostazioni di consenso e pubblicità del servizio.</p>
+
+<h3>Consenso</h3>
+<p>Per gli utenti europei devono essere configurati in AdSense i messaggi di consenso/CMP previsti da Google e dalla normativa applicabile.</p>
+</div>
+<button class="btn dark" onclick="home()">← Home</button>
+</section>
+
+<section id="terms" class="screen">
+<h1>Termini e avvertenze</h1>
+<div class="card">
+<p>E SE? è un'esperienza narrativa e riflessiva. Le “previsioni” sono scenari possibili generati dalle informazioni inserite e non sono predizioni certe del futuro.</p>
+<p>Non sostituisce consulenza medica, psicologica, finanziaria, legale o professionale. Se esiste un rischio immediato per te o per qualcun altro, cerca supporto reale e immediato.</p>
+</div>
+<button class="btn dark" onclick="home()">← Home</button>
+</section>
+
+<footer>
+<button onclick="show('privacy')">Privacy</button>
+<button onclick="show('terms')">Termini e avvertenze</button>
+<span>© E SE? · Prova una vita prima di viverla.</span>
+</footer>
+
+</main>
 
 <script>
-/* =========================================================
-   E SE? V14.4 DEFINITIVO
-   E ADESSO? DINAMICO, CONTINUABILE E COLLEGATO ALLA REALTÀ
-   ========================================================= */
+const K={p:'ese_profile',l:'ese_saved_lives',n:'ese_now_sessions',t:'ese_two_sessions'};
 
-const K={
-  p:"ese_profile",
-  l:"ese_saved_lives",
-  n:"ese_now_sessions",
-  t:"ese_two_sessions"
-};
+let L={a:{},i:0,s:null,c:0,y:1};
+let T={a:{A:{},B:{}},i:0,q:[],s:null,c:0};
+let N={a:{},i:0,q:[],type:'decision',r:null,sessionId:null};
 
-let data={
-  profile:null,
-  lifeAnswers:[],
-  lives:[],
-  currentLife:null,
-  currentEvent:null,
-  nowSessions:[],
-  currentNow:null,
-  two:null
-};
+const Q=[
+['name','Come vuoi che ti chiami?','text'],
+['age','Quanti anni hai?','number'],
+['zodiac','Qual è il tuo segno zodiacale?','choice',['Ariete','Toro','Gemelli','Cancro','Leone','Vergine','Bilancia','Scorpione','Sagittario','Capricorno','Acquario','Pesci','Preferisco non dirlo']],
+['relationship','Qual è oggi la tua situazione sentimentale?','choice',['Single','Fidanzato/a','Sposato/a','Separato/a','È complicato','Preferisco non dirlo']],
+['description','Descriviti in poche parole.','text'],
+['situation','Cosa stai pensando di fare, cambiare o capire in questo momento? Raccontamelo con le tue parole.','text'],
+['priority','Cosa conta di più per te in questa situazione?','choice',['Sicurezza','Libertà','Amore e relazioni','Crescita personale','Lavoro e realizzazione','Stabilità economica','Non lo so ancora']],
+['fear','Qual è la cosa che più ti spaventa rispetto a questa scelta?','text'],
+['dream','Se questa storia andasse nella direzione che desideri, cosa vorresti vedere cambiato nella tua vita?','text'],
+['risk','Quanto ti senti disposto/a a cambiare qualcosa per ottenere ciò che desideri?','choice',['Poco','Abbastanza','Molto','Non lo so ancora']]
+];
 
-function load(){
-  try{
-    data.profile=JSON.parse(localStorage.getItem(K.p)||"null");
-  }catch(e){}
+const $=id=>document.getElementById(id);
 
-  try{
-    data.lives=JSON.parse(localStorage.getItem(K.l)||"[]");
-  }catch(e){
-    data.lives=[];
-  }
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({
+'&':'&amp;',
+'<':'&lt;',
+'>':'&gt;',
+'"':'&quot;',
+"'":'&#39;'
+}[m]));
 
-  try{
-    data.nowSessions=JSON.parse(localStorage.getItem(K.n)||"[]");
-  }catch(e){
-    data.nowSessions=[];
-  }
-
-  try{
-    data.two=JSON.parse(localStorage.getItem(K.t)||"null");
-  }catch(e){}
+function data(k,d){
+try{return JSON.parse(localStorage.getItem(k))??d}
+catch(e){return d}
 }
 
-function saveAll(){
-  localStorage.setItem(K.p,JSON.stringify(data.profile));
-  localStorage.setItem(K.l,JSON.stringify(data.lives));
-  localStorage.setItem(K.n,JSON.stringify(data.nowSessions));
-  localStorage.setItem(K.t,JSON.stringify(data.two));
+function put(k,v){
+try{
+localStorage.setItem(k,JSON.stringify(v));
+return 1;
+}catch(e){
+return 0;
+}
 }
 
-function app(html){
-  document.getElementById("app").innerHTML=html;
-}
-
-function esc(v){
-  return String(v??"")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-}
-
-
-/* =========================================================
-   HOME PAGE INTRODUTTIVA EDITORIALE
-   ========================================================= */
-
-function showIntro(){
-  app(`
-    <div class="card">
-      <h1 class="section-title center">✨ Benvenuto in E SE?</h1>
-      <p class="muted center" style="margin-bottom:20px;">
-        Piattaforma digitale di simulazione narrativa, bivi decisionali e analisi di percorsi di vita alternativi.
-      </p>
-
-      <div class="notice">
-        <h3>📖 Informazioni sul Servizio e Contenuti</h3>
-        <p style="margin-top:6px;">
-          <strong>E SE?</strong> è uno spazio interattivo di riflessione e intrattenimento strutturato in tre moduli principali per esplorare opzioni future, dinamiche relazionali e bivi immediati del presente.
-        </p>
-      </div>
-
-      <div class="grid" style="margin:20px 0;">
-        <div class="card home-card" style="margin:0;">
-          <div>
-            <h3>🔮 E SE? Individuale</h3>
-            <p class="small muted">
-              Simula tre differenti percorsi futuri (1, 3 e 5 anni) basati sulle tue scelte personali, valutando bivi e conseguenze a lungo termine.
-            </p>
-          </div>
-        </div>
-
-        <div class="card home-card" style="margin:0;">
-          <div>
-            <h3>🫶 E SE? IN 2</h3>
-            <p class="small muted">
-              Un modulo di simulazione condivisa per analizzare situazioni di coppia o tra due persone, integrando desideri e obiettivi reciproci.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card home-card" style="margin:16px 0;background:#181822;">
-        <div>
-          <h3>⚡ E ADESSO? — Il bivio immediato</h3>
-          <p class="small muted" style="margin-top:6px;">
-            Inserisci qualsiasi dubbio o decisione: E ADESSO? costruisce una storia dinamica con sviluppi, conseguenze, possibilità alternative, imprevisti e un punto in cui potrai tornare per raccontare cosa è successo davvero.
-          </p>
-        </div>
-      </div>
-
-      <div class="notice">
-        <h3>🔍 Trasparenza e Verifica della Realtà</h3>
-        <p style="margin-top:6px;">
-          Gli scenari sono costruzioni narrative basate sulle informazioni inserite. Potrai tornare nel tempo, confrontare lo scenario con ciò che è realmente accaduto e continuare la storia da quel nuovo punto di partenza.
-        </p>
-      </div>
-
-      <div class="center" style="margin-top:25px;">
-        <button class="btn primary" style="font-size:16px;padding:16px 32px;" onclick="home()">
-          Inizia l'esperienza interattiva
-        </button>
-      </div>
-    </div>
-  `);
+function show(id){
+document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
+$(id).classList.add('active');
+scrollTo(0,0);
 }
 
 function home(){
-
-  app(`
-    <div class="card center">
-      <h1>✨ E SE?</h1>
-      <p class="muted">
-        Una storia costruita sulle tue risposte, sulle tue scelte
-        e sulle possibilità che potrebbero aprirsi davanti a te.
-      </p>
-      <br>
-
-      <button class="btn primary" onclick="startLife()">
-        🔮 E SE? — La tua storia
-      </button>
-
-      <button class="btn blue" onclick="startTwo()">
-        🫶 E SE? IN 2 — La vostra storia
-      </button>
-
-      <button class="btn orange" onclick="startNow()">
-        ⚡ E ADESSO? — Il bivio immediato
-      </button>
-
-      <button class="btn" style="background:#20202d;" onclick="showIntro()">
-        ℹ️ Torna alla Home / Guida
-      </button>
-    </div>
-
-    <div class="grid">
-
-      <div class="card home-card">
-        <div>
-          <h2>🔮 E SE?</h2>
-          <p class="muted">
-            Scopri tre possibili versioni del tuo futuro:
-            la strada che scegli, quella che non scegli e una terza possibilità.
-          </p>
-        </div>
-        <button class="btn primary" onclick="startLife()">Inizia</button>
-      </div>
-
-      <div class="card home-card">
-        <div>
-          <h2>🫶 E SE? IN 2</h2>
-          <p class="muted">
-            Due persone, una situazione reale e tre possibili strade
-            costruite insieme.
-          </p>
-        </div>
-        <button class="btn blue" onclick="startTwo()">Inizia insieme</button>
-      </div>
-
-      <div class="card home-card">
-        <div>
-          <h2>⚡ E ADESSO?</h2>
-          <p class="muted">
-            Affronta qualsiasi bivio, esplora gli sviluppi possibili,
-            registra ciò che accade realmente e continua la storia.
-          </p>
-        </div>
-        <button class="btn orange" onclick="startNow()">Risolvi ora</button>
-      </div>
-
-      <div class="card home-card">
-        <div>
-          <h2>📖 Le mie previsioni</h2>
-          <p class="muted">
-            Ritrova le storie già create e verifica cosa è realmente successo.
-          </p>
-        </div>
-        <button class="btn purple" onclick="predictions()">Apri</button>
-      </div>
-
-    </div>
-
-    <div class="card">
-      <h2>👤 Il mio profilo</h2>
-      <p class="muted">
-        Inserisci alcune informazioni su di te per rendere
-        la narrazione più personale.
-      </p>
-
-      <button class="btn" onclick="profilePage()">Modifica profilo</button>
-      <button class="btn blue" onclick="twoPredictions()">
-        🫶 Le mie previsioni IN 2
-      </button>
-    </div>
-  `);
+show('home');
 }
 
-
-/* =========================================================
-   PROFILO
-   ========================================================= */
-
 function profilePage(){
-
-  const p=data.profile||{};
-
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="home()">← Home</button>
-    </div>
-
-    <div class="card">
-      <h2 class="section-title">👤 Il tuo profilo</h2>
-
-      <p class="muted">
-        Queste informazioni servono a rendere la storia più vicina
-        alla persona che sei.
-      </p>
-
-      <label>Nome</label>
-      <input id="pn" value="${esc(p.name||"")}" placeholder="Come ti chiami?">
-
-      <label>Età</label>
-      <input id="pa" type="number" value="${esc(p.age||"")}" placeholder="Età">
-
-      <label>Segno zodiacale</label>
-      <select id="pz">
-        <option value="">Seleziona</option>
-        ${[
-          "Ariete","Toro","Gemelli","Cancro","Leone","Vergine",
-          "Bilancia","Scorpione","Sagittario","Capricorno","Acquario","Pesci"
-        ].map(z=>`<option ${p.zodiac===z?"selected":""}>${z}</option>`).join("")}
-      </select>
-
-      <label>Situazione sentimentale</label>
-      <select id="pr">
-        <option value="">Seleziona</option>
-        ${[
-          "Single","Frequento qualcuno","Fidanzato/a","Convivente",
-          "Sposato/a","Separato/a","Divorziato/a","È complicato"
-        ].map(x=>`
-          <option ${p.rel===x?"selected":""}>${x}</option>
-        `).join("")}
-      </select>
-
-      <label>Raccontami qualcosa di te</label>
-      <textarea id="pd" placeholder="Come sei? Cosa desideri? Cosa ti preoccupa?">${esc(p.desc||"")}</textarea>
-
-      <button class="btn primary" onclick="saveProfile()">Salva profilo</button>
-      <button class="btn red" onclick="clearData()">Cancella dati</button>
-    </div>
-  `);
+let p=data(K.p,{});
+pn.value=p.name||'';
+pa.value=p.age||'';
+pz.value=p.zodiac||'';
+pr.value=p.relationship||'';
+pd.value=p.description||'';
+show('profile');
 }
 
 function saveProfile(){
-
-  data.profile={
-    name:document.getElementById("pn").value.trim(),
-    age:document.getElementById("pa").value.trim(),
-    zodiac:document.getElementById("pz").value,
-    rel:document.getElementById("pr").value,
-    desc:document.getElementById("pd").value.trim()
-  };
-
-  saveAll();
-
-  app(`
-    <div class="card center">
-      <h2>✨ Profilo salvato</h2>
-      <p class="muted">
-        Ora possiamo usarlo per rendere le storie più personali.
-      </p>
-      <button class="btn primary" onclick="home()">Continua</button>
-    </div>
-  `);
+put(K.p,{
+...data(K.p,{}),
+name:pn.value.trim(),
+age:pa.value,
+zodiac:pz.value,
+relationship:pr.value,
+description:pd.value.trim()
+});
+alert('Profilo salvato.');
+home();
 }
 
 function clearData(){
-
-  if(confirm("Vuoi cancellare tutti i dati salvati?")){
-
-    localStorage.removeItem(K.p);
-    localStorage.removeItem(K.l);
-    localStorage.removeItem(K.n);
-    localStorage.removeItem(K.t);
-
-    data={
-      profile:null,
-      lifeAnswers:[],
-      lives:[],
-      currentLife:null,
-      currentEvent:null,
-      nowSessions:[],
-      currentNow:null,
-      two:null
-    };
-
-    showIntro();
-  }
+if(confirm('Cancellare profilo, vite e riflessioni salvate?')){
+Object.values(K).forEach(k=>localStorage.removeItem(k));
+profilePage();
 }
-
-
-/* =========================================================
-   E SE? INDIVIDUALE
-   ========================================================= */
-
-const Q=[
-  {
-    type:"choice",
-    key:"change",
-    text:"Quanto senti che la tua vita sia pronta a cambiare?",
-    options:[
-      "Molto: sento che qualcosa sta per cambiare",
-      "Abbastanza: vorrei cambiare ma non so da dove partire",
-      "Poco: preferisco la stabilità",
-      "Non lo so ancora"
-    ]
-  },
-  {
-    type:"choice",
-    key:"risk",
-    text:"Quando arriva un'opportunità importante, cosa fai più spesso?",
-    options:[
-      "Mi butto",
-      "Valuto e poi decido",
-      "Aspetto prima di fidarmi",
-      "La lascio andare se mi spaventa troppo"
-    ]
-  },
-  {
-    type:"open",
-    key:"desire",
-    text:"Qual è la cosa che desideri davvero ottenere nei prossimi anni?"
-  },
-  {
-    type:"open",
-    key:"fear",
-    text:"Qual è la paura che senti possa ostacolarti di più?"
-  },
-  {
-    type:"choice",
-    key:"people",
-    text:"Quanto contano le altre persone nelle tue decisioni?",
-    options:[
-      "Molto",
-      "Abbastanza",
-      "Poco",
-      "Dipende dalla situazione"
-    ]
-  },
-  {
-    type:"open",
-    key:"relationship",
-    text:"Che tipo di relazione o legame vorresti costruire o vivere?"
-  },
-  {
-    type:"open",
-    key:"work",
-    text:"Che cambiamento vorresti vedere nel lavoro o nella tua vita economica?"
-  },
-  {
-    type:"choice",
-    key:"priority",
-    text:"Quale area vorresti trasformare per prima?",
-    options:[
-      "Amore",
-      "Lavoro e denaro",
-      "Casa e famiglia",
-      "Me stessa/o",
-      "Tutto insieme"
-    ]
-  },
-  {
-    type:"open",
-    key:"turning",
-    text:"Se potessi cambiare una sola decisione del passato, quale sarebbe?"
-  },
-  {
-    type:"open",
-    key:"future",
-    text:"Immagina di incontrare te stessa/o tra cinque anni: cosa vorresti sentirti dire?"
-  }
-];
+}
 
 function startLife(){
+let p=data(K.p,{});
 
-  if(!data.profile){
-    profilePage();
-    return;
-  }
+L={
+a:{
+name:p.name||'',
+age:p.age||'',
+zodiac:p.zodiac||'',
+relationship:p.relationship||'',
+description:p.description||''
+},
+i:0,
+s:null,
+c:0,
+y:1,
+seed:Date.now()
+};
 
-  data.lifeAnswers=[];
-  renderLQ(0);
+renderLQ();
+show('lq');
 }
 
-function renderLQ(i){
+function renderLQ(){
+let q=Q[L.i],v=L.a[q[0]]||'';
 
-  const q=Q[i];
+$('lp').style.width=L.i/Q.length*100+'%';
 
-  let content="";
+let h='<div class="q"><h2>'+esc(q[1])+'</h2>';
 
-  if(q.type==="choice"){
-
-    content=q.options.map((o,n)=>`
-      <button class="choice" onclick="LA(${i},${n})">
-        ${esc(o)}
-      </button>
-    `).join("");
-
-  }else{
-
-    content=`
-      <textarea id="lifeOpen" placeholder="Scrivi liberamente..."></textarea>
-
-      <button class="btn primary"
-        onclick="LA(${i},document.getElementById('lifeOpen').value)">
-        Continua
-      </button>
-    `;
-  }
-
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="home()">← Esci</button>
-      <span class="badge">${i+1} / ${Q.length}</span>
-    </div>
-
-    <div class="card">
-      <h2>🔮 ${esc(q.text)}</h2>
-      ${content}
-    </div>
-  `);
+if(q[2]=='choice'){
+h+='<div class="options">'+
+q[3].map(o=>
+'<button class="opt '+(v==o?'sel':'')+'" onclick="LA('+JSON.stringify(o)+')">'+esc(o)+'</button>'
+).join('')+
+'</div>';
+}else{
+h+='<div class="field"><input id="li" type="'+q[2]+'" value="'+esc(v)+'"></div>';
 }
 
-function LA(i,a){
-
-  data.lifeAnswers[i]=a;
-  nextLQ(i);
+$('lqc').innerHTML=h+'</div>';
 }
 
-function nextLQ(i){
-
-  if(i+1<Q.length){
-    renderLQ(i+1);
-  }else{
-    buildLives();
-  }
+function LA(v){
+L.a[Q[L.i][0]]=v;
+renderLQ();
 }
 
+function nextLQ(){
+let q=Q[L.i];
 
-/* =========================================================
-   MOTORE NARRATIVO INDIVIDUALE
-   ========================================================= */
+if(q[2]!='choice'){
+let v=$('li').value.trim();
+if(!v)return alert('Completa la risposta.');
+L.a[q[0]]=v;
+}
+
+if(L.i<Q.length-1){
+L.i++;
+renderLQ();
+}else{
+put(K.p,{
+...data(K.p,{}),
+name:L.a.name,
+age:L.a.age,
+zodiac:L.a.zodiac,
+relationship:L.a.relationship,
+description:L.a.description
+});
+
+L.s=buildLives();
+renderLC();
+show('lc');
+}
+}
 
 function buildLives(){
 
-  const p=data.profile||{};
+const a=L.a,
+n=a.name||'Tu',
+situation=a.situation||'la situazione che stai vivendo',
+fear=a.fear||'la tua paura principale',
+dream=a.dream||'ciò che desideri',
+priority=a.priority||'ciò che conta per te';
 
-  const desire=data.lifeAnswers[2]||"qualcosa di importante";
-  const fear=data.lifeAnswers[3]||"le proprie paure";
-  const relation=data.lifeAnswers[5]||"un legame importante";
-  const work=data.lifeAnswers[6]||"una nuova stabilità";
-  const priority=data.lifeAnswers[7]||"la propria vita";
-  const turning=data.lifeAnswers[8]||"una scelta del passato";
-  const future=data.lifeAnswers[9]||"un futuro più vicino a ciò che desidera";
+const variation=(L.seed%7);
 
-  const name=p.name||"Tu";
+const defs=[
+['🌙','La strada che scegli','La traiettoria che nasce dalla possibilità che hai deciso di esplorare.'],
+['🔄','La strada che non scegli','La traiettoria che resta aperta quando decidi di non seguire la prima possibilità.'],
+['🎲','La terza via','Una direzione che non nasce da una scelta perfettamente prevista, ma da un cambiamento lungo il percorso.']
+];
 
-  data.lives=[
-    {
-      id:Date.now()+"-1",
-      title:"🟢 Vita 1 — La strada che scegli",
-      intro:`${name} decide di dare priorità a ${priority}. La scelta nasce dal desiderio di ${desire}.`,
-      events:[
-        {
-          year:1,
-          title:"La prima svolta",
-          text:`Nei primi mesi inizi a muovere qualcosa che prima sembrava fermo. La tua attenzione va verso ${desire}. Una decisione concreta apre una possibilità che prima non avevi considerato.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"Una conseguenza inattesa",
-          text:`La scelta porta anche una conseguenza: devi confrontarti con ${fear}. Non puoi più rimandare una decisione.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"Un nuovo equilibrio",
-          text:`Verso la fine del primo anno qualcosa nella tua quotidianità cambia. Il tuo rapporto con ${relation} diventa più importante e una nuova organizzazione prende forma.`,
-          prediction:true
-        },
-        {
-          year:3,
-          title:"La seconda svolta",
-          text:`Dopo tre anni guardi indietro e capisci che la prima scelta ha modificato anche il modo in cui vivi ${work}. Arriva una possibilità che richiede coraggio.`,
-          prediction:true
-        },
-        {
-          year:3,
-          title:"Quello che lasci indietro",
-          text:`Per continuare devi rinunciare a qualcosa. Non necessariamente una persona: potrebbe essere un'abitudine, una paura o una vecchia versione di te.`,
-          prediction:true
-        },
-        {
-          year:5,
-          title:"Il risultato",
-          text:`Dopo cinque anni il desiderio iniziale non appare più uguale. È diventato qualcosa di concreto e più grande di come lo immaginavi.`,
-          prediction:true
-        },
-        {
-          year:5,
-          title:"L'incontro con il tuo futuro",
-          text:`Riconosci parte di ${future} nella persona che sei diventata.`,
-          prediction:true
-        }
-      ]
-    },
+const templates=[
+[
+{t:'Il primo movimento',y:1,e:`La decisione comincia a produrre effetti concreti. ${n}, ti accorgi che scegliere non significa avere tutte le risposte: significa accettare che qualcosa cambi. La situazione iniziale — ${situation} — smette di essere soltanto un pensiero e diventa una serie di piccoli passi.`},
+{t:'Il primo contraccolpo',y:1,e:`Dopo l'entusiasmo iniziale arriva un passaggio meno semplice. Una conseguenza che oggi non puoi misurare completamente ti costringe a riorganizzare tempo, energie o priorità. La paura di ${fear.toLowerCase()} riemerge, ma ora hai elementi reali con cui confrontarla.`},
+{t:'Una nuova possibilità',y:1,e:`Proprio mentre cerchi un nuovo equilibrio compare un'occasione collegata a ciò che hai iniziato. Non è necessariamente ciò che avevi immaginato: può arrivare attraverso una persona, un lavoro, un cambiamento pratico o una decisione secondaria.`},
+{t:'Il punto di svolta',y:3,e:`Nel terzo anno una conseguenza dei primi due passaggi diventa importante. Quello che all'inizio sembrava un dettaglio ha modificato il modo in cui vivi ${priority.toLowerCase()}. Ti trovi davanti a una nuova scelta, diversa da quella iniziale ma nata direttamente da essa.`},
+{t:'Ciò che hai costruito',y:3,e:`La tua vita non è semplicemente “andata bene” o “andata male”: è diventata più specifica. Alcune possibilità sono rimaste indietro, mentre altre sono diventate concrete. ${dream} acquista una forma più realistica e meno idealizzata.`},
+{t:'La conseguenza lunga',y:5,e:`A cinque anni, ciò che hai iniziato non è più un esperimento. È entrato nella tua identità quotidiana. Alcune persone sono rimaste, altre si sono allontanate, e il significato della scelta iniziale è cambiato.`},
+{t:'Il nuovo bivio',y:5,e:`Proprio quando pensavi di avere trovato una direzione stabile arriva una nuova decisione. Non devi tornare al punto di partenza: puoi scegliere partendo da tutto ciò che hai imparato.`}
+],
+[
+{t:'Il primo movimento',y:1,e:`Decidi di non seguire la prima strada. All'inizio sembra una non-scelta, ma anche restare fermi modifica il percorso. ${n} continua la propria vita mentre ${situation.toLowerCase()} rimane sullo sfondo.`},
+{t:'Il dubbio ritorna',y:1,e:`Una parte di te continua a chiedersi cosa sarebbe successo se avessi scelto diversamente. Questo non significa che la strada sia sbagliata: significa che una possibilità non esplorata può continuare ad avere peso.`},
+{t:'Una conferma o una sorpresa',y:1,e:`La realtà porta un'informazione che rende la scelta più comprensibile. Potresti scoprire che aspettare ti ha protetto oppure che hai perso un'occasione. In entrambi i casi ora conosci qualcosa che prima potevi soltanto immaginare.`},
+{t:'Una nuova decisione',y:3,e:`Nel terzo anno la situazione iniziale ha perso parte della sua importanza. Una nuova scelta prende il suo posto e nasce dalle esperienze accumulate nel frattempo.`},
+{t:'La strada alternativa',y:3,e:`Ti accorgi che non esiste una sola occasione per cambiare direzione. Alcune possibilità ritornano in forme diverse, altre scompaiono, altre ancora nascono proprio perché non hai scelto la prima strada.`},
+{t:'Un futuro diverso',y:5,e:`A cinque anni guardi indietro e riconosci che anche ciò che non hai fatto ha costruito una parte della tua vita. Le conseguenze sono diverse da quelle della prima traiettoria, non necessariamente più semplici.`},
+{t:'Il capitolo successivo',y:5,e:`Un nuovo evento riapre una domanda che credevi superata. Questa volta non parti dalla paura iniziale: parti dall'esperienza.`}
+],
+[
+{t:'L'imprevisto',y:1,e:`Un evento non programmato cambia la situazione. Può essere una persona, un incontro, un'occasione, un cambiamento lavorativo o semplicemente una nuova consapevolezza. Il problema iniziale assume un significato diverso.`},
+{t:'Una risposta inattesa',y:1,e:`Qualcuno o qualcosa reagisce in modo diverso da ciò che avevi previsto. Questo ti costringe a modificare il piano e a distinguere ciò che desideri veramente da ciò che pensavi di dover desiderare.`},
+{t:'La strada si apre',y:1,e:`Una possibilità che oggi non consideri diventa concreta. Non arriva necessariamente nel momento perfetto, ma proprio perché interrompe il percorso abituale può creare spazio per qualcosa di nuovo.`},
+{t:'La terza via prende forma',y:3,e:`Nel terzo anno ti trovi in una vita che non corrisponde esattamente né alla prima né alla seconda possibilità. È una traiettoria costruita da decisioni, persone e circostanze che oggi non puoi conoscere completamente.`},
+{t:'Un nuovo equilibrio',y:3,e:`La cosa che desideravi — ${dream} — può essersi trasformata. Non perché non conti più, ma perché l'esperienza ti ha mostrato cosa significa davvero ottenerla.`},
+{t:'La vita composta',y:5,e:`A cinque anni la deviazione iniziale è diventata parte della tua storia. Guardandola da lontano potresti riconoscere che un evento apparentemente casuale ha avuto conseguenze molto più profonde di una decisione programmata.`},
+{t:'Un altro capitolo',y:5,e:`La storia non termina. Un'altra possibilità compare, questa volta con una consapevolezza che all'inizio non avevi.`}
+]
+];
 
-    {
-      id:Date.now()+"-2",
-      title:"🔵 Vita 2 — La strada che non scegli",
-      intro:`Questa è la possibilità che nasce dalla direzione alternativa: quella che avresti potuto prendere.`,
-      events:[
-        {
-          year:1,
-          title:"Il bivio rimasto aperto",
-          text:`Una possibilità rimane nella tua mente. La scelta diversa avrebbe richiesto di affrontare ${fear} in modo più diretto.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"La nuova occasione",
-          text:`Qualcosa arriva comunque nella tua vita e ti costringe a chiederti se la decisione presa sia davvero definitiva.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"Un incontro importante",
-          text:`Una persona o una situazione modifica la tua prospettiva su ${relation}.`,
-          prediction:true
-        },
-        {
-          year:3,
-          title:"Una versione diversa di te",
-          text:`A tre anni ti trovi a vivere una realtà diversa da quella immaginata all'iniziale.`,
-          prediction:true
-        },
-        {
-          year:3,
-          title:"La scelta che ritorna",
-          text:`Una decisione collegata a ${turning} torna simbolicamente nella tua vita.`,
-          prediction:true
-        },
-        {
-          year:5,
-          title:"Il confronto",
-          text:`Dopo cinque anni comprendi cosa ti avrebbe dato questa strada e cosa invece avrebbe richiesto da te.`,
-          prediction:true
-        },
-        {
-          year:5,
-          title:"Una possibilità ancora aperta",
-          text:`La vita alternativa non scompare completamente: lascia un insegnamento che può influenzare le tue scelte future.`,
-          prediction:true
-        }
-      ]
-    },
-
-    {
-      id:Date.now()+"-3",
-      title:"🟣 Vita 3 — La terza via",
-      intro:`La terza possibilità nasce dall'incontro tra ciò che desideri e ciò che non avevi ancora considerato.`,
-      events:[
-        {
-          year:1,
-          title:"Una soluzione imprevista",
-          text:`Invece di scegliere tra due estremi, trovi una terza possibilità che ti permette di proteggere una parte di ciò che desideri.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"Il primo cambiamento",
-          text:`La nuova strada richiede di modificare un'abitudine concreta.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"Un'alleanza",
-          text:`Una persona diventa importante nel percorso e contribuisce a rendere possibile una scelta che da sola sarebbe stata più difficile.`,
-          prediction:true
-        },
-        {
-          year:3,
-          title:"Una nuova normalità",
-          text:`Quello che inizialmente sembrava un esperimento diventa parte della tua vita quotidiana.`,
-          prediction:true
-        },
-        {
-          year:3,
-          title:"La prova",
-          text:`Una difficoltà mette alla prova il nuovo equilibrio e ti costringe a capire cosa vuoi davvero difendere.`,
-          prediction:true
-        },
-        {
-          year:5,
-          title:"La trasformazione",
-          text:`Dopo cinque anni la terza via si rivela molto diversa dall'idea iniziale.`,
-          prediction:true
-        },
-        {
-          year:5,
-          title:"Il significato",
-          text:`Capisci che il vero cambiamento non era scegliere una strada, ma diventare la persona capace di percorrerla.`,
-          prediction:true
-        }
-      ]
-    }
-  ];
-
-  saveAll();
-  renderLives();
+return defs.map((d,i)=>({
+icon:d[0],
+title:d[1],
+desc:d[2],
+events:templates[i],
+y:{1:templates[i].filter(e=>e.y===1),3:templates[i].filter(e=>e.y===3),5:templates[i].filter(e=>e.y===5)}
+}));
 }
 
-function renderLives(){
+function renderLC(){
 
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="home()">← Home</button>
-    </div>
-
-    <div class="card center">
-      <h2>✨ Le tue tre possibilità</h2>
-      <p class="muted">
-        Non sono previsioni certe. Sono percorsi narrativi costruiti
-        dalle informazioni che hai scelto di condividere.
-      </p>
-    </div>
-
-    ${data.lives.map((l,i)=>`
-      <div class="card">
-        <h2>${l.title}</h2>
-        <p class="muted">${esc(l.intro)}</p>
-        <button class="btn primary" onclick="openLife(${i})">
-          Entra nella storia
-        </button>
-      </div>
-    `).join("")}
-
-    <div class="card center">
-      <button class="btn blue" onclick="compare()">
-        ⚖️ Confronta le tre vite
-      </button>
-    </div>
-  `);
+$('lcc').innerHTML=L.s.map((s,i)=>`
+<div class="life">
+<div class="badge">${s.icon}</div>
+<h3>${esc(s.title)}</h3>
+<p>${esc(s.desc)}</p>
+<p><b>Tra 1 anno:</b> ${esc(s.y[1][0].e)}</p>
+<p><b>Tra 3 anni:</b> ${esc(s.y[3][0].e)}</p>
+<p><b>Tra 5 anni:</b> ${esc(s.y[5][0].e)}</p>
+<button class="btn" onclick="openLife(${i})">Entra nella storia →</button>
+</div>
+`).join('');
 }
 
 function openLife(i){
-
-  data.currentLife=i;
-
-  const l=data.lives[i];
-
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="renderLives()">← Le tre vite</button>
-    </div>
-
-    <div class="card">
-      <h2>${l.title}</h2>
-      <p>${esc(l.intro)}</p>
-    </div>
-
-    <div class="card timeline">
-
-      ${l.events.map((e,j)=>`
-        <div class="event">
-
-          <strong>${e.year} anno — ${esc(e.title)}</strong>
-
-          <p>${esc(e.text)}</p>
-
-          ${e.prediction?`
-            <button class="btn purple"
-              onclick="openVerification(${i},${j})">
-              🔮 Verifica questa previsione
-            </button>
-          `:""}
-
-        </div>
-      `).join("")}
-
-    </div>
-
-    <div class="card center">
-      <button class="btn green" onclick="saveLife(${i})">
-        💾 Salva questa vita
-      </button>
-
-      <button class="btn purple" onclick="timeline(${i})">
-        📅 Timeline
-      </button>
-
-      <button class="btn blue" onclick="compare()">
-        ⚖️ Confronta le vite
-      </button>
-    </div>
-  `);
+L.c=i;
+$('ltb').textContent=L.s[i].icon+' '+L.s[i].title;
+$('ltt').textContent=L.s[i].title;
+timeline(1);
+show('lt');
 }
 
-function timeline(i){
+function timeline(year){
 
-  const l=data.lives[i];
+L.y=year;
 
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="openLife(${i})">← Storia</button>
-    </div>
+let s=L.s[L.c];
 
-    <div class="card">
-      <h2>📅 Timeline — ${l.title}</h2>
+$('lts').innerHTML=`
+<div class="card">
+<span class="badge">📅 TRA ${year} ANNI</span>
+<h2>${esc(s.y[year][0].t)}</h2>
+<p>${esc(s.y[year][0].e)}</p>
+</div>
 
-      <div class="timeline">
-
-        ${l.events.map(e=>`
-          <div class="event">
-            <strong>Anno ${e.year}</strong>
-            <div>${esc(e.title)}</div>
-            <p class="muted">${esc(e.text)}</p>
-          </div>
-        `).join("")}
-
-      </div>
-    </div>
-  `);
+<div class="card">
+<h3>🔗 Conseguenza</h3>
+<p>Questo passaggio modifica il percorso e prepara ciò che accade successivamente. La storia continua a evolversi sulla base delle scelte precedenti e degli eventi esterni.</p>
+</div>
+`;
 }
 
 function compare(){
 
-  const l1=data.lives[0]||{title:"Vita 1",intro:"",events:[]};
-  const l2=data.lives[1]||{title:"Vita 2",intro:"",events:[]};
-  const l3=data.lives[2]||{title:"Vita 3",intro:"",events:[]};
+$('cmpc').innerHTML=L.s.map(s=>`
+<div class="life">
+<span class="badge">${s.icon}</span>
+<h3>${esc(s.title)}</h3>
+<p>${esc(s.desc)}</p>
+<p><b>1 anno:</b> ${esc(s.y[1][0].e)}</p>
+<p><b>3 anni:</b> ${esc(s.y[3][0].e)}</p>
+<p><b>5 anni:</b> ${esc(s.y[5][0].e)}</p>
+</div>
+`).join('');
 
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="renderLives()">← Le tre vite</button>
-    </div>
-
-    <div class="card">
-      <h2>⚖️ Analisi comparativa delle tre strade</h2>
-
-      <p class="muted">
-        Questo quadro mostra cosa sarebbe potuto accadere scegliendo
-        l'una o l'altra direzione, mettendo a confronto i bivi,
-        le conseguenze a 1, 3 e 5 anni e le rinunce richieste da
-        ciascun percorso, senza indicare alcuna preferenza.
-        La decisione finale spetta unicamente alla tua percezione.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🟢 ${esc(l1.title)}</h3>
-      <p class="muted" style="margin-bottom:10px;">${esc(l1.intro)}</p>
-
-      <div class="event">
-        <strong>Punto focale del percorso</strong>
-        <p>
-          Azione diretta sul desiderio principale e priorità immediata
-          accordata al cambiamento scelto.
-        </p>
-      </div>
-
-      <div class="event">
-        <strong>Anno 1 → Anno 3 → Anno 5</strong>
-        <p>
-          Prevede un confronto diretto con le proprie paure e una
-          ristrutturazione progressiva del proprio equilibrio
-          relazionale ed economico, portando a compimento il progetto iniziale.
-        </p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>🔵 ${esc(l2.title)}</h3>
-      <p class="muted" style="margin-bottom:10px;">${esc(l2.intro)}</p>
-
-      <div class="event">
-        <strong>Punto focale del percorso</strong>
-        <p>
-          Mantenimento di un'alternativa aperta e valutazione prolungata
-          del rischio prima di compiere il passo decisivo.
-        </p>
-      </div>
-
-      <div class="event">
-        <strong>Anno 1 → Anno 3 → Anno 5</strong>
-        <p>
-          Richiede di gestire il peso di un'occasione rimasta in sospeso
-          e di fare i conti con una versione alternativa di sé,
-          lasciando emergere insegnamenti differenti dal passato.
-        </p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>🟣 ${esc(l3.title)}</h3>
-      <p class="muted" style="margin-bottom:10px;">${esc(l3.intro)}</p>
-
-      <div class="event">
-        <strong>Punto focale del percorso</strong>
-        <p>
-          Individuazione di una sintesi imprevista che evita gli estremi
-          e introduce un nuovo metodo di gestione quotidiana.
-        </p>
-      </div>
-
-      <div class="event">
-        <strong>Anno 1 → Anno 3 → Anno 5</strong>
-        <p>
-          Si fonda sulla collaborazione e su piccoli compromessi
-          trasformativi che ridisegnano la normalità nel giro di cinque anni,
-          ridefinendo le priorità.
-        </p>
-      </div>
-    </div>
-
-    <div class="card center">
-      <button class="btn primary" onclick="renderLives()">
-        Torna alle tue vite
-      </button>
-    </div>
-  `);
+show('cmp');
 }
 
-function saveLife(i){
+function saveLife(){
 
-  const l=data.lives[i];
+let all=data(K.l,[]);
 
-  const copy=JSON.parse(JSON.stringify(l));
+all.unshift({
+id:Date.now(),
+date:new Date().toISOString(),
+profile:L.a,
+simulations:L.s,
+checks:[]
+});
 
-  copy.savedAt=new Date().toISOString();
+put(K.l,all.slice(0,20));
 
-  const existing=data.lives.findIndex(x=>x.id===l.id);
-
-  if(existing>=0){
-    data.lives[existing]=copy;
-  }
-
-  saveAll();
-
-  alert("Storia salvata.");
+alert('Previsioni salvate. Potrai tornare in futuro e confrontarle con la realtà.');
 }
-
-
-/* =========================================================
-   VERIFICA INDIVIDUALE
-   ========================================================= */
 
 function predictions(){
 
-  if(!data.lives.length && !data.nowSessions.length){
+let all=data(K.l,[]);
 
-    app(`
-      <div class="card center">
-        <h2>📖 Nessuna previsione ancora</h2>
+$('savedc').innerHTML=all.length
+?all.map((v,i)=>`
+<div class="card">
+<span class="badge">🔮 ${new Date(v.date).toLocaleDateString('it-IT')}</span>
+<h3>${esc(v.profile.name||'La tua simulazione')}</h3>
+<p>${esc(v.profile.situation||'Simulazione E SE?')}</p>
+<button class="btn" onclick="verifyLife(${i})">Torna alla storia →</button>
+</div>
+`).join('')
+:'<div class="card"><h3>Nessuna previsione salvata.</h3><p>Completa una simulazione E SE? e salvala per poterla verificare nel tempo.</p></div>';
 
-        <p class="muted">
-          Crea prima una storia E SE? o una sessione in E ADESSO?.
-        </p>
-
-        <button class="btn primary" onclick="startLife()">
-          Crea la mia storia
-        </button>
-
-        <button class="btn orange" onclick="startNow()">
-          Usa E ADESSO?
-        </button>
-
-        <button class="btn" onclick="home()">Home</button>
-      </div>
-    `);
-
-    return;
-  }
-
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="home()">← Home</button>
-    </div>
-
-    <div class="card">
-      <h2>🔮 Le mie previsioni e bivi</h2>
-
-      <p class="muted">
-        Torna alle storie e alle sessioni di E ADESSO?
-        per verificare ciò che è successo davvero.
-      </p>
-    </div>
-
-    ${data.nowSessions.length ? `
-
-      <div class="card">
-        <h3>⚡ Sessioni E ADESSO? salvate (Timeline)</h3>
-
-        ${data.nowSessions.map((s,i)=>`
-
-          <div class="prediction">
-
-            <strong>Bivio: ${esc(s.dilemma)}</strong>
-
-            <p class="small muted">
-              Salvata il:
-              ${new Date(s.createdAt).toLocaleDateString()}
-            </p>
-
-            ${s.realityOutcome ? `
-              <p class="small"
-                 style="color:#22c984;margin-top:5px;">
-                Esito registrato: ${esc(s.realityOutcome)}
-              </p>
-            `:""}
-
-            <button class="btn orange"
-              style="margin-top:8px;"
-              onclick="openNowSession(${i})">
-              Apri e aggiorna esito / Continua
-            </button>
-
-          </div>
-
-        `).join("")}
-
-      </div>
-
-    `:""}
-
-    ${data.lives.map((l,i)=>`
-
-      <div class="card">
-
-        <h3>${l.title}</h3>
-
-        ${l.events.map((e,j)=>`
-
-          <div class="prediction">
-
-            <strong>
-              Anno ${e.year} — ${esc(e.title)}
-            </strong>
-
-            <p>${esc(e.text)}</p>
-
-            <button class="btn purple"
-              onclick="openVerification(${i},${j})">
-              Verifica
-            </button>
-
-          </div>
-
-        `).join("")}
-
-      </div>
-
-    `).join("")}
-  `);
+show('saved');
 }
 
-function openVerification(li,ei){
+function verifyLife(i){
 
-  const l=data.lives[li];
-  const e=l.events[ei];
+let all=data(K.l,[]),
+v=all[i];
 
-  data.currentLife=li;
-  data.currentEvent=ei;
+$('verifyc').innerHTML=`
+<div class="card">
+<h2>${esc(v.profile.name||'La tua storia')}</h2>
+<p>La previsione è solo il punto di partenza. Ora puoi raccontare cosa è realmente successo.</p>
+</div>
+`+
+v.simulations.map((s,j)=>`
+<div class="card">
+<span class="badge">${s.icon} ${esc(s.title)}</span>
+${s.events.map((e,k)=>`
+<div class="prediction">
+<h3>${esc(e.t)} · ${e.y} anni</h3>
+<p>${esc(e.e)}</p>
+<div class="options">
+<button class="opt" onclick="checkLife(${i},${j},${k},'yes')">🟢 È successo</button>
+<button class="opt" onclick="checkLife(${i},${j},${k},'partial')">🟡 È successo qualcosa di simile</button>
+<button class="opt" onclick="checkLife(${i},${j},${k},'no')">⚪ Non è successo</button>
+<button class="opt" onclick="checkLife(${i},${j},${k},'different')">🔵 È successo qualcosa di completamente diverso</button>
+</div>
+</div>
+`).join('')}
+</div>
+`).join('');
 
-  const old=e.reality||{};
-
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="openLife(${li})">
-        ← Storia
-      </button>
-    </div>
-
-    <div class="card">
-
-      <span class="badge">Anno ${e.year}</span>
-
-      <h2>${esc(e.title)}</h2>
-
-      <p>${esc(e.text)}</p>
-
-    </div>
-
-    <div class="card">
-
-      <h3>🔎 Che cosa è successo davvero?</h3>
-
-      <button class="choice"
-        onclick="check(${li},${ei},'yes')">
-        🟢 È successo
-      </button>
-
-      <button class="choice"
-        onclick="check(${li},${ei},'partial')">
-        🟡 È successo qualcosa di simile
-      </button>
-
-      <button class="choice"
-        onclick="check(${li},${ei},'no')">
-        ⚪ Non è successo
-      </button>
-
-      <button class="choice"
-        onclick="check(${li},${ei},'different')">
-        🔵 È successo qualcosa di completamente diverso
-      </button>
-
-      <hr>
-
-      <label>Racconta cosa è successo realmente</label>
-
-      <textarea id="realityText"
-        placeholder="Puoi raccontarlo con le tue parole...">${esc(old.text||"")}</textarea>
-
-      <button class="btn green"
-        onclick="continueFromReality(${li},${ei})">
-        ✨ Continua la storia da qui
-      </button>
-
-    </div>
-  `);
+show('verify');
 }
 
-function check(li,ei,status){
+function checkLife(i,j,k,status){
 
-  const e=data.lives[li].events[ei];
+let all=data(K.l,[]),
+v=all[i],
+e=v.simulations[j].events[k];
 
-  if(!e.reality)e.reality={};
+let reality=prompt(
+`Previsione:\n\n${e.e}\n\nCosa è successo davvero?`,
+''
+);
 
-  e.reality.status=status;
+if(reality===null)return;
 
-  data.lives[li].events[ei]=e;
+v.checks=v.checks||[];
 
-  saveAll();
+v.checks.push({
+simulation:j,
+eventIndex:k,
+status,
+reality,
+date:new Date().toISOString()
+});
 
-  const labels={
-    yes:"🟢 È successo",
-    partial:"🟡 È successo qualcosa di simile",
-    no:"⚪ Non è successo",
-    different:"🔵 È successo qualcosa di completamente diverso"
-  };
+put(K.l,all);
 
-  const box=document.getElementById("realityText");
+alert('Realtà registrata.');
 
-  if(box){
-
-    box.insertAdjacentHTML(
-      "beforebegin",
-      `<div class="status">${labels[status]}</div>`
-    );
-  }
+verifyLife(i);
 }
-
-function continueFromReality(li,ei){
-
-  const l=data.lives[li];
-  const e=l.events[ei];
-
-  const text=(document.getElementById("realityText")?.value||"").trim();
-
-  if(!text){
-    alert("Racconta prima cosa è successo realmente.");
-    return;
-  }
-
-  if(!e.reality)e.reality={};
-
-  e.reality.text=text;
-
-  const branch={
-    id:Date.now()+"-reality",
-    title:"🌱 La storia che è realmente accaduta",
-    intro:`La previsione si interrompe qui. Da questo momento il punto di partenza è ciò che è successo davvero.`,
-    sourceLife:l.title,
-    sourceEvent:e.title,
-    reality:text,
-
-    events:[
-      {
-        year:e.year,
-        title:"Il punto reale",
-        text:`Quello che è successo davvero: ${text}`,
-        prediction:false
-      },
-      {
-        year:e.year,
-        title:"La conseguenza",
-        text:"Da questo momento la tua storia prende una direzione diversa da quella immaginata.",
-        prediction:false
-      },
-      {
-        year:e.year+1,
-        title:"La nuova possibilità",
-        text:"Una nuova scelta nasce dall'esperienza reale che hai vissuto.",
-        prediction:true
-      },
-      {
-        year:3,
-        title:"Il nuovo equilibrio",
-        text:"La realtà vissuta modifica priorità, relazioni e decisioni future.",
-        prediction:true
-      },
-      {
-        year:5,
-        title:"Dove porta davvero questa strada",
-        text:"La nuova traiettoria mostra cosa può nascere dal punto in cui ti trovi realmente.",
-        prediction:true
-      }
-    ],
-
-    realityOrigin:true
-  };
-
-  data.lives.push(branch);
-
-  saveAll();
-
-  app(`
-    <div class="card center">
-
-      <h2>🌱 La storia continua</h2>
-
-      <p>
-        Hai trasformato ciò che è realmente successo
-        nel nuovo punto di partenza della storia.
-      </p>
-
-      <button class="btn primary"
-        onclick="openLife(${data.lives.length-1})">
-        Continua la nuova traiettoria
-      </button>
-
-      <button class="btn" onclick="predictions()">
-        Le mie previsioni
-      </button>
-
-    </div>
-  `);
-}
-
-
-/* =========================================================
-   E SE? IN 2
-   ========================================================= */
-
-const TQ=[
-  {
-    key:"decision",
-    type:"choice",
-    text:"Quando dovete prendere una decisione importante, cosa succede più spesso?",
-    options:[
-      "Decidete insieme",
-      "Uno dei due prende l'iniziativa",
-      "Discutete molto prima di decidere",
-      "Rimandate"
-    ]
-  },
-  {
-    key:"desireA",
-    type:"openA",
-    text:"Persona A: cosa desideri di più da questa situazione?"
-  },
-  {
-    key:"desireB",
-    type:"openB",
-    text:"Persona B: cosa desideri di più da questa situazione?"
-  },
-  {
-    key:"fearA",
-    type:"openA",
-    text:"Persona A: cosa temi possa succedere?"
-  },
-  {
-    key:"fearB",
-    type:"openB",
-    text:"Persona B: cosa temi possa succedere?"
-  },
-  {
-    key:"conflict",
-    type:"choice",
-    text:"Quando desideri e paure entrano in conflitto, quale dinamica vi rappresenta di più?",
-    options:[
-      "Cerchiamo un compromesso",
-      "Uno cede",
-      "Ci blocchiamo",
-      "Ognuno segue la propria strada"
-    ]
-  },
-  {
-    key:"future",
-    type:"open",
-    text:"Come vorreste che fosse la vostra situazione tra cinque anni?"
-  },
-  {
-    key:"importantA",
-    type:"openA",
-    text:"Persona A: cosa non vuoi assolutamente perdere?"
-  },
-  {
-    key:"importantB",
-    type:"openB",
-    text:"Persona B: cosa non vuoi assolutamente perdere?"
-  },
-  {
-    key:"solution",
-    type:"open",
-    text:"Quale soluzione nessuno dei due ha ancora considerato seriamente?"
-  }
-];
 
 function startTwo(){
 
-  data.two={
-    personA:{},
-    personB:{},
-    situation:"",
-    answers:{},
-    lives:[],
-    createdAt:new Date().toISOString()
-  };
+T={
+a:{A:{},B:{}},
+i:0,
+q:[],
+s:null,
+c:0
+};
 
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="home()">← Home</button>
-    </div>
+$('twoStart').value='';
+show('two');
+}
 
-    <div class="card">
+function twoSaved(){
 
-      <h2>🫶 E SE? IN 2</h2>
+let all=data(K.t,[]);
 
-      <p class="muted">
-        Prima conosciamo le due persone. Poi costruiremo una sola storia
-        in cui le scelte di una influenzano realmente l'altra.
-      </p>
+$('twoSavedC').innerHTML=all.length
+?all.map((v,i)=>`
+<div class="card">
+<span class="badge">🫶 ${new Date(v.date).toLocaleDateString('it-IT')}</span>
+<h3>${esc(v.people.A.name)} + ${esc(v.people.B.name)}</h3>
+<p>${esc(v.situation)}</p>
+<button class="btn" onclick="verifyTwo(${i})">Torna alla storia →</button>
+</div>
+`).join('')
+:'<div class="card"><h3>Nessuna simulazione IN 2 salvata.</h3><p>Create una storia e salvatela per poterla verificare nel tempo.</p></div>';
 
-    </div>
-
-    <div class="grid">
-
-      <div class="person-box">
-
-        <h3>👤 Persona A</h3>
-
-        <label>Nome</label>
-        <input id="twoAName">
-
-        <label>Età</label>
-        <input id="twoAAge" type="number">
-
-        <label>Segno zodiacale</label>
-
-        <select id="twoAZodiac">
-          <option value="">Seleziona</option>
-
-          ${[
-            "Ariete","Toro","Gemelli","Cancro","Leone","Vergine",
-            "Bilancia","Scorpione","Sagittario","Capricorno","Acquario","Pesci"
-          ].map(x=>`<option>${x}</option>`).join("")}
-
-        </select>
-
-        <label>Situazione relazionale</label>
-        <input id="twoARel">
-
-        <label>Descrizione</label>
-        <textarea id="twoADesc"></textarea>
-
-      </div>
-
-      <div class="person-box">
-
-        <h3>👤 Persona B</h3>
-
-        <label>Nome</label>
-        <input id="twoBName">
-
-        <label>Età</label>
-        <input id="twoBAge" type="number">
-
-        <label>Segno zodiacale</label>
-
-        <select id="twoBZodiac">
-          <option value="">Seleziona</option>
-
-          ${[
-            "Ariete","Toro","Gemelli","Cancro","Leone","Vergine",
-            "Bilancia","Scorpione","Sagittario","Capricorno","Acquario","Pesci"
-          ].map(x=>`<option>${x}</option>`).join("")}
-
-        </select>
-
-        <label>Situazione relazionale</label>
-        <input id="twoBRel">
-
-        <label>Descrizione</label>
-        <textarea id="twoBDesc"></textarea>
-
-      </div>
-
-    </div>
-
-    <div class="card">
-
-      <h3>🌍 La situazione che condividete</h3>
-
-      <p class="muted">
-        Raccontatela liberamente: cosa sta succedendo, cosa vi divide,
-        cosa vi unisce e perché questa situazione è importante.
-      </p>
-
-      <textarea id="twoSituation"></textarea>
-
-      <button class="btn blue" onclick="beginTwo()">
-        Continua
-      </button>
-
-    </div>
-  `);
+show('twoSaved');
 }
 
 function beginTwo(){
 
-  data.two.personA={
-    name:document.getElementById("twoAName").value.trim(),
-    age:document.getElementById("twoAAge").value.trim(),
-    zodiac:document.getElementById("twoAZodiac").value,
-    rel:document.getElementById("twoARel").value.trim(),
-    desc:document.getElementById("twoADesc").value.trim()
-  };
+T.a.A={
+name:$('ta_name').value.trim(),
+age:$('ta_age').value,
+zodiac:$('ta_zodiac').value,
+relationship:$('ta_rel').value,
+description:$('ta_desc').value.trim()
+};
 
-  data.two.personB={
-    name:document.getElementById("twoBName").value.trim(),
-    age:document.getElementById("twoBAge").value.trim(),
-    zodiac:document.getElementById("twoBZodiac").value,
-    rel:document.getElementById("twoBRel").value.trim(),
-    desc:document.getElementById("twoBDesc").value.trim()
-  };
+T.a.B={
+name:$('tb_name').value.trim(),
+age:$('tb_age').value,
+zodiac:$('tb_zodiac').value,
+relationship:$('tb_rel').value,
+description:$('tb_desc').value.trim()
+};
 
-  data.two.situation=document.getElementById("twoSituation").value.trim();
+T.situation=$('twoSituation').value.trim();
 
-  renderTQ(0);
+if(!T.a.A.name||!T.a.B.name||!T.situation)
+return alert('Inserite i nomi di entrambi e raccontate la situazione condivisa.');
+
+T.q=[
+['sharedGoal','Qual è la cosa che Persona A desidera di più da questa situazione?','text','A'],
+['aFear','Qual è la paura principale di Persona A?','text','A'],
+['bGoal','Qual è la cosa che Persona B desidera di più?','text','B'],
+['bFear','Qual è la paura principale di Persona B?','text','B'],
+['decision','Quale direzione state considerando?','choice',['Restare come siamo','Cambiare insieme','Prendere strade diverse','Non lo sappiamo ancora'],'both'],
+['aStyle','Quando deve decidere, Persona A tende a...','choice',['Agire subito','Aspettare e osservare','Cercare un compromesso','Cambiare idea facilmente'],'A'],
+['bStyle','Quando deve decidere, Persona B tende a...','choice',['Agire subito','Aspettare e osservare','Cercare un compromesso','Cambiare idea facilmente'],'B'],
+['aNeed','Di cosa ha bisogno Persona A per sentirsi al sicuro in questa storia?','text','A'],
+['bNeed','Di cosa ha bisogno Persona B per sentirsi al sicuro?','text','B'],
+['conflict','Qual è il punto su cui potreste essere più in disaccordo?','text','both'],
+['hope','Se tutto andasse nel modo migliore che riuscite a immaginare, cosa sarebbe cambiato tra voi?','text','both'],
+['unknown','Quale elemento esterno potrebbe cambiare il vostro equilibrio?','text','both']
+];
+
+T.i=0;
+renderTQ();
+show('tq');
 }
 
-function renderTQ(i){
+function renderTQ(){
 
-  const q=TQ[i];
+let q=T.q[T.i],
+v=T.a[q[0]]||'';
 
-  let title=q.text;
+$('tp').style.width=(T.i/T.q.length*100)+'%';
 
-  let content="";
+let h='<div class="q"><span class="badge">'+
+(q[3]==='A'?'🟢 Persona A':q[3]==='B'?'🔵 Persona B':'🫶 Entrambi')+
+'</span><h2>'+esc(q[1])+'</h2>';
 
-  if(q.type==="choice"){
-
-    content=q.options.map((o,n)=>`
-      <button class="choice" onclick="TA(${i},${n})">
-        ${esc(o)}
-      </button>
-    `).join("");
-
-  }else{
-
-    content=`
-      <textarea id="twoAnswer"
-        placeholder="Scrivi liberamente..."></textarea>
-
-      <button class="btn blue"
-        onclick="TA(${i},document.getElementById('twoAnswer').value)">
-        Continua
-      </button>
-    `;
-  }
-
-  app(`
-    <div class="nav">
-
-      <button class="btn" onclick="startTwo()">
-        ← Indietro
-      </button>
-
-      <span class="badge">
-        ${i+1} / ${TQ.length}
-      </span>
-
-    </div>
-
-    <div class="card">
-
-      <h2>${esc(title)}</h2>
-
-      ${content}
-
-    </div>
-  `);
+if(q[2]==='choice'){
+h+='<div class="options">'+
+q[3].map(o=>
+`<button class="opt ${v===o?'sel':''}" onclick="TA('${o.replace(/'/g,"\\'")}')">${esc(o)}</button>`
+).join('')+
+'</div>';
+}else{
+h+='<div class="field"><textarea id="ti">'+esc(v)+'</textarea></div>';
 }
 
-function TA(i,a){
-
-  data.two.answers[TQ[i].key]=a;
-
-  if(i+1<TQ.length){
-    renderTQ(i+1);
-  }else{
-    buildTwoLives();
-  }
+$('tqc').innerHTML=h+'</div>';
 }
 
+function TA(v){
+T.a[T.q[T.i][0]]=v;
+renderTQ();
+}
 
-/* =========================================================
-   MOTORE NARRATIVO IN 2
-   ========================================================= */
+function nextTQ(){
+
+let q=T.q[T.i];
+
+if(q[2]!=='choice'){
+let v=$('ti').value.trim();
+
+if(!v)
+return alert('Scrivete una risposta, anche breve.');
+
+T.a[q[0]]=v;
+}
+
+if(T.i<T.q.length-1){
+T.i++;
+renderTQ();
+}else{
+T.s=buildTwoLives();
+renderTC();
+show('tc');
+}
+}
 
 function buildTwoLives(){
 
-  const A=data.two.personA;
-  const B=data.two.personB;
+let a=T.a,
+A=a.A.name||'Persona A',
+B=a.B.name||'Persona B',
+sit=T.situation;
 
-  const an=A.name||"Persona A";
-  const bn=B.name||"Persona B";
+let ag=a.sharedGoal||'un cambiamento desiderato',
+af=a.aFear||'una paura da affrontare',
+bg=a.bGoal||'un bisogno diverso',
+bf=a.bFear||'un timore',
+conf=a.conflict||'un punto di disaccordo',
+hope=a.hope||'un nuovo equilibrio',
+ext=a.unknown||'un evento esterno';
 
-  const ad=data.two.answers.desireA||"ciò che desideri";
-  const bd=data.two.answers.desireB||"ciò che desidera l'altra persona";
+const defs=[
+['🟢','Vita 1 — La strada che scegliete','La decisione condivisa e ciò che accade dopo.'],
+['🔵','Vita 2 — La strada che non scegliete','La direzione alternativa che sarebbe potuta svilupparsi.'],
+['🟣','Vita 3 — La terza via','Una soluzione nata dall’interazione tra voi, non prevista all’inizio.']
+];
 
-  const af=data.two.answers.fearA||"le tue paure";
-  const bf=data.two.answers.fearB||"le sue paure";
+const templates=[
+[
+['La decisione condivisa',1,`${A} e ${B} decidono di affrontare insieme ${sit}. Il desiderio di ${ag} incontra quello di ${bg}: la scelta modifica entrambi, non solo chi la propone.`],
+['Il primo effetto',1,`La prima conseguenza riguarda la vita quotidiana. Ciò che aiuta ${A} può chiedere qualcosa a ${B}, mentre la paura di ${af} entra in tensione con ${bf}.`],
+['La conseguenza reciproca',1,`Una scelta di ${A} produce una reazione in ${B}; la risposta di ${B} modifica a sua volta il percorso di ${A}. Il vostro equilibrio comincia a cambiare.`],
+['Il punto di svolta',3,`Dopo tre anni, ${conf} torna in una forma nuova. Quello che sembrava un problema iniziale diventa il punto da cui decidete come continuare insieme.`],
+['Un nuovo equilibrio',3,`${hope} assume una forma concreta. Entrambi avete cambiato qualcosa e la relazione tra le vostre esigenze è diversa da quella di partenza.`],
+['La conseguenza lunga',5,`A cinque anni, le decisioni iniziali hanno prodotto una rete di conseguenze: tempo, lavoro, casa, relazioni e progetti si sono influenzati a vicenda.`],
+['Il nuovo bivio',5,`Un nuovo evento esterno — ${ext} — apre un'altra scelta. La storia non finisce: il modo in cui la affrontate dipende da ciò che avete costruito insieme.`]
+],
 
-  const future=data.two.answers.future||"un futuro condiviso";
-  const situation=data.two.situation||"la situazione attuale";
+[
+['La direzione alternativa',1,`Immaginate di non scegliere la strada iniziale. ${A} e ${B} proteggono o seguono priorità diverse e la quotidianità prende un'altra forma.`],
+['Il costo della scelta',1,`La strada alternativa riduce una difficoltà ma ne crea un'altra: ciò che rassicura ${A} può lasciare ${B} con un bisogno ancora aperto, e viceversa.`],
+['Quello che resta',1,`Una possibilità che avevate lasciato indietro ritorna. Ora la valutate con informazioni nuove e con una consapevolezza diversa delle vostre esigenze.`],
+['La trasformazione',3,`Dopo tre anni, la scelta alternativa ha cambiato il rapporto tra ${A} e ${B}. Il punto non è cosa sarebbe stato “meglio”, ma quali conseguenze ha prodotto questa strada.`],
+['Il confronto',3,`Entrambi guardate a ciò che avete ottenuto e a ciò che avete lasciato andare. La vostra definizione di stabilità, libertà e futuro non è più quella di partenza.`],
+['La nuova forma',5,`A cinque anni, la traiettoria alternativa è diventata una vita concreta. Le decisioni di uno hanno continuato a modificare quelle dell'altro.`],
+['La possibilità riaperta',5,`Un evento esterno riapre una scelta. Potete affrontarla con ciò che avete imparato, senza tornare semplicemente al bivio originario.`]
+],
 
-  const commonStart=
-    `La situazione di partenza è: ${situation}. `+
-    `${an} desidera ${ad}, mentre ${bn} desidera ${bd}. `+
-    `${an} teme ${af}; ${bn} teme ${bf}.`;
+[
+['L’imprevisto',1,`Qualcosa cambia senza che né ${A} né ${B} l'abbiano programmato. L'evento rompe il modo abituale di leggere ${sit}.`],
+['La risposta di A',1,`${A} reagisce seguendo il proprio bisogno di ${ag}, ma deve considerare anche la paura di ${bf} in ${B}.`],
+['La risposta di B',1,`${B} risponde in modo diverso da quanto ${A} immaginava. La sua scelta modifica immediatamente la direzione comune.`],
+['La terza via prende forma',3,`Dopo tre anni, la soluzione non assomiglia più alle due strade iniziali. È nata dall'incastro tra bisogni, conflitti, compromessi ed eventi esterni.`],
+['La nuova definizione',3,`${hope} si realizza in una forma che nessuno dei due aveva previsto. La storia appartiene a entrambi perché entrambi l'hanno modificata.`],
+['La vita composta',5,`A cinque anni, l'imprevisto iniziale non è più una deviazione: è diventato parte della vostra storia. Le conseguenze sono il risultato delle scelte reciproche.`],
+['Un altro capitolo',5,`La stabilità raggiunta lascia spazio a un nuovo cambiamento. La terza via dimostra che una decisione condivisa può generare possibilità che nessuno dei due aveva immaginato.`]
+]
+];
 
-  data.two.lives=[
-
-    {
-      id:Date.now()+"-A",
-      title:"🟢 Vita 1 — La strada che scegliete",
-      intro:commonStart,
-      events:[
-        {
-          year:0,
-          title:"Il punto di partenza",
-          text:`${commonStart}`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"La decisione condivisa",
-          text:`${an} propone un passo che tiene conto di ${ad}. ${bn} lo modifica per proteggere ciò che considera importante. La decisione finale appartiene a entrambi.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"La conseguenza per entrambi",
-          text:`La scelta modifica la quotidianità di entrambi. Ciò che funziona per ${an} crea una conseguenza anche per ${bn}, e viceversa.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"Il primo conflitto",
-          text:`Una differenza tra ${af} e ${bf} emerge concretamente. La coppia deve scegliere se affrontarla insieme o rimandarla.`,
-          prediction:true
-        },
-        {
-          year:3,
-          title:"Il nuovo equilibrio",
-          text:`Dopo tre anni avete costruito una modalità di vita che nasce dalle decisioni prese insieme.`,
-          prediction:true
-        },
-        {
-          year:3,
-          title:"La prova esterna",
-          text:`Un evento esterno modifica i vostri programmi e obbliga entrambi a rinegoziare priorità e responsabilità.`,
-          prediction:true
-        },
-        {
-          year:5,
-          title:"La vita costruita insieme",
-          text:`Dopo cinque anni potete riconoscere quanto le scelte dell'uno abbiano modificato il percorso dell'altro.`,
-          prediction:true
-        },
-        {
-          year:5,
-          title:"Il futuro che avete scelto",
-          text:`Una parte di ${future} diventa concreta, ma assume una forma diversa da quella immaginata all'inizio.`,
-          prediction:true
-        }
-      ]
-    },
-
-    {
-      id:Date.now()+"-B",
-      title:"🔵 Vita 2 — La strada che non scegliete",
-      intro:`Una direzione alternativa che nasce dalla stessa situazione iniziale, ma con decisioni differenti.`,
-      events:[
-        {
-          year:0,
-          title:"L'altra possibilità",
-          text:`La stessa situazione avrebbe potuto essere affrontata partendo da priorità differenti.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"Una scelta diversa",
-          text:`${an} prende una direzione più vicina a ${ad}, mentre ${bn} deve adattarsi alle conseguenze di quella decisione.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"L'effetto reciproco",
-          text:`La scelta di ${an} produce un effetto sulla vita di ${bn}. La risposta di ${bn} modifica nuovamente il percorso.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"La distanza tra desideri",
-          text:`Le paure di entrambi diventano più visibili e chiedono una decisione.`,
-          prediction:true
-        },
-        {
-          year:3,
-          title:"La conseguenza a lungo termine",
-          text:`Dopo tre anni emerge ciò che quella strada ha realmente comportato per entrambi.`,
-          prediction:true
-        },
-        {
-          year:3,
-          title:"Un nuovo bivio",
-          text:`Un evento esterno apre una possibilità di cambiare nuovamente direzione.`,
-          prediction:true
-        },
-        {
-          year:5,
-          title:"Guardarsi indietro",
-          text:`Dopo cinque anni capite quali parti della scelta iniziale hanno costruito la vostra realtà.`,
-          prediction:true
-        },
-        {
-          year:5,
-          title:"Ciò che sarebbe potuto essere",
-          text:`Questa traiettoria mostra non una certezza, ma una possibilità nata dalle decisioni alternative.`,
-          prediction:true
-        }
-      ]
-    },
-
-    {
-      id:Date.now()+"-C",
-      title:"🟣 Vita 3 — La terza via",
-      intro:`Una soluzione che nasce dall'interazione tra ${an} e ${bn} e che inizialmente nessuno dei due aveva considerato.`,
-      events:[
-        {
-          year:0,
-          title:"L'idea inattesa",
-          text:`La tensione tra ${ad} e ${bd} porta a cercare una soluzione diversa dalla scelta A o B.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"La terza possibilità",
-          text:`La soluzione proposta nasce mettendo insieme una necessità di ${an} e una necessità di ${bn}.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"Il compromesso che cambia tutto",
-          text:`Entrambi rinunciano a una piccola parte delle proprie aspettative per ottenere qualcosa che nessuno avrebbe potuto ottenere da solo.`,
-          prediction:true
-        },
-        {
-          year:1,
-          title:"La nuova regola",
-          text:`Una nuova abitudine o regola condivisa modifica il modo in cui affrontate i problemi.`,
-          prediction:true
-        },
-        {
-          year:3,
-          title:"Una vita diversa",
-          text:`Dopo tre anni quella soluzione non sembra più un compromesso: è diventata parte della vostra vita.`,
-          prediction:true
-        },
-        {
-          year:3,
-          title:"L'imprevisto",
-          text:`Un evento esterno mette alla prova la terza via e costringe entrambi a modificarla.`,
-          prediction:true
-        },
-        {
-          year:5,
-          title:"La scelta che non avevate previsto",
-          text:`Dopo cinque anni vi accorgete che la strada più importante è nata proprio da ciò che inizialmente sembrava un conflitto.`,
-          prediction:true
-        },
-        {
-          year:5,
-          title:"Il vostro nuovo futuro",
-          text:`La soluzione iniziale si trasforma in qualcosa di più grande e modifica il significato di ${future}.`,
-          prediction:true
-        }
-      ]
-    }
-  ];
-
-  saveAll();
-  renderTwoLives();
+return defs.map((d,i)=>({
+icon:d[0],
+title:d[1],
+desc:d[2],
+events:templates[i].map((x,k)=>({
+id:`T-${Date.now()}-${i}-${k}`,
+t:x[0],
+y:x[1],
+e:x[2],
+status:'pending',
+reality:''
+})),
+y:{1:[],3:[],5:[]}
+})).map(s=>{
+s.events.forEach(e=>s.y[e.y].push(e));
+return s;
+});
 }
 
-function renderTwoLives(){
+function renderTC(){
 
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="home()">← Home</button>
-    </div>
-
-    <div class="card center">
-
-      <h2>🫶 Le vostre tre possibilità</h2>
-
-      <p class="muted">
-        Queste tre vite non sono due storie separate:
-        ogni evento considera contemporaneamente Persona A e Persona B.
-      </p>
-
-    </div>
-
-    ${data.two.lives.map((l,i)=>`
-
-      <div class="card">
-
-        <h2>${l.title}</h2>
-
-        <p>${esc(l.intro)}</p>
-
-        <button class="btn blue"
-          onclick="openTwoLife(${i})">
-          Entrate nella storia
-        </button>
-
-      </div>
-
-    `).join("")}
-
-    <div class="card center">
-
-      <button class="btn blue"
-        onclick="compareTwo()">
-        ⚖️ Confronta le tre vite di coppia
-      </button>
-
-    </div>
-  `);
+$('tcc').innerHTML=T.s.map((s,i)=>`
+<div class="life">
+<div class="badge">${s.icon}</div>
+<h3>${esc(s.title)}</h3>
+<p>${esc(s.desc)}</p>
+<p><b>Tra 1 anno:</b> ${esc(s.y[1][0].e)}</p>
+<p><b>Tra 3 anni:</b> ${esc(s.y[3][0].e)}</p>
+<p><b>Tra 5 anni:</b> ${esc(s.y[5][0].e)}</p>
+<button class="btn" onclick="openTwoLife(${i})">Entra nella storia →</button>
+</div>
+`).join('');
 }
 
 function openTwoLife(i){
 
-  const l=data.two.lives[i];
+T.c=i;
 
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="renderTwoLives()">
-        ← Le tre vite
-      </button>
-    </div>
+$('ttb').textContent=T.s[i].icon+' '+T.s[i].title;
+$('ttt').textContent=T.s[i].title;
 
-    <div class="card">
-
-      <h2>${l.title}</h2>
-
-      <p>${esc(l.intro)}</p>
-
-    </div>
-
-    <div class="card timeline">
-
-      ${l.events.map((e,j)=>`
-
-        <div class="event">
-
-          <strong>
-            ${e.year===0?"Situazione iniziale":"Anno "+e.year}
-            — ${esc(e.title)}
-          </strong>
-
-          <p>${esc(e.text)}</p>
-
-          ${e.prediction?`
-            <button class="btn purple"
-              onclick="openTwoVerification(${i},${j})">
-              🔮 Verifica questa previsione
-            </button>
-          `:""}
-
-        </div>
-
-      `).join("")}
-
-    </div>
-
-    <div class="card center">
-
-      <button class="btn green" onclick="saveTwo()">
-        💾 Salva storia
-      </button>
-
-      <button class="btn blue" onclick="compareTwo()">
-        ⚖️ Confronta le vite
-      </button>
-
-      <button class="btn purple" onclick="twoPredictions()">
-        📖 Le mie previsioni
-      </button>
-
-    </div>
-  `);
+renderTwoTimeline();
+show('tt');
 }
 
-function compareTwo(){
+function renderTwoTimeline(){
 
-  const l1=data.two.lives[0]||{title:"Vita 1",intro:"",events:[]};
-  const l2=data.two.lives[1]||{title:"Vita 2",intro:"",events:[]};
-  const l3=data.two.lives[2]||{title:"Vita 3",intro:"",events:[]};
+let s=T.s[T.c];
 
-  const an=data.two.personA?.name||"Persona A";
-  const bn=data.two.personB?.name||"Persona B";
-
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="renderTwoLives()">
-        ← Le tre vite
-      </button>
-    </div>
-
-    <div class="card">
-
-      <h2>⚖️ Analisi comparativa delle tre strade di coppia</h2>
-
-      <p class="muted">
-        Questo quadro mostra cosa sarebbe potuto accadere a ${an} e ${bn}
-        scegliendo l'una o l'altra direzione, mettendo a confronto
-        i bivi condivisi, le conseguenze congiunte a 1, 3 e 5 anni
-        e le rinunce reciproche richieste da ciascun percorso,
-        senza indicare alcuna preferenza.
-        La decisione finale spetta unicamente alla vostra percezione congiunta.
-      </p>
-
-    </div>
-
-    <div class="card">
-
-      <h3>🟢 ${esc(l1.title)}</h3>
-
-      <p class="muted" style="margin-bottom:10px;">
-        ${esc(l1.intro)}
-      </p>
-
-      <div class="event">
-        <strong>Punto focale del percorso</strong>
-        <p>
-          Azione condivisa basata sulla decisione iniziale
-          e riadattamento reciproco immediato.
-        </p>
-      </div>
-
-      <div class="event">
-        <strong>Anno 1 → Anno 3 → Anno 5</strong>
-        <p>
-          Prevede un confronto con i primi conflitti tra le rispettive paure
-          e la costruzione progressiva di un equilibrio a lungo termine
-          che trasforma il progetto iniziale.
-        </p>
-      </div>
-
-    </div>
-
-    <div class="card">
-
-      <h3>🔵 ${esc(l2.title)}</h3>
-
-      <p class="muted" style="margin-bottom:10px;">
-        ${esc(l2.intro)}
-      </p>
-
-      <div class="event">
-        <strong>Punto focale del percorso</strong>
-        <p>
-          Adozione di una direzione alternativa e asimmetrica,
-          con adattamenti successivi tra i due.
-        </p>
-      </div>
-
-      <div class="event">
-        <strong>Anno 1 → Anno 3 → Anno 5</strong>
-        <p>
-          Richiede di gestire la distanza tra i rispettivi desideri,
-          valutando nel tempo l'impatto delle occasioni non scelte
-          e dei bivi successivi.
-        </p>
-      </div>
-
-    </div>
-
-    <div class="card">
-
-      <h3>🟣 ${esc(l3.title)}</h3>
-
-      <p class="muted" style="margin-bottom:10px;">
-        ${esc(l3.intro)}
-      </p>
-
-      <div class="event">
-        <strong>Punto focale del percorso</strong>
-        <p>
-          Individuazione di una sintesi imprevista che unisce
-          le necessità di entrambi fuori dagli schemi tradizionali.
-        </p>
-      </div>
-
-      <div class="event">
-        <strong>Anno 1 → Anno 3 → Anno 5</strong>
-        <p>
-          Si fonda su compromessi evolutivi e regole condivise
-          che ridefiniscono la quotidianità e trasformano
-          il conflitto iniziale in risorsa nel giro di cinque anni.
-        </p>
-      </div>
-
-    </div>
-
-    <div class="card center">
-
-      <button class="btn blue" onclick="renderTwoLives()">
-        Torna alle vostre vite
-      </button>
-
-    </div>
-  `);
+$('tts').innerHTML=
+`<div class="event-flow">`+
+s.events.map((e,i)=>`
+<div class="event-node">
+<span class="badge">🔮 Previsione · ${e.y} anni</span>
+<h2>${esc(e.t)}</h2>
+<p>${esc(e.e)}</p>
+<p class="consequence"><b>Conseguenza:</b> questo evento modifica contemporaneamente il percorso di A e B e prepara il successivo.</p>
+</div>
+`).join('')+
+`</div>`;
 }
 
 function saveTwo(){
 
-  if(!data.two)return;
+let all=data(K.t,[]);
 
-  data.two.savedAt=new Date().toISOString();
+all.unshift({
+id:Date.now(),
+date:new Date().toISOString(),
+people:T.a,
+situation:T.situation,
+simulations:JSON.parse(JSON.stringify(T.s)),
+checks:[],
+branches:[]
+});
 
-  saveAll();
+put(K.t,all.slice(0,20));
 
-  alert("La storia IN 2 è stata salvata.");
+alert('Previsioni IN 2 salvate.');
+}
+
+function verifyTwo(i){
+
+let all=data(K.t,[]),
+v=all[i],
+checks=v.checks||[];
+
+$('tvc').innerHTML=
+`<div class="card">
+<h2>${esc(v.people.A.name)} + ${esc(v.people.B.name)}</h2>
+<p>La previsione è solo il punto di confronto. La realtà di entrambi diventa il nuovo punto della storia.</p>
+</div>`+
+v.simulations.map((s,j)=>
+`<div class="card">
+<span class="badge">${s.icon} ${esc(s.title)}</span>`+
+s.events.map((e,k)=>{
+
+let c=checks.find(z=>z.simulation===j&&z.eventId===e.id);
+
+let lab=c?
+({
+yes:'🟢 È successo',
+partial:'🟡 È successo qualcosa di simile',
+no:'⚪ Non è successo',
+different:'🔵 È successo qualcosa di completamente diverso'
+}[c.status])
+:'Da verificare';
+
+return `
+<div class="prediction">
+<span class="badge">${lab}</span>
+<h3>${esc(e.t)} · ${e.y} anni</h3>
+<p>${esc(e.e)}</p>
+
+<div class="options">
+<button class="opt" onclick="checkTwo(${i},${j},${k},'yes')">🟢 È successo</button>
+<button class="opt" onclick="checkTwo(${i},${j},${k},'partial')">🟡 È successo qualcosa di simile</button>
+<button class="opt" onclick="checkTwo(${i},${j},${k},'no')">⚪ Non è successo</button>
+<button class="opt" onclick="checkTwo(${i},${j},${k},'different')">🔵 È successo qualcosa di completamente diverso</button>
+</div>
+
+${c?
+`<p class="mini"><b>Realtà:</b> ${esc(c.reality||'')}</p>
+<button class="btn dark" onclick="continueTwoReality(${i},${j},${k})">↪ Continua la storia da qui</button>`
+:''}
+
+</div>`;
+}).join('')+
+`</div>`
+).join('');
+
+show('tv');
+}
+
+function checkTwo(i,j,k,status){
+
+let all=data(K.t,[]),
+v=all[i],
+e=v.simulations[j].events[k];
+
+let c0=(v.checks||[]).find(z=>z.eventId===e.id);
+
+let reality=prompt(
+`Previsione:\n\n${e.e}\n\nCosa è successo davvero per voi due?`,
+c0?.reality||''
+);
+
+if(reality===null)return;
+
+v.checks=(v.checks||[]).filter(z=>z.eventId!==e.id);
+
+v.checks.push({
+simulation:j,
+eventId:e.id,
+status,
+reality,
+date:new Date().toISOString()
+});
+
+put(K.t,all);
+verifyTwo(i);
+}
+
+function continueTwoReality(i,j,k){
+
+let all=data(K.t,[]),
+v=all[i],
+s=v.simulations[j],
+e=s.events[k],
+c=(v.checks||[]).find(z=>z.eventId===e.id);
+
+if(!c)return;
+
+let branch={
+id:Date.now(),
+fromEvent:e.id,
+status:c.status,
+reality:c.reality,
+date:new Date().toISOString(),
+title:'La vostra storia dopo la realtà',
+text:`Da questo momento la previsione lascia spazio a ciò che avete realmente vissuto: ${c.reality}`,
+next:'Il prossimo evento viene costruito partendo da questa realtà condivisa e dalle conseguenze che può avere su entrambi.'
+};
+
+v.branches=(v.branches||[]).filter(b=>b.fromEvent!==e.id);
+v.branches.push(branch);
+
+put(K.t,all);
+
+$('tvc').innerHTML=`
+<div class="card">
+<span class="badge">↪ NUOVA TRAIETTORIA A + B</span>
+<h1>${esc(branch.title)}</h1>
+<p>${esc(branch.text)}</p>
+
+<h2>Da qui in poi</h2>
+<p>${esc(branch.next)}</p>
+
+<div class="field">
+<label>Raccontate cosa è successo dopo</label>
+<textarea id="twoNext" placeholder="Il nuovo capitolo della vostra storia..."></textarea>
+</div>
+
+<button class="btn" onclick="appendTwoReality(${i},${j},${k})">Salva e continua</button>
+<button class="btn ghost" onclick="verifyTwo(${i})">← Eventi</button>
+</div>`;
+
+show('tv');
+}
+
+function appendTwoReality(i,j,k){
+
+let all=data(K.t,[]),
+v=all[i],
+e=v.simulations[j].events[k],
+txt=$('twoNext').value.trim();
+
+if(!txt)return alert('Raccontate cosa è successo dopo.');
+
+v.branches=(v.branches||[]);
+
+v.branches.push({
+id:Date.now(),
+fromEvent:e.id,
+title:'Nuovo capitolo reale A+B',
+date:new Date().toISOString(),
+reality:txt,
+text:`La vostra storia continua da ciò che è realmente successo: ${txt}`
+});
+
+put(K.t,all);
+
+alert('Nuovo capitolo A+B salvato.');
+verifyTwo(i);
 }
 
 
-/* =========================================================
-   VERIFICA IN 2
-   ========================================================= */
-
-function twoPredictions(){
-
-  if(!data.two||!data.two.lives||!data.two.lives.length){
-
-    app(`
-      <div class="card center">
-
-        <h2>🫶 Nessuna storia IN 2</h2>
-
-        <p class="muted">
-          Create prima una simulazione insieme.
-        </p>
-
-        <button class="btn blue" onclick="startTwo()">
-          Inizia IN 2
-        </button>
-
-        <button class="btn" onclick="home()">Home</button>
-
-      </div>
-    `);
-
-    return;
-  }
-
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="home()">← Home</button>
-    </div>
-
-    <div class="card">
-
-      <h2>🫶 Le vostre previsioni</h2>
-
-      <p class="muted">
-        Potete tornare qui nel tempo e verificare cosa è successo realmente.
-      </p>
-
-    </div>
-
-    ${data.two.lives.map((l,i)=>`
-
-      <div class="card">
-
-        <h3>${l.title}</h3>
-
-        ${l.events.map((e,j)=>`
-
-          <div class="prediction">
-
-            <span class="badge">
-              ${e.year===0?"Inizio":"Anno "+e.year}
-            </span>
-
-            <strong>${esc(e.title)}</strong>
-
-            <p>${esc(e.text)}</p>
-
-            <button class="btn purple"
-              onclick="openTwoVerification(${i},${j})">
-              Verifica
-            </button>
-
-          </div>
-
-        `).join("")}
-
-      </div>
-
-    `).join("")}
-  `);
-}
-
-function openTwoVerification(li,ei){
-
-  const e=data.two.lives[li].events[ei];
-
-  const old=e.reality||{};
-
-  app(`
-    <div class="nav">
-
-      <button class="btn" onclick="openTwoLife(${li})">
-        ← Storia
-      </button>
-
-    </div>
-
-    <div class="card">
-
-      <span class="badge">
-        ${e.year===0?"Situazione iniziale":"Anno "+e.year}
-      </span>
-
-      <h2>${esc(e.title)}</h2>
-
-      <p>${esc(e.text)}</p>
-
-    </div>
-
-    <div class="card">
-
-      <h3>🔎 Che cosa è successo davvero?</h3>
-
-      <button class="choice"
-        onclick="checkTwo(${li},${ei},'yes')">
-        🟢 È successo
-      </button>
-
-      <button class="choice"
-        onclick="checkTwo(${li},${ei},'partial')">
-        🟡 È successo qualcosa di simile
-      </button>
-
-      <button class="choice"
-        onclick="checkTwo(${li},${ei},'no')">
-        ⚪ Non è successo
-      </button>
-
-      <button class="choice"
-        onclick="checkTwo(${li},${ei},'different')">
-        🔵 È successo qualcosa di completamente diverso
-      </button>
-
-      <hr>
-
-      <label>Raccontate cosa è successo realmente</label>
-
-      <textarea id="twoReality">${esc(old.text||"")}</textarea>
-
-      <button class="btn green"
-        onclick="continueTwoReality(${li},${ei})">
-        ✨ Continua la vostra storia da qui
-      </button>
-
-    </div>
-  `);
-}
-
-function checkTwo(li,ei,status){
-
-  const e=data.two.lives[li].events[ei];
-
-  if(!e.reality)e.reality={};
-
-  e.reality.status=status;
-
-  data.two.lives[li].events[ei]=e;
-
-  saveAll();
-
-  const labels={
-    yes:"🟢 È successo",
-    partial:"🟡 È successo qualcosa di simile",
-    no:"⚪ Non è successo",
-    different:"🔵 È successo qualcosa di completamente diverso"
-  };
-
-  const box=document.getElementById("twoReality");
-
-  if(box){
-
-    box.insertAdjacentHTML(
-      "beforebegin",
-      `<div class="status">${labels[status]}</div>`
-    );
-  }
-}
-
-function continueTwoReality(li,ei){
-
-  const l=data.two.lives[li];
-  const e=l.events[ei];
-
-  const text=(document.getElementById("twoReality")?.value||"").trim();
-
-  if(!text){
-    alert("Raccontate prima cosa è successo realmente.");
-    return;
-  }
-
-  if(!e.reality)e.reality={};
-
-  e.reality.text=text;
-
-  const A=data.two.personA;
-  const B=data.two.personB;
-
-  const branch={
-    id:Date.now()+"-two-reality",
-
-    title:"🌱 La vostra storia reale",
-
-    intro:
-      `Da questo momento la storia non parte più da una previsione:
-      parte da ciò che è realmente successo a ${A.name||"Persona A"}
-      e ${B.name||"Persona B"}.`,
-
-    realityOrigin:true,
-
-    sourceLife:l.title,
-
-    sourceEvent:e.title,
-
-    reality:text,
-
-    events:[
-      {
-        year:e.year,
-        title:"Il punto reale",
-        text:`Quello che è successo realmente: ${text}`,
-        prediction:false
-      },
-      {
-        year:e.year,
-        title:"La conseguenza per entrambi",
-        text:`Ciò che è successo modifica contemporaneamente la traiettoria di ${A.name||"Persona A"} e ${B.name||"Persona B"}.`,
-        prediction:false
-      },
-      {
-        year:e.year+1,
-        title:"La nuova decisione",
-        text:`La realtà vissuta crea una nuova scelta che dovrete affrontare insieme.`,
-        prediction:true
-      },
-      {
-        year:3,
-        title:"Il nuovo equilibrio",
-        text:`Le vostre esigenze, paure e desideri vengono nuovamente messi in relazione con ciò che è realmente accaduto.`,
-        prediction:true
-      },
-      {
-        year:5,
-        title:"La traiettoria che nasce dalla realtà",
-        text:`Questa volta il futuro non parte dalla previsione iniziale, ma dalla vostra esperienza reale.`,
-        prediction:true
-      }
-    ]
-  };
-
-  data.two.lives.push(branch);
-
-  saveAll();
-
-  app(`
-    <div class="card center">
-
-      <h2>🌱 La vostra storia continua</h2>
-
-      <p>
-        Quello che è successo davvero è diventato
-        il nuovo punto di partenza della vostra storia.
-      </p>
-
-      <button class="btn blue"
-        onclick="openTwoLife(${data.two.lives.length-1})">
-        Continua la nuova traiettoria
-      </button>
-
-      <button class="btn purple"
-        onclick="twoPredictions()">
-        Le vostre previsioni
-      </button>
-
-    </div>
-  `);
-}
-
-
-/* =========================================================
-   E ADESSO? — MOTORE DINAMICO E CONTINUABILE
-   ========================================================= */
-
-/*
-  Questo è l'unico modulo modificato rispetto al codice fornito.
-
-  Il motore:
-  - legge il dilemma reale;
-  - individua automaticamente l'area narrativa;
-  - costruisce scenari A e B specifici;
-  - crea conseguenze concatenate;
-  - introduce un imprevisto;
-  - crea un bivio successivo;
-  - mantiene il punto di partenza;
-  - permette di tornare dopo e registrare la realtà;
-  - permette di continuare la storia da ciò che è realmente accaduto.
-*/
-
-function nowDetectType(text){
-
-  const t=(text||"").toLowerCase();
-
-  if(
-    /lavor|stipend|contratt|licenzi|colloqui|azienda|ufficio|impiego|carriera|dimetter|assumer/.test(t)
-  ){
-    return "work";
-  }
-
-  if(
-    /messagg|scriver|telefon|contatt|ex|fidanz|fidanzat|marit|moglie|coppia|relazion|amore|incontr|uscire con/.test(t)
-  ){
-    return "relationship";
-  }
-
-  if(
-    /casa|affitto|mutuo|comprare|trasfer|vendere|trasloco|abitazion|appartamento/.test(t)
-  ){
-    return "home";
-  }
-
-  if(
-    /soldi|debito|prestito|banca|pagare|finanzi|spesa|budget|econom/.test(t)
-  ){
-    return "money";
-  }
-
-  if(
-    /studio|universit|corso|esame|scuola|formazione|imparare/.test(t)
-  ){
-    return "study";
-  }
-
-  if(
-    /viaggio|vacanz|partire|volo|hotel|destinazion/.test(t)
-  ){
-    return "travel";
-  }
-
-  if(
-    /amic|famiglia|genitor|figlio|figlia|fratell|sorell/.test(t)
-  ){
-    return "family";
-  }
-
-  return "general";
-}
-
-
-function nowQuestions(type){
-
-  const common={
-    work:[
-      "Se scegli di agire, qual è il primo passo concreto che saresti disposto/a a fare?",
-      "Se scegli di aspettare, cosa speri cambi nel frattempo?",
-      "Quale conseguenza lavorativa o economica temi maggiormente?"
-    ],
-
-    relationship:[
-      "Se scegli di agire, cosa vorresti ottenere concretamente dall'altra persona?",
-      "Se scegli di aspettare, cosa speri accada spontaneamente?",
-      "Quale risposta o reazione temi maggiormente?"
-    ],
-
-    home:[
-      "Qual è la cosa concreta che dovrebbe cambiare perché questa scelta abbia senso?",
-      "Se aspetti, cosa speri di ottenere prima di decidere?",
-      "Quale rischio pratico legato alla casa ti preoccupa di più?"
-    ],
-
-    money:[
-      "Qual è il primo risultato economico concreto che vorresti ottenere?",
-      "Se aspetti, cosa speri di poter migliorare prima di agire?",
-      "Quale conseguenza economica vuoi assolutamente evitare?"
-    ],
-
-    study:[
-      "Qual è il primo passo concreto che faresti per avvicinarti al risultato?",
-      "Se aspetti, cosa pensi possa cambiare nel frattempo?",
-      "Quale difficoltà potrebbe farti cambiare idea?"
-    ],
-
-    travel:[
-      "Qual è la cosa che renderebbe questa scelta davvero soddisfacente?",
-      "Se aspetti, cosa vorresti ottenere prima di partire o decidere?",
-      "Quale imprevisto ti preoccupa maggiormente?"
-    ],
-
-    family:[
-      "Qual è il primo passo che vorresti compiere concretamente?",
-      "Se aspetti, cosa speri possa cambiare nella situazione?",
-      "Quale reazione della famiglia temi maggiormente?"
-    ],
-
-    general:[
-      "Qual è il primo passo concreto che faresti se decidessi di agire?",
-      "Se scegliessi di aspettare, cosa speri cambiasse nel frattempo?",
-      "Qual è la conseguenza che temi maggiormente?"
-    ]
-  };
-
-  return common[type]||common.general;
-}
-
+/* =========================
+   E ADESSO?
+   ========================= */
 
 function startNow(){
 
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="home()">← Home</button>
-    </div>
+$('now_dilemma').value='';
+$('now_pathA').value='';
+$('now_pathB').value='';
+$('now_desire').value='';
+$('now_fear').value='';
 
-    <div class="card">
+N={
+a:{},
+i:0,
+q:[],
+type:'decision',
+r:null,
+sessionId:null
+};
 
-      <h2>⚡ E ADESSO? — Il bivio immediato</h2>
-
-      <p class="muted">
-        Racconta una situazione reale che stai vivendo.
-        Non serve sapere già quale strada scegliere:
-        il sistema costruirà il percorso partendo dal tuo caso concreto.
-      </p>
-
-      <label>1. Qual è il tuo dilemma o situazione?</label>
-
-      <textarea id="now_dilemma"
-        placeholder="Es. Sto pensando di scrivere a una persona ma non so se farlo..."></textarea>
-
-      <label>2. Qual è l'opzione A?</label>
-
-      <input id="now_pathA"
-        placeholder="Es. Scrivergli / Accettare il lavoro / Comprare casa">
-
-      <label>3. Qual è l'opzione B?</label>
-
-      <input id="now_pathB"
-        placeholder="Es. Aspettare / Rifiutare / Rimandare">
-
-      <label>4. Cosa desideri ottenere?</label>
-
-      <input id="now_desire"
-        placeholder="Es. Capire cosa prova / Migliorare la mia situazione">
-
-      <label>5. Qual è la tua paura o blocco principale?</label>
-
-      <textarea id="now_fear"
-        placeholder="Es. Temo una risposta negativa, di pentirmi o di perdere un'occasione..."></textarea>
-
-      <br>
-
-      <button class="btn orange"
-        style="width:100%;padding:15px;font-size:16px;"
-        onclick="generateNowScenarios()">
-        ⚡ Costruisci il mio percorso
-      </button>
-
-    </div>
-
-    <div class="notice">
-      <strong>Come funziona?</strong>
-      <p style="margin-top:6px;">
-        Prima partiamo dalla situazione reale. Poi vengono esplorate
-        le due direzioni principali, le conseguenze, un possibile
-        imprevisto e un bivio successivo. Potrai tornare in futuro
-        per raccontare cosa è realmente successo.
-      </p>
-    </div>
-  `);
+show('ni');
 }
 
 
 function generateNowScenarios(){
 
-  const dilemma=document.getElementById("now_dilemma").value.trim();
+const dilemma=$('now_dilemma').value.trim();
+const pathA=$('now_pathA').value.trim()||'Fare il passo';
+const pathB=$('now_pathB').value.trim()||'Aspettare / non agire';
+const desire=$('now_desire').value.trim()||'Ottenere chiarezza';
+const fear=$('now_fear').value.trim()||"L'incertezza";
 
-  const pathA=
-    document.getElementById("now_pathA").value.trim()
-    ||"Agire e fare il primo passo";
+if(!dilemma){
+alert('Inserisci prima il tuo dilemma o la situazione.');
+return;
+}
 
-  const pathB=
-    document.getElementById("now_pathB").value.trim()
-    ||"Aspettare e non agire subito";
+N={
+a:{
+dilemma,
+pathA,
+pathB,
+desire,
+fear
+},
+i:0,
+q:[],
+type:'decision',
+r:null,
+sessionId:Date.now()
+};
 
-  const desire=
-    document.getElementById("now_desire").value.trim()
-    ||"Ottenere un chiarimento";
+N.r=buildNow();
 
-  const fear=
-    document.getElementById("now_fear").value.trim()
-    ||"Il timore di sbagliare";
+renderNR();
 
-  if(!dilemma){
-    alert("Racconta prima il dilemma o la situazione.");
-    return;
-  }
-
-  const type=nowDetectType(dilemma);
-
-  const questions=nowQuestions(type);
-
-  const session={
-    id:Date.now(),
-
-    dilemma:dilemma,
-
-    pathA:pathA,
-
-    pathB:pathB,
-
-    desire:desire,
-
-    fear:fear,
-
-    type:type,
-
-    questions:questions,
-
-    followAnswers:[],
-
-    createdAt:new Date().toISOString(),
-
-    realityOutcome:"",
-
-    realityStatus:"",
-
-    branchHistory:[]
-  };
-
-  data.currentNow=session;
-
-  data.nowSessions.push(session);
-
-  saveAll();
-
-  renderNowQuestions(0);
+show('nr');
 }
 
 
-function renderNowQuestions(i){
-
-  const n=data.currentNow;
-
-  if(!n)return home();
-
-  const q=n.questions[i];
-
-  app(`
-    <div class="nav">
-
-      <button class="btn" onclick="startNow()">
-        ← Nuovo bivio
-      </button>
-
-      <span class="badge">
-        Domanda ${i+1} / ${n.questions.length}
-      </span>
-
-    </div>
-
-    <div class="card">
-
-      <h2>⚡ Prima di costruire la storia</h2>
-
-      <p class="muted" style="margin-bottom:18px;">
-        Questa risposta serve a rendere lo scenario più vicino
-        alla situazione che stai realmente vivendo.
-      </p>
-
-      <h3>${esc(q)}</h3>
-
-      <textarea id="nowFollowAnswer"
-        placeholder="Scrivi la tua risposta..."></textarea>
-
-      <button class="btn orange"
-        onclick="saveNowQuestion(${i})">
-        Continua
-      </button>
-
-    </div>
-  `);
+function beginNow(forced){
+generateNowScenarios();
 }
 
 
-function saveNowQuestion(i){
+function buildNow(){
 
-  const val=
-    (document.getElementById("nowFollowAnswer")?.value||"").trim();
+const a=N.a||{};
 
-  if(!val){
-    alert("Rispondi prima alla domanda.");
-    return;
-  }
+const d=a.dilemma||'la situazione che stai vivendo';
+const A=a.pathA||'Fare il passo';
+const B=a.pathB||'Aspettare / non agire';
+const desire=a.desire||'capire cosa vuoi davvero';
+const fear=a.fear||"l'incertezza";
 
-  data.currentNow.followAnswers[i]=val;
+return{
 
-  const next=i+1;
+summary:
+`Al centro c'è questo: ${d}. Da una parte c'è ${A}; dall'altra ${B}. Il tuo obiettivo sembra essere ${desire}, mentre il principale ostacolo è ${fear}. La simulazione non decide per te: mette in scena conseguenze diverse che potresti osservare.`,
 
-  if(next<data.currentNow.questions.length){
+A:{
+title:A,
 
-    saveAll();
+opening:
+`Scegli ${A}. Il primo cambiamento è che la situazione smette di restare soltanto nella tua testa e produce una risposta concreta. Potresti ottenere informazioni che oggi non hai, anche se la risposta non fosse quella sperata.`,
 
-    renderNowQuestions(next);
+weeks:
+`Nelle prime settimane potresti attraversare una fase di tensione e poi di maggiore chiarezza. Una risposta positiva può aprire un nuovo passo; una risposta diversa da quella desiderata può costringerti a ridefinire ciò che vuoi davvero.`,
 
-  }else{
+months:
+`Nei mesi successivi la conseguenza più importante non è necessariamente il risultato iniziale, ma ciò che fai dopo aver ricevuto informazioni reali. La scelta apre un secondo bivio.`,
 
-    saveAll();
+year:
+`A distanza di tempo, ${A.toLowerCase()} può aver trasformato il modo in cui guardi a questa situazione. Anche se l'esito non coincide con il desiderio iniziale, hai più elementi concreti su cui costruire il prossimo capitolo.`
+},
 
-    buildNowNarrative();
-  }
+B:{
+title:B,
+
+opening:
+`Scegli ${B}. Nell'immediato proteggi l'equilibrio attuale e riduci il rischio di una reazione che temi. La situazione però continua a vivere dentro di te e potrebbe richiedere un nuovo momento di scelta.`,
+
+weeks:
+`Nelle prime settimane puoi guadagnare distanza e osservare meglio ciò che accade. Allo stesso tempo, se nulla cambia, il dubbio potrebbe tornare a farsi sentire.`,
+
+months:
+`Nei mesi successivi qualcosa può evolvere autonomamente oppure rimanere fermo. In entrambi i casi emergerà una nuova informazione: quanto questa situazione pesa davvero rispetto alla tua vita quotidiana.`,
+
+year:
+`A distanza di tempo, ${B.toLowerCase()} può averti portato verso una direzione diversa da quella immaginata oggi. Potresti scoprire che aspettare era solo una pausa oppure che quella pausa ti ha permesso di capire meglio cosa desideri.`
+},
+
+C:{
+title:'La terza via: succede qualcosa che non avevi previsto',
+
+opening:
+`La decisione non si sviluppa esattamente secondo A o B. Arriva una nuova informazione, una persona, un'occasione o un cambiamento esterno che modifica il problema iniziale.`,
+
+weeks:
+`Nelle prime settimane cambia il significato stesso del dilemma. Quello che sembrava essere il punto centrale potrebbe non esserlo più.`,
+
+months:
+`Nei mesi successivi sei chiamato/a a scegliere partendo da una situazione nuova. Potresti mantenere una parte di A, una parte di B oppure prendere una direzione completamente diversa.`,
+
+year:
+`A distanza di tempo potresti guardare indietro e accorgerti che l'imprevisto ha fatto nascere una storia che non potevi costruire partendo soltanto dalle due opzioni iniziali.`
+}
+
+};
 }
 
 
-function nowAnswer(n,i){
+function renderNR(){
 
-  return n.followAnswers?.[i]||"";
+const r=N.r,
+a=N.a;
+
+$('nrc').innerHTML=`
+
+<div class="card">
+<h2>🔎 Il punto di partenza</h2>
+<p>${esc(r.summary)}</p>
+</div>
+
+<div class="card">
+<span class="badge">🟢 OPZIONE A</span>
+<h2>${esc(r.A.title)}</h2>
+<p>${esc(r.A.opening)}</p>
+
+<div class="event-node">
+<b>Prime settimane</b>
+<p>${esc(r.A.weeks)}</p>
+</div>
+
+<div class="event-node">
+<b>Nei mesi successivi</b>
+<p>${esc(r.A.months)}</p>
+</div>
+
+<div class="event-node">
+<b>Più avanti</b>
+<p>${esc(r.A.year)}</p>
+</div>
+</div>
+
+<div class="card">
+<span class="badge">🔵 OPZIONE B</span>
+<h2>${esc(r.B.title)}</h2>
+<p>${esc(r.B.opening)}</p>
+
+<div class="event-node">
+<b>Prime settimane</b>
+<p>${esc(r.B.weeks)}</p>
+</div>
+
+<div class="event-node">
+<b>Nei mesi successivi</b>
+<p>${esc(r.B.months)}</p>
+</div>
+
+<div class="event-node">
+<b>Più avanti</b>
+<p>${esc(r.B.year)}</p>
+</div>
+</div>
+
+<div class="card">
+<span class="badge">🎲 IMPREVISTO</span>
+<h2>${esc(r.C.title)}</h2>
+<p>${esc(r.C.opening)}</p>
+
+<div class="event-node">
+<b>Prime settimane</b>
+<p>${esc(r.C.weeks)}</p>
+</div>
+
+<div class="event-node">
+<b>Nei mesi successivi</b>
+<p>${esc(r.C.months)}</p>
+</div>
+
+<div class="event-node">
+<b>Più avanti</b>
+<p>${esc(r.C.year)}</p>
+</div>
+</div>
+
+<div class="card">
+<h3>⚖️ Cosa confrontare</h3>
+<p>Non esiste un risultato garantito. Osserva quale conseguenza ti sembra più importante, quale rischio sei disposto/a ad accettare e quale informazione ti manca prima di decidere.</p>
+</div>
+
+`;
 }
 
 
-function buildNowNarrative(){
+function nowSim(){
 
-  const n=data.currentNow;
+const r=N.r;
 
-  const type=n.type;
+$('nsc').innerHTML=`
 
-  const a0=nowAnswer(n,0);
-  const a1=nowAnswer(n,1);
-  const a2=nowAnswer(n,2);
+<div class="life">
+<span class="badge">🟢 A · ${esc(r.A.title)}</span>
 
-  const typeText={
-    work:"lavorativa",
-    relationship:"relazionale",
-    home:"abitativa",
-    money:"economica",
-    study:"formativa",
-    travel:"legata a un viaggio o a uno spostamento",
-    family:"familiare",
-    general:"personale"
-  }[type]||"personale";
+<h3>Tra poco</h3>
+<p>${esc(r.A.weeks)}</p>
 
-  const scenarioA={
-    title:`🟢 Se scegli: ${n.pathA}`,
+<h3>Più avanti</h3>
+<p>${esc(r.A.months)}</p>
 
-    intro:
-      `Parti dalla situazione che hai descritto e scegli di agire attraverso "${n.pathA}". `+
-      `Il primo passo che hai indicato è: "${a0}". `+
-      `L'obiettivo che guida la scelta è "${n.desire}".`,
+<h3>Tra circa un anno</h3>
+<p>${esc(r.A.year)}</p>
+</div>
 
-    events:[
-      {
-        stage:"inizio",
-        title:"Il primo movimento",
-        text:
-          `La situazione cambia perché smetti di limitarti a immaginare cosa potrebbe succedere. `+
-          `Il primo passo diventa "${a0}". `+
-          `La scelta riguarda una situazione ${typeText} e porta subito nuove informazioni da valutare.`,
-        prediction:true
-      },
-      {
-        stage:"conseguenza",
-        title:"La prima risposta della realtà",
-        text:
-          `Dopo il primo passo arriva una risposta, un segnale o una conseguenza. `+
-          `Non è necessariamente quella desiderata: il valore di questa fase è capire `+
-          `cosa cambia davvero quando l'azione entra nella realtà.`,
-        prediction:true
-      },
-      {
-        stage:"emozione",
-        title:"Quello che senti dopo",
-        text:
-          `La tensione iniziale può lasciare spazio a maggiore chiarezza, ma anche a nuovi dubbi. `+
-          `La paura principale che hai indicato — "${n.fear}" — diventa il punto da osservare più attentamente.`,
-        prediction:true
-      },
-      {
-        stage:"bivio",
-        title:"Il secondo bivio",
-        text:
-          `La situazione non finisce con la prima scelta. `+
-          `Arriva un momento in cui devi decidere se insistere, modificare il modo di agire `+
-          `oppure fermarti davanti alle nuove informazioni.`,
-        prediction:true
-      },
-      {
-        stage:"imprevisto",
-        title:"L'imprevisto",
-        text:
-          `Un elemento che non dipende completamente da te può cambiare il percorso: `+
-          `una risposta diversa da quella attesa, un'opportunità inattesa, un ritardo `+
-          `oppure una nuova informazione che modifica il significato della scelta iniziale.`,
-        prediction:true
-      },
-      {
-        stage:"sviluppo",
-        title:"La conseguenza successiva",
-        text:
-          `A questo punto l'obiettivo "${n.desire}" viene rivalutato alla luce di ciò che è realmente accaduto. `+
-          `Potresti scoprire che ciò che cercavi all'inizio non coincide perfettamente `+
-          `con ciò che ora ti serve.`,
-        prediction:true
-      },
-      {
-        stage:"risultato",
-        title:"Dove può portare questa strada",
-        text:
-          `La direzione scelta porta verso una situazione più definita. `+
-          `Non significa che il risultato sia garantito: la storia mostra una possibile evoluzione `+
-          `partendo dalle informazioni che hai fornito oggi.`,
-        prediction:true
-      }
-    ]
-  };
+<div class="life">
+<span class="badge">🔵 B · ${esc(r.B.title)}</span>
 
+<h3>Tra poco</h3>
+<p>${esc(r.B.weeks)}</p>
 
-  const scenarioB={
-    title:`🔵 Se scegli: ${n.pathB}`,
+<h3>Più avanti</h3>
+<p>${esc(r.B.months)}</p>
 
-    intro:
-      `In questa direzione scegli di non compiere subito il passo "${n.pathA}". `+
-      `La tua attesa ha però una funzione precisa: "${a1}".`,
+<h3>Tra circa un anno</h3>
+<p>${esc(r.B.year)}</p>
+</div>
 
-    events:[
-      {
-        stage:"inizio",
-        title:"La situazione rimane aperta",
-        text:
-          `Decidere di aspettare non significa necessariamente non fare nulla. `+
-          `La situazione rimane osservabile mentre raccogli nuovi segnali e valuti cosa accade senza intervenire subito.`,
-        prediction:true
-      },
-      {
-        stage:"conseguenza",
-        title:"Quello che cambia comunque",
-        text:
-          `Anche senza agire, il tempo modifica qualcosa. `+
-          `Potrebbe arrivare una nuova informazione, una proposta, una risposta spontanea `+
-          `oppure un cambiamento esterno che rende il bivio diverso da quello iniziale.`,
-        prediction:true
-      },
-      {
-        stage:"emozione",
-        title:"Il peso dell'attesa",
-        text:
-          `All'inizio l'attesa può ridurre la pressione legata alla scelta. `+
-          `Con il passare del tempo, però, il dubbio può tornare: "${n.fear}".`,
-        prediction:true
-      },
-      {
-        stage:"bivio",
-        title:"Il secondo bivio",
-        text:
-          `Arriva un momento in cui non scegliere diventa a sua volta una scelta. `+
-          `A quel punto potresti dover decidere se mantenere l'attesa, cambiare strategia `+
-          `oppure compiere comunque un passo diverso da quello iniziale.`,
-        prediction:true
-      },
-      {
-        stage:"imprevisto",
-        title:"L'imprevisto",
-        text:
-          `Qualcosa può accadere senza essere stato programmato: `+
-          `una persona può muoversi per prima, un'opportunità può cambiare, `+
-          `un termine può avvicinarsi oppure una nuova possibilità può rendere meno importante il dilemma originario.`,
-        prediction:true
-      },
-      {
-        stage:"sviluppo",
-        title:"Una nuova lettura della situazione",
-        text:
-          `Le nuove informazioni possono modificare ciò che desideri davvero ottenere. `+
-          `Il tuo obiettivo "${n.desire}" viene quindi osservato da una prospettiva diversa.`,
-        prediction:true
-      },
-      {
-        stage:"risultato",
-        title:"Dove può portare questa strada",
-        text:
-          `La situazione arriva a un punto più definito, ma attraverso un percorso differente. `+
-          `La storia non stabilisce quale risultato avverrà: descrive una possibile evoluzione della scelta di aspettare.`,
-        prediction:true
-      }
-    ]
-  };
+<div class="life">
+<span class="badge">🎲 IMPREVISTO</span>
 
+<h3>Tra poco</h3>
+<p>${esc(r.C.weeks)}</p>
 
-  const third={
-    title:"🟣 Se emerge una terza possibilità",
+<h3>Più avanti</h3>
+<p>${esc(r.C.months)}</p>
 
-    intro:
-      `Tra agire e aspettare può comparire una strada che all'inizio non avevi considerato.`+
-      `Questa possibilità nasce dalle informazioni che emergeranno durante il percorso.`,
+<h3>Tra circa un anno</h3>
+<p>${esc(r.C.year)}</p>
+</div>
 
-    events:[
-      {
-        stage:"apertura",
-        title:"Una possibilità che non avevi considerato",
-        text:
-          `La situazione può cambiare abbastanza da rendere possibile una soluzione diversa `+
-          `da "${n.pathA}" e "${n.pathB}".`,
-        prediction:true
-      },
-      {
-        stage:"scelta",
-        title:"Il compromesso possibile",
-        text:
-          `Potresti scoprire che non devi necessariamente scegliere tra due estremi. `+
-          `Una modifica al modo in cui affronti il problema può proteggere parte del tuo obiettivo "${n.desire}".`,
-        prediction:true
-      },
-      {
-        stage:"prova",
-        title:"La verifica nella realtà",
-        text:
-          `La terza strada viene messa alla prova da una situazione concreta. `+
-          `La risposta reale determinerà se questa possibilità rimarrà aperta o verrà abbandonata.`,
-        prediction:true
-      },
-      {
-        stage:"sviluppo",
-        title:"Una nuova direzione",
-        text:
-          `Ciò che oggi sembra una soluzione secondaria può diventare il percorso principale `+
-          `se le informazioni che arriveranno renderanno le prime due opzioni meno adatte.`,
-        prediction:true
-      }
-    ]
-  };
+`;
 
+$('nowRealityInput').value=(N.a.realityOutcome||'');
 
-  n.scenarios={
-    A:scenarioA,
-    B:scenarioB,
-    C:third
-  };
-
-  n.timeline=[
-    {
-      label:"Oggi",
-      text:
-        `Il punto di partenza è il dilemma: "${n.dilemma}".`
-    },
-    {
-      label:"Primo passo",
-      text:
-        `Le due direzioni principali sono "${n.pathA}" e "${n.pathB}".`
-    },
-    {
-      label:"Sviluppo",
-      text:
-        `Le conseguenze dipendono dalle informazioni e dalle risposte che arriveranno realmente.`
-    },
-    {
-      label:"Bivio successivo",
-      text:
-        `La prima decisione non chiude necessariamente la storia: può aprire un secondo bivio.`
-    },
-    {
-      label:"Imprevisto",
-      text:
-        `Un elemento esterno può modificare il percorso iniziale.`
-    },
-    {
-      label:"Verifica",
-      text:
-        `Potrai tornare qui e confrontare la storia con ciò che sarà realmente accaduto.`
-    }
-  ];
-
-  saveAll();
-
-  renderNowResults();
+show('ns');
 }
 
 
-function openNowSession(index){
+function saveNow(){
 
-  data.currentNow=data.nowSessions[index];
+const x=data(K.n,[]);
 
-  /*
-    Compatibilità con eventuali vecchie sessioni create
-    con la versione precedente.
-  */
-  if(!data.currentNow.scenarios){
-    rebuildOldNowSession(data.currentNow);
-  }
+const session={
+id:N.sessionId||Date.now(),
+date:new Date().toISOString(),
+answers:N.a,
+result:N.r,
+realityOutcome:N.a.realityOutcome||''
+};
 
-  renderNowResults();
-}
+const idx=x.findIndex(v=>v.id===session.id);
 
+if(idx>=0)
+x[idx]=session;
+else
+x.unshift(session);
 
-function rebuildOldNowSession(n){
+put(K.n,x.slice(0,30));
 
-  if(!n)return;
-
-  n.type=nowDetectType(n.dilemma||"");
-
-  n.questions=nowQuestions(n.type);
-
-  n.followAnswers=[
-    n.pathA||"",
-    n.pathB||"",
-    n.fear||""
-  ];
-
-  n.scenarios=null;
-
-  buildNowNarrative();
-}
-
-
-function renderNowResults(){
-
-  const n=data.currentNow;
-
-  if(!n)return home();
-
-  if(!n.scenarios){
-
-    buildNowNarrative();
-    return;
-  }
-
-  const A=n.scenarios.A;
-  const B=n.scenarios.B;
-  const C=n.scenarios.C;
-
-  app(`
-    <div class="nav">
-
-      <button class="btn" onclick="predictions()">
-        ← Le mie previsioni
-      </button>
-
-      <button class="btn" onclick="home()">
-        Home
-      </button>
-
-    </div>
-
-
-    <div class="card">
-
-      <span class="badge">⚡ E ADESSO?</span>
-
-      <h2>Il tuo bivio</h2>
-
-      <p class="muted">
-        <strong>Situazione:</strong>
-        "${esc(n.dilemma)}"
-      </p>
-
-      <hr>
-
-      <p>
-        <strong>Obiettivo:</strong>
-        ${esc(n.desire)}
-      </p>
-
-      <p style="margin-top:7px;">
-        <strong>Paura/blocco:</strong>
-        ${esc(n.fear)}
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <h2>🧭 Il percorso si divide</h2>
-
-      <p class="muted">
-        Le direzioni non vengono presentate come certezze.
-        Sono possibili sviluppi narrativi costruiti a partire
-        dalla situazione che hai descritto.
-      </p>
-
-      <div class="notice">
-        <strong>Il punto importante</strong>
-        <p style="margin-top:6px;">
-          La storia non termina con la prima scelta.
-          Ogni direzione può generare una conseguenza,
-          un secondo bivio e un imprevisto.
-        </p>
-      </div>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>${A.title}</h3>
-
-      <p class="muted">
-        ${esc(A.intro)}
-      </p>
-
-      ${A.events.map((e,i)=>`
-
-        <div class="event">
-
-          <span class="badge">
-            ${i===0?"Inizio":i===1?"Prima conseguenza":i===2?"Emozioni":i===3?"Secondo bivio":i===4?"Imprevisto":i===5?"Sviluppo":"Possibile risultato"}
-          </span>
-
-          <strong>${esc(e.title)}</strong>
-
-          <p>${esc(e.text)}</p>
-
-          <button class="btn purple"
-            onclick="openNowPrediction('A',${i})">
-            🔮 Verifica questo passaggio
-          </button>
-
-        </div>
-
-      `).join("")}
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>${B.title}</h3>
-
-      <p class="muted">
-        ${esc(B.intro)}
-      </p>
-
-      ${B.events.map((e,i)=>`
-
-        <div class="event">
-
-          <span class="badge">
-            ${i===0?"Inizio":i===1?"Prima conseguenza":i===2?"Emozioni":i===3?"Secondo bivio":i===4?"Imprevisto":i===5?"Sviluppo":"Possibile risultato"}
-          </span>
-
-          <strong>${esc(e.title)}</strong>
-
-          <p>${esc(e.text)}</p>
-
-          <button class="btn purple"
-            onclick="openNowPrediction('B',${i})">
-            🔮 Verifica questo passaggio
-          </button>
-
-        </div>
-
-      `).join("")}
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>${C.title}</h3>
-
-      <p class="muted">
-        ${esc(C.intro)}
-      </p>
-
-      ${C.events.map((e,i)=>`
-
-        <div class="event">
-
-          <span class="badge">
-            ${i===0?"Apertura":i===1?"Scelta":i===2?"Prova":"Sviluppo"}
-          </span>
-
-          <strong>${esc(e.title)}</strong>
-
-          <p>${esc(e.text)}</p>
-
-        </div>
-
-      `).join("")}
-
-    </div>
-
-
-    <div class="card">
-
-      <h2>📅 La tua Timeline</h2>
-
-      ${n.timeline.map(t=>`
-
-        <div class="event">
-
-          <strong>${esc(t.label)}</strong>
-
-          <p>${esc(t.text)}</p>
-
-        </div>
-
-      `).join("")}
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>🔎 E quando saprai come è andata davvero?</h3>
-
-      <p class="muted" style="margin-bottom:12px;">
-        Torna qui quando vuoi. Racconta cosa è successo nella realtà
-        e la storia potrà continuare da quel punto, invece di ripartire
-        dal dilemma iniziale.
-      </p>
-
-      <label>Com'è andata realmente?</label>
-
-      <textarea id="nowRealityInput"
-        placeholder="Racconta cosa hai fatto, cosa è successo, come ha reagito la situazione e cosa è cambiato...">${esc(n.realityOutcome||"")}</textarea>
-
-      <button class="btn green"
-        onclick="saveNowReality()">
-        🌱 Salva la realtà e continua
-      </button>
-
-    </div>
-
-
-    ${n.realityOutcome?`
-
-      <div class="card">
-
-        <h3>🌱 La realtà registrata</h3>
-
-        <p>
-          ${esc(n.realityOutcome)}
-        </p>
-
-        <button class="btn blue"
-          onclick="continueNowFromReality()">
-          Continua la storia da qui
-        </button>
-
-      </div>
-
-    `:""}
-
-
-    <div class="card center">
-
-      <button class="btn orange"
-        onclick="startNow()">
-        ⚡ Analizza un altro bivio
-      </button>
-
-    </div>
-  `);
-}
-
-
-function openNowPrediction(branch,index){
-
-  const n=data.currentNow;
-
-  if(!n||!n.scenarios||!n.scenarios[branch]){
-    return;
-  }
-
-  const e=n.scenarios[branch].events[index];
-
-  if(!e)return;
-
-  if(!e.reality)e.reality={};
-
-  e.reality.branch=branch;
-
-  e.reality.index=index;
-
-  saveAll();
-
-  app(`
-    <div class="nav">
-
-      <button class="btn"
-        onclick="renderNowResults()">
-        ← Torna al percorso
-      </button>
-
-    </div>
-
-    <div class="card">
-
-      <span class="badge">
-        ${branch==="A"?"🟢 Percorso A":"🔵 Percorso B"}
-      </span>
-
-      <h2>${esc(e.title)}</h2>
-
-      <p>
-        ${esc(e.text)}
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>🔎 Quando arriverà questo momento...</h3>
-
-      <button class="choice"
-        onclick="setNowPredictionReality('yes')">
-        🟢 È successo
-      </button>
-
-      <button class="choice"
-        onclick="setNowPredictionReality('partial')">
-        🟡 È successo qualcosa di simile
-      </button>
-
-      <button class="choice"
-        onclick="setNowPredictionReality('no')">
-        ⚪ Non è successo
-      </button>
-
-      <button class="choice"
-        onclick="setNowPredictionReality('different')">
-        🔵 È successo qualcosa di completamente diverso
-      </button>
-
-      <hr>
-
-      <label>
-        Racconta cosa è successo davvero
-      </label>
-
-      <textarea id="nowPredictionReality"
-        placeholder="Scrivi cosa è accaduto nella realtà...">${esc(e.reality?.text||"")}</textarea>
-
-      <button class="btn green"
-        onclick="saveNowPredictionReality('${branch}',${index})">
-        Salva verifica
-      </button>
-
-    </div>
-  `);
-}
-
-
-function setNowPredictionReality(status){
-
-  const n=data.currentNow;
-
-  if(!n)return;
-
-  if(!n.pendingReality)n.pendingReality={};
-
-  n.pendingReality.status=status;
-
-  const labels={
-    yes:"🟢 È successo",
-    partial:"🟡 È successo qualcosa di simile",
-    no:"⚪ Non è successo",
-    different:"🔵 È successo qualcosa di completamente diverso"
-  };
-
-  const box=document.getElementById("nowPredictionReality");
-
-  if(box){
-
-    box.insertAdjacentHTML(
-      "beforebegin",
-      `<div class="status">${labels[status]}</div>`
-    );
-  }
-}
-
-
-function saveNowPredictionReality(branch,index){
-
-  const n=data.currentNow;
-
-  const text=
-    (document.getElementById("nowPredictionReality")?.value||"").trim();
-
-  if(!text){
-    alert("Racconta prima cosa è successo realmente.");
-    return;
-  }
-
-  const e=n.scenarios[branch].events[index];
-
-  if(!e.reality)e.reality={};
-
-  e.reality.text=text;
-
-  e.reality.status=n.pendingReality?.status||"";
-
-  n.scenarios[branch].events[index]=e;
-
-  delete n.pendingReality;
-
-  saveAll();
-
-  alert("Verifica salvata.");
-
-  renderNowResults();
+alert('Simulazione E ADESSO? salvata. Puoi tornarci per confrontarla con la realtà.');
 }
 
 
 function saveNowReality(){
 
-  const n=data.currentNow;
+const val=$('nowRealityInput').value.trim();
 
-  if(!n)return;
-
-  const val=
-    (document.getElementById("nowRealityInput")?.value||"").trim();
-
-  if(!val){
-
-    alert("Racconta prima come è andata nella realtà.");
-
-    return;
-  }
-
-  n.realityOutcome=val;
-
-  n.realitySavedAt=new Date().toISOString();
-
-  const idx=data.nowSessions.findIndex(
-    s=>s.id===n.id
-  );
-
-  if(idx>=0){
-    data.nowSessions[idx]=n;
-  }
-
-  saveAll();
-
-  renderNowRealityContinuation();
+if(!val){
+alert('Scrivi prima cosa è successo nella realtà.');
+return;
 }
 
+N.a.realityOutcome=val;
 
-function renderNowRealityContinuation(){
+saveNow();
 
-  const n=data.currentNow;
+alert('Realtà salvata. La storia può ripartire da ciò che è realmente successo.');
 
-  app(`
-    <div class="card center">
-
-      <h2>🌱 La realtà è entrata nella storia</h2>
-
-      <p class="muted">
-        Il punto di partenza non è più soltanto quello che immaginavi:
-        ora abbiamo anche ciò che è realmente successo.
-      </p>
-
-      <div class="notice" style="text-align:left;">
-        <strong>La tua realtà</strong>
-
-        <p style="margin-top:7px;">
-          ${esc(n.realityOutcome)}
-        </p>
-      </div>
-
-      <button class="btn primary"
-        onclick="continueNowFromReality()">
-        ✨ Continua la storia da qui
-      </button>
-
-      <button class="btn"
-        onclick="renderNowResults()">
-        Torna al percorso
-      </button>
-
-    </div>
-  `);
+$('nsc').insertAdjacentHTML(
+'beforeend',
+`<div class="card" style="grid-column:1/-1">
+<span class="badge">↪ REALTÀ</span>
+<h2>La storia continua da qui</h2>
+<p>${esc(val)}</p>
+<p>Da questo momento la simulazione iniziale lascia spazio alla tua esperienza reale. Il prossimo capitolo nasce da ciò che è davvero accaduto, non da una previsione.</p>
+</div>`
+);
 }
-
-
-function continueNowFromReality(){
-
-  const n=data.currentNow;
-
-  if(!n||!n.realityOutcome){
-
-    alert("Inserisci prima cosa è successo realmente.");
-
-    return;
-  }
-
-  const reality=n.realityOutcome;
-
-  const nextId=Date.now();
-
-  const branch={
-    id:nextId,
-
-    title:"🌱 E ADESSO? — La storia dopo la realtà",
-
-    intro:
-      `Il dilemma iniziale era "${n.dilemma}". `+
-      `Ora il nuovo punto di partenza è ciò che è realmente successo: "${reality}".`,
-
-    realityOrigin:true,
-
-    sourceSession:n.id,
-
-    sourceDilemma:n.dilemma,
-
-    reality:reality,
-
-    events:[
-      {
-        stage:"realtà",
-        title:"Quello che è successo davvero",
-        text:
-          `Il nuovo punto di partenza è: ${reality}`,
-        prediction:false
-      },
-      {
-        stage:"conseguenza",
-        title:"La prima conseguenza reale",
-        text:
-          `La situazione ora deve essere letta alla luce di ciò che è realmente accaduto, non soltanto alla luce dell'ipotesi iniziale.`,
-        prediction:false
-      },
-      {
-        stage:"nuovo-bivio",
-        title:"Il nuovo bivio",
-        text:
-          `Da questo punto possono aprirsi nuove possibilità. La decisione successiva nasce dalle informazioni che hai acquisito vivendo realmente la situazione.`,
-        prediction:true
-      },
-      {
-        stage:"sviluppo",
-        title:"La nuova direzione",
-        text:
-          `La scelta successiva può essere diversa da quella che avresti fatto prima del primo evento. La realtà ha aggiunto elementi che prima non possedevi.`,
-        prediction:true
-      },
-      {
-        stage:"imprevisto",
-        title:"Il prossimo imprevisto",
-        text:
-          `Anche dopo aver conosciuto il primo esito, un nuovo elemento può cambiare il percorso e aprire una possibilità non prevista.`,
-        prediction:true
-      },
-      {
-        stage:"risultato",
-        title:"Dove può portare il nuovo percorso",
-        text:
-          `La nuova traiettoria continua partendo dall'esperienza reale appena vissuta e non dalla previsione originaria.`,
-        prediction:true
-      }
-    ]
-  };
-
-  n.branchHistory=n.branchHistory||[];
-
-  n.branchHistory.push(branch);
-
-  n.currentRealityBranch=branch;
-
-  const idx=data.nowSessions.findIndex(
-    s=>s.id===n.id
-  );
-
-  if(idx>=0){
-    data.nowSessions[idx]=n;
-  }
-
-  saveAll();
-
-  renderNowRealityBranch(branch);
-}
-
-
-function renderNowRealityBranch(branch){
-
-  app(`
-    <div class="nav">
-
-      <button class="btn"
-        onclick="renderNowResults()">
-        ← E ADESSO?
-      </button>
-
-      <button class="btn"
-        onclick="predictions()">
-        Le mie previsioni
-      </button>
-
-    </div>
-
-
-    <div class="card">
-
-      <span class="badge">
-        🌱 Percorso continuato dalla realtà
-      </span>
-
-      <h2>${esc(branch.title)}</h2>
-
-      <p class="muted">
-        ${esc(branch.intro)}
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      ${branch.events.map((e,i)=>`
-
-        <div class="event">
-
-          <span class="badge">
-            ${e.prediction?"Possibile sviluppo":"Realtà"}
-          </span>
-
-          <strong>${esc(e.title)}</strong>
-
-          <p>${esc(e.text)}</p>
-
-          ${e.prediction?`
-            <button class="btn purple"
-              onclick="openNowRealityPrediction(${i})">
-              🔮 Verifica questo nuovo passaggio
-            </button>
-          `:""}
-
-        </div>
-
-      `).join("")}
-
-    </div>
-
-
-    <div class="card center">
-
-      <button class="btn orange"
-        onclick="renderNowResults()">
-        Torna alla storia completa
-      </button>
-
-    </div>
-  `);
-}
-
-
-function openNowRealityPrediction(index){
-
-  const n=data.currentNow;
-
-  const branch=n.currentRealityBranch;
-
-  if(!branch)return;
-
-  const e=branch.events[index];
-
-  if(!e)return;
-
-  app(`
-    <div class="nav">
-
-      <button class="btn"
-        onclick="renderNowRealityBranch(n.currentRealityBranch)">
-        ← Storia reale
-      </button>
-
-    </div>
-
-    <div class="card">
-
-      <span class="badge">
-        🌱 Nuovo sviluppo
-      </span>
-
-      <h2>${esc(e.title)}</h2>
-
-      <p>${esc(e.text)}</p>
-
-    </div>
-
-
-    <div class="card">
-
-      <h3>🔎 Quando saprai come è andata</h3>
-
-      <button class="choice"
-        onclick="saveNowRealityPredictionStatus(${index},'yes')">
-        🟢 È successo
-      </button>
-
-      <button class="choice"
-        onclick="saveNowRealityPredictionStatus(${index},'partial')">
-        🟡 È successo qualcosa di simile
-      </button>
-
-      <button class="choice"
-        onclick="saveNowRealityPredictionStatus(${index},'no')">
-        ⚪ Non è successo
-      </button>
-
-      <button class="choice"
-        onclick="saveNowRealityPredictionStatus(${index},'different')">
-        🔵 È successo qualcosa di completamente diverso
-      </button>
-
-      <hr>
-
-      <label>Racconta cosa è successo realmente</label>
-
-      <textarea id="nowBranchReality"
-        placeholder="Scrivi cosa è successo...">${esc(e.reality?.text||"")}</textarea>
-
-      <button class="btn green"
-        onclick="saveNowRealityPrediction(${index})">
-        Salva e continua
-      </button>
-
-    </div>
-  `);
-}
-
-
-function saveNowRealityPredictionStatus(index,status){
-
-  const n=data.currentNow;
-
-  if(!n||!n.currentRealityBranch)return;
-
-  const e=n.currentRealityBranch.events[index];
-
-  if(!e.reality)e.reality={};
-
-  e.reality.status=status;
-
-  const labels={
-    yes:"🟢 È successo",
-    partial:"🟡 È successo qualcosa di simile",
-    no:"⚪ Non è successo",
-    different:"🔵 È successo qualcosa di completamente diverso"
-  };
-
-  const box=document.getElementById("nowBranchReality");
-
-  if(box){
-
-    box.insertAdjacentHTML(
-      "beforebegin",
-      `<div class="status">${labels[status]}</div>`
-    );
-  }
-}
-
-
-function saveNowRealityPrediction(index){
-
-  const n=data.currentNow;
-
-  if(!n||!n.currentRealityBranch)return;
-
-  const e=n.currentRealityBranch.events[index];
-
-  const text=
-    (document.getElementById("nowBranchReality")?.value||"").trim();
-
-  if(!text){
-
-    alert("Racconta prima cosa è successo realmente.");
-
-    return;
-  }
-
-  if(!e.reality)e.reality={};
-
-  e.reality.text=text;
-
-  n.currentRealityBranch.events[index]=e;
-
-  saveAll();
-
-  alert("La realtà è stata salvata.");
-
-  renderNowRealityBranch(n.currentRealityBranch);
-}
-
-
-/* =========================================================
-   PAGINE LEGALI
-   ========================================================= */
-
-function privacy(){
-
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="home()">← Home</button>
-    </div>
-
-    <div class="card">
-
-      <h2>Privacy Policy</h2>
-
-      <p>
-        E SE? è un'esperienza narrativa interattiva.
-        Le informazioni inserite dall'utente vengono utilizzate
-        per costruire le esperienze narrative all'interno del sito.
-      </p>
-
-      <p>
-        I dati delle storie e delle risposte possono essere memorizzati
-        localmente nel browser tramite localStorage.
-      </p>
-
-      <p>
-        Il sito può utilizzare servizi pubblicitari di terze parti,
-        incluso Google AdSense.
-      </p>
-
-      <p class="muted">
-        L'utente può cancellare i dati salvati tramite la funzione
-        "Cancella dati" presente nel profilo.
-      </p>
-
-    </div>
-  `);
-}
-
-function terms(){
-
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="home()">← Home</button>
-    </div>
-
-    <div class="card">
-
-      <h2>Termini di utilizzo</h2>
-
-      <p>
-        E SE? fornisce esclusivamente contenuti narrativi
-        e di intrattenimento.
-      </p>
-
-      <p>
-        Le storie generate non costituiscono previsioni certe,
-        consulenza professionale o garanzia di eventi futuri.
-      </p>
-
-      <p>
-        L'utente mantiene piena responsabilità sulle proprie decisioni
-        e sulle azioni intraprese nella vita reale.
-      </p>
-
-    </div>
-  `);
-}
-
-function notice(){
-
-  app(`
-    <div class="nav">
-      <button class="btn" onclick="home()">← Home</button>
-    </div>
-
-    <div class="card">
-
-      <h2>Note importanti</h2>
-
-      <p>
-        Le esperienze "E SE?" sono costruzioni narrative.
-        Non hanno lo scopo di prevedere il futuro.
-      </p>
-
-      <p>
-        Il confronto tra previsione e realtà serve a trasformare
-        la storia iniziale in un nuovo racconto basato sull'esperienza
-        realmente vissuta dall'utente.
-      </p>
-
-      <p>
-        Le informazioni inserite vengono utilizzate per personalizzare
-        la narrazione.
-      </p>
-
-    </div>
-  `);
-}
-
-
-/* =========================================================
-   AVVIO
-   ========================================================= */
-
-load();
-showIntro();
 
 </script>
 
