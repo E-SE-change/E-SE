@@ -363,7 +363,8 @@ const K={
   p:"ese_profile",
   l:"ese_saved_lives",
   n:"ese_now_sessions",
-  t:"ese_two_sessions"
+  t:"ese_two_sessions",
+  introSeen:"ese_intro_seen"
 };
 
 let data={
@@ -416,6 +417,59 @@ function esc(v){
     .replace(/'/g,"&#039;");
 }
 
+/* =========================================================
+   PAGINA INTRODUTTIVA (BENEFICIO / AD SENSE VALUE)
+   ========================================================= */
+
+function showIntro(){
+  app(`
+    <div class="card">
+      <h1 class="section-title center">✨ Benvenuto in E SE?</h1>
+      <p class="muted center" style="margin-bottom: 20px;">
+        Un'esperienza narrativa interattiva pensata per esplorare bivi, decisioni e scenari futuri basati sui tuoi desideri e sulla tua realtà.
+      </p>
+
+      <div class="notice">
+        <h3>📖 Come funziona questa piattaforma</h3>
+        <p style="margin-top: 6px;">
+          <strong>E SE?</strong> non è una semplice raccolta di test o oroscopi, ma un motore di simulazione narrativa che modella percorsi di vita alternativi suddivisi in archi temporali (1, 3 e 5 anni). Attraverso le risposte fornite e la configurazione del tuo profilo personale, la piattaforma genera trame ramificate uniche.
+        </p>
+      </div>
+
+      <div class="grid" style="margin: 20px 0;">
+        <div class="card home-card" style="margin:0;">
+          <div>
+            <h3>🔮 E SE? Individuale</h3>
+            <p class="small muted">Esplora tre differenti versioni del tuo futuro: la strada che scegli, quella che scarti e una terza via inattesa.</p>
+          </div>
+        </div>
+        <div class="card home-card" style="margin:0;">
+          <div>
+            <h3>🫶 E SE? IN 2</h3>
+            <p class="small muted">Condividi una situazione con un'altra persona e scoprite insieme come le decisioni incrociate plasmano il vostro legame.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice">
+        <h3>🔍 Verifica e Continuità Reale</h3>
+        <p style="margin-top: 6px;">
+          Ogni previsione generata può essere verificata nel tempo. Potrai indicare se l'evento è realmente accaduto o se la vita ha preso una piega diversa, trasformando la realtà vissuta in un nuovo ed entusiasmante punto di partenza narrativo.
+        </p>
+      </div>
+
+      <div class="center" style="margin-top: 25px;">
+        <button class="btn primary" style="font-size: 16px; padding: 15px 30px;" onclick="completeIntro()">Inizia l'esperienza</button>
+      </div>
+    </div>
+  `);
+}
+
+function completeIntro(){
+  localStorage.setItem(K.introSeen, "true");
+  home();
+}
+
 function home(){
 
   app(`
@@ -429,6 +483,7 @@ function home(){
       <button class="btn primary" onclick="startLife()">🔮 E SE? — La tua storia</button>
       <button class="btn blue" onclick="startTwo()">🫶 E SE? IN 2 — La vostra storia</button>
       <button class="btn orange" onclick="startNow()">⚡ E ADESSO? — Il prossimo passo</button>
+      <button class="btn" style="background:#20202d;" onclick="showIntro()">ℹ️ Guida e Introduzione</button>
     </div>
 
     <div class="grid">
@@ -573,6 +628,7 @@ function clearData(){
     localStorage.removeItem(K.l);
     localStorage.removeItem(K.n);
     localStorage.removeItem(K.t);
+    localStorage.removeItem(K.introSeen);
     data={
       profile:null,
       lifeAnswers:[],
@@ -582,7 +638,7 @@ function clearData(){
       now:null,
       two:null
     };
-    home();
+    showIntro();
   }
 }
 
@@ -948,9 +1004,8 @@ function openLife(i){
     <div class="card timeline">
       ${l.events.map((e,j)=>`
         <div class="event">
-          <strong>${e.year} anno — ${esc(e.title)}</strong>
-          <p>${esc(e.text)}</p>
-          ${e.prediction?`
+          <strong>${e.year} anno —${esc(e.title)}</strong>
+          <p>${esc(e.text)}</p>${e.prediction?`
             <button class="btn purple" onclick="openVerification(${i},${j})">
               🔮 Verifica questa previsione
             </button>
@@ -1070,8 +1125,7 @@ function predictions(){
 
     ${data.lives.map((l,i)=>`
       <div class="card">
-        <h3>${l.title}</h3>
-        ${l.events.map((e,j)=>`
+        <h3>${l.title}</h3>${l.events.map((e,j)=>`
           <div class="prediction">
             <strong>Anno ${e.year} — ${esc(e.title)}</strong>
             <p>${esc(e.text)}</p>
@@ -2231,7 +2285,13 @@ function notice(){
    ========================================================= */
 
 load();
-home();
+
+// Se l'utente non ha mai visto l'intro o non ha dati salvati, mostra l'intro, altrimenti va alla home
+if(!localStorage.getItem(K.introSeen)){
+  showIntro();
+} else {
+  home();
+}
 
 </script>
 
