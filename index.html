@@ -518,7 +518,7 @@ const templates=[
 {t:'Il capitolo successivo',y:5,e:`Un nuovo evento riapre una domanda che credevi superata. Questa volta non parti dalla paura iniziale: parti dall'esperienza.`}
 ],
 [
-{t:'L'imprevisto',y:1,e:`Un evento non programmato cambia la situazione. Può essere una persona, un incontro, un'occasione, un cambiamento lavorativo o semplicemente una nuova consapevolezza. Il problema iniziale assume un significato diverso.`},
+{t:'L\'imprevisto',y:1,e:`Un evento non programmato cambia la situazione. Può essere una persona, un incontro, un'occasione, un cambiamento lavorativo o semplicemente una nuova consapevolezza. Il problema iniziale assume un significato diverso.`},
 {t:'Una risposta inattesa',y:1,e:`Qualcuno o qualcosa reagisce in modo diverso da ciò che avevi previsto. Questo ti costringe a modificare il piano e a distinguere ciò che desideri veramente da ciò che pensavi di dover desiderare.`},
 {t:'La strada si apre',y:1,e:`Una possibilità che oggi non consideri diventa concreta. Non arriva necessariamente nel momento perfetto, ma proprio perché interrompe il percorso abituale può creare spazio per qualcosa di nuovo.`},
 {t:'La terza via prende forma',y:3,e:`Nel terzo anno ti trovi in una vita che non corrisponde esattamente né alla prima né alla seconda possibilità. È una traiettoria costruita da decisioni, persone e circostanze che oggi non puoi conoscere completamente.`},
@@ -647,7 +647,7 @@ v.simulations.map((s,j)=>`
 <span class="badge">${s.icon} ${esc(s.title)}</span>
 ${s.events.map((e,k)=>`
 <div class="prediction">
-<h3>${esc(e.t)} · ${e.y} anni</h3>
+<h3>${esc(e.t)} ·${e.y} anni</h3>
 <p>${esc(e.e)}</p>
 <div class="options">
 <button class="opt" onclick="checkLife(${i},${j},${k},'yes')">🟢 È successo</button>
@@ -1111,327 +1111,201 @@ verifyTwo(i);
 
 
 /* =========================
-   E ADESSO?
+   E ADESSO? (Corretto)
    ========================= */
 
 function startNow(){
+  $('now_dilemma').value='';
+  $('now_pathA').value='';$('now_pathB').value='';
+  $('now_desire').value='';$('now_fear').value='';
 
-$('now_dilemma').value='';
-$('now_pathA').value='';
-$('now_pathB').value='';
-$('now_desire').value='';
-$('now_fear').value='';
+  N={
+    a:{},
+    i:0,
+    q:[],
+    type:'decision',
+    r:null,
+    sessionId:null
+  };
 
-N={
-a:{},
-i:0,
-q:[],
-type:'decision',
-r:null,
-sessionId:null
-};
-
-show('ni');
+  show('ni');
 }
-
 
 function generateNowScenarios(){
+  const dilemma = $('now_dilemma').value.trim();
+  const pathA = $('now_pathA').value.trim() || 'Fare il passo';
+  const pathB = $('now_pathB').value.trim() || 'Aspettare / non agire';
+  const desire = $('now_desire').value.trim() || 'Ottenere chiarezza';
+  const fear = $('now_fear').value.trim() || "L'incertezza";
 
-const dilemma=$('now_dilemma').value.trim();
-const pathA=$('now_pathA').value.trim()||'Fare il passo';
-const pathB=$('now_pathB').value.trim()||'Aspettare / non agire';
-const desire=$('now_desire').value.trim()||'Ottenere chiarezza';
-const fear=$('now_fear').value.trim()||"L'incertezza";
+  if(!dilemma){
+    alert('Inserisci prima il tuo dilemma o la situazione.');
+    return;
+  }
 
-if(!dilemma){
-alert('Inserisci prima il tuo dilemma o la situazione.');
-return;
+  N = {
+    a: { dilemma, pathA, pathB, desire, fear },
+    i: 0,
+    q: [],
+    type: 'decision',
+    r: null,
+    sessionId: Date.now()
+  };
+
+  N.r = buildNow();
+
+  renderNR();
+  show('nr');
 }
-
-N={
-a:{
-dilemma,
-pathA,
-pathB,
-desire,
-fear
-},
-i:0,
-q:[],
-type:'decision',
-r:null,
-sessionId:Date.now()
-};
-
-N.r=buildNow();
-
-renderNR();
-
-show('nr');
-}
-
-
-function beginNow(forced){
-generateNowScenarios();
-}
-
 
 function buildNow(){
+  const a = N.a || {};
+  const d = a.dilemma || 'la situazione che stai vivendo';
+  const A = a.pathA || 'Fare il passo';
+  const B = a.pathB || 'Aspettare / non agire';
+  const desire = a.desire || 'capire cosa vuoi davvero';
+  const fear = a.fear || "l'incertezza";
 
-const a=N.a||{};
-
-const d=a.dilemma||'la situazione che stai vivendo';
-const A=a.pathA||'Fare il passo';
-const B=a.pathB||'Aspettare / non agire';
-const desire=a.desire||'capire cosa vuoi davvero';
-const fear=a.fear||"l'incertezza";
-
-return{
-
-summary:
-`Al centro c'è questo: ${d}. Da una parte c'è ${A}; dall'altra ${B}. Il tuo obiettivo sembra essere ${desire}, mentre il principale ostacolo è ${fear}. La simulazione non decide per te: mette in scena conseguenze diverse che potresti osservare.`,
-
-A:{
-title:A,
-
-opening:
-`Scegli ${A}. Il primo cambiamento è che la situazione smette di restare soltanto nella tua testa e produce una risposta concreta. Potresti ottenere informazioni che oggi non hai, anche se la risposta non fosse quella sperata.`,
-
-weeks:
-`Nelle prime settimane potresti attraversare una fase di tensione e poi di maggiore chiarezza. Una risposta positiva può aprire un nuovo passo; una risposta diversa da quella desiderata può costringerti a ridefinire ciò che vuoi davvero.`,
-
-months:
-`Nei mesi successivi la conseguenza più importante non è necessariamente il risultato iniziale, ma ciò che fai dopo aver ricevuto informazioni reali. La scelta apre un secondo bivio.`,
-
-year:
-`A distanza di tempo, ${A.toLowerCase()} può aver trasformato il modo in cui guardi a questa situazione. Anche se l'esito non coincide con il desiderio iniziale, hai più elementi concreti su cui costruire il prossimo capitolo.`
-},
-
-B:{
-title:B,
-
-opening:
-`Scegli ${B}. Nell'immediato proteggi l'equilibrio attuale e riduci il rischio di una reazione che temi. La situazione però continua a vivere dentro di te e potrebbe richiedere un nuovo momento di scelta.`,
-
-weeks:
-`Nelle prime settimane puoi guadagnare distanza e osservare meglio ciò che accade. Allo stesso tempo, se nulla cambia, il dubbio potrebbe tornare a farsi sentire.`,
-
-months:
-`Nei mesi successivi qualcosa può evolvere autonomamente oppure rimanere fermo. In entrambi i casi emergerà una nuova informazione: quanto questa situazione pesa davvero rispetto alla tua vita quotidiana.`,
-
-year:
-`A distanza di tempo, ${B.toLowerCase()} può averti portato verso una direzione diversa da quella immaginata oggi. Potresti scoprire che aspettare era solo una pausa oppure che quella pausa ti ha permesso di capire meglio cosa desideri.`
-},
-
-C:{
-title:'La terza via: succede qualcosa che non avevi previsto',
-
-opening:
-`La decisione non si sviluppa esattamente secondo A o B. Arriva una nuova informazione, una persona, un'occasione o un cambiamento esterno che modifica il problema iniziale.`,
-
-weeks:
-`Nelle prime settimane cambia il significato stesso del dilemma. Quello che sembrava essere il punto centrale potrebbe non esserlo più.`,
-
-months:
-`Nei mesi successivi sei chiamato/a a scegliere partendo da una situazione nuova. Potresti mantenere una parte di A, una parte di B oppure prendere una direzione completamente diversa.`,
-
-year:
-`A distanza di tempo potresti guardare indietro e accorgerti che l'imprevisto ha fatto nascere una storia che non potevi costruire partendo soltanto dalle due opzioni iniziali.`
+  return {
+    summary: `Al centro c'è questo: ${d}. Da una parte c'è ${A}; dall'altra ${B}. Il tuo obiettivo sembra essere ${desire}, mentre il principale ostacolo è ${fear}. La simulazione non decide per te: mette in scena conseguenze diverse che potresti osservare.`,
+    A: {
+      title: A,
+      opening: `Scegli ${A}. Il primo cambiamento è che la situazione smette di restare soltanto nella tua testa e produce una risposta concreta. Potresti ottenere informazioni che oggi non hai, anche se la risposta non fosse quella sperata.`,
+      weeks: `Nelle prime settimane potresti attraversare una fase di tensione e poi di maggiore chiarezza. Una risposta positiva può aprire un nuovo passo; una risposta diversa da quella desiderata può costringerti a ridefinire ciò che vuoi davvero.`,
+      months: `Nei mesi successivi la conseguenza più importante non è necessariamente il risultato iniziale, ma ciò che fai dopo aver ricevuto informazioni reali. La scelta apre un secondo bivio.`,
+      year: `A distanza di tempo, ${A.toLowerCase()} può aver trasformato il modo in cui guardi a questa situazione. Anche se l'esito non coincide con il desiderio iniziale, hai più elementi concreti su cui costruire il prossimo capitolo.`
+    },
+    B: {
+      title: B,
+      opening: `Scegli ${B}. Nell'immediato proteggi l'equilibrio attuale e riduci il rischio di una reazione che temi. La situazione però continua a vivere dentro di te e potrebbe richiedere un nuovo momento di scelta.`,
+      weeks: `Nelle prime settimane puoi guadagnare distanza e osservare meglio ciò che accade. Allo stesso tempo, se nulla cambia, il dubbio potrebbe tornare a farsi sentire.`,
+      months: `Nei mesi successivi qualcosa può evolvere autonomamente oppure rimanere fermo. In entrambi i casi emergerà una nuova informazione: quanto questa situazione pesa davvero rispetto alla tua vita quotidiana.`,
+      year: `A distanza di tempo, ${B.toLowerCase()} può averti portato verso una direzione diversa da quella immaginata oggi. Potresti scoprire che aspettare era solo una pausa oppure che quella pausa ti ha permesso di capire meglio cosa desideri.`
+    },
+    C: {
+      title: 'La terza via: succede qualcosa che non avevi previsto',
+      opening: `La decisione non si sviluppa esattamente secondo A o B. Arriva una nuova informazione, una persona, un'occasione o un cambiamento esterno che modifica il problema iniziale.`,
+      weeks: `Nelle prime settimane cambia il significato stesso del dilemma. Quello che sembrava essere il punto centrale potrebbe non esserlo più.`,
+      months: `Nei mesi successivi sei chiamato/a a scegliere partendo da una situazione nuova. Potresti mantenere una parte di A, una parte di B oppure prendere una direzione completamente diversa.`,
+      year: `A distanza di tempo potresti guardare indietro e accorgerti che l'imprevisto ha fatto nascere una storia che non potevi costruire partendo soltanto dalle due opzioni iniziali.`
+    }
+  };
 }
-
-};
-}
-
 
 function renderNR(){
+  const r = N.r;
+  if(!r) return;
 
-const r=N.r,
-a=N.a;
+  $('nrc').innerHTML = `
+    <div class="card">
+      <h2>🔎 Il punto di partenza</h2>
+      <p>${esc(r.summary)}</p>
+    </div>
 
-$('nrc').innerHTML=`
+    <div class="card">
+      <span class="badge">🟢 OPZIONE A</span>
+      <h2>${esc(r.A.title)}</h2>
+      <p>${esc(r.A.opening)}</p>
+      <div class="event-node"><b>Prime settimane</b><p>${esc(r.A.weeks)}</p></div>
+      <div class="event-node"><b>Nei mesi successivi</b><p>${esc(r.A.months)}</p></div>
+      <div class="event-node"><b>Più avanti</b><p>${esc(r.A.year)}</p></div>
+    </div>
 
-<div class="card">
-<h2>🔎 Il punto di partenza</h2>
-<p>${esc(r.summary)}</p>
-</div>
+    <div class="card">
+      <span class="badge">🔵 OPZIONE B</span>
+      <h2>${esc(r.B.title)}</h2>
+      <p>${esc(r.B.opening)}</p>
+      <div class="event-node"><b>Prime settimane</b><p>${esc(r.B.weeks)}</p></div>
+      <div class="event-node"><b>Nei mesi successivi</b><p>${esc(r.B.months)}</p></div>
+      <div class="event-node"><b>Più avanti</b><p>${esc(r.B.year)}</p></div>
+    </div>
 
-<div class="card">
-<span class="badge">🟢 OPZIONE A</span>
-<h2>${esc(r.A.title)}</h2>
-<p>${esc(r.A.opening)}</p>
+    <div class="card">
+      <span class="badge">🎲 IMPREVISTO</span>
+      <h2>${esc(r.C.title)}</h2>
+      <p>${esc(r.C.opening)}</p>
+      <div class="event-node"><b>Prime settimane</b><p>${esc(r.C.weeks)}</p></div>
+      <div class="event-node"><b>Nei mesi successivi</b><p>${esc(r.C.months)}</p></div>
+      <div class="event-node"><b>Più avanti</b><p>${esc(r.C.year)}</p></div>
+    </div>
 
-<div class="event-node">
-<b>Prime settimane</b>
-<p>${esc(r.A.weeks)}</p>
-</div>
-
-<div class="event-node">
-<b>Nei mesi successivi</b>
-<p>${esc(r.A.months)}</p>
-</div>
-
-<div class="event-node">
-<b>Più avanti</b>
-<p>${esc(r.A.year)}</p>
-</div>
-</div>
-
-<div class="card">
-<span class="badge">🔵 OPZIONE B</span>
-<h2>${esc(r.B.title)}</h2>
-<p>${esc(r.B.opening)}</p>
-
-<div class="event-node">
-<b>Prime settimane</b>
-<p>${esc(r.B.weeks)}</p>
-</div>
-
-<div class="event-node">
-<b>Nei mesi successivi</b>
-<p>${esc(r.B.months)}</p>
-</div>
-
-<div class="event-node">
-<b>Più avanti</b>
-<p>${esc(r.B.year)}</p>
-</div>
-</div>
-
-<div class="card">
-<span class="badge">🎲 IMPREVISTO</span>
-<h2>${esc(r.C.title)}</h2>
-<p>${esc(r.C.opening)}</p>
-
-<div class="event-node">
-<b>Prime settimane</b>
-<p>${esc(r.C.weeks)}</p>
-</div>
-
-<div class="event-node">
-<b>Nei mesi successivi</b>
-<p>${esc(r.C.months)}</p>
-</div>
-
-<div class="event-node">
-<b>Più avanti</b>
-<p>${esc(r.C.year)}</p>
-</div>
-</div>
-
-<div class="card">
-<h3>⚖️ Cosa confrontare</h3>
-<p>Non esiste un risultato garantito. Osserva quale conseguenza ti sembra più importante, quale rischio sei disposto/a ad accettare e quale informazione ti manca prima di decidere.</p>
-</div>
-
-`;
+    <div class="card">
+      <h3>⚖️ Cosa confrontare</h3>
+      <p>Non esiste un risultato garantito. Osserva quale conseguenza ti sembra più importante, quale rischio sei disposto/a ad accettare e quale informazione ti manca prima di decidere.</p>
+    </div>
+  `;
 }
-
 
 function nowSim(){
+  const r = N.r;
+  if(!r) return;
 
-const r=N.r;
+  $('nsc').innerHTML = `
+    <div class="life">
+      <span class="badge">🟢 A · ${esc(r.A.title)}</span>
+      <h3>Tra poco</h3><p>${esc(r.A.weeks)}</p>
+      <h3>Più avanti</h3><p>${esc(r.A.months)}</p>
+      <h3>Tra circa un anno</h3><p>${esc(r.A.year)}</p>
+    </div>
+    <div class="life">
+      <span class="badge">🔵 B · ${esc(r.B.title)}</span>
+      <h3>Tra poco</h3><p>${esc(r.B.weeks)}</p>
+      <h3>Più avanti</h3><p>${esc(r.B.months)}</p>
+      <h3>Tra circa un anno</h3><p>${esc(r.B.year)}</p>
+    </div>
+    <div class="life">
+      <span class="badge">🎲 IMPREVISTO</span>
+      <h3>Tra poco</h3><p>${esc(r.C.weeks)}</p>
+      <h3>Più avanti</h3><p>${esc(r.C.months)}</p>
+      <h3>Tra circa un anno</h3><p>${esc(r.C.year)}</p>
+    </div>
+  `;
 
-$('nsc').innerHTML=`
-
-<div class="life">
-<span class="badge">🟢 A · ${esc(r.A.title)}</span>
-
-<h3>Tra poco</h3>
-<p>${esc(r.A.weeks)}</p>
-
-<h3>Più avanti</h3>
-<p>${esc(r.A.months)}</p>
-
-<h3>Tra circa un anno</h3>
-<p>${esc(r.A.year)}</p>
-</div>
-
-<div class="life">
-<span class="badge">🔵 B · ${esc(r.B.title)}</span>
-
-<h3>Tra poco</h3>
-<p>${esc(r.B.weeks)}</p>
-
-<h3>Più avanti</h3>
-<p>${esc(r.B.months)}</p>
-
-<h3>Tra circa un anno</h3>
-<p>${esc(r.B.year)}</p>
-</div>
-
-<div class="life">
-<span class="badge">🎲 IMPREVISTO</span>
-
-<h3>Tra poco</h3>
-<p>${esc(r.C.weeks)}</p>
-
-<h3>Più avanti</h3>
-<p>${esc(r.C.months)}</p>
-
-<h3>Tra circa un anno</h3>
-<p>${esc(r.C.year)}</p>
-</div>
-
-`;
-
-$('nowRealityInput').value=(N.a.realityOutcome||'');
-
-show('ns');
+  $('nowRealityInput').value = (N.a.realityOutcome || '');
+  show('ns');
 }
-
 
 function saveNow(){
+  const x = data(K.n, []);
+  const session = {
+    id: N.sessionId || Date.now(),
+    date: new Date().toISOString(),
+    answers: N.a,
+    result: N.r,
+    realityOutcome: N.a.realityOutcome || ''
+  };
 
-const x=data(K.n,[]);
+  const idx = x.findIndex(v => v.id === session.id);
+  if(idx >= 0) x[idx] = session;
+  else x.unshift(session);
 
-const session={
-id:N.sessionId||Date.now(),
-date:new Date().toISOString(),
-answers:N.a,
-result:N.r,
-realityOutcome:N.a.realityOutcome||''
-};
-
-const idx=x.findIndex(v=>v.id===session.id);
-
-if(idx>=0)
-x[idx]=session;
-else
-x.unshift(session);
-
-put(K.n,x.slice(0,30));
-
-alert('Simulazione E ADESSO? salvata. Puoi tornarci per confrontarla con la realtà.');
+  put(K.n, x.slice(0, 30));
+  alert('Simulazione E ADESSO? salvata. Puoi tornarci per confrontarla con la realtà.');
 }
-
 
 function saveNowReality(){
+  const val = $('nowRealityInput').value.trim();
+  if(!val){
+    alert('Scrivi prima cosa è successo nella realtà.');
+    return;
+  }
 
-const val=$('nowRealityInput').value.trim();
+  N.a.realityOutcome = val;
+  saveNow();
 
-if(!val){
-alert('Scrivi prima cosa è successo nella realtà.');
-return;
+  alert('Realtà salvata. La storia può ripartire da ciò che è realmente successo.');
+
+  $('nsc').insertAdjacentHTML(
+    'beforeend',
+    `<div class="card" style="grid-column:1/-1">
+      <span class="badge">↪ REALTÀ</span>
+      <h2>La storia continua da qui</h2>
+      <p>${esc(val)}</p>
+      <p>Da questo momento la simulazione iniziale lascia spazio alla tua esperienza reale. Il prossimo capitolo nasce da ciò che è davvero accaduto, non da una previsione.</p>
+    </div>`
+  );
 }
-
-N.a.realityOutcome=val;
-
-saveNow();
-
-alert('Realtà salvata. La storia può ripartire da ciò che è realmente successo.');
-
-$('nsc').insertAdjacentHTML(
-'beforeend',
-`<div class="card" style="grid-column:1/-1">
-<span class="badge">↪ REALTÀ</span>
-<h2>La storia continua da qui</h2>
-<p>${esc(val)}</p>
-<p>Da questo momento la simulazione iniziale lascia spazio alla tua esperienza reale. Il prossimo capitolo nasce da ciò che è davvero accaduto, non da una previsione.</p>
-</div>`
-);
-}
-
 </script>
 
 </body>
-  </html>
+</html>
