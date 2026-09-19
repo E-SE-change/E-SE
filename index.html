@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E SE? — Prova una vita prima di viverla | Esperienza Narrativa Interattiva</title>
+    <title>E SE? — Prova una vita prima di viverla</title>
     <!-- Google AdSense - Publisher ID Ufficiale -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7154454592714745" crossorigin="anonymous"></script>
     <style>
         :root {
-            --bg-dark: #09090b;
-            --bg-card: #18181b;
-            --bg-card-hover: #27272a;
-            --border-color: #27272a;
+            --bg-color: #09090b;
+            --card-bg: #18181b;
+            --card-hover: #27272a;
+            --border: #27272a;
             --text-main: #f4f4f5;
             --text-muted: #a1a1aa;
             --primary: #8b5cf6;
@@ -20,18 +20,18 @@
             --purple: #d946ef;
             --gold: #f59e0b;
             --radius: 16px;
-            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: var(--font-sans);
+            font-family: var(--font);
         }
 
         body {
-            background-color: var(--bg-dark);
+            background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
@@ -41,9 +41,9 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(9, 9, 11, 0.9);
+            background: rgba(9, 9, 11, 0.92);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
@@ -52,7 +52,7 @@
         }
 
         .logo {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -64,7 +64,7 @@
 
         .nav-buttons button {
             background: transparent;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border);
             color: var(--text-main);
             padding: 0.5rem 1rem;
             border-radius: 8px;
@@ -80,12 +80,16 @@
             background: rgba(139, 92, 246, 0.1);
         }
 
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 1.5rem 4rem 1.5rem;
+        }
+
         .view {
             display: none;
             opacity: 0;
             animation: fadeIn 0.4s ease forwards;
-            padding-top: 90px;
-            min-height: 100vh;
         }
 
         .view.active {
@@ -96,24 +100,12 @@
             to { opacity: 1; }
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-
         h1, h2, h3 { line-height: 1.25; margin-bottom: 1rem; }
         
-        .gradient-text {
-            background: linear-gradient(135deg, #fff, #a1a1aa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         .btn-primary {
             display: inline-block;
             background: var(--text-main);
-            color: var(--bg-dark);
+            color: var(--bg-color);
             font-weight: 600;
             padding: 0.9rem 2rem;
             border-radius: 30px;
@@ -122,6 +114,7 @@
             font-size: 1.05rem;
             transition: transform 0.2s, box-shadow 0.2s;
             text-align: center;
+            text-decoration: none;
         }
 
         .btn-primary:hover {
@@ -132,13 +125,14 @@
         .btn-outline {
             background: transparent;
             color: var(--text-main);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border);
             padding: 0.9rem 2rem;
             border-radius: 30px;
             cursor: pointer;
             font-weight: 500;
             transition: all 0.2s;
             text-align: center;
+            text-decoration: none;
         }
 
         .btn-outline:hover {
@@ -149,7 +143,7 @@
         /* HOME SPECIFICS */
         .hero {
             text-align: center;
-            padding: 4rem 1rem 3rem;
+            padding: 3rem 1rem 4rem 1rem;
         }
 
         .hero h1 {
@@ -169,39 +163,39 @@
         .hero p.intro-desc {
             font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 2.5rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
         }
 
-        .editorial-section {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+        .content-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 2.5rem;
             margin-bottom: 2rem;
         }
 
-        .editorial-section h3 {
+        .content-box h3 {
             font-size: 1.5rem;
             color: var(--text-main);
             margin-bottom: 1rem;
         }
 
-        .editorial-section p {
+        .content-box p {
             color: var(--text-muted);
             margin-bottom: 1rem;
         }
 
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1.5rem;
             margin: 3rem 0;
         }
 
         .card-option {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 2rem;
             display: flex;
@@ -225,8 +219,8 @@
         input[type="text"], input[type="number"], textarea, select {
             width: 100%;
             padding: 0.9rem 1rem;
-            background: var(--bg-dark);
-            border: 1px solid var(--border-color);
+            background: var(--bg-color);
+            border: 1px solid var(--border);
             border-radius: 12px;
             color: var(--text-main);
             font-size: 1rem;
@@ -240,7 +234,7 @@
 
         textarea { min-height: 130px; resize: vertical; }
 
-        /* TIMELINE STYLING */
+        /* TIMELINE & LIVES */
         .timeline-box {
             border-left: 2px solid var(--primary);
             padding-left: 1.5rem;
@@ -255,22 +249,26 @@
             background: var(--primary);
         }
 
+        .life-green { border-top: 4px solid var(--green); }
+        .life-blue { border-top: 4px solid var(--blue); }
+        .life-purple { border-top: 4px solid var(--purple); }
+
         /* FOOTER & DISCLAIMER */
         footer {
             text-align: center;
-            padding: 3rem 1rem;
-            border-top: 1px solid var(--border-color);
+            padding: 3rem 1.5rem;
+            border-top: 1px solid var(--border);
             margin-top: 5rem;
             background: rgba(9, 9, 11, 0.6);
         }
 
-        footer p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; }
+        footer p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto; }
         .footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 1rem; font-size: 0.85rem; }
         .footer-links a:hover { color: var(--text-main); }
 
         @media (max-width: 768px) {
-            .hero { padding: 2rem 1rem; }
-            .editorial-section { padding: 1.5rem; }
+            .hero { padding: 2rem 0.5rem; }
+            .content-box { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -280,204 +278,185 @@
         <div class="logo" onclick="app.navigateTo('home')">🔮 E SE?</div>
         <div class="nav-buttons">
             <button onclick="app.navigateTo('profile')">👤 Profilo</button>
-            <button onclick="app.navigateTo('predictions')">📜 Previsioni</button>
+            <button onclick="app.navigateTo('predictions')">📜 Le Mie Previsioni</button>
         </div>
     </header>
 
     <main>
-        <!-- ================= HOME PAGE (CONTENUTI EDITORIALI REALI) ================= -->
+        <!-- ================= HOME PAGE INTRODUTTIVA E EDITORIALE ================= -->
         <section id="view-home" class="view active">
-            <div class="container">
-                <div class="hero">
-                    <h1>E SE?</h1>
-                    <p class="tagline">“Prova una vita prima di viverla.”</p>
-                    <p class="intro-desc">Un'esperienza narrativa interattiva progettata per esplorare possibili sviluppi della tua vita partendo da una scelta, un dubbio o un desiderio reale.</p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <button class="btn-primary" onclick="app.startFlow('solo')">Inizia E SE? — Da Soli</button>
-                        <button class="btn-outline" onclick="app.startFlow('duo')">Inizia E SE? IN 2</button>
+            <div class="hero">
+                <h1>E SE?</h1>
+                <p class="tagline">“Prova una vita prima di viverla.”</p>
+                <p class="intro-desc">E se facessi quella cosa che continui a rimandare? E se cambiassi lavoro? E se scegliessi quella persona o trovassi una terza via che non hai ancora considerato?</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn-primary" onclick="app.startFlow('solo')">Inizia E SE? — Da Soli</button>
+                    <button class="btn-outline" onclick="app.startFlow('duo')">Inizia E SE? IN 2</button>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <h3>La Filosofia del Progetto</h3>
+                <p>E SE? non è un semplice quiz, un oroscopo o un generatore casuale di testi. È una simulazione narrativa personalizzata, nella quale ciò che racconti e le risposte che dai modificano concretamente il percorso narrativo.</p>
+                <p>L'utente deve avere la sensazione immediata che <em>«questa storia è nata da quello che ho raccontato io»</em>.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card-option">
+                    <div>
+                        <h4>🔮 E SE? — Da Soli</h4>
+                        <p>Esplora una possibile scelta personale. Il motore elabora tre vite distinte (quella scelta, l'alternativa e la terza via imprevista) con sviluppo a 1, 3 e 5 anni.</p>
                     </div>
+                    <button class="btn-outline" style="width:100%;" onclick="app.startFlow('solo')">Esplora Individuale</button>
                 </div>
 
-                <div class="editorial-section">
-                    <h3>Cos'è E SE? e perché non è un semplice quiz</h3>
-                    <p>Molti servizi online offrono test preconfezionati o oroscopi casuali. <strong>E SE?</strong> nasce con un obiettivo completamente diverso: creare una simulazione narrativa personalizzata basata interamente sui tuoi racconti, sui tuoi vincoli e sulle tue risposte.</p>
-                    <p>L'app non finge di prevedere il futuro, ma ti permette di percepire chiaramente la sensazione che <em>«questa storia è nata da quello che ho raccontato io»</em>.</p>
+                <div class="card-option">
+                    <div>
+                        <h4>❤️ E SE? IN 2</h4>
+                        <p>Due persone, due profili separati e un unico cuore narrativo condiviso. Scopri come le decisioni di A e B influenzano reciprocamente il futuro di coppia.</p>
+                    </div>
+                    <button class="btn-outline" style="width:100%;" onclick="app.startFlow('duo')">Esplora in Coppia</button>
                 </div>
 
-                <div class="grid-3">
-                    <div class="card-option">
-                        <div>
-                            <h4>🔮 E SE? — Da Soli</h4>
-                            <p>Racconta una scelta o un bivio personale. Il motore genererà tre vite distinte (la strada scelta, quella alternativa e la terza via imprevista) sviluppate a 1, 3 e 5 anni.</p>
-                        </div>
-                        <button class="btn-outline" style="width:100%;" onclick="app.startFlow('solo')">Esplora Individuale</button>
+                <div class="card-option">
+                    <div>
+                        <h4>💭 E ADESSO?</h4>
+                        <p>Hai una situazione urgente adesso? Analizza le opzioni immediate (agire, aspettare, lasciare andare) e ricevi suggerimenti di messaggi personalizzati.</p>
                     </div>
-
-                    <div class="card-option">
-                        <div>
-                            <h4>❤️ E SE? IN 2</h4>
-                            <p>Due persone, due profili separati e un unico cuore narrativo. Scopri come le decisioni di coppia influenzano reciprocamente il futuro condiviso.</p>
-                        </div>
-                        <button class="btn-outline" style="width:100%;" onclick="app.startFlow('duo')">Esplora in Coppia</button>
-                    </div>
-
-                    <div class="card-option">
-                        <div>
-                            <h4>💭 E ADESSO?</h4>
-                            <p>Hai una situazione urgente nel presente? Analizza istantaneamente le opzioni (agire, aspettare, lasciare andare) e ricevi suggerimenti di messaggi (Leggero, Sincero, Diretto).</p>
-                        </div>
-                        <button class="btn-outline" style="width:100%;" onclick="app.startFlow('now')">Analizza il Presente</button>
-                    </div>
+                    <button class="btn-outline" style="width:100%;" onclick="app.startFlow('now')">Analizza il Presente</button>
                 </div>
+            </div>
 
-                <div class="editorial-section">
-                    <h3>La Filosofia delle Tre Vite e il Confronto con la Realtà</h3>
-                    <p>Ogni simulazione sviluppa tre traiettorie autonome e rigorosamente diverse: <strong>la strada che scegli</strong>, <strong>la strada alternativa</strong> e <strong>la terza via imprevista</strong>. Non ci sono vincitori né consigli imposti: l'app mostra possibilità.</p>
-                    <p>Grazie alla sezione <strong>Le Mie Previsioni</strong>, puoi archiviare le simulazioni in locale e tornare a distanza di mesi o anni per indicare cosa è successo davvero (🟢 È successo, 🟡 In parte, ⚪ Non è successo, 🔵 Altro) e raccontare la realtà dei fatti.</p>
-                </div>
+            <div class="content-box">
+                <h3>Come funziona Previsione → Realtà</h3>
+                <p>E SE? crea una memoria storica sul tuo dispositivo tramite <code>localStorage</code>. Puoi archiviare le tue simulazioni e tornare dopo settimane, mesi o anni per indicare cosa è successo realmente (🟢 È successo, 🟡 In parte, ⚪ Non è successo, 🔵 Altro) e raccontare la verità dei fatti.</p>
             </div>
         </section>
 
         <!-- ================= PROFILO PERSONALE ================= -->
         <section id="view-profile" class="view">
-            <div class="container">
-                <div class="editorial-section">
-                    <h2>Il tuo Profilo Personale</h2>
-                    <p>Configura i dati di base per istruire il motore narrativo. Vengono salvati esclusivamente sul tuo browser tramite <code>localStorage</code> e non lasciano mai il tuo dispositivo.</p>
-                    <form onsubmit="app.saveProfile(event)">
-                        <div class="form-group">
-                            <label>Nome o Pseudonimo</label>
-                            <input type="text" id="prof-name" placeholder="Es. Beatrice">
-                        </div>
-                        <div class="form-group">
-                            <label>Età</label>
-                            <input type="number" id="prof-age" placeholder="Es. 30">
-                        </div>
-                        <div class="form-group">
-                            <label>Situazione Generale Attuale</label>
-                            <textarea id="prof-situation" placeholder="Racconta brevemente la tua situazione lavorativa, sentimentale o di vita..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Obiettivi Principali</label>
-                            <textarea id="prof-goals" placeholder="Cosa vorresti realizzare o esplorare nel prossimo futuro?"></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary">Salva Profilo</button>
-                    </form>
-                </div>
+            <div class="content-box">
+                <h2>Il tuo Profilo Personale</h2>
+                <p>I dati inseriti aiutano il motore narrativo a personalizzare le simulazioni. Sono salvati esclusivamente sul tuo browser.</p>
+                <form onsubmit="app.saveProfile(event)">
+                    <div class="form-group">
+                        <label>Nome o Pseudonimo</label>
+                        <input type="text" id="prof-name" placeholder="Es. Beatrice">
+                    </div>
+                    <div class="form-group">
+                        <label>Età</label>
+                        <input type="number" id="prof-age" placeholder="Es. 30">
+                    </div>
+                    <div class="form-group">
+                        <label>Situazione Generale Attuale</label>
+                        <textarea id="prof-situation" placeholder="Racconta brevemente la tua situazione lavorativa, sentimentale o di vita..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Obiettivi Principali</label>
+                        <textarea id="prof-goals" placeholder="Cosa vorresti realizzare o esplorare nel prossimo futuro?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Salva Profilo</button>
+                </form>
             </div>
         </section>
 
         <!-- ================= E SE? DA SOLI ================= -->
         <section id="view-solo" class="view">
-            <div class="container">
-                <div class="editorial-section" id="solo-step-1">
-                    <h2>🔮 E SE? — Da Soli</h2>
-                    <div class="form-group">
-                        <label style="font-size: 1.15rem; margin-bottom: 0.75rem; display:block;">«Cosa stai pensando di fare? Quale possibilità vuoi esplorare?»</label>
-                        <textarea id="solo-story-input" placeholder="Racconta liberamente il dubbio, il progetto o il cambiamento che hai in mente..."></textarea>
-                    </div>
-                    <button class="btn-primary" onclick="app.processSoloInput()">Continua con l'intervista dinamica</button>
+            <div class="content-box" id="solo-step-1">
+                <h2>🔮 E SE? — Da Soli</h2>
+                <div class="form-group">
+                    <label style="font-size: 1.15rem; margin-bottom: 0.75rem; display:block;">«Cosa stai pensando di fare? Quale possibilità vuoi esplorare?»</label>
+                    <textarea id="solo-story-input" placeholder="Racconta liberamente il dubbio, il progetto o il cambiamento che hai in mente..."></textarea>
                 </div>
+                <button class="btn-primary" onclick="app.processSoloInput()">Continua con l'intervista dinamica</button>
+            </div>
 
-                <div class="editorial-section" id="solo-step-2" style="display:none;">
-                    <h2>Approfondimento Dinamico</h2>
-                    <div class="form-group">
-                        <label id="solo-question-label" style="color: var(--gold); font-size: 1.1rem;"></label>
-                        <input type="text" id="solo-dynamic-answer" placeholder="La tua risposta..." style="margin-top: 1rem;">
-                    </div>
-                    <button class="btn-primary" onclick="app.generateSoloSimulations()">Genera le Tre Vite</button>
+            <div class="content-box" id="solo-step-2" style="display:none;">
+                <h2>Approfondimento Dinamico</h2>
+                <div class="form-group">
+                    <label id="solo-question-label" style="color: var(--gold); font-size: 1.1rem;"></label>
+                    <input type="text" id="solo-dynamic-answer" placeholder="La tua risposta..." style="margin-top: 1rem;">
                 </div>
+                <button class="btn-primary" onclick="app.generateSoloSimulations()">Genera le Tre Vite</button>
             </div>
         </section>
 
         <!-- ================= E SE? IN 2 ================= -->
         <section id="view-duo" class="view">
-            <div class="container">
-                <div class="editorial-section">
-                    <h2>❤️ E SE? IN 2</h2>
-                    <p>Simulate una vita condivisa inserendo i profili e le prospettive di entrambe le persone.</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div class="form-group" style="margin-bottom:0;">
-                            <label>Nome Persona A</label>
-                            <input type="text" id="duo-name-a" placeholder="Es. Persona A">
-                        </div>
-                        <div class="form-group" style="margin-bottom:0;">
-                            <label>Nome Persona B</label>
-                            <input type="text" id="duo-name-b" placeholder="Es. Persona B">
-                        </div>
+            <div class="content-box">
+                <h2>❤️ E SE? IN 2</h2>
+                <p>Simulate una vita condivisa inserendo i profili e le prospettive di entrambe le persone.</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label>Nome Persona A</label>
+                        <input type="text" id="duo-name-a" placeholder="Es. Persona A">
                     </div>
-                    <div class="form-group">
-                        <label>Qual è la situazione o il bivio condiviso?</label>
-                        <textarea id="duo-story-input" placeholder="Es. Vogliamo capire se trasferirci in un'altra regione o restare vicini alle nostre famiglie..."></textarea>
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label>Nome Persona B</label>
+                        <input type="text" id="duo-name-b" placeholder="Es. Persona B">
                     </div>
-                    <button class="btn-primary" onclick="app.generateDuoSimulations()">Genera le Tre Vite di Coppia</button>
                 </div>
+                <div class="form-group">
+                    <label>Qual è la situazione o il bivio condiviso?</label>
+                    <textarea id="duo-story-input" placeholder="Es. Vogliamo capire se trasferirci in un'altra regione o restare vicini alle nostre famiglie..."></textarea>
+                </div>
+                <button class="btn-primary" onclick="app.generateDuoSimulations()">Genera le Tre Vite di Coppia</button>
             </div>
         </section>
 
         <!-- ================= E ADESSO? ================= -->
         <section id="view-now" class="view">
-            <div class="container">
-                <div class="editorial-section">
-                    <h2>💭 E ADESSO?</h2>
-                    <p>Parti da qualcosa che sta accadendo adesso, senza dover prima completare E SE?.</p>
-                    <div class="form-group">
-                        <label>«Cosa sta succedendo in questo preciso momento?»</label>
-                        <textarea id="now-story-input" placeholder="Es. Ho ricevuto un messaggio inaspettato e non so se rispondere subito o aspettare..."></textarea>
-                    </div>
-                    <button class="btn-primary" onclick="app.generateNowScenarios()">Analizza Direzioni & Messaggi</button>
+            <div class="content-box">
+                <h2>💭 E ADESSO?</h2>
+                <p>Parti da qualcosa che sta accadendo adesso, senza dover prima completare E SE?.</p>
+                <div class="form-group">
+                    <label>«Cosa sta succedendo in questo preciso momento?»</label>
+                    <textarea id="now-story-input" placeholder="Es. Ho ricevuto un messaggio inaspettato e non so se rispondere subito o aspettare..."></textarea>
                 </div>
+                <button class="btn-primary" onclick="app.generateNowScenarios()">Analizza Direzioni & Messaggi</button>
             </div>
         </section>
 
         <!-- ================= RISULTATI SIMULAZIONE ================= -->
         <section id="view-results" class="view">
-            <div class="container">
-                <div class="editorial-section">
-                    <h2 id="results-title">Risultati della Simulazione</h2>
-                    <p id="results-subtitle" style="color: var(--gold); font-weight: 600;"></p>
-                </div>
-                <div id="results-container"></div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <button class="btn-outline" onclick="app.navigateTo('predictions')">Visualizza in "Le Mie Previsioni"</button>
-                </div>
+            <div class="content-box">
+                <h2>Risultati della Simulazione</h2>
+                <p id="results-subtitle" style="color: var(--gold); font-weight: 600;"></p>
+            </div>
+            <div id="results-container"></div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn-outline" onclick="app.navigateTo('predictions')">Visualizza in "Le Mie Previsioni"</button>
             </div>
         </section>
 
         <!-- ================= LE MIE PREVISIONI & REALTÀ ================= -->
         <section id="view-predictions" class="view">
-            <div class="container">
-                <div class="editorial-section">
-                    <h2>📜 Le Mie Previsioni</h2>
-                    <p>Qui sono raccolte tutte le simulazioni salvate. Torna dopo settimane o mesi per confrontare la previsione con ciò che è realmente accaduto.</p>
-                </div>
-                <div id="saved-predictions-list"></div>
+            <div class="content-box">
+                <h2>📜 Le Mie Previsioni</h2>
+                <p>Qui sono raccolte tutte le simulazioni salvate. Torna dopo settimane o mesi per confrontare la previsione con ciò che è realmente accaduto.</p>
             </div>
+            <div id="saved-predictions-list"></div>
         </section>
 
         <!-- ================= PRIVACY POLICY ================= -->
         <section id="view-privacy" class="view">
-            <div class="container">
-                <div class="editorial-section">
-                    <h2>Privacy Policy</h2>
-                    <p>La presente informativa descrive le modalità di gestione del sito in riferimento al trattamento dei dati personali degli utenti che lo consultano.</p>
-                    <p><strong>Dati trattati e LocalStorage:</strong> E SE? non raccoglie dati personali identificativi su server esterni. Tutti i profili inseriti, i racconti, le risposte e le simulazioni vengono archiviati esclusivamente nella memoria locale (<code>localStorage</code>) del browser dell'utente.</p>
-                    <p><strong>Servizi di Terze Parti (AdSense):</strong> Il sito utilizza Google AdSense per la pubblicazione di annunci pubblicitari. I partner pubblicitari potrebbero utilizzare cookie o identificatori di dispositivo per raccogliere informazioni anonime sulle visite.</p>
-                    <button class="btn-outline" onclick="app.navigateTo('home')" style="margin-top: 1.5rem;">Torna alla Home</button>
-                </div>
+            <div class="content-box">
+                <h2>Privacy Policy</h2>
+                <p>La presente informativa descrive le modalità di gestione del sito in riferimento al trattamento dei dati personali degli utenti che lo consultano.</p>
+                <p><strong>Dati trattati e LocalStorage:</strong> E SE? non raccoglie dati personali identificativi su server esterni. Tutti i profili inseriti, i racconti, le risposte e le simulazioni vengono archiviati esclusivamente nella memoria locale (<code>localStorage</code>) del browser dell'utente.</p>
+                <p><strong>Servizi di Terze Parti (AdSense):</strong> Il sito utilizza Google AdSense per la pubblicazione di annunci pubblicitari. I partner pubblicitari potrebbero utilizzare cookie o identificatori di dispositivo per raccogliere informazioni anonime sulle visite.</p>
+                <button class="btn-outline" onclick="app.navigateTo('home')" style="margin-top: 1.5rem;">Torna alla Home</button>
             </div>
         </section>
 
         <!-- ================= TERMINI E CONDIZIONI ================= -->
         <section id="view-terms" class="view">
-            <div class="container">
-                <div class="editorial-section">
-                    <h2>Termini e Condizioni d'Uso</h2>
-                    <p>Accedendo e utilizzando l'applicazione web E SE?, l'utente accetta i presenti Termini e Condizioni.</p>
-                    <p><strong>Natura del Servizio:</strong> E SE? è un'esperienza narrativa interattiva a scopo ludico e di riflessione personale. Le simulazioni generate dai nostri algoritmi basati sugli input utente non costituiscono in alcun modo previsioni certe sul futuro.</p>
-                    <p><strong>Esclusione di Consulenza:</strong> Le storie e le indicazioni fornite non sostituiscono in alcun modo pareri o consulenze professionali di natura medica, psicologica, finanziaria, legale o lavorativa.</p>
-                    <button class="btn-outline" onclick="app.navigateTo('home')" style="margin-top: 1.5rem;">Torna alla Home</button>
-                </div>
+            <div class="content-box">
+                <h2>Termini e Condizioni d'Uso</h2>
+                <p>Accedendo e utilizzando l'applicazione web E SE?, l'utente accetta i presenti Termini e Condizioni.</p>
+                <p><strong>Natura del Servizio:</strong> E SE? è un'esperienza narrativa interattiva a scopo ludico e di riflessione personale. Le simulazioni generate dai nostri algoritmi basati sugli input utente non costituiscono in alcun modo previsioni certe sul futuro.</p>
+                <p><strong>Esclusione di Consulenza:</strong> Le storie e le indicazioni fornite non sostituiscono in alcun modo pareri o consulenze professionali di natura medica, psicologica, finanziaria, legale o lavorativa.</p>
+                <button class="btn-outline" onclick="app.navigateTo('home')" style="margin-top: 1.5rem;">Torna alla Home</button>
             </div>
         </section>
     </main>
@@ -557,9 +536,9 @@
                     title: this.currentInput.substring(0, 50) + '...',
                     type: 'E SE? — Da Soli',
                     lives: [
-                        { name: '🟢 Vita 1: Quella che scegli', theme: 'La strada diretta verso l’obiettivo.', y1: 'Primi ostacoli e assestamento operativo.', y3: 'Svolta significativa e nuove responsabilità.', y5: 'Consolidamento della scelta e maturazione.' },
-                        { name: '🔵 Vita 2: Quella che non scegli', theme: 'La via della stabilità e dell’alternativa.', y1: 'Tranquillità iniziale ma prime riflessioni.', y3: 'Occasione inaspettata nel contesto sicuro.', y5: 'Equilibrio raggiunto con consapevolezza.' },
-                        { name: '🟣 Vita 3: La terza via imprevista', theme: 'Soluzione ibrida generata dal contesto.', y1: 'Adattamento flessibile a un evento esterno.', y3: 'Crescita accelerata dal compromesso intelligente.', y5: 'Realizzazione fuori dagli schemi tradizionali.' }
+                        { name: '🟢 Vita 1: Quella che scegli', class: 'life-green', theme: 'La strada diretta verso l’obiettivo.', y1: 'Primi ostacoli e assestamento operativo.', y3: 'Svolta significativa e nuove responsabilità.', y5: 'Consolidamento della scelta e maturazione.' },
+                        { name: '🔵 Vita 2: Quella che non scegli', class: 'life-blue', theme: 'La via della stabilità e dell’alternativa.', y1: 'Tranquillità iniziale ma prime riflessioni.', y3: 'Occasione inaspettata nel contesto sicuro.', y5: 'Equilibrio raggiunto con consapevolezza.' },
+                        { name: '🟣 Vita 3: La terza via imprevista', class: 'life-purple', theme: 'Soluzione ibrida generata dal contesto.', y1: 'Adattamento flessibile a un evento esterno.', y3: 'Crescita accelerata dal compromesso intelligente.', y5: 'Realizzazione fuori dagli schemi tradizionali.' }
                     ],
                     realityStatus: '', realityNotes: ''
                 };
@@ -583,9 +562,9 @@
                     title: `${a} & ${b}: ${input.substring(0, 40)}...`,
                     type: 'E SE? IN 2',
                     lives: [
-                        { name: '🟢 Vita 1: Scelta condivisa', theme: 'Decisione presa insieme.', y1: 'Sintonizzazione e gestione dei primi attriti.', y3: 'Progetti comuni consolidati.', y5: 'Stabilità di coppia evoluta.' },
-                        { name: '🔵 Vita 2: Percorsi alternativi', theme: 'Spazi individuali ridefiniti.', y1: 'Maggiore autonomia e focus personale.', y3: 'Rinegoziazione del legame.', y5: 'Nuova sintonia o maturazione.' },
-                        { name: '🟣 Vita 3: La terza via di coppia', theme: 'Fattore esterno stimolante.', y1: 'Imprevisto che unisce le forze.', y3: 'Avventura affrontata in totale sintonia.', y5: 'Trasformazione profonda del rapporto.' }
+                        { name: '🟢 Vita 1: Scelta condivisa', class: 'life-green', theme: 'Decisione presa insieme.', y1: 'Sintonizzazione e gestione dei primi attriti.', y3: 'Progetti comuni consolidati.', y5: 'Stabilità di coppia evoluta.' },
+                        { name: '🔵 Vita 2: Percorsi alternativi', class: 'life-blue', theme: 'Spazi individuali ridefiniti.', y1: 'Maggiore autonomia e focus personale.', y3: 'Rinegoziazione del legame.', y5: 'Nuova sintonia o maturazione.' },
+                        { name: '🟣 Vita 3: La terza via di coppia', class: 'life-purple', theme: 'Fattore esterno stimolante.', y1: 'Imprevisto che unisce le forze.', y3: 'Avventura affrontata in totale sintonia.', y5: 'Trasformazione profonda del rapporto.' }
                     ],
                     realityStatus: '', realityNotes: ''
                 };
@@ -604,9 +583,9 @@
                     title: `Adesso: ${input.substring(0, 40)}...`,
                     type: 'E ADESSO?',
                     lives: [
-                        { name: '🟢 Se agisci', theme: 'Reazione diretta e propositiva.', y1: 'Chiarimento immediato.', y3: 'Conseguenze dinamiche attivate.', y5: 'Risoluzione definitiva del nodo.' },
-                        { name: '🔵 Se aspetti', theme: 'Pazienza strategica.', y1: 'Riduzione della tensione.', y3: 'La situazione evolve autonomamente.', y5: 'Nuova prospettiva acquisita.' },
-                        { name: '🟣 Se lasci andare', theme: 'Distacco e liberazione.', y1: 'Sollievo iniziale.', y3: 'Energie convogliate altrove.', y5: 'Capitolo chiuso positivamente.' }
+                        { name: '🟢 Se agisci', class: 'life-green', theme: 'Reazione diretta e propositiva.', y1: 'Chiarimento immediato.', y3: 'Conseguenze dinamiche attivate.', y5: 'Risoluzione definitiva del nodo.' },
+                        { name: '🔵 Se aspetti', class: 'life-blue', theme: 'Pazienza strategica.', y1: 'Riduzione della tensione.', y3: 'La situazione evolve autonomamente.', y5: 'Nuova prospettiva acquisita.' },
+                        { name: '🟣 Se lasci andare', class: 'life-purple', theme: 'Distacco e liberazione.', y1: 'Sollievo iniziale.', y3: 'Energie convogliate altrove.', y5: 'Capitolo chiuso positivamente.' }
                     ],
                     messages: {
                         light: "Ciao! Ho pensato a quanto ci siamo detti, ne parliamo con calma quando ti va?",
@@ -627,7 +606,7 @@
 
                 sim.lives.forEach((l) => {
                     const box = document.createElement('div');
-                    box.className = 'editorial-section';
+                    box.className = `content-box ${l.class}`;
                     box.innerHTML = `
                         <h3>${l.name}</h3>
                         <p><strong>Orientamento:</strong> ${l.theme}</p>
@@ -640,7 +619,8 @@
 
                 if (sim.messages) {
                     const mBox = document.createElement('div');
-                    mBox.className = 'editorial-section';
+                    mBox.className = 'content-box';
+                    mBox.style.borderStyle = 'dashed';
                     mBox.innerHTML = `
                         <h3>💬 Suggerimenti di Messaggio</h3>
                         <p><strong>💬 Leggero:</strong> "${sim.messages.light}"</p>
@@ -658,17 +638,17 @@
                 list.innerHTML = '';
 
                 if (this.state.simulations.length === 0) {
-                    list.innerHTML = '<div class="editorial-section"><p>Nessuna simulazione salvata al momento.</p></div>';
+                    list.innerHTML = '<div class="content-box"><p>Nessuna simulazione salvata al momento.</p></div>';
                     return;
                 }
 
                 this.state.simulations.forEach(sim => {
                     const item = document.createElement('div');
-                    item.className = 'editorial-section';
+                    item.className = 'content-box';
                     item.innerHTML = `
                         <h3>${sim.title}</h3>
                         <p style="font-size:0.85rem; color: var(--primary);">${sim.type} — Salvato il: ${sim.date}</p>
-                        <hr style="border:0; border-top:1px solid var(--border-color); margin: 1rem 0;">
+                        <hr style="border:0; border-top:1px solid var(--border); margin: 1rem 0;">
                         <label style="display:block; margin-bottom:0.5rem; font-weight:600;">Confronto Previsione → Realtà</label>
                         <select class="status-sel" data-id="${sim.id}" style="margin-bottom:1rem;">
                             <option value="">Seleziona esito reale...</option>
